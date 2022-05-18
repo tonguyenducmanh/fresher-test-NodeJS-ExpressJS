@@ -1,0 +1,158 @@
+:root{
+    --icon-small: 16px;
+    --icon-medium: 20px;
+    --icon-large: 24px;
+    --padding: 10px;
+    --border: 1px solid rgba(120, 120, 120, 0.347);
+    --boderRadius: 4px;
+    --boxShadow: 1px 1px 3px 1px rgb(195, 195, 195);
+    --bgPositionTwo: -304px -32px;
+    --white:#ffffff;
+    --blueLight: #2ec2fc;
+}
+
+.icon{
+    position: relative;
+    width: var(--icon-small);
+    height: var(--icon-small);
+}
+.icon:hover{
+    cursor: pointer;
+}
+
+.icon::before{
+    position: absolute;
+    content: '';
+    z-index: 1;
+    width: var(--icon-small);
+    height: var(--icon-small);
+    background-image: url(../../../images/icon_collection.svg);
+}
+
+.container{
+    position: relative;
+    left: 0;
+    background-color: var(--white);
+    width: 30%;
+    border: var(--border);
+    overflow-y: auto;
+    bottom: 0;
+}
+
+.container::-webkit-scrollbar{
+    width: var(--padding);
+}
+
+.container::-webkit-scrollbar-track{
+    background-color: var(--white);
+}
+
+.container::-webkit-scrollbar-thumb{
+    background-color: var(--white);
+    border-radius: 4px;
+}
+
+.SideBarMenu{
+    height: calc(var(--padding) *4);
+    border-bottom: var(--border);
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.firstIcon::before{
+    background-position: -176px -322px;
+}
+
+.secondIcon::before{
+    background-position: -192px -322px;
+}
+
+.thirdIcon::before{
+    background-position: -208px -322px;
+}
+
+.fourthIcon::before{
+    background-position: 0px -322px;
+}
+
+.SideBarTitle{
+    font-weight: 500;
+    padding: var(--padding);
+}
+
+.itemBox{
+    padding: var(--padding);
+    display: flex;
+    align-items: center;
+}
+
+.itemBoxImage{
+    position: relative;
+    width: var(--icon-small);
+    height: var(--icon-small);
+    padding: var(--padding);
+}
+
+.itemBoxImage::after{
+    position: absolute;
+    content: '';
+    z-index: 1;
+    width: var(--icon-small);
+    height: var(--icon-small);
+    mask-image: url(../../../images/icon_collection.svg);
+    mask-position: -64px -96px;
+    background-color: var(--white);
+}
+
+.itemBoxImage::before{
+    position: absolute;
+    margin-left: -6px;
+    margin-top: -5px;
+    content: '';
+    z-index: 1;
+    width: calc(var(--icon-small)*1.7);
+    height: calc(var(--icon-small)*1.7);
+    background-color: var(--blueLight);
+    border-radius: 50%;
+}
+
+.itemBoxContent{
+    padding-left: var(--padding);
+}
+
+.itemTile{
+    font-size: 0.7rem;
+    font-weight: 500;
+}
+
+.itemContent{
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: rgb(96, 96, 96);
+}
+
+
+.SideBarButtonRight{
+    top: 52%;
+    right: 18.8%;
+    z-index: 2;
+    position: fixed ;
+    width: 15px;
+    height: 50px;
+    margin-right: 2px;
+    background-color: var(--white);
+    border-radius: 8px 0px 0px 8px;
+    box-shadow:  -1px 1px 4px 0px rgba(195, 195, 195, 0.484);
+}
+
+.SideBarButtonRight:hover{
+    box-shadow:  -1px 1px 4px 0px rgba(195, 195, 195);
+    width: 17px;
+}
+
+.SideBarButtonRight::before{
+    background-position: var(--bgPositionTwo);
+    margin-top: 15px;
+}

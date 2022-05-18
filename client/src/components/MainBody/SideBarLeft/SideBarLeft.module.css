@@ -1,0 +1,134 @@
+:root{
+    --icon-small: 16px;
+    --icon-medium: 20px;
+    --icon-large: 24px;
+    --padding: 10px;
+    --border: 1px solid rgba(120, 120, 120, 0.347);
+    --boderRadius: 4px;
+    --boxShadow: 1px 1px 3px 1px rgb(195, 195, 195);
+    --bgPositionOne: -288px -32px;
+    --white: #ffffff;
+    --blue:#405eec; 
+}
+
+.icon{
+    position: relative;
+}
+.icon:hover{
+    cursor: pointer;
+}
+
+.icon::before{
+    position: absolute;
+    content: '';
+    z-index: 1;
+    width: var(--icon-small);
+    height: var(--icon-small);
+    background-image: url(../../../images/icon_collection.svg);
+}
+
+.container{
+    position: relative;
+    left: 0;
+    background-color: var(--white);
+    width: 30%;
+    border: var(--border);
+    overflow-y: auto;
+    bottom: 0;
+}
+
+.box{
+    padding: var(--padding);
+
+}
+
+.container::-webkit-scrollbar{
+    width: var(--padding);
+}
+
+.container::-webkit-scrollbar-track{
+    background-color: #f1f1f1;
+}
+
+.container::-webkit-scrollbar-thumb{
+    background-color: #c5c9d3;
+    border-radius: 4px;
+}
+
+.filterSave{
+    text-transform: uppercase;
+    margin-top: var(--padding);
+    margin-bottom: 30px;
+}
+
+.filterSave::before{
+    background-position: -32px -32px ;
+    margin-left: 90%;
+}
+
+.filterBox{
+    text-transform: uppercase;
+}
+
+.filterBox::before{
+    background-position: -32px 0px ;
+    margin-left: 90%;
+}
+
+
+.filterItem{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin: calc(var(--padding)*2) 0;
+    margin-left: calc(var(--padding)*2);
+    height: 16px;
+    padding-right: var(--padding);
+}
+.filterItem::before{
+    background-position: -193px -17px;
+    margin-left:-20px;
+    
+}
+
+.filterItemChecked{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin: calc(var(--padding)*2) 0;
+    margin-left: calc(var(--padding)*2);
+    height: 16px;
+    padding-right: var(--padding);
+}
+
+.filterItemChecked::before{
+    margin-left:-20px;
+    background-position: -177px -17px;
+}
+
+.SideBarButtonLeft{
+    top: 52%;
+    left: 18.8%;
+    z-index: 2;
+    position: fixed ;
+    width: 15px;
+    height: 50px;
+    margin-left: 2px;
+    background-color: var(--white);
+    border-radius: 0px 8px 8px 0px;
+    box-shadow:  1px 1px 4px 0px rgba(195, 195, 195, 0.486);
+}
+
+.SideBarButtonLeft:hover{
+    box-shadow:  1px 1px 4px 0px rgb(181, 183, 185);
+    width: 17px;
+}
+
+.SideBarButtonLeft::before{
+    background-position: var(--bgPositionOne);
+    margin-top: 15px;
+}
+
+.SideBarButtonLeft:hover::before{
+    margin-left: 2px;
+}

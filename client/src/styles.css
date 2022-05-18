@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    outline:none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;1,400&display=swap');
+
+
+/* font chữ bị lỗi chữ cái ơ nên dùng link embed từ google font để thay thế */
+/* 
+@font-face {
+    font-family: robotoRegular;
+    src: url(./fonts/roboto-v20-vietnamese_latin-regular.woff2);
+}
+@font-face {
+    font-family: roboto500;
+    src: url(./fonts/roboto-v20-vietnamese_latin-500.woff2);
+}
+@font-face {
+    font-family: robotoItalic;
+    src: url(./fonts/roboto-v20-vietnamese_latin-italic.woff2);
+} */

@@ -1,0 +1,211 @@
+:root{
+    --icon-small: 16px;
+    --icon-medium: 20px;
+    --icon-large: 24px;
+    --padding: 10px;
+    --white: #ffffff;
+    --blue:#405eec; 
+}
+a{
+    text-decoration: none;
+}
+a:visited{
+    text-emphasis: none;
+    color: black;
+}
+.icon{
+    position: relative;
+    width: var(--icon-small);
+    height: var(--icon-small);
+    padding-right: var(--padding);
+}
+
+.icon:hover{
+    cursor: pointer;
+}
+
+.icon::before{
+    position: absolute;
+    content: '';
+    z-index: 1;
+    width: var(--icon-small);
+    height: var(--icon-small);
+    background-image: url(../../../images/icon_collection.svg);
+}
+
+.categories{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding-left: var(--padding);
+}
+
+.item{
+    margin-right: calc(var(--padding)*3);
+    padding-bottom: var(--padding);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.itemSelected{
+    color: var(--blue);
+    border-bottom: 2px solid var(--blue);
+}
+
+.itemSelected .icontwo::before{
+    mask:url(../../../images/icon_collection.svg);
+    background-color: var(--blue);
+    background-image: none;
+}
+
+.itemSelected a {
+    color: var(--blue);
+}
+
+.itemText{
+    font-weight: 500;
+}
+
+.itemHiddenTwo{
+    display: none;
+}
+
+.itemHiddenThree{
+    display: none;
+}
+
+.itemOtherList{
+    display: none;
+}
+
+.lastItem{
+    position: relative;
+}
+.itemOtherList{
+    position: absolute;
+    box-shadow: 1px 1px 3px 1px rgb(195, 195, 195);
+    display: none;
+}
+@media screen and (max-width: 1399px) {
+    .lastItem:hover .itemOtherList{
+    display: block;
+    width: 120px;
+    background-color: white;
+    margin-top: 220px;
+    margin-left: -20px;
+    padding-left: 20px;
+    padding-top: 10px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    }
+
+    .lastItem:hover .item{
+        margin: 0;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    .itemHiddenTwo{
+        display: flex;
+    }
+    .itemOtherHidden{
+        display: none;
+    }
+    .itemOtherHiddenTwo{
+        display: none;
+    }
+    .itemOtherHiddenThrere{
+        display: none;
+    }
+    .lastItem:hover .itemOtherList{
+        display: block;
+        width: 120px;
+        background-color: white;
+        margin-top: 155px;
+        margin-left: -20px;
+        padding-left: 20px;
+        padding-top: 10px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+
+    .lastItem:hover .item{
+        margin: 0;
+    }
+}
+
+@media screen and (min-width: 1900px) {
+    .itemHidden{
+        display: flex;
+    }
+    .itemHiddenTwo{
+        display: flex;
+    }
+    .itemHiddenThree{
+        display: flex;
+    }
+    .lastItem{
+        display: none;
+    }
+}
+
+.iconOne::before{
+    background-position: 0px -272px;
+}
+
+.iconTwo::before{
+    background-position: -160px -288px;
+}
+
+.iconThree::before{
+    background-position: -15.9px -272px;
+}
+
+.iconFour::before{
+    background-position: -128px -48px;
+}
+
+.iconFive::before{
+    background-position: -112px -48px;
+}
+
+.iconSix::before{
+    background-position: -80px -48px;
+}
+
+.iconSeven::before{
+    background-position: -63px -48px;
+}
+
+.iconEight::before{
+    background-position: -144px -48px;
+}
+
+.iconNine::before{
+    background-position: -320px -176px;
+}
+
+.iconTen::before{
+    background-position: -64px -304px;
+}
+
+.iconEleven::before{
+    background-position: -128px -272px;
+}
+
+.iconTwelve::before{
+    background-position: -80px -272px;
+}
+
+.iconThirteen::before{
+    background-position: -208px -50px;
+}
+
+.iconFourteen::before{
+    background-position: -31.7px -272px;
+}
+
+.iconFifteen::before{
+    background-position: -49px -272px;
+}

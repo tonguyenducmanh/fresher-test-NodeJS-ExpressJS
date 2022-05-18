@@ -1,0 +1,315 @@
+:root{
+    --icon-small: 16px;
+    --icon-medium: 20px;
+    --icon-large: 24px;
+    --padding: 10px;
+    --border: 1px solid rgba(120, 120, 120, 0.347);
+    --boderRadius: 4px;
+    --boxShadow: 1px 1px 3px 1px rgb(195, 195, 195);
+    --white: #ffffff;
+    --blue:#405eec; 
+}
+
+.actionbar{
+    background-color: #e2e4e9;
+    height: calc(var(--padding)*5);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.box{
+    position: relative;
+    width: 100%;
+    padding: var(--padding);
+    display: flex;
+    justify-content: space-between;
+}
+
+.actionLeftAllButton{
+    font-weight: 500;
+    margin-right: 40px;
+}
+
+.actionLeftAllButton:hover{
+    cursor: pointer;
+}
+
+.actionLeftAllButton::before{
+    position: absolute;
+    content: '';
+    margin-left: 125px;
+    width: var(--icon-small);
+    height: var(--icon-small);
+    background-image: url(../../images/icon_collection.svg);
+    background-position: -52.5px -29px;
+}
+
+.actionLeftFixButton{
+    color: var(--blue);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.actionLeftFixButton:hover{
+    cursor: pointer;
+}
+
+.actionLeftRefreshButton:hover{
+    cursor: pointer;
+}
+
+.actionLeftRefreshButton::before{
+    position: absolute;
+    content: '';
+    margin-left: 8px;
+    margin-top: -8px;
+    width: var(--icon-small);
+    height: var(--icon-small);
+    background-image: url(../../images/icon_collection.svg);
+    background-position: -352px -31px;
+}
+
+.actionLeft{
+    display: flex;
+    align-items: center;
+}
+
+.actionRight{
+    display: flex;
+    align-items: center;
+}
+
+.addAndMenuButton{
+    display: flex;
+    align-items: center;
+}
+
+.addNewButton:hover{
+    cursor: pointer;
+}
+
+.addNewButton{
+    background-color: var(--blue);
+    color: var(--white);
+    padding: 5px;
+    font-weight: 500;
+    padding-left: 30px;
+    padding-right: 15px;
+    border-radius: 4px 0px 0px 4px;
+}
+
+.addNewButton::before{
+    position: absolute;
+    content: '';
+    margin-left: -20px;
+    margin-top: 2px;
+    width: var(--icon-small);
+    height: var(--icon-small);
+    mask:url(../../images/icon_collection.svg);
+    mask-position: -34px -17px ;
+    background-color: var(--white);
+    background-image: none;
+}
+
+.menuButton{
+    background-color: var(--blue);
+    width: 30px;
+    height: 30px;
+    border-radius: 0px 4px 4px 0px;
+    border-left: 1px solid var(--white);
+}
+
+.menuButton:hover{
+    cursor: pointer;
+}
+
+.menuButton::before{
+    position: absolute;
+    content: '';
+    width: var(--icon-small);
+    height: var(--icon-small);
+    margin-top: 3px;
+    margin-left: 10px;
+    mask:url(../../images/icon_collection.svg);
+    mask-position: -52.5px -29px ;
+    background-color: var(--white);
+    background-image: none;
+}
+
+.menuButtonTwo{
+    background-color: var(--white);
+    width: 30px;
+    height: 30px;
+    border-radius: var(--boderRadius);
+    border: var(--border);
+    margin-left: var(--padding);
+}
+
+.menuButtonTwo::before{
+    position: absolute;
+    content: '';
+    margin-left: 7.5px;
+    margin-top: 6px;
+    width: var(--icon-small);
+    height: var(--icon-small);
+    background-image: url(../../images/icon_collection.svg);
+    background-position: -48px 0px;
+}
+
+.menuButtonTwo:hover{
+    cursor: pointer;
+}
+
+
+.menuButtonThree{
+    background-color: var(--white);
+    width: 50px;
+    height: 30px;
+    border-radius: 4px;
+    border: var(--border);
+    margin-left: var(--padding);
+}
+
+.menuButtonThree:hover{
+    cursor: pointer;
+}
+
+
+.menuButtonThree::before{
+    position: absolute;
+    content: '';
+    margin-left: 7.5px;
+    margin-top: 6px;
+    width: var(--icon-small);
+    height: var(--icon-small);
+    background-image: url(../../images/icon_collection.svg);
+    background-position: -272px -160px;
+}
+
+.menuButtonThree::after{
+    position: absolute;
+    content: '';
+    margin-left: 34px;
+    margin-top: 4px;
+    width: var(--icon-small);
+    height: var(--icon-small);
+    background-image: url(../../images/icon_collection.svg);
+    background-position: -52.5px -29px;
+}
+
+.hiddenComponent{
+    display: none;
+}
+
+.actionLeftSelectedCountButton{
+    font-weight: 500;
+}
+
+.actionLeftUnCheckButton{
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: #405eec;
+    font-weight: 500;
+    margin-left: var(--padding);
+}
+
+.actionLeftUpdateButton{
+    background-color: var(--white);
+    padding: calc(var(--padding)/2) calc(var(--padding)*1.5);
+    padding-left: calc(var(--padding)*3);
+    margin-left: var(--padding);
+    border-radius: var(--boderRadius);
+    border: var(--border);
+}
+
+.actionLeftUpdateButton:hover{
+    cursor: pointer;
+}
+
+.actionLeftUpdateButton::before{
+    position: absolute;
+    content: '';
+    margin-left: -20px;
+    margin-top: 0px;
+    width: var(--icon-small);
+    height: var(--icon-small);
+    background-image: url(../../images/icon_collection.svg);
+    background-position: -128px 0px;
+}
+.actionLeftMoreButton{
+    position: relative;
+    background-color: var(--white);
+    width: 30px;
+    height: 30px;
+    border-radius: var(--boderRadius);
+    border: var(--border);
+    margin-left: var(--padding);
+}
+
+.actionLeftMoreButton::before{
+    position: absolute;
+    content: '';
+    margin-left: 7.5px;
+    margin-top: 6px;
+    width: var(--icon-small);
+    height: var(--icon-small);
+    background-image: url(../../images/icon_collection.svg);
+    background-position: -48px 0px;
+}
+
+.actionLeftMoreButton:hover{
+    cursor: pointer;
+}
+
+.actionLeftMoreMenu{
+    display: none;
+}
+
+.actionLeftMoreButton:hover .actionLeftMoreMenu{
+    display: flex;
+    flex-direction: column;
+    margin-top: 31px;
+    position: absolute;
+    background-color: var(--white);
+    border: var(--border);
+    border-radius: var(--boderRadius);
+    width: 130px;
+    box-shadow: var(--boxShadow);
+}
+
+.actionLeftExportButton{
+    padding-top: var(--padding);
+    padding-left: calc(var(--padding)*4);
+}
+
+.actionLeftExportButton::before{
+    position: absolute;
+    content: '';
+    margin-left: -27px;
+    margin-top: 0px;
+    width: var(--icon-small);
+    height: var(--icon-small);
+    background-image: url(../../images/icon_collection.svg);
+    background-position: -304px -224px;
+}
+
+.actionLeftDeleteButton{
+    padding-top: var(--padding);
+    padding-left: calc(var(--padding)*4);
+    padding-bottom: var(--padding);
+    color: red;
+}
+
+.actionLeftDeleteButton::before{
+    position: absolute;
+    content: '';
+    width: var(--icon-small);
+    height: var(--icon-small);
+    margin-left: -25px;
+    mask:url(../../images/icon_collection.svg);
+    mask-position: -192px -128px ;
+    background-color: red;
+}
+

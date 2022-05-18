@@ -1,0 +1,134 @@
+:root{
+    --icon-small: 16px;
+    --icon-medium: 20px;
+    --icon-large: 24px;
+    --padding: 10px;
+    --white: #ffffff;
+}
+.icon{
+    position: relative;
+    width: var(--icon-small);
+    height: var(--icon-small);
+}
+
+.icon:hover{
+    cursor: pointer;
+}
+
+.icon::before{
+    position: absolute;
+    content: '';
+    z-index: 1;
+    width: var(--icon-small);
+    height: var(--icon-small);
+    background-image: url(../../../images/icon_collection.svg);
+}
+
+.heading{
+    position: relative;
+    padding: var(--padding);
+    height: 40px;
+    background-color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.headingMenu{
+    display: flex;
+    align-items: center;
+}
+
+.headingHomeMenu::before {
+    background-position: -4px -341px;
+}
+
+.headingHomeLogo{
+    padding-left: calc(var(--padding)*1.5);
+    width: 130px;
+    height: 32px;
+}
+.headingHomeLogo::before {
+    width: 129.5px;
+    height: 32px;
+    background-image: url(../../../images/Logo_Ban_hang.svg);
+}
+
+.headingSearch{
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    background-color: #f0f2f4;
+}
+
+.headingSearchIcon{
+    padding: var(--padding);
+}
+
+.headingSearchIcon::before{
+    background-position: -32px 0px;
+}
+
+.headingSearchInput{
+    border: none;
+    outline: none;
+    width: 300px;
+    background-color: #f0f2f4;
+}
+
+.headingSearchInput::placeholder{
+    color: #a4abb9;
+    font-weight: 500;
+}
+
+.headingToolRight{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 200px;
+    margin-right: 28px;
+    transform: scale(calc(20/16));
+}
+
+.headingToolOne::before{
+    background-position: -288px -321px;
+}
+
+.headingToolTwo::before{
+    width: 20px;
+    height: 20px;
+    background-position: -242px -411px;
+    transform: scale(calc(16/20));
+    margin-left: -2px;
+    margin-top: -2px;
+}
+
+.headingToolThree::before{
+    background-position: -96px 0px;
+}
+
+.headingToolFour::before{
+    width: 20px;
+    height: 20px;
+    background-position: -74px -339px;
+    transform: scale(calc(16/20));
+    margin-left: -2px;
+    margin-top: -2px;
+}
+
+.headingToolFive::before{
+    background-position: -16px 0px;
+}
+
+.headingToolSix::before{
+    background-position: -224px 0px;
+}
+
+.headingToolSeven::before{
+    width: 25px;
+    height: 25px;
+    background-position: -144px -385px;
+    transform: scale(calc(16/25*1.5));
+    margin-left: -4px;
+    margin-top: -4px;
+}
