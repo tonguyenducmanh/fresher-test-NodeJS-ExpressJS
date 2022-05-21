@@ -18,6 +18,17 @@ Màn hình danh sách có thể làm được:
 - Hover từng dòng biết được đang đứng ở bản ghi nào, chọn vào tên tiềm năng có thể mở ra
 chi tiết của tiềm năng đó.
 
+## Test localhost
+### Giao diện web
+![giao diện demo](./screenshots/1.png)
+### Tạo nhiều document bằng Postman
+![giao diện postman](./screenshots/2.png)
+### Đường link api được lấy từ backend trả về dạng JSON, sau này thêm vào frontend
+![giao diện link backend](./screenshots/3.png)
+### Cơ sở dữ liệu khách hàng trong MongoDB Compass
+![cơ sở dữ liệu](./screenshots/4.png)
+
+
 ## Công cụ và công nghệ sử dụng
 
 Đã sử dụng Visual Studio Code để lập trình
