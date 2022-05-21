@@ -7,7 +7,17 @@ const router = express.Router()
 
 export const getCustomer = async (req, res) => {
     try{
-        const customerInfos = await customerInfo.find()
+        const customerInfos = await customerInfo.find().limit(20)
+
+        res.status(200).json(customerInfos)
+    } catch (error) {
+        res.status(404).json( { message: error.message })
+    }
+}
+
+export const countCustomer = async (req,res) => {
+    try{
+        const customerInfos = await customerInfo.count()
 
         res.status(200).json(customerInfos)
     } catch (error) {

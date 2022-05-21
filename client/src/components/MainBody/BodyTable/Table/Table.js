@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useState , useEffect } from "react";
+import { useDispatch } from 'react-redux'
 
+import { Customers } from "./Customers/Customers";
+import { getCustomers } from '../../../../actions/customers.js'
 import styles from './Table.module.css'
 
 export const Table = () =>{
+    const [currentId, setCurrentId] = useState(0);
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(getCustomers())
+    }, [currentId, dispatch])
     return (
         <div className={styles.tableContainer}>
         <table className={styles.table}>
@@ -10,102 +19,53 @@ export const Table = () =>{
             <tr>
                 <td className={`${styles.icon} ${styles.iconHeading}`}>
                 </td>
-                <td>Thẻ
+                <td className={styles.tdOne}>Thẻ
                 </td>
-                <td>Xưng hô
+                <td className={styles.tdTwo}>Xưng hô
                 </td>
-                <td>Họ và tên
+                <td className={styles.tdThree}>Họ và tên
                 </td>
-                <td>Chức danh
+                <td className={styles.tdFour}>Chức danh
                 </td>
-                <td>ĐT di động
+                <td className={styles.tdFive}>ĐT di động
                 </td>
-                <td>ĐT cơ quan
+                <td className={styles.tdSix}>ĐT cơ quan
                 </td>
-                <td>Email cơ quan
+                <td className={styles.tdSeven}>Email cơ quan
                 </td>
-                <td>Email cá nhân
+                <td className={styles.tdEight}>Email cá nhân
                 </td>
-                <td>Tổ chức
+                <td className={styles.tdNine}>Tổ chức
                 </td>
-                <td>Địa chỉ
+                <td className={styles.tdTen}>Địa chỉ
                 </td>
-                <td>Tỉnh/Thành phố
+                <td className={styles.tdEleven}>Tỉnh/Thành phố
                 </td>
-                <td>Quận/Huyện
+                <td className={styles.tdTwelve}>Quận/Huyện
                 </td>
-                <td>Phường/Xã
+                <td className={styles.tdThirteen}>Phường/Xã
                 </td>
-                <td>Nguồn gốc
+                <td className={styles.tdFourteen}>Nguồn gốc
                 </td>
-                <td>Loại hình
+                <td className={styles.tdFifteen}>Loại hình
                 </td>
-                <td>Lĩnh vực
+                <td className={styles.tdSixteen}>Lĩnh vực
                 </td>
-                <td>Mô tả
+                <td className={styles.tdSeventeen}>Mô tả
                 </td>
-                <td>Bố cục
+                <td className={styles.tdEighteen}>Bố cục
                 </td>
-                <td>Chủ sở hữu
+                <td className={styles.tdNineteen}>Chủ sở hữu
                 </td>
-                <td>Doanh thu
+                <td className={styles.tdTwenty}>Doanh thu
                 </td>
-                <td>Dùng chung
+                <td className={styles.tdTwentyOne}>Dùng chung
                 </td>
-                <td>Facebook
+                <td className={styles.tdTwentyTwo}>Facebook
                 </td>
             </tr>
         </thead>
-        <tbody>
-            <tr>
-                <td className={`${styles.iconHeading}`}>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-            </tr>
-        </tbody>
+           <Customers setCurrentId={setCurrentId}/>
         </table>
         </div>
     )

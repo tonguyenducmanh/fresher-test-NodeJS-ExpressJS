@@ -8,8 +8,10 @@
     --boxShadow: 1px 1px 3px 1px rgb(195, 195, 195);
     --heightRow: calc(var(--padding)*4);
     --marginRightTD: calc(var(--padding)*4);
-    --iconUnchecked: -193px -17px;
+    --iconUnchecked: -192px -16px;
     --iconChecked: -177px -17px;
+    --white: #ffffff;
+    --blue:#405eec; 
 }
 .icon{
     position: relative;
@@ -27,7 +29,7 @@
     z-index: 1;
     width: var(--icon-small);
     height: var(--icon-small);
-    background-image: url(../../../../images/icon_collection.svg);
+    background-image: url(../../../../../images/icon_collection.svg);
 }
 
 .iconHeading{
@@ -48,53 +50,30 @@
     width: var(--icon-small);
     height: var(--icon-small);
     margin-left: 30px;
-    background-image: url(../../../../images/icon_collection.svg);
+    background-image: url(../../../../../images/icon_collection.svg);
     background-position: var(--iconUnchecked);
 }
 
-.tableContainer{
-    position: relative;
-}
-.table{
-    position: absolute;
-    border-spacing: 0;
-    border-collapse: collapse;
-}
-
-thead{
-    background-color: #f0f2f4;
-}
-thead tr {
-    border-top: var(--border);
-}
-tr{
+.iconHeadingChecked{
     display: flex;
+    align-items: center;
+    width:50px ;
     height: var(--heightRow);
-    border-bottom: var(--border);
 }
 
-tr:hover{
-    background-color: #e7ebfc;
+.iconHeadingChecked:hover{
     cursor: pointer;
 }
 
-thead tr:hover{
-    background-color: #f0f2f4;
-    cursor: auto;
-
-}
-
-thead td{
-    font-weight: 500;
-}
-td{
-    white-space: nowrap;
-    margin: auto;
-    margin-left: var(--padding);
-    margin-right: var(--heightRow);
-    white-space: nowrap;
-    text-overflow:ellipsis;
-    overflow: hidden;
+.iconHeadingChecked::after{
+    position: absolute;
+    content: '';
+    z-index: 1;
+    width: var(--icon-small);
+    height: var(--icon-small);
+    margin-left: 30px;
+    background-image: url(../../../../../images/icon_collection.svg);
+    background-position: var(--iconChecked);
 }
 
 .tdOne{
@@ -107,6 +86,7 @@ td{
 
 .tdThree{
     width: 160px;
+    color: var(--blue);
 }
 
 .tdFour{
@@ -114,20 +94,47 @@ td{
 }
 
 .tdFive{
-    width: 155px;
-
+    width: 130px;
+    margin-left: 35px;
+    color: var(--blue);
 }
-
+.tdFive::before{
+    position: absolute;
+    content: '';
+    z-index: 1;
+    width: var(--icon-small);
+    height: var(--icon-small);
+    margin-left: -25px;
+    margin-top: 2px;
+    background-image: url(../../../../../images/icon_collection.svg);
+    background-position: -320px -48px;
+    transform: scale(calc(20/16));
+}
 .tdSix{
-    width: 155px;
+    width: 130px;
+    margin-left: 35px;
+    color: var(--blue);
 }
-
+.tdSix::before{
+    position: absolute;
+    content: '';
+    z-index: 1;
+    width: var(--icon-small);
+    height: var(--icon-small);
+    margin-left: -25px;
+    margin-top: 2px;
+    background-image: url(../../../../../images/icon_collection.svg);
+    background-position: -320px -48px;
+    transform: scale(calc(20/16));
+}
 .tdSeven{
     width: 170px;
+    color: var(--blue);
 }
 
 .tdEight{
     width: 170px;
+    color: var(--blue);
 }
 
 .tdNine{
@@ -184,4 +191,5 @@ td{
 
 .tdTwentyTwo{
     width: 170px;
-}
+    color: var(--blue);
+}   
