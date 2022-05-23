@@ -264,6 +264,7 @@
 }
 
 .actionLeftMoreMenu{
+    z-index: 5;
     display: none;
 }
 

@@ -1,16 +1,20 @@
-import React from "react";
+import React , {useEffect} from "react";
 import { useSelector } from "react-redux";
-
+import {HandleCheck} from './HandleCheck'
 import styles from './Customers.module.css'
 
 export const Customers = () => {
     const customers = useSelector((state) => state.customers.customers)
+    const limit = useSelector((state) => state.pagination.limit)
     // console.log(customers)
+    useEffect( () =>{
+        HandleCheck(limit)
+    },)
     return (
             <tbody>
                 {customers.map((customer) => (
                 <tr key={customer._id}>
-                    <td className={`${styles.iconHeading}`}></td>
+                    <td className={`${styles.iconHeading} hihi`}></td>
                     <td className={styles.tdOne} title={customer.the} >{customer.the}</td>
                     <td className={styles.tdTwo} title={customer.xungho} >{customer.xungho}</td>
                     <td className={styles.tdThree} title={customer.hovaten} >{customer.hovaten}</td>

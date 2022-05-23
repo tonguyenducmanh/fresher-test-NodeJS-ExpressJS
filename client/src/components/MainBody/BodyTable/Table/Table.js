@@ -2,16 +2,18 @@ import React, {useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux'
 import {fetchCustomersList} from '../../../../features/customers/customersSlice'
 
+import { HandleCheckAll } from "./HandleCheckAll";
 import { Customers } from "./Customers/Customers";
 import styles from './Table.module.css'
 
 export const Table = () =>{
     
-    const customerStatus = useSelector(state => state.customers.status)
     const startIndexPagination = useSelector(state => state.pagination.startIndex)
     const limitPagination = useSelector(state => state.pagination.limit)
     const dispatch = useDispatch()
-
+    useEffect( () =>{
+        HandleCheckAll()
+    },[HandleCheckAll])
     
 
     useEffect(() => {
@@ -22,7 +24,7 @@ export const Table = () =>{
         <table className={styles.table}>
         <thead>
             <tr>
-                <td className={`${styles.icon} ${styles.iconHeading}`}>
+                <td className={`${styles.icon} ${styles.iconHeading}` }id='iconCheckAll'>
                 </td>
                 <td className={styles.tdOne}>Thẻ
                 </td>

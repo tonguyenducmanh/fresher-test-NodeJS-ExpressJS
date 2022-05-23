@@ -75,7 +75,9 @@
     background-image: url(../../../../../images/icon_collection.svg);
     background-position: var(--iconChecked);
 }
-
+.itemChecked{
+    background-color: #feefe7;
+}
 .tdOne{
     width: 100px;
 }

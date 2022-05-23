@@ -52,6 +52,27 @@
     background-position: var(--iconUnchecked);
 }
 
+.iconHeadingChecked{
+    display: flex;
+    align-items: center;
+    width:50px ;
+    height: var(--heightRow);
+}
+
+.iconHeadingChecked:hover{
+    cursor: pointer;
+}
+
+.iconHeadingChecked::after{
+    position: absolute;
+    content: '';
+    z-index: 1;
+    width: var(--icon-small);
+    height: var(--icon-small);
+    margin-left: 30px;
+    background-image: url(../../../../images/icon_collection.svg);
+    background-position: var(--iconChecked);
+}
 .tableContainer{
     position: relative;
 }
