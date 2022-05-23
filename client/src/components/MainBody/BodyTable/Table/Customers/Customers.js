@@ -1,12 +1,11 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { useDispatch } from 'react-redux';
 
 import styles from './Customers.module.css'
 
 export const Customers = () => {
-    const customers = useSelector((state) => state.customers)
-    const dispatch = useDispatch()
+    const customers = useSelector((state) => state.customers.customers)
+    // console.log(customers)
     return (
             <tbody>
                 {customers.map((customer) => (

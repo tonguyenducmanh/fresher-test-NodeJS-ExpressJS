@@ -1,11 +1,23 @@
 import React, { useEffect } from 'react';
 
+import { useSelector, useDispatch } from 'react-redux';
+
+import { fetchCustomersCount } from '../../../../features/customers/customersSlice';
 import { HandleSelect } from './HandleSelect'
 import {HandleOption} from "./HandleOption";
+
 
 import styles from './Pagination.module.css'
 
 export const Pagination = () =>{
+    const dispatch = useDispatch()
+    const countCustomer = useSelector((state) => state.count.count)
+    const countStatus = useSelector(state => state.count.status)
+    useEffect(() => {
+        if(countStatus === 'idle'){
+            dispatch(fetchCustomersCount())
+        }
+    }, [countStatus, dispatch])
     useEffect(() =>{
         HandleSelect()
     })
@@ -16,7 +28,7 @@ export const Pagination = () =>{
         <div className={styles.pagination}>
         <span className={styles.paginationTotal}>
             <span className={styles.paginationTotalText}>Tổng số:</span>
-            <span className={styles.paginationTotalCount}>893</span>
+            <span className={styles.paginationTotalCount}>{`${countCustomer}`}</span>
         </span>
         <span className={styles.paginationPanel}>
             <span className={styles.paginationPanelBox}>

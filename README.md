@@ -35,6 +35,7 @@ chi tiết của tiềm năng đó.
 Sử dụng công nghệ và thư viện dưới đây:
 
 - UI component Framework: JavaScript library: ReactJs
+- State management : Redux Toolkits
 - API service: NodeJS : ExpressJS
 - Database: MongoDB Cloud Atlas
 

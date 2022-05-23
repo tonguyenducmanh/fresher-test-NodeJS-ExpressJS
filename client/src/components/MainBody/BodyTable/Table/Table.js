@@ -1,17 +1,19 @@
-import React, { useState , useEffect } from "react";
-import { useDispatch } from 'react-redux'
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from 'react-redux'
+
+import {fetchCustomersList} from '../../../../features/customers/customersSlice'
 
 import { Customers } from "./Customers/Customers";
-import { getCustomers } from '../../../../actions/customers.js'
 import styles from './Table.module.css'
 
 export const Table = () =>{
-    const [currentId, setCurrentId] = useState(0);
     const dispatch = useDispatch()
-
+    const customerStatus = useSelector(state => state.customers.status)
     useEffect(() => {
-        dispatch(getCustomers())
-    }, [currentId, dispatch])
+        if(customerStatus === 'idle'){
+            dispatch(fetchCustomersList())
+        }
+    }, [customerStatus, dispatch])
     return (
         <div className={styles.tableContainer}>
         <table className={styles.table}>
@@ -65,7 +67,7 @@ export const Table = () =>{
                 </td>
             </tr>
         </thead>
-           <Customers setCurrentId={setCurrentId}/>
+           <Customers/>
         </table>
         </div>
     )
