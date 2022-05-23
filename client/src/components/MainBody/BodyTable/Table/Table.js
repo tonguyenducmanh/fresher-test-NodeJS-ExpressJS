@@ -1,19 +1,22 @@
-import React, { useEffect } from "react";
+import React, {useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux'
-
 import {fetchCustomersList} from '../../../../features/customers/customersSlice'
 
 import { Customers } from "./Customers/Customers";
 import styles from './Table.module.css'
 
 export const Table = () =>{
-    const dispatch = useDispatch()
+    
     const customerStatus = useSelector(state => state.customers.status)
+    const startIndexPagination = useSelector(state => state.pagination.startIndex)
+    const limitPagination = useSelector(state => state.pagination.limit)
+    const dispatch = useDispatch()
+
+    
+
     useEffect(() => {
-        if(customerStatus === 'idle'){
-            dispatch(fetchCustomersList())
-        }
-    }, [customerStatus, dispatch])
+            dispatch(fetchCustomersList(`?limit=${limitPagination}&startIndex=${startIndexPagination}`))
+    }, [limitPagination, startIndexPagination])
     return (
         <div className={styles.tableContainer}>
         <table className={styles.table}>

@@ -90,6 +90,7 @@
 .paginationOption{
     
     position: absolute;
+    z-index: 10;
     display: none;
     /* display: block; */
     bottom:30px;

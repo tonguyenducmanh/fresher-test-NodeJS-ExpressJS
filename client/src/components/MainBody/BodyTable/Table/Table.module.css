@@ -63,6 +63,7 @@
 
 thead{
     background-color: #f0f2f4;
+    z-index: 3;
 }
 thead tr {
     border-top: var(--border);

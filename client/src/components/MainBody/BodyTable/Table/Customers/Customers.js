@@ -15,8 +15,8 @@ export const Customers = () => {
                     <td className={styles.tdTwo} title={customer.xungho} >{customer.xungho}</td>
                     <td className={styles.tdThree} title={customer.hovaten} >{customer.hovaten}</td>
                     <td className={styles.tdFour} title={customer.chucdanh} >{customer.chucdanh}</td>
-                    <td className={styles.tdFive}>{customer.dtdidong}</td>
-                    <td className={styles.tdSix}>{customer.dtcoquan}</td>
+                    <td className={styles.tdFive}>{customer.dtdidong.split('-').join('')}</td>
+                    <td className={styles.tdSix}>{customer.dtcoquan.split('-').join('')}</td>
                     <td className={styles.tdSeven} title={customer.emailcoquan} >{customer.emailcoquan}</td>
                     <td className={styles.tdEight} title={customer.emailcanhan} >{customer.emailcanhan}</td>
                     <td className={styles.tdNine} title={customer.tochuc} >{customer.tochuc}</td>

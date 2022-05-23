@@ -6,7 +6,11 @@ const router = express.Router()
 
 export const getCustomer = async (req, res) => {
     try{
-        const customerInfos = await customerInfo.find().limit(20)
+        // limit và startIndex được lấy yêu cầu từ frontend qua đây hihi
+        const startIndex = parseInt(req.query.startIndex)
+        const limit = parseInt(req.query.limit)
+
+        const customerInfos = await customerInfo.find().limit(limit).skip(startIndex)
 
         res.status(200).json(customerInfos)
     } catch (error) {

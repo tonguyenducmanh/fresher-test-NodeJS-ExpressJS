@@ -1,8 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
-import {customersReducer, countReducer} from '../features/customers/customersSlice'
+import {paginationReducer, customersReducer, countReducer} from '../features/customers/customersSlice'
 
 export default configureStore({
     reducer: {
+      pagination: paginationReducer,
       customers: customersReducer,
       count: countReducer
     }
