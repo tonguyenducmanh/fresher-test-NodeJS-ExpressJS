@@ -29,9 +29,7 @@ const ActionBar = () =>{
                     idsString = idsString.concat(tdIds[i].textContent)
                 }
             }
-            if(typeof(idsString) ==='array'){
                 idsString = idsString.join(',')
-            }
             dispatch(fetchCustomersFind(`?findArray=${idsString}`))
             moreMenu.classList.add(styles.hiddenMenu)
 
@@ -47,7 +45,7 @@ const ActionBar = () =>{
                 <span className={`${styles.actionLeft}`} id='actionBarOne'>
                     <span className={styles.actionLeftAllButton} >Tất cả tiềm năng</span>
                     <span className={styles.actionLeftFixButton}>Sửa</span>
-                    <span className={styles.actionLeftRefreshButton}></span>
+                    <span className={styles.actionLeftRefreshButton} title='Tải lại'></span>
                 </span>
                 <span className={`${styles.actionLeft} ${styles.hiddenComponent}`} id='actionBarTwo'>
                     <span className={styles.actionLeftSelectedCountButton} id='countCheck'></span>
@@ -65,8 +63,8 @@ const ActionBar = () =>{
                         <span className={styles.addNewButton}>Thêm</span>
                         <span className={styles.menuButton}></span>
                     </span>
-                    <span className={styles.menuButtonTwo}></span>
-                    <span className={styles.menuButtonThree}></span>
+                    <span className={styles.menuButtonTwo} title='Tính năng này đang được phát triển'></span>
+                    <span className={styles.menuButtonThree} title='Tính năng này đang được phát triển'></span>
                 </span>
             </div>
         </div>

@@ -1,0 +1,17 @@
+.container{
+    display: flex;
+    position: absolute;
+    top: 90px;
+    width: 100%;
+    bottom: 0;
+
+
+}
+.deverlopmentPage{
+    position: relative;
+    display: block;
+    background-image: url(../../images/deverlopArt.png);
+    background-size: cover;
+    z-index: -40;
+    width: 100%;
+}

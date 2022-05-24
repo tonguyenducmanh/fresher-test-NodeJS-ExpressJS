@@ -83,6 +83,8 @@
 }
 
 thead{
+    position: sticky;
+    top: 0;
     background-color: #f0f2f4;
     z-index: 3;
 }
@@ -90,6 +92,7 @@ thead tr {
     border-top: var(--border);
 }
 tr{
+    box-sizing: border-box;
     display: flex;
     height: var(--heightRow);
     border-bottom: var(--border);
