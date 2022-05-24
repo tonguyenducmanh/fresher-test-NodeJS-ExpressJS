@@ -67,37 +67,37 @@ export const paginationSlice = createSlice({
         
     })
     
-    export const fetchCustomersList = createAsyncThunk('customers/fetchCustomersList', async (path) =>{
-        const respone = await customerAPI.get(`/${path}`)
-        return respone.data
-    })
-    
-    export const customersSlice = createSlice ({
-        name: 'customers',
-        initialState:{
-            customers: [],
+export const fetchCustomersList = createAsyncThunk('customers/fetchCustomersList', async (path) =>{
+    const respone = await customerAPI.get(`/${path}`)
+    return respone.data
+})
+
+export const customersSlice = createSlice ({
+    name: 'customers',
+    initialState:{
+        customers: [],
         status: 'idle',
         error: null
-    },
-    reducers:{
-        
+},
+reducers:{
+    
+}
+,
+extraReducers(builder){
+    builder
+        .addCase(fetchCustomersList.pending, (state, action) =>{
+            state.status = 'loading'
+        })
+        .addCase(fetchCustomersList.fulfilled, (state, action) =>{
+            state.status = 'succeeded'
+            state.customers = action.payload
+        })
+        .addCase(fetchCustomersList.rejected, (state, action) => {
+            state.status = 'failed'
+            state.error = action.error.message
+        })
     }
-    ,
-    extraReducers(builder){
-        builder
-            .addCase(fetchCustomersList.pending, (state, action) =>{
-                state.status = 'loading'
-            })
-            .addCase(fetchCustomersList.fulfilled, (state, action) =>{
-                state.status = 'succeeded'
-                state.customers = action.payload
-            })
-            .addCase(fetchCustomersList.rejected, (state, action) => {
-                state.status = 'failed'
-                state.error = action.error.message
-            })
-        }
-    })
+})
     
     
 export const fetchCustomersCount = createAsyncThunk('customers/fetchCustomersCount', async () =>{
@@ -132,7 +132,39 @@ export const countSlice = createSlice({
     }
 })
 
+export const fetchCustomersFind = createAsyncThunk('customers/fetchCustomersFind', async (path) => {
+    const respone = await customerAPI.get(`/find${path}`)
+    return respone.data
+})
+
+export const findCustomersSlice = createSlice ({
+    name:'find',
+    initialState:{
+        findCustomers: [],
+        status: 'idle',
+        error: null
+    },
+    reducers:{
+
+    },
+    extraReducers(builder){
+        builder
+            .addCase(fetchCustomersFind.pending, (state, action) =>{
+                state.status = 'loading'
+            })
+            .addCase(fetchCustomersFind.fulfilled, (state, action) =>{
+                state.status = 'succeeded'
+                state.findCustomers = action.payload
+            })
+            .addCase(fetchCustomersFind.rejected, (state, action) => {
+                state.status = 'failed'
+                state.error = action.error.message
+            })
+    }
+})
+
 export const { nextPagination, previousPagination, limitTen, limitFifty, limitOneHundred, limitTwenty,firstIndex , lastIndex } = paginationSlice.actions
 export const paginationReducer = paginationSlice.reducer
 export const customersReducer = customersSlice.reducer
 export const countReducer = countSlice.reducer
+export const findReducer = findCustomersSlice.reducer

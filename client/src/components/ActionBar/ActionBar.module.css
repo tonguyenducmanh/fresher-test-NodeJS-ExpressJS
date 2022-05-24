@@ -263,15 +263,13 @@
     cursor: pointer;
 }
 
+
 .actionLeftMoreMenu{
     z-index: 5;
-    display: none;
-}
-
-.actionLeftMoreButton:hover .actionLeftMoreMenu{
     display: flex;
     flex-direction: column;
-    margin-top: 31px;
+    margin-top: 105px;
+    margin-left: 340px;
     position: absolute;
     background-color: var(--white);
     border: var(--border);
@@ -280,9 +278,22 @@
     box-shadow: var(--boxShadow);
 }
 
+.hiddenMenu{
+    display: none;
+}
+
 .actionLeftExportButton{
     padding-top: var(--padding);
     padding-left: calc(var(--padding)*4);
+    padding-bottom: calc(var(--padding)/2);
+}
+
+.actionLeftExportButton:hover{
+    background-color: #e7ebfc;
+}
+
+.actionLeftDeleteButton:hover{
+    background-color: #e7ebfc;
 }
 
 .actionLeftExportButton::before{
@@ -297,7 +308,7 @@
 }
 
 .actionLeftDeleteButton{
-    padding-top: var(--padding);
+    padding-top: calc(var(--padding)/2);
     padding-left: calc(var(--padding)*4);
     padding-bottom: var(--padding);
     color: red;

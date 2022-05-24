@@ -18,6 +18,17 @@ export const getCustomer = async (req, res) => {
     }
 }
 
+export const findCustomer = async (req, res) => {
+    try{
+        //lấy mảng được trả về từ bên frontend
+        const findArray = req.query.findArray.split(',')
+        const customerInfos =  await customerInfo.find({ _id:{$in : findArray}})
+        res.status(200).json(customerInfos)
+    } catch (error){
+        res.status(404).json({ message: error.message })
+    }
+}
+
 export const countCustomer = async (req,res) => {
     try{
         const customerInfos = await customerInfo.count()

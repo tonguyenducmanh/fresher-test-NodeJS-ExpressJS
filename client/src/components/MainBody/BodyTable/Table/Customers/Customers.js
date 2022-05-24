@@ -15,6 +15,7 @@ export const Customers = () => {
                 {customers.map((customer) => (
                 <tr key={customer._id}>
                     <td className={`${styles.iconHeading} hihi`}></td>
+                    <td className={styles.tdId}>{customer._id}</td>
                     <td className={styles.tdOne} title={customer.the} >{customer.the}</td>
                     <td className={styles.tdTwo} title={customer.xungho} >{customer.xungho}</td>
                     <td className={styles.tdThree} title={customer.hovaten} >{customer.hovaten}</td>

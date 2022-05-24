@@ -78,6 +78,9 @@
 .itemChecked{
     background-color: #feefe7;
 }
+.tdId{
+    display: none;
+}
 .tdOne{
     width: 100px;
 }

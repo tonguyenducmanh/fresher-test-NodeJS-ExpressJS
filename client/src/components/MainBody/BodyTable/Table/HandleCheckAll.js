@@ -10,6 +10,7 @@ export const HandleCheckAll = () =>{
     const countCheck = document.getElementById('countCheck')
     const listCheckButton = document.getElementsByClassName('hihi')
     const iconChecks = document.getElementsByClassName(stylesTwo.iconHeadingChecked)
+    const checkId = document.getElementsByClassName(stylesTwo.tdId)
 
     checkAllButton.addEventListener('click', function(){
         if (checkAllButton.classList.contains(styles.iconHeadingChecked)) {

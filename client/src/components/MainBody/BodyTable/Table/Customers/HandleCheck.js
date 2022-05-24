@@ -36,9 +36,6 @@ export const HandleCheck = (limit) =>{
             
            
             countCheck.innerHTML = `Đã chọn ${iconChecks.length}`
-            console.log(iconChecks.length)
-            
-
             //nếu check tất cả nút thì check nút check all và ngược lại
             if( limit != iconChecks.length){
                 checkAllButton.classList.remove(stylesTwo.iconHeadingChecked)
