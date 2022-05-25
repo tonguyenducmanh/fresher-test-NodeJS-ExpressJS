@@ -1,0 +1,94 @@
+:root{
+    --icon-small: 16px;
+    --icon-medium: 20px;
+    --icon-large: 24px;
+    --padding: 10px;
+    --border: 1px solid rgba(120, 120, 120, 0.347);
+    --boderRadius: 4px;
+    --boxShadow: 1px 1px 3px 1px rgb(195, 195, 195);
+    --white: #ffffff;
+    --blue:#405eec; 
+}
+
+.icon{
+    position: relative;
+    width: var(--icon-small);
+    height: var(--icon-small);
+    padding-right: var(--padding);
+}
+
+.icon:hover{
+    cursor: pointer;
+}
+
+.icon::before{
+    position: absolute;
+    content: '';
+    z-index: 1;
+    width: var(--icon-small);
+    height: var(--icon-small);
+    background-image: url(../../../images/icon_collection.svg);
+}
+.container{
+    margin: -10px;
+    position: fixed;
+    z-index: 9;
+    background-color: rgba(0, 0, 0, 0.347);
+    width: 100vw;
+    height: 100vh;
+}
+
+.hiddenBox{
+    display: none;
+}
+
+.deleteBox{
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    position: fixed;
+    z-index: 10;
+    background-color: var(--white);
+    width: 500px;
+    height: 145px;
+    border-radius: 4px;
+}
+
+.deleteNotify{
+    position: fixed;
+    top: 20%;
+    left: 5%;
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: #22252c;
+}
+
+.deleteCancel{
+    position: fixed;
+    right: 140px;
+    bottom: 30px;
+    border: var(--border);
+    border-radius: 4px;
+    padding: calc(var(--padding)*0.9) calc(var(--padding)*2);
+    cursor: pointer;
+
+}
+.deleteCancelButton{
+    position: fixed;
+    right: 7px;
+    top: 10px;
+}
+.deleteCancelButton::before{
+    background-position: -80px -17px;
+    transform: scale(1.5);
+}
+.deleteYes{
+    position: fixed;
+    right: 35px;
+    bottom: 30px;
+    color: var(--white);
+    background-color: #f14347;
+    border-radius: 4px;
+    padding: calc(var(--padding)*0.9) calc(var(--padding)*2);
+    cursor: pointer;
+}

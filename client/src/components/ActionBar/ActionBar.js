@@ -3,7 +3,10 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import styles from './ActionBar.module.css'
 import stylesTwo from '../MainBody/BodyTable/Table/Customers/Customers.module.css'
+import stylesThree from './ConfirmDelete/ConfirmDelete.module.css'
+import stylesFour from '../MainBody/BodyTable/Table/Table.module.css'
 
+import ConfirmDelete from "./ConfirmDelete/ConfirmDelete";
 import { ExportToExcellFile } from "./ExportToExcellFile";
 import { OpenMoreMenu } from "./OpenMoreMenu";
 import { UndoSelected } from './UndoSelected'
@@ -20,13 +23,20 @@ const ActionBar = () =>{
     useEffect(() =>{
         const tdIds =  document.getElementsByClassName(stylesTwo.tdId)
         const checkedButton =  document.getElementsByClassName('hihi')
+        const checkedRow =  document.getElementsByClassName(stylesTwo.trId)
         const exportExcell = document.getElementById('exportExcell')
+        const iconCheckAll = document.getElementById('iconCheckAll')
         const moreMenu = document.getElementById('moreMenu')
             exportExcell.addEventListener('click', () =>{
             let idsString = []
             for( var i = 0 ; i < tdIds.length ; i ++){
                 if(checkedButton[i].classList.contains(stylesTwo.iconHeadingChecked)){
                     idsString = idsString.concat(tdIds[i].textContent)
+                    checkedButton[i].classList.remove(stylesTwo.iconHeadingChecked)
+                    checkedButton[i].classList.add(stylesTwo.iconHeading)
+                    checkedRow[i].classList.remove(stylesTwo.itemChecked)
+                    iconCheckAll.classList.remove(stylesFour.iconHeadingChecked)
+                    iconCheckAll.classList.add(stylesFour.iconHeading)
                 }
             }
                 idsString = idsString.join(',')
@@ -38,7 +48,15 @@ const ActionBar = () =>{
     useEffect(() =>{
         ExportToExcellFile(findList)
     })
-
+    useEffect(() =>{
+        const deleteButton = document.getElementById('deleteButton')
+        const deleteBox = document.getElementsByClassName(stylesThree.container)
+        const moreMenu = document.getElementById('moreMenu')
+        deleteButton.addEventListener('click',function(){
+            deleteBox[0].classList.remove(stylesThree.hiddenBox)
+            moreMenu.classList.add(styles.hiddenMenu)
+        })
+    }, [])
     return (
         <div className={styles.actionbar}>
             <div className={styles.box}>
@@ -55,9 +73,10 @@ const ActionBar = () =>{
                     </span>
                     <span className={`${styles.actionLeftMoreMenu} ${styles.hiddenMenu}`} id='moreMenu'>
                         <span className={styles.actionLeftExportButton} id='exportExcell'>Xuất khẩu</span>
-                        <span className={styles.actionLeftDeleteButton}>Xóa</span>
+                        <span className={styles.actionLeftDeleteButton} id='deleteButton'>Xóa</span>
                     </span>
                 </span>
+                <ConfirmDelete/>
                 <span className={styles.actionRight}>
                     <span className={styles.addAndMenuButton}>
                         <span className={styles.addNewButton}>Thêm</span>

@@ -28,6 +28,16 @@ export const findCustomer = async (req, res) => {
         res.status(404).json({ message: error.message })
     }
 }
+export const deleteCustomer = async (req, res) => {
+    try{
+        //lấy mảng được trả về từ bên frontend
+        const deleteArray = req.query.deleteArray.split(',')
+        const customerInfos =  await customerInfo.deleteMany({ _id:{$in: deleteArray} });
+        res.status(200).json(customerInfos)
+    } catch (error){
+        res.status(404).json({ message: error.message })
+    }
+}
 
 export const countCustomer = async (req,res) => {
     try{

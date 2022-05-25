@@ -21,6 +21,7 @@ export const Pagination = () =>{
     const dispatch = useDispatch()
     const limitPagination = useSelector(state => state.pagination.limit)
     const startIndexPagination = useSelector(state => state.pagination.startIndex)
+    const deleteCount = useSelector(state=> state.delete.deleteCustomers)
     const countCustomer = useSelector((state) => state.count.count)
     const countStatus = useSelector(state => state.count.status)
 
@@ -29,7 +30,7 @@ export const Pagination = () =>{
             if(countStatus === 'idle'){
                     dispatch(fetchCustomersCount())
                 }
-            }, [countStatus, dispatch])
+    }, [countStatus])
             
     useEffect(() =>{
         HandleSelect()

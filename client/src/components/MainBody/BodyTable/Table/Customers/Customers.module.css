@@ -84,8 +84,11 @@ tbody{
 .tdId{
     display: none;
 }
+.trId{
+    font-weight: 400;
+}
 .tdOne{
-    width: 100px;
+    width: 170px;
 }
 
 .tdTwo{

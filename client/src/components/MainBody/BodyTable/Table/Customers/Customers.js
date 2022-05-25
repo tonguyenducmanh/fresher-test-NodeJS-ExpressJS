@@ -13,7 +13,7 @@ export const Customers = () => {
     return (
             <tbody>
                 {customers.map((customer) => (
-                <tr key={customer._id}>
+                <tr className={styles.trId} key={customer._id}>
                     <td className={`${styles.iconHeading} hihi`}></td>
                     <td className={styles.tdId}>{customer._id}</td>
                     <td className={styles.tdOne} title={customer.the} >{customer.the}</td>

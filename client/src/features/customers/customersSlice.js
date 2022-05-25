@@ -163,8 +163,40 @@ export const findCustomersSlice = createSlice ({
     }
 })
 
+export const deleteCustomers = createAsyncThunk('customers/deleteCustomer', async (path) => {
+    const respone = await customerAPI.get(`/delete${path}`)
+    return respone.data
+})
+
+export const deleteCustomersSlice = createSlice ({
+    name:'delete',
+    initialState:{
+        deleteCustomers: [],
+        status: 'idle',
+        error: null
+    },
+    reducers:{
+
+    },
+    extraReducers(builder){
+        builder
+            .addCase(deleteCustomers.pending, (state, action) =>{
+                state.status = 'loading'
+            })
+            .addCase(deleteCustomers.fulfilled, (state, action) =>{
+                state.status = 'succeeded'
+                state.deleteCustomers = action.payload
+            })
+            .addCase(deleteCustomers.rejected, (state, action) => {
+                state.status = 'failed'
+                state.error = action.error.message
+            })
+    }
+})
+
 export const { nextPagination, previousPagination, limitTen, limitFifty, limitOneHundred, limitTwenty,firstIndex , lastIndex } = paginationSlice.actions
 export const paginationReducer = paginationSlice.reducer
 export const customersReducer = customersSlice.reducer
 export const countReducer = countSlice.reducer
 export const findReducer = findCustomersSlice.reducer
+export const deleteRducer = deleteCustomersSlice.reducer
