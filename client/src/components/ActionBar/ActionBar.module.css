@@ -89,7 +89,9 @@
 .addNewButton:hover{
     cursor: pointer;
 }
-
+.addNewButton span {
+    color: white;
+}
 .addNewButton{
     background-color: var(--blue);
     color: var(--white);

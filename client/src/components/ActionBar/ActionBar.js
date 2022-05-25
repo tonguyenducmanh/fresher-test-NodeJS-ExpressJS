@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux'
+import { Link } from "react-router-dom";
 
 import styles from './ActionBar.module.css'
 import stylesTwo from '../MainBody/BodyTable/Table/Customers/Customers.module.css'
@@ -26,8 +27,13 @@ const ActionBar = () =>{
         const checkedRow =  document.getElementsByClassName(stylesTwo.trId)
         const exportExcell = document.getElementById('exportExcell')
         const iconCheckAll = document.getElementById('iconCheckAll')
+        const actionBarOne = document.getElementById('actionBarOne')
+        const actionBarTwo = document.getElementById('actionBarTwo')
         const moreMenu = document.getElementById('moreMenu')
-            exportExcell.addEventListener('click', () =>{
+        
+        exportExcell.addEventListener('click', () =>{
+            actionBarOne.classList.remove(styles.hiddenComponent)
+            actionBarTwo.classList.add(styles.hiddenComponent)
             let idsString = []
             for( var i = 0 ; i < tdIds.length ; i ++){
                 if(checkedButton[i].classList.contains(stylesTwo.iconHeadingChecked)){
@@ -79,7 +85,7 @@ const ActionBar = () =>{
                 <ConfirmDelete/>
                 <span className={styles.actionRight}>
                     <span className={styles.addAndMenuButton}>
-                        <span className={styles.addNewButton}>Thêm</span>
+                        <Link to="/create" className={styles.addNewButton}><span>Thêm</span></Link >
                         <span className={styles.menuButton}></span>
                     </span>
                     <span className={styles.menuButtonTwo} title='Tính năng này đang được phát triển'></span>

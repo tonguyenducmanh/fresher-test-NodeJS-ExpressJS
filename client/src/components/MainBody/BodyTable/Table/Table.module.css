@@ -86,7 +86,7 @@ thead{
     position: sticky;
     top: 0;
     background-color: #f0f2f4;
-    z-index: 3;
+    z-index: 1;
 }
 thead tr {
     border-top: var(--border);

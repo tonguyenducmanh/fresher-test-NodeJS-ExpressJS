@@ -4,6 +4,7 @@ import { deleteCustomers,fetchCustomersList,fetchCustomersCount
  } from '../../../features/customers/customersSlice'
 import styles from './ConfirmDelete.module.css'
 import stylesTwo from '../../MainBody/BodyTable/Table/Customers/Customers.module.css'
+import stylesThree from '../../ActionBar/ActionBar.module.css'
 import stylesFour from '../../MainBody/BodyTable/Table/Table.module.css'
 
 
@@ -35,11 +36,16 @@ const ConfirmDelete = () => {
         const iconCheckAll = document.getElementById('iconCheckAll')
         const checkedButton =  document.getElementsByClassName('hihi')
         const deleteBox = document.getElementsByClassName(styles.container)
+        const actionBarOne = document.getElementById('actionBarOne')
+        const actionBarTwo = document.getElementById('actionBarTwo')
+        
 
         deleteButtonFinal.addEventListener('click', function(){
             deleteBox[0].classList.add(styles.hiddenBox)
             iconCheckAll.classList.remove(stylesFour.iconHeadingChecked)
             iconCheckAll.classList.add(stylesFour.iconHeading)
+            actionBarOne.classList.remove(stylesThree.hiddenComponent)
+            actionBarTwo.classList.add(stylesThree.hiddenComponent)
             let idsString = []
             for( var i = 0 ; i < tdIds.length ; i ++){
                 if(checkedButton[i].classList.contains(stylesTwo.iconHeadingChecked)){
