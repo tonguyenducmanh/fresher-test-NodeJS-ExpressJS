@@ -44,18 +44,3 @@
     overflow:auto;
 }
 
-
-.box::-webkit-scrollbar{
-    width: var(--padding);
-    height: var(--padding);
-}
-
-.box::-webkit-scrollbar-track{
-    background-color: #f1f1f1;
-}
-
-.box::-webkit-scrollbar-thumb{
-    background-color: #c5c9d3;
-    border-radius: 4px;
-}
-

@@ -42,18 +42,6 @@
 
 }
 
-.container::-webkit-scrollbar{
-    width: var(--padding);
-}
-
-.container::-webkit-scrollbar-track{
-    background-color: #f1f1f1;
-}
-
-.container::-webkit-scrollbar-thumb{
-    background-color: #c5c9d3;
-    border-radius: 4px;
-}
 
 .filterSave{
     text-transform: uppercase;

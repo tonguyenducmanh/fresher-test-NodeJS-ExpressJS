@@ -10,8 +10,20 @@
     -o-user-select: none;
     user-select: none;
 }
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;1,400&display=swap');
+*::-webkit-scrollbar{
+    width: var(--padding);
+    height: var(--padding);
+}
 
+*::-webkit-scrollbar-track{
+    background-color: #f1f1f1;
+}
+
+*::-webkit-scrollbar-thumb{
+    background-color: #c5c9d3;
+    border-radius: 4px;
+}
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;1,400&display=swap');
 
 /* font chữ bị lỗi chữ cái ơ nên dùng link embed từ google font để thay thế */
 /* 

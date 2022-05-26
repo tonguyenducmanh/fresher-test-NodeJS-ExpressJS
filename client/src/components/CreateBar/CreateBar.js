@@ -8,7 +8,7 @@ const CreateBar = () =>{
         <div className={styles.createBar}>
             <div className={styles.box}>
                 <span className={`${styles.createLeft}`} >
-                    <span className={styles.tatCaTiemNang} >Tất cả tiềm năng - </span>
+                    <span className={styles.tatCaTiemNang} >Thêm Tiềm năng - </span>
                     <span className={styles.mauTieuChuan} >Mẫu tiêu chuẩn</span>
                     <span className={styles.suaBoCuc}title='Tính năng này đang được phát triển'>Sửa bố cục</span>
                 </span>

@@ -1,9 +1,310 @@
-.container{
-    display: flex;
+:root{
+    --icon-small: 16px;
+    --icon-medium: 20px;
+    --icon-large: 24px;
+    --padding: 10px;
+    --border: 0.5px solid rgba(120, 120, 120, 0.347);
+    --boderRadius: 4px;
+    --boxShadow: 1px 1px 3px 1px rgb(195, 195, 195);
+    --heightRow: calc(var(--padding)*4);
+    --marginRightTD: calc(var(--padding)*4);
+    --iconUnchecked: -192px -16px;
+    --iconChecked: -177px -17px;
+    --white: #ffffff;
+    --blue:#405eec; 
+    --group:1200px;
+    --iconUnchecked: -192px -16px;
+    --iconChecked: -177px -17px;
+    --iconDown : -336px -32px;
+    --iconUp :-320px -32px;
+    --grayDark: #616161;
+    --gray: #9ba3b2;
+    --grayLight: #e2e4e9;
+}
+.icon{
+    position: relative;
+    width: var(--icon-small);
+    height: var(--icon-small);
+}
+
+.icon:hover{
+    cursor: pointer;
+}
+
+.icon::before{
     position: absolute;
-    top: 141.5px;
+    content: '';
+    z-index: 1;
+    width: var(--icon-small);
+    height: var(--icon-small);
+    background-image: url(../../images/icon_collection.svg);
+}
+
+.container{
+    position: absolute;
     width: 100%;
+    top: 141.5px;
+    left: 0;
+    right: 0;
     bottom: 0;
+}
+
+.box{
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+    overflow-y:auto;
+}
 
 
+.form{
+    padding: calc(var(--padding)*2) calc(var(--padding)*4);
+}
+
+.thongTinGroupTitle{
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+.thongTinGroupBody{
+    padding: calc(var(--padding)*2) 0;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    width: var(--group);
+    /* nên có responsive chỗ này */
+    column-gap: calc(var(--padding)*5);
+}
+
+.thongTinImage{
+    width: 56px;
+    height: 56px;
+    position: relative;
+}
+
+.thongTinImage::-webkit-file-upload-button {
+    visibility: hidden;
+}
+.thongTinImage::before{
+    position: absolute;
+    content: '';
+    z-index: 1;
+    width: 56px;
+    height: 56px;
+    background-image: url(../../images/icon_collection.svg);
+    background-position: -224px -695px;
+}
+
+.thongTin{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: var(--padding);
+}
+
+.thongTinTitle{
+    color: var(--grayDark);
+    position: relative;
+    font-weight: 500;
+}
+
+.thongTinInput{
+    position: relative;
+    height: calc(var(--padding)*1.5);
+    border: SOLID var(--grayLight);
+    border-width: 1.8px;
+    border-radius: 4px;
+    width: 400px;
+    padding: var(--padding) calc(var(--padding)*1.8);
+}
+
+.thongTinInput:focus{
+    border: 2px solid var(--blue);
+}
+
+.thongTinInput:disabled{
+    background-color: var(--grayLight);
+}
+
+.iconInfo{
+    position: absolute;
+    width: var(--icon-small);
+    height: var(--icon-small);
+}
+
+.iconInfo:hover{
+    cursor: pointer;
+}
+
+.iconInfo::before{
+    margin-left: 10px;
+    position: absolute;
+    content: '';
+    z-index: 1;
+    width: var(--icon-small);
+    height: var(--icon-small);
+    background-image: url(../../images/icon_collection.svg);
+    background-position: -160px -160px;
+}
+
+
+.iconToolTip{
+    display: none;
+    width: 150px;
+    position: absolute;
+    background-color: var(--grayDark);
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    z-index: 1;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -65px;
+}
+
+.iconToolTip::after{
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: var(--grayDark) transparent transparent transparent;
+}
+
+.iconInfo:hover .iconToolTip{
+    display: block;
+}
+
+.thongTinInputDiaChi{
+    height:  calc(var(--padding)*5);
+}
+.thongTinDiaChi{
+    display: flex;
+    justify-content: space-between;
+}
+.thongTinDiaChiTitle{
+    margin-top: var(--padding);
+}
+.thongTinMoTa{
+    display: grid;
+    grid-template-columns: 26.5% 73.5%;
+}
+.thongTinMoTaTilte{
+    margin-top: var(--padding);
+}
+.thongTinMoTaInput{
+    width: 1051px;
+    height:  calc(var(--padding)*5);
+}
+
+textarea{
+    resize: none;
+}
+
+
+.thongTinGroupLastBody{
+    width: calc(var(--group)/2);
+    padding-top: calc(var(--padding)*2);
+}
+
+.thongTinLast{
+    width: calc(var(--group)/6.8);
+}
+
+.thongTinLastTitle{
+    padding: calc(var(--padding)*1.5) 0;
+}
+
+.iconCheck{
+    position: relative;
+    width: var(--icon-small);
+    height: var(--icon-small);
+}
+
+.iconCheck:hover{
+    cursor: pointer;
+}
+
+.iconCheck::before{
+    position: absolute;
+    content: '';
+    z-index: 1;
+    width: var(--icon-small);
+    height: var(--icon-small);
+    background-image: url(../../images/icon_collection.svg);
+    background-position: var(--iconUnchecked);
+}
+
+.thongTinCombo{
+    position: relative;
+    height: calc(var(--padding)*1.5);
+    border: SOLID var(--grayLight);
+    border-width: 1.8px;
+    border-radius: 4px;
+    width: 400px;
+    padding: var(--padding) calc(var(--padding)*1.8);
+}
+
+.thongTinCombo::after{
+    right:10px;
+    position: absolute;
+    content: '';
+    z-index: 1;
+    width: var(--icon-small);
+    height: var(--icon-small);
+    mask-image: url(../../images/icon_collection.svg);
+    mask-position: var(--iconDown);
+    background-color: var(--gray);
+}
+
+.thongTinComboDefault{
+    top:8px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    color:var(--gray) ;
+    font-weight: 500;
+}
+.thongTinComboBox{
+    position: absolute;
+}
+.thongTinComboInput{
+    position: relative;
+    z-index: 2;
+    height: calc(var(--padding)*1.5);
+    border: SOLID var(--grayLight);
+    border-width: 1.8px;
+    width: 400px;
+    margin-top: 25px;
+    margin-left: -19.5px;
+    padding: var(--padding) calc(var(--padding)*1.8);
+}
+
+.thongTinComboInput::placeholder{
+    color:var(--gray) ;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.thongTinSearchIcon{
+    top:38px;
+    right: 12px;
+    position: absolute;
+    z-index: 4;
+    width: var(--icon-small);
+    height: var(--icon-small);
+    background-image: url(../../images/icon_collection.svg);
+    background-position: -32px 0px;
+}
+
+.thongTinLastTitle{
+    color: var(--grayDark);
+    font-weight: 500;
+}
+
+.thongTinComboBox{
+    display: none;
 }
