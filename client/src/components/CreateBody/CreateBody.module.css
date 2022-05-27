@@ -308,3 +308,16 @@ textarea{
 .thongTinComboBox{
     display: none;
 }
+
+.thongTinTiemNang{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: var(--padding);
+    position: relative;
+}
+
+.thongTinTitleTiemNang{
+    margin-top: var(--padding);
+    font-weight: 500;
+    color: var(--grayDark);
+}

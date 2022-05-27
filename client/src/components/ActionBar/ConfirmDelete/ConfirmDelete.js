@@ -19,15 +19,24 @@ const ConfirmDelete = () => {
     useEffect(() =>{
         const cancelButton = document.getElementById('cancelButton')
         const cancelButtonTwo = document.getElementById('cancelButtonTwo')
-        const deleteBox = document.getElementsByClassName(styles.container)
+        const contanier = document.getElementsByClassName(styles.container)
+        const deleteBox = document.getElementsByClassName(styles.deleteBox)
+        //xử lý sự kiện bấm ra ngoài vùng được chọn và bấm hủy thì sẽ hủy tính năng
+        //xóa
+        document.addEventListener("mousedown", (event) => {
+            if (deleteBox[0].contains(event.target)) {
+                cancelButton.addEventListener('click', function(){
+                    contanier[0].classList.add(styles.hiddenBox)
+                })
+                
+                cancelButtonTwo.addEventListener('click', function(){
+                    contanier[0].classList.add(styles.hiddenBox)
+                })
+            } else {
+                contanier[0].classList.add(styles.hiddenBox)
+            }
+          });
 
-        cancelButton.addEventListener('click', function(){
-            deleteBox[0].classList.add(styles.hiddenBox)
-        })
-        
-        cancelButtonTwo.addEventListener('click', function(){
-            deleteBox[0].classList.add(styles.hiddenBox)
-        })
     },[])
     
     useEffect(()=>{
@@ -35,13 +44,12 @@ const ConfirmDelete = () => {
         const deleteButtonFinal = document.getElementById('deleteButtonFinal')
         const iconCheckAll = document.getElementById('iconCheckAll')
         const checkedButton =  document.getElementsByClassName('hihi')
-        const deleteBox = document.getElementsByClassName(styles.container)
+        const container = document.getElementsByClassName(styles.container)
         const actionBarOne = document.getElementById('actionBarOne')
         const actionBarTwo = document.getElementById('actionBarTwo')
-        
 
         deleteButtonFinal.addEventListener('click', function(){
-            deleteBox[0].classList.add(styles.hiddenBox)
+            container[0].classList.add(styles.hiddenBox)
             iconCheckAll.classList.remove(stylesFour.iconHeadingChecked)
             iconCheckAll.classList.add(stylesFour.iconHeading)
             actionBarOne.classList.remove(stylesThree.hiddenComponent)

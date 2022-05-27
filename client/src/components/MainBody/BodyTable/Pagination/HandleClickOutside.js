@@ -4,7 +4,17 @@ export const HandleClickOutside = () =>{
     const city = document.getElementById('city')
     // javascript không xét trường hợp if(paginationOption.style.display ngay lần đầu chạy)
     // nên phải dùng offsetWidth và offsetHeight thay thế
-    city.addEventListener('click',function(){
-            paginationOption.style.display = 'none'
-    })
+
+    document.addEventListener("mousedown", (event) => {
+        if (paginationOption.contains(event.target)) {
+            city.addEventListener('click',function(){
+                paginationOption.style.display = 'none'
+        })
+        } else {
+            city.addEventListener('click',function(){
+                paginationOption.style.display = 'none'
+        })
+        }
+      });
+      
 }

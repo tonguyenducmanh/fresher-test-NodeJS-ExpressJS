@@ -1,24 +1,24 @@
-import React, {useEffect} from "react";
+import React from "react";
 import styles from './CreateBody.module.css'
 
-import { XungHo } from "./AutoComplete/XungHo";
-import { PhongBan } from "./AutoComplete/PhongBan";
-import { GioiTinh } from "./AutoComplete/GioiTinh";
-import { ChucDanh } from "./AutoComplete/ChucDanh";
-import { LoaiTiemNang } from "./AutoComplete/LoaiTiemNang";
-import { DoanhThu } from "./AutoComplete/DoanhThu";
-import { LinhVuc } from "./AutoComplete/LinhVuc";
-import { LoaiHinh } from "./AutoComplete/LoaiHinh";
-import { NganhNghe } from "./AutoComplete/NganhNghe";
-import { NguonGoc } from "./AutoComplete/NguonGoc";
+import { XungHo } from "./AutoComplete/Array/XungHo";
+import { PhongBan } from "./AutoComplete/Array/PhongBan";
+import { ChucDanh } from "./AutoComplete/Array/ChucDanh";
+import { LoaiTiemNang } from "./AutoComplete/Array/LoaiTiemNang";
+import { DoanhThu } from "./AutoComplete/Array/DoanhThu";
+import { LinhVuc } from "./AutoComplete/Array/LinhVuc";
+import { LoaiHinh } from "./AutoComplete/Array/LoaiHinh";
+import { NganhNghe } from "./AutoComplete/Array/NganhNghe";
+import { NguonGoc } from "./AutoComplete/Array/NguonGoc";
 
 
-
+import AutocompleteMany from "./AutoComplete/AutoCompleteMany";
 import UseAutocomplete from './AutoComplete/AutoComplete'
 
 const CreateBody = () =>{
     const handleComboBox = (e) => {
             e.target.parentElement.children[1].style.display= 'block'
+            e.target.parentElement.children[1].children[0].children[0].children[0].focus()
     }
     return (
         <div className={styles.container}>
@@ -103,15 +103,9 @@ const CreateBody = () =>{
                                     </span>
                                 </span>
                             </span>
-                            <span className={styles.thongTin}>
-                                <span className={styles.thongTinTitle}>Loại tiềm năng</span>
-                                <span className={styles.thongTinCombo}>
-                                    <span className={styles.thongTinComboDefault} onClick={handleComboBox}>- Không chọn -</span>
-                                    <span className={styles.thongTinComboBox}>
-                                        <UseAutocomplete arr={LoaiTiemNang} />
-                                        <span className={styles.thongTinSearchIcon}></span>
-                                    </span>
-                                </span>
+                            <span className={styles.thongTinTiemNang}>
+                                <span className={styles.thongTinTitleTiemNang}>Loại tiềm năng</span>
+                                    <AutocompleteMany arr={LoaiTiemNang}/>
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Zalo</span>

@@ -16,7 +16,14 @@ export const HandleOption = () =>{
         paginationOption.style.display='none'
     }
     const options = option.children
-    for ( var i = 0 ; i < options.length ; i ++){
-        options[i].addEventListener('click', optionClicked)
-    }
+    //xử lý nếu click vào trong và ra ngoài
+    document.addEventListener("mousedown", (event) => {
+        if (paginationOption.contains(event.target)) {
+            for ( var i = 0 ; i < options.length ; i ++){
+                options[i].addEventListener('click', optionClicked)
+            }
+        } else {
+                paginationOption.style.display = 'none'
+        }
+      });
 }

@@ -64,7 +64,6 @@ export default function UseAutocomplete({arr}) {
         e.target.parentElement.parentElement.parentElement.parentElement.parentElement.children[0].innerHTML = e.target.textContent
         e.target.parentElement.parentElement.parentElement.parentElement.parentElement.children[0].style.color = '#616161'
         e.target.parentElement.parentElement.parentElement.parentElement.parentElement.children[1].style.display='none'
-        console.log(e.target.textContent)
     }
   return (
     <div>
