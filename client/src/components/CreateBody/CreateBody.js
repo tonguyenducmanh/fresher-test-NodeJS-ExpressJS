@@ -16,6 +16,15 @@ import AutocompleteMany from "./AutoComplete/AutoCompleteMany";
 import UseAutocomplete from './AutoComplete/AutoComplete'
 
 const CreateBody = () =>{
+    const thongTinComboBox = document.getElementsByClassName(styles.thongTinComboBox)
+    // xử lý sự kiện click ra ngoài các ComboBox  AutoComplete
+    document.addEventListener("mousedown", (event) => {
+        for(var i =0; i< thongTinComboBox.length; i++){
+            if (!thongTinComboBox[i].contains(event.target)) {
+                thongTinComboBox[i].style.display='none'
+            }
+        }
+      });
     const handleComboBox = (e) => {
             e.target.parentElement.children[1].style.display= 'block'
             e.target.parentElement.children[1].children[0].children[0].children[0].focus()

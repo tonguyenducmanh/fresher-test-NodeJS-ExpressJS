@@ -19,6 +19,15 @@ const ActionBar = () =>{
     useEffect(()=>{
         OpenMoreMenu()
         UndoSelected()
+        //thêm tính năng kiểm tra xem có bấm ra ngoài menu hay không
+        //nếu bấm ra ngoài thì sẽ đóng menu
+        const moreMenu = document.getElementById('moreMenu')
+        document.addEventListener("mousedown", (event) => {
+            if(!moreMenu.contains(event.target)){
+                moreMenu.classList.add(styles.hiddenMenu)
+            }
+          });
+
     },[])
 
     useEffect(() =>{
