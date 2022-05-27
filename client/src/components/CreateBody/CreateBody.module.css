@@ -109,6 +109,8 @@
 }
 
 .thongTinInput{
+    font-weight: 500;
+    font-size: 1rem;
     position: relative;
     height: calc(var(--padding)*1.5);
     border: SOLID var(--grayLight);
@@ -320,4 +322,16 @@ textarea{
     margin-top: var(--padding);
     font-weight: 500;
     color: var(--grayDark);
+}
+
+.thongTinHoVaTen{
+    font-weight: 500;
+    background-color: #e2e4e9;
+    position: relative;
+    height: calc(var(--padding)*1.5);
+    border: SOLID var(--grayLight);
+    border-width: 1.8px;
+    border-radius: 4px;
+    width: 400px;
+    padding: var(--padding) calc(var(--padding)*1.8);
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect }  from "react";
 import styles from './CreateBody.module.css'
 
 import { XungHo } from "./AutoComplete/Array/XungHo";
@@ -11,6 +11,7 @@ import { LoaiHinh } from "./AutoComplete/Array/LoaiHinh";
 import { NganhNghe } from "./AutoComplete/Array/NganhNghe";
 import { NguonGoc } from "./AutoComplete/Array/NguonGoc";
 
+// import { ConnectName } from "./HandleTyping/ConnectName";
 import TruongChonNhieu from './AutoComplete/TruongChonNhieu'
 import AutocompleteMany from "./AutoComplete/AutoCompleteMany";
 
@@ -25,7 +26,21 @@ const CreateBody = () =>{
         }
       });
 
-      
+
+      const ConnectName = () =>{
+          const firstName = document.getElementById('firstName')
+          const lastName = document.getElementById('lastName')
+          const fullName = document.getElementById('fullName')
+          const fullNameStyles = document.getElementsByClassName(styles.thongTinHoVaTen)
+        if(firstName.value || lastName.value){
+            fullName.innerHTML = firstName.value + ' ' + lastName.value
+            fullNameStyles[0].style.backgroundColor =  '#ffffff';
+        }else{
+            fullNameStyles[0].style.backgroundColor =  '#e2e4e9';
+            fullName.innerHTML = ''
+        }
+    }
+
     return (
         <div className={styles.container}>
             <div className={styles.box}>
@@ -43,17 +58,17 @@ const CreateBody = () =>{
                                 <span className={styles.thongTinTitle}>Xưng hô</span>
                                 <TruongChonNhieu arr={XungHo}/>
                             </span>
-                            <span className={styles.thongTin}>
+                            <span className={styles.thongTin} >
                                 <span className={styles.thongTinTitle}>Họ và đệm</span>
-                                <input className={styles.thongTinInput}/>
+                                <input className={styles.thongTinInput} autoComplete="new-password" id='firstName'  onChange={ConnectName}/>
                             </span>
                             <span className={styles.thongTin}>
-                                <span className={styles.thongTinTitle}>Tên</span>
-                                <input className={styles.thongTinInput}/>
+                                <span className={styles.thongTinTitle} >Tên</span>
+                                <input className={styles.thongTinInput} autoComplete="new-password" id='lastName'  onChange={ConnectName}/>
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle} >Họ và tên</span>
-                                <input className={styles.thongTinInput} disabled={true}/>
+                                <span className={styles.thongTinHoVaTen} id='fullName'/>
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Phòng ban</span>
