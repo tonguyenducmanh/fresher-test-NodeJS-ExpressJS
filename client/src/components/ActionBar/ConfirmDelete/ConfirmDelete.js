@@ -24,19 +24,22 @@ const ConfirmDelete = () => {
         //xử lý sự kiện bấm ra ngoài vùng được chọn và bấm hủy thì sẽ hủy tính năng
         //xóa
         document.addEventListener("mousedown", (event) => {
-            if (deleteBox[0].contains(event.target)) {
-                cancelButton.addEventListener('click', function(){
+            //kiểm tra sự kiện có không đã, nếu không có tức là đang ở trang khác
+            if(deleteBox[0]){
+                if (deleteBox[0].contains(event.target)) {
+                    cancelButton.addEventListener('click', function(){
+                        contanier[0].classList.add(styles.hiddenBox)
+                    })
+                    
+                    cancelButtonTwo.addEventListener('click', function(){
+                        contanier[0].classList.add(styles.hiddenBox)
+                    })
+                } else {
                     contanier[0].classList.add(styles.hiddenBox)
-                })
-                
-                cancelButtonTwo.addEventListener('click', function(){
-                    contanier[0].classList.add(styles.hiddenBox)
-                })
-            } else {
-                contanier[0].classList.add(styles.hiddenBox)
+                }
+              }
             }
-          });
-
+            );
     },[])
     
     useEffect(()=>{

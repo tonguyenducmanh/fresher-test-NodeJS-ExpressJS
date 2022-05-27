@@ -1,6 +1,6 @@
 export const GioiTinh = [
-    { title: '- không chọn -' },
-    { title: 'Nam' },
-    { title: 'Nữ' },
-    { title: 'LGBT+' },
+    '- không chọn -' ,
+    'Nam' ,
+    'Nữ' ,
+    'LGBT+' ,
   ];

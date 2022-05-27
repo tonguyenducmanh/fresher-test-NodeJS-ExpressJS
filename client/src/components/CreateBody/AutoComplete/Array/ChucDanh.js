@@ -1,9 +1,9 @@
 export const ChucDanh = [
-    { title: '- không chọn -' },
-    { title: 'Giám đốc' },
-    { title: 'Phó giám đốc' },
-    { title: 'Trưởng phòng' },
-    { title: 'Phó phòng' },
-    { title: 'Nhân viên' },
-    { title: 'Thực tập sinh' },
+    '- không chọn -' ,
+    'Giám đốc' ,
+    'Phó giám đốc' ,
+    'Trưởng phòng' ,
+    'Phó phòng' ,
+    'Nhân viên' ,
+    'Thực tập sinh' ,
   ];

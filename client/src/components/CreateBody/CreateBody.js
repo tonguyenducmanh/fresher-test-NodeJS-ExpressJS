@@ -11,9 +11,8 @@ import { LoaiHinh } from "./AutoComplete/Array/LoaiHinh";
 import { NganhNghe } from "./AutoComplete/Array/NganhNghe";
 import { NguonGoc } from "./AutoComplete/Array/NguonGoc";
 
-
+import TruongChonNhieu from './AutoComplete/TruongChonNhieu'
 import AutocompleteMany from "./AutoComplete/AutoCompleteMany";
-import UseAutocomplete from './AutoComplete/AutoComplete'
 
 const CreateBody = () =>{
     const thongTinComboBox = document.getElementsByClassName(styles.thongTinComboBox)
@@ -25,10 +24,8 @@ const CreateBody = () =>{
             }
         }
       });
-    const handleComboBox = (e) => {
-            e.target.parentElement.children[1].style.display= 'block'
-            e.target.parentElement.children[1].children[0].children[0].children[0].focus()
-    }
+
+      
     return (
         <div className={styles.container}>
             <div className={styles.box}>
@@ -42,15 +39,9 @@ const CreateBody = () =>{
                     <div className={styles.thongTinChung}>
                         <div className={styles.thongTinGroupTitle}>Thông tin chung</div>
                         <div className={styles.thongTinGroupBody}>
-                            <span className={styles.thongTin}>
+                        <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Xưng hô</span>
-                                <span className={styles.thongTinCombo}>
-                                    <span className={styles.thongTinComboDefault} onClick={handleComboBox}>- Không chọn -</span>
-                                    <span className={styles.thongTinComboBox}>
-                                        <UseAutocomplete arr={XungHo} />
-                                        <span className={styles.thongTinSearchIcon}></span>
-                                    </span>
-                                </span>
+                                <TruongChonNhieu arr={XungHo}/>
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Họ và đệm</span>
@@ -66,23 +57,11 @@ const CreateBody = () =>{
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Phòng ban</span>
-                                <span className={styles.thongTinCombo}>
-                                    <span className={styles.thongTinComboDefault} onClick={handleComboBox}>- Không chọn -</span>
-                                    <span className={styles.thongTinComboBox}>
-                                        <UseAutocomplete arr={PhongBan} />
-                                        <span className={styles.thongTinSearchIcon}></span>
-                                    </span>
-                                </span>
+                                <TruongChonNhieu arr={PhongBan}/>
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Chức danh</span>
-                                <span className={styles.thongTinCombo}>
-                                    <span className={styles.thongTinComboDefault} onClick={handleComboBox}>- Không chọn -</span>
-                                    <span className={styles.thongTinComboBox}>
-                                        <UseAutocomplete arr={ChucDanh} />
-                                        <span className={styles.thongTinSearchIcon}></span>
-                                    </span>
-                                </span>
+                                <TruongChonNhieu arr={ChucDanh}/>
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>
@@ -104,17 +83,11 @@ const CreateBody = () =>{
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Nguồn gốc</span>
-                                <span className={styles.thongTinCombo}>
-                                    <span className={styles.thongTinComboDefault} onClick={handleComboBox}>- Không chọn -</span>
-                                    <span className={styles.thongTinComboBox}>
-                                        <UseAutocomplete arr={NguonGoc} />
-                                        <span className={styles.thongTinSearchIcon}></span>
-                                    </span>
-                                </span>
+                                <TruongChonNhieu arr={NguonGoc}/>
                             </span>
-                            <span className={styles.thongTinTiemNang}>
-                                <span className={styles.thongTinTitleTiemNang}>Loại tiềm năng</span>
-                                    <AutocompleteMany arr={LoaiTiemNang}/>
+                            <span className={styles.thongTin}>
+                                <span className={styles.thongTinTitle}>Loại tiềm năng</span>
+                                <TruongChonNhieu arr={LoaiTiemNang}/>
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Zalo</span>
@@ -156,43 +129,19 @@ const CreateBody = () =>{
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Loại hình</span>
-                                <span className={styles.thongTinCombo}>
-                                    <span className={styles.thongTinComboDefault} onClick={handleComboBox}>- Không chọn -</span>
-                                    <span className={styles.thongTinComboBox}>
-                                        <UseAutocomplete arr={LoaiHinh} />
-                                        <span className={styles.thongTinSearchIcon}></span>
-                                    </span>
-                                </span>
+                                <TruongChonNhieu arr={LoaiHinh}/>
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Lĩnh vực</span>
-                                <span className={styles.thongTinCombo}>
-                                    <span className={styles.thongTinComboDefault} onClick={handleComboBox}>- Không chọn -</span>
-                                    <span className={styles.thongTinComboBox}>
-                                        <UseAutocomplete arr={LinhVuc} />
-                                        <span className={styles.thongTinSearchIcon}></span>
-                                    </span>
-                                </span>
+                                <TruongChonNhieu arr={LinhVuc}/>
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Ngành nghề</span>
-                                <span className={styles.thongTinCombo}>
-                                    <span className={styles.thongTinComboDefault} onClick={handleComboBox}>- Không chọn -</span>
-                                    <span className={styles.thongTinComboBox}>
-                                        <UseAutocomplete arr={NganhNghe} />
-                                        <span className={styles.thongTinSearchIcon}></span>
-                                    </span>
-                                </span>
+                                <TruongChonNhieu arr={NganhNghe}/>
                             </span>
                             <span className={styles.thongTin}>
-                                <span className={styles.thongTinTitle}>Doanh thu</span>
-                                <span className={styles.thongTinCombo}>
-                                    <span className={styles.thongTinComboDefault} onClick={handleComboBox}>- Không chọn -</span>
-                                    <span className={styles.thongTinComboBox}>
-                                        <UseAutocomplete arr={DoanhThu} />
-                                        <span className={styles.thongTinSearchIcon}></span>
-                                    </span>
-                                </span>
+                                <span className={styles.thongTinTitle}>DoanhThu</span>
+                                <TruongChonNhieu arr={DoanhThu}/>
                             </span>
                         </div>
                     </div>

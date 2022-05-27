@@ -167,20 +167,21 @@ export default function AutocompleteMany({arr}) {
   });
 
 
-  // React.useEffect(()=>{
-  //   const autoCompleteManyChecks = document.querySelectorAll('.autoCompleteManyCheck')
-  //   //xóa các nút chọn còn lại nếu có trường không chọn
-  //   for( const span of autoCompleteManyChecks){
-  //     if(span.textContent.includes('- không chọn -')){
-  //       for( var i=0 ; i< autoCompleteManyChecks.length ;i++){
-  //         if(autoCompleteManyChecks[i].textContent !== '- không chọn -'){
-  //           autoCompleteManyChecks[i].parentElement.children[1].children[0].click()
-  //         }
-  //       }
-  //     }
-  //   }
+  React.useEffect(()=>{
+    const autoCompleteManyChecks = document.querySelectorAll('.autoCompleteManyCheck')
+    //xóa các nút chọn còn lại nếu có trường không chọn
+    for( const span of autoCompleteManyChecks){
+      if(span.textContent.includes('- không chọn -')){
+        for( var i=0 ; i< autoCompleteManyChecks.length ;i++){
+          if(autoCompleteManyChecks[i].textContent !== '- không chọn -'){
+            autoCompleteManyChecks[i].parentElement.children[1].addEventListener('click',()=>{
+              console.log('hiihi')})
+          }
+        }
+      }
+    }
 
-  // },)
+  })
 
   return (
     <Root>

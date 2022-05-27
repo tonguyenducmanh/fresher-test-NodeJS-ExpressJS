@@ -1,10 +1,10 @@
 export const LoaiTiemNang = [
-    { title: '- không chọn -' },
-    { title: 'Khách hàng lẻ' },
-    { title: 'Khách hàng dự án' },
-    { title: 'Khách hàng trẻ tuổi' },
-    { title: 'Khách hàng khó tính' },
-    { title: 'Khách hàng dễ tính' },
-    { title: 'Khách hàng lâu năm' },
+    '- Không chọn -' ,
+    'Khách hàng lẻ' ,
+    'Khách hàng dự án' ,
+    'Khách hàng trẻ tuổi' ,
+    'Khách hàng khó tính' ,
+    'Khách hàng dễ tính' ,
+    'Khách hàng lâu năm' ,
    
   ];
