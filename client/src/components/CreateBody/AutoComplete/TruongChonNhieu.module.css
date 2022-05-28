@@ -69,6 +69,10 @@
     pointer-events: none;
 }
 
+.thongTinContentGray{
+    color: #9ba3b2;
+}
+
 .thongTinInput{
     display: none;
     font-weight: 500;

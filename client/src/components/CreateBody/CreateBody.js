@@ -10,13 +10,20 @@ import { LinhVuc } from "./AutoComplete/Array/LinhVuc";
 import { LoaiHinh } from "./AutoComplete/Array/LoaiHinh";
 import { NganhNghe } from "./AutoComplete/Array/NganhNghe";
 import { NguonGoc } from "./AutoComplete/Array/NguonGoc";
+import { QuocGia } from "./AutoComplete/Array/QuocGia";
 
 import { ConnectName } from "./HandleTyping/ConnectName";
 import TruongChonNhieu from './AutoComplete/TruongChonNhieu'
+import TruongChonNhieuTinhThanh from './AutoComplete/TruongChonNhieuTinhThanh'
+import TruongChonNhieuQuanHuyen from './AutoComplete/TruongChonNhieuQuanHuyen'
+import TruongChonNhieuPhuongXa from './AutoComplete/TruongChonNhieuPhuongXa'
 import TruongChonNhieuBox from './AutoComplete/TruongChonNhieuBox'
+import TruongChonNhieuQuocGia from './AutoComplete/TruongChonNhieuQuocGia'
+import { HandleTypingNumberHome } from "./HandleTyping/HandleTypingNumberHome";
+import DiaChiTongHop from "./AutoComplete/DiaChiTongHop";
+
 
 const CreateBody = () =>{
-
     return (
         <div className={styles.container}>
             <div className={styles.box}>
@@ -141,23 +148,23 @@ const CreateBody = () =>{
                         <div className={styles.thongTinGroupBody}>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Quốc gia</span>
-                                <input className={styles.thongTinInput}/>
+                                <TruongChonNhieuQuocGia arr={QuocGia}/>
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Tỉnh/Thành phố</span>
-                                <input className={styles.thongTinInput}/>
+                                <TruongChonNhieuTinhThanh/>
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Quận/Huyện</span>
-                                <input className={styles.thongTinInput}/>
+                                <TruongChonNhieuQuanHuyen/>
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Phường/Xã</span>
-                                <input className={styles.thongTinInput}/>
+                                <TruongChonNhieuPhuongXa/>
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Số nhà, Đường phố</span>
-                                <input className={styles.thongTinInput}/>
+                                <HandleTypingNumberHome/>
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Mã vùng</span>
@@ -165,7 +172,7 @@ const CreateBody = () =>{
                             </span>
                             <span className={styles.thongTinDiaChi}>
                                 <span className={`${styles.thongTinTitle}  ${styles.thongTinDiaChiTitle}`}>Địa chỉ</span>
-                                <textarea className={`${styles.thongTinInput}  ${styles.thongTinInputDiaChi}`}/>
+                                <DiaChiTongHop/>
                             </span>
                         </div>
                     </div>

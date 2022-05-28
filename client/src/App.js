@@ -10,6 +10,7 @@ import MainBody from "./components/MainBody/MainBody";
 import CreateBar from "./components/CreateBar/CreateBar"
 import CreateBody from "./components/CreateBody/CreateBody"
 import Others from "./components/Others/Others";
+import Test from "./Test";
 
 import styles from './styles.css'
 const App = () =>{
@@ -33,6 +34,8 @@ const App = () =>{
                     <>
                         <CreateBar/>
                         <CreateBody/>
+
+                        {/* <Test/> */}
                     </>}>
                     </Route>
                     <Route exact path="/others" element={<Others />}>

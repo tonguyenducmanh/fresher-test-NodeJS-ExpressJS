@@ -1,0 +1,25 @@
+.thongTinInput{
+    font-weight: 500;
+    font-size: 1rem;
+    position: relative;
+    height: auto;
+    border: SOLID var(--grayLight);
+    border-width: 1.8px;
+    border-radius: 4px;
+    width: 400px;
+    padding: var(--padding) calc(var(--padding)*1.8);
+}
+
+.thongTinInput:focus{
+    border: 2px solid var(--blue);
+}
+
+.thongTinInput:disabled{
+    background-color: var(--grayLight);
+}
+
+.thongTinDiaChiTongHop:disabled{
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: white;
+}

@@ -1,14 +1,17 @@
 import React, {useEffect} from 'react';
+import { useDispatch} from 'react-redux'
+import {addTinhThanh} from '../../../features/location/locationSlice'
 
+import { DiaChi } from "../AutoComplete/Array/DiaChi";
 import styles from './TruongChonNhieu.module.css'
 
-export default function TruongChonNhieu({arr}) {
-        const options = arr;
-        
+export default function TruongChonNhieuTinhThanh() {
         const thongTinInputBox = document.getElementsByClassName(styles.thongTinInputBox)
         const thongTinInput = document.getElementsByClassName(styles.thongTinInput)
         const thongTinList = document.getElementsByClassName(styles.thongTinList)
         const thongTinListItem = document.getElementsByClassName(styles.thongTinListItem)
+
+        const dispatch = useDispatch()
 
         //mở nhập input khi bấm vào combobox
         useEffect(()=>{
@@ -72,7 +75,7 @@ export default function TruongChonNhieu({arr}) {
             for(var i = 0 ; i< thongTinList.length; i++){
                 thongTinList[i].addEventListener('click', (e)=>{
                     e.target.parentElement.parentElement.children[2].innerHTML = e.target.textContent
-                    e.target.parentElement.parentElement.children[2].style.color = '#616161'
+                    e.target.parentElement.parentElement.children[2].classList.remove(styles.thongTinContentGray)
                     e.target.parentElement.parentElement.children[1].style.display = 'none'
                     e.target.parentElement.parentElement.children[3].style.display = 'none'
                     e.target.parentElement.parentElement.children[0].style.display = 'none'
@@ -86,11 +89,15 @@ export default function TruongChonNhieu({arr}) {
                 <input className={styles.thongTinInput} placeholder='Tìm kiếm'/>
                 
                 <ul className={styles.thongTinList}>
-                {options.map((option, index) => (
-                    <li className={styles.thongTinListItem} key={index}>{option}</li>
+                {DiaChi.map((option, index) => (
+                    <li className={styles.thongTinListItem}
+                        key={index}
+                        onClick={(e) => dispatch(addTinhThanh(option.name))}
+                    
+                    >{option.name}</li>
                     ))}
                 </ul>
-                <span className={styles.thongTinContent}>- Không chọn -</span>
+                <span className={`${styles.thongTinContent} ${styles.thongTinContentGray}`} id ='tinhThanh'>- Không chọn -</span>
                 <span className={styles.thongTinInputSearch}></span>
             </div>
         );

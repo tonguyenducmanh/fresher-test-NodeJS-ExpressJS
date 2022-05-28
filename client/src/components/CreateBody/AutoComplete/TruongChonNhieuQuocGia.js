@@ -1,8 +1,12 @@
 import React, {useEffect} from 'react';
 
+import { useDispatch } from 'react-redux';
+import { quocGia } from '../../../features/location/locationSlice';
 import styles from './TruongChonNhieu.module.css'
 
 export default function TruongChonNhieu({arr}) {
+        const dispatch = useDispatch()
+
         const options = arr;
         
         const thongTinInputBox = document.getElementsByClassName(styles.thongTinInputBox)
@@ -87,10 +91,13 @@ export default function TruongChonNhieu({arr}) {
                 
                 <ul className={styles.thongTinList}>
                 {options.map((option, index) => (
-                    <li className={styles.thongTinListItem} key={index}>{option}</li>
+                    <li className={styles.thongTinListItem} 
+                        key={index}
+                        onClick={()=>dispatch(quocGia('Việt Nam'))}    
+                    >{option}</li>
                     ))}
                 </ul>
-                <span className={styles.thongTinContent}>- Không chọn -</span>
+                <span className={styles.thongTinContent} id='quocGia'>- Không chọn -</span>
                 <span className={styles.thongTinInputSearch}></span>
             </div>
         );
