@@ -11,35 +11,11 @@ import { LoaiHinh } from "./AutoComplete/Array/LoaiHinh";
 import { NganhNghe } from "./AutoComplete/Array/NganhNghe";
 import { NguonGoc } from "./AutoComplete/Array/NguonGoc";
 
-// import { ConnectName } from "./HandleTyping/ConnectName";
+import { ConnectName } from "./HandleTyping/ConnectName";
 import TruongChonNhieu from './AutoComplete/TruongChonNhieu'
-import AutocompleteMany from "./AutoComplete/AutoCompleteMany";
+import TruongChonNhieuBox from './AutoComplete/TruongChonNhieuBox'
 
 const CreateBody = () =>{
-    const thongTinComboBox = document.getElementsByClassName(styles.thongTinComboBox)
-    // xử lý sự kiện click ra ngoài các ComboBox  AutoComplete
-    document.addEventListener("mousedown", (event) => {
-        for(var i =0; i< thongTinComboBox.length; i++){
-            if (!thongTinComboBox[i].contains(event.target)) {
-                thongTinComboBox[i].style.display='none'
-            }
-        }
-      });
-
-
-      const ConnectName = () =>{
-          const firstName = document.getElementById('firstName')
-          const lastName = document.getElementById('lastName')
-          const fullName = document.getElementById('fullName')
-          const fullNameStyles = document.getElementsByClassName(styles.thongTinHoVaTen)
-        if(firstName.value || lastName.value){
-            fullName.innerHTML = firstName.value + ' ' + lastName.value
-            fullNameStyles[0].style.backgroundColor =  '#ffffff';
-        }else{
-            fullNameStyles[0].style.backgroundColor =  '#e2e4e9';
-            fullName.innerHTML = ''
-        }
-    }
 
     return (
         <div className={styles.container}>
@@ -102,7 +78,7 @@ const CreateBody = () =>{
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Loại tiềm năng</span>
-                                <TruongChonNhieu arr={LoaiTiemNang}/>
+                                <TruongChonNhieuBox arr={LoaiTiemNang}/>
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Zalo</span>
