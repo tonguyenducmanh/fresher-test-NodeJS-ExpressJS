@@ -1,11 +1,8 @@
 @echo off
 
-@REM start visual studio code
-
-code .
-
-@REM  start ReactJS
+@REM khởi chạy client ReactJS và server NodeJS
 start clientStart.ps1
-
-@REM  start NodeJS
 start serverStart.ps1
+
+@REM khởi chạy visual studio code
+code .
