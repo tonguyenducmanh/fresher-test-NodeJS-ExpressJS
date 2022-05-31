@@ -110,6 +110,7 @@
 
 .thongTinInput{
     font-weight: 500;
+    color: var(--grayDark);
     font-size: 1rem;
     position: relative;
     height: calc(var(--padding)*1.5);
@@ -119,6 +120,8 @@
     width: 400px;
     padding: var(--padding) calc(var(--padding)*1.8);
 }
+
+
 
 .thongTinInput:focus{
     border: 2px solid var(--blue);

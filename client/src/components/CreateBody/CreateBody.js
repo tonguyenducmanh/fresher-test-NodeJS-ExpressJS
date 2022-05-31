@@ -27,11 +27,15 @@ const CreateBody = () =>{
     return (
         <div className={styles.container}>
             <div className={styles.box}>
-                <div className={styles.form}>
+                <form id='createCustomer' 
+                    method="post" 
+                    encType="multipart/form-data"
+                    className={styles.form}
+                >
                     <div className={styles.anhTiemNang}>
                         <div className={styles.thongTinGroupTitle}>Ảnh tiềm năng</div>
                         <div className={styles.thongTinGroupBody}>
-                            <input className={styles.thongTinImage} type='file'/>
+                            <input className={styles.thongTinImage} type='file' name='anhValue' id='anhValue'/>
                         </div>
                     </div>
                     <div className={styles.thongTinChung}>
@@ -123,7 +127,7 @@ const CreateBody = () =>{
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Ngày thành lập</span>
-                                <input className={styles.thongTinInput}/>
+                                <input type='date' placeholder="DD/MM/YYYY" className={styles.thongTinInput}/>
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Loại hình</span>
@@ -200,7 +204,7 @@ const CreateBody = () =>{
                         </div>
                     </div>
                     
-                </div>
+                </form>
             </div>
         </div>
     )

@@ -5,6 +5,7 @@ import cors from 'cors';
 
 import customerRoutes from './routes/customers.js'
 
+
 const app = express()
 
 app.use(bodyParser.json({ limit: '30mb', extended: true }))

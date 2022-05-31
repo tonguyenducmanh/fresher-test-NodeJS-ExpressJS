@@ -50,7 +50,12 @@ export const countCustomer = async (req,res) => {
 }
 
 export const createCustomer = async (req, res) => {
-    const post = req.body;
+    const anhValue = req.file
+
+    const post = {
+        _id: '123',
+        anhValue: anhValue
+    };
     const newCustomerInfo = new customerInfo({...post})
 
     try{

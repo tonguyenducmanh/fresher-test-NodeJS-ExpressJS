@@ -1,6 +1,5 @@
 :root{
     --icon-small: 16px;
-    --icon-medium: 20px;
     --icon-large: 24px;
     --padding: 10px;
     --border: 1px solid rgba(120, 120, 120, 0.347);
@@ -8,6 +7,9 @@
     --boxShadow: 1px 1px 3px 1px rgb(195, 195, 195);
     --white: #ffffff;
     --blue:#405eec; 
+    --grayDark: #616161;
+    --gray: #9ba3b2;
+    --grayLight: #e2e4e9;
 }
 
 .createBar{
@@ -66,64 +68,31 @@
     align-items: center;
 }
 
-
-.cancelButton{
-    display: flex;
-    align-items: center;
-    background-color: var(--white);
-    width: 80px;
-    height: 30px;
-    border-radius: 4px;
-    border: var(--border);
-}
-
-.cancelButton:hover{
+.createRightButton{
     cursor: pointer;
-}
-.cancelButtonChild{
-    padding-left: 15px;
-    font-weight: 500;
-}
-.saveAndCreate{
-    display: flex;
-    align-items: center;
-    background-color: var(--white);
-    width: 120px;
-    height: 30px;
+    margin: 0 5px;
+    border: 1px solid #e0e0e0;
     border-radius: 4px;
-    border: var(--border);
-    margin-left: var(--padding);
-}
-
-.saveAndCreate:hover{
-    cursor: pointer;
-}
-
-.saveAndCreateChild{
-    padding-left: 18px;
+    background-color: var(--white);
+    padding: calc(var(--padding)/2) calc(var(--padding)*2) ;
+    font-size: 1rem;
     font-weight: 500;
 }
 
+.createRightButton:last-child{
+    padding: 0 ;
+    width: 60px;
+    margin-left: 15px;
+}
 
 .saveButton{
-    display: flex;
-    align-items: center;
-    margin-left: var(--padding);
-}
-
-.saveButtonChild:hover{
-    cursor: pointer;
-}
-.saveButtonChild span {
-    color: white;
-}
-.saveButtonChild{
-    width: 50px;
     background-color: var(--blue);
     color: var(--white);
-    padding: 5px;
-    text-align: center;
-    font-weight: 500;
+    padding: calc(var(--padding)/2) calc(var(--padding)*2) ;
+    text-decoration: none;
     border-radius: 4px;
+    margin-left: -10px;
 }
-
+.saveButton:visited{
+    color: var(--white);
+}

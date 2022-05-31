@@ -60,15 +60,13 @@ export const Table = () =>{
                 </td>
                 <td className={styles.tdSeventeen}>Mô tả
                 </td>
-                <td className={styles.tdEighteen}>Bố cục
-                </td>
                 <td className={styles.tdNineteen}>Chủ sở hữu
                 </td>
                 <td className={styles.tdTwenty}>Doanh thu
                 </td>
                 <td className={styles.tdTwentyOne}>Dùng chung
                 </td>
-                <td className={styles.tdTwentyTwo}>Facebook
+                <td className={styles.tdTwentyTwo}>Zalo
                 </td>
             </tr>
         </thead>

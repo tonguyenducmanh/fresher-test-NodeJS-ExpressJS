@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
-import {paginationReducer, customersReducer, countReducer, findReducer, deleteRducer} from '../features/customers/customersSlice'
+import {paginationReducer, customersReducer, countReducer, findReducer, deleteRducer, createReducer} from '../features/customers/customersSlice'
 import { locationReducer } from '../features/location/locationSlice'
 
 export default configureStore({
@@ -9,6 +9,7 @@ export default configureStore({
       count: countReducer,
       find : findReducer,
       delete: deleteRducer,
-      location: locationReducer
+      location: locationReducer,
+      create: createReducer
     }
   })

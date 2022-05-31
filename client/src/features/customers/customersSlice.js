@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { enablePatches } from "immer";
 import customerAPI from '../../api/customerAPI'
 
 export const paginationSlice = createSlice({
@@ -194,9 +195,80 @@ export const deleteCustomersSlice = createSlice ({
     }
 })
 
+
+export const createCustomer = createAsyncThunk('customers/createCustomer', async (path) => {
+    const respone = await customerAPI.post('',path,  {validateStatus() { return true } } )
+    return respone.data
+
+    //{validateStatus() { return true } } phải có dòng này
+})
+
+export const createCustomerSlice = createSlice({
+    name: 'create',
+    initialState:{
+        createCustomer: {
+            _id: '',
+            anh: '',
+            xungho: '',
+            hovadem: '',
+            ten: '',
+            phongban: '',
+            chucdanh: '',
+            dtdidong: '',
+            dtcoquan: '',
+            dtkhac: '',
+            loaitiemnang: '',
+            nguongoc: '',
+            khonggoidien: '',
+            khongguiemail: '',
+            zalo: '',
+            emailcanhan: '',
+            emailcoquan: '',
+            tochuc: '',
+            masothue: '',
+            taikhoannganhang: '',
+            motainganhang: '',
+            ngaythanhlap: '',
+            loaihinh: '',
+            linhvuc: '',
+            nganhnghe: '',
+            doanhthu: '',
+            quocgia: '',
+            tinhthanhpho: '',
+            quanhuyen: '',
+            phuongxa: '',
+            sonha: '',
+            mavung: '',
+            mota: '',
+            dungchung: '',
+        },
+        status: 'idle',
+        error: null
+    }
+    , reducers:{
+
+    },
+    extraReducers(builder){
+        builder
+        .addCase(createCustomer.pending, (state, action) =>{
+            state.status = 'loading'
+        })
+        .addCase(createCustomer.fulfilled, (state, action) =>{
+            state.status = 'succeeded'
+            state.createCustomer._id = action.payload
+        })
+        .addCase(createCustomer.rejected, (state, action) => {
+            state.status = 'failed'
+            state.error = action.error.message
+        })
+    }
+})
+
+
 export const { nextPagination, previousPagination, limitTen, limitFifty, limitOneHundred, limitTwenty,firstIndex , lastIndex } = paginationSlice.actions
 export const paginationReducer = paginationSlice.reducer
 export const customersReducer = customersSlice.reducer
 export const countReducer = countSlice.reducer
 export const findReducer = findCustomersSlice.reducer
 export const deleteRducer = deleteCustomersSlice.reducer
+export const createReducer = createCustomerSlice.reducer

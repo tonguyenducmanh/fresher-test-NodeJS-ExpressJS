@@ -1,4 +1,6 @@
 import express from 'express'
+import multer from 'multer'
+const upload = multer({dest: 'uploads/'})
 
 import { getCustomer, countCustomer , createCustomer, findCustomer, deleteCustomer} from '../controllers/customers.js'
 
@@ -8,6 +10,6 @@ router.get('/', getCustomer)
 router.get('/find',findCustomer)
 router.get('/delete',deleteCustomer)
 router.get('/count', countCustomer)
-router.post('/', createCustomer)
+router.post('/', upload.single('anhValue') , createCustomer)
 
 export default router
