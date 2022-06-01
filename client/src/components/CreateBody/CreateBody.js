@@ -23,11 +23,13 @@ import { HandleTypingNumberHome } from "./HandleTyping/HandleTypingNumberHome";
 import DiaChiTongHop from "./AutoComplete/DiaChiTongHop";
 
 import { HandleCheck } from "./HandleTyping/HandleCheck";
+import { HandleImage } from "./HandleTyping/HandleImage";
 
 
 
 const CreateBody = () =>{
     useEffect(()=>{
+        HandleImage()
         HandleCheck()
     })
 
@@ -42,8 +44,9 @@ const CreateBody = () =>{
                 >
                     <div className={styles.anhTiemNang}>
                         <div className={styles.thongTinGroupTitle}>Ảnh tiềm năng</div>
-                        <div className={styles.thongTinGroupBody}>
+                        <div className={`${styles.thongTinGroupBody} ${styles.uploadImageBox}`}>
                             <input className={styles.thongTinImage} type='file' name='anhValue' id='anhValue'/>
+                            <span className={styles.avatarImage} id='avatarValue'></span>
                         </div>
                     </div>
                     <div className={styles.thongTinChung}>

@@ -85,8 +85,16 @@
 .thongTinImage::-webkit-file-upload-button {
     visibility: hidden;
 }
-.thongTinImage::before{
+
+.uploadImageBox{
+    margin-top: var(--padding);
+    position: relative;
+}
+
+.avatarImage{
+    pointer-events: none;
     position: absolute;
+    border-radius: 100px;
     content: '';
     z-index: 1;
     width: 56px;

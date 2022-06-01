@@ -1,9 +1,32 @@
 import * as XLSX from 'xlsx/xlsx.mjs';
 
-//mỗi style này là cách gọi tiền tố class riêng dựa theo từng
-//component khác nhau
+import styles from './ActionBar.module.css'
+import stylesTwo from '../MainBody/BodyTable/Table/Customers/Customers.module.css'
+import stylesFour from '../MainBody/BodyTable/Table/Table.module.css'
+
 export const ExportToExcellFile = (findList) =>{
-            //tự động tạo file excell tải về khi state của danh sách khác rộng ( là có 1 khách hàng tiềm năng được chọn tải về )
+    const tdIds =  document.getElementsByClassName(stylesTwo.tdId)
+    const checkedButton =  document.getElementsByClassName('hihi')
+    const checkedRow =  document.getElementsByClassName(stylesTwo.trId)
+    const iconCheckAll = document.getElementById('iconCheckAll')
+    const actionBarOne = document.getElementById('actionBarOne')
+    const actionBarTwo = document.getElementById('actionBarTwo')
+    const moreMenu = document.getElementById('moreMenu')
+    
+        actionBarOne.classList.remove(styles.hiddenComponent)
+        actionBarTwo.classList.add(styles.hiddenComponent)
+        for( var i = 0 ; i < tdIds.length ; i ++){
+            if(checkedButton[i].classList.contains(stylesTwo.iconHeadingChecked)){
+                checkedButton[i].classList.remove(stylesTwo.iconHeadingChecked)
+                checkedButton[i].classList.add(stylesTwo.iconHeading)
+                checkedRow[i].classList.remove(stylesTwo.itemChecked)
+                iconCheckAll.classList.remove(stylesFour.iconHeadingChecked)
+                iconCheckAll.classList.add(stylesFour.iconHeading)
+            }
+        }
+        moreMenu.classList.add(styles.hiddenMenu)
+        console.log(findList)
+                //tự động tạo file excell tải về khi state của danh sách khác rộng ( là có 1 khách hàng tiềm năng được chọn tải về )
     if(findList !== ''){
         const rows = findList.map(row => ({
             // _id: row._id,
@@ -12,8 +35,8 @@ export const ExportToExcellFile = (findList) =>{
             xungho: row.xungho,
             hovaten: row.hovadem + row.ten,
             chucdanh: row.chucdanh,
-            dtdidong: row.dtdidong.toString(),
-            dtcoquan: row.dtcoquan.toString(),
+            dtdidong: row.dtdidong,
+            dtcoquan: row.dtcoquan,
             //2 số điện thoại trên nếu có dữ liệu nhập vào dấu - thì xóa nó đi
             emailcoquan: row.emailcoquan,
             emailcanhan: row.emailcanhan,
@@ -53,5 +76,5 @@ export const ExportToExcellFile = (findList) =>{
             /* xuất ra file excell với tên khachhang.xlsx */
             XLSX.writeFile(workbook, "khachhang.xlsx");
     }
-            
+
 }

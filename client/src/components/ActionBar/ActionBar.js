@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import styles from './ActionBar.module.css'
 import stylesTwo from '../MainBody/BodyTable/Table/Customers/Customers.module.css'
 import stylesThree from './ConfirmDelete/ConfirmDelete.module.css'
-import stylesFour from '../MainBody/BodyTable/Table/Table.module.css'
 
 import ConfirmDelete from "./ConfirmDelete/ConfirmDelete";
 import { ExportToExcellFile } from "./ExportToExcellFile";
@@ -15,7 +14,6 @@ import { fetchCustomersFind } from "../../features/customers/customersSlice";
 const ActionBar = () =>{
     const dispatch = useDispatch()
     const findList = useSelector(state => state.find.findCustomers)
-    
     useEffect(()=>{
         OpenMoreMenu()
         UndoSelected()
@@ -33,34 +31,21 @@ const ActionBar = () =>{
     useEffect(() =>{
         const tdIds =  document.getElementsByClassName(stylesTwo.tdId)
         const checkedButton =  document.getElementsByClassName('hihi')
-        const checkedRow =  document.getElementsByClassName(stylesTwo.trId)
-        const exportExcell = document.getElementById('exportExcell')
-        const iconCheckAll = document.getElementById('iconCheckAll')
-        const actionBarOne = document.getElementById('actionBarOne')
-        const actionBarTwo = document.getElementById('actionBarTwo')
-        const moreMenu = document.getElementById('moreMenu')
+        const moreButton = document.getElementById('moreButton')
         
-        exportExcell.addEventListener('click', () =>{
-            actionBarOne.classList.remove(styles.hiddenComponent)
-            actionBarTwo.classList.add(styles.hiddenComponent)
+        moreButton.addEventListener('click', () =>{
             let idsString = []
             for( var i = 0 ; i < tdIds.length ; i ++){
                 if(checkedButton[i].classList.contains(stylesTwo.iconHeadingChecked)){
                     idsString = idsString.concat(tdIds[i].textContent)
-                    checkedButton[i].classList.remove(stylesTwo.iconHeadingChecked)
-                    checkedButton[i].classList.add(stylesTwo.iconHeading)
-                    checkedRow[i].classList.remove(stylesTwo.itemChecked)
-                    iconCheckAll.classList.remove(stylesFour.iconHeadingChecked)
-                    iconCheckAll.classList.add(stylesFour.iconHeading)
                 }
             }
                 idsString = idsString.join(',')
             dispatch(fetchCustomersFind(`?findArray=${idsString}`))
-            moreMenu.classList.add(styles.hiddenMenu)
-            ExportToExcellFile(findList)
 
         })
     },[dispatch, findList])
+    
     useEffect(() =>{
         const deleteButton = document.getElementById('deleteButton')
         const deleteBox = document.getElementsByClassName(stylesThree.container)
@@ -85,7 +70,7 @@ const ActionBar = () =>{
                     <span className={styles.actionLeftMoreButton} id='moreButton'>
                     </span>
                     <span className={`${styles.actionLeftMoreMenu} ${styles.hiddenMenu}`} id='moreMenu'>
-                        <span className={styles.actionLeftExportButton} id='exportExcell'>Xuất khẩu</span>
+                        <span className={styles.actionLeftExportButton} id='exportExcell' onClick={()=>ExportToExcellFile(findList)}>Xuất khẩu</span>
                         <span className={styles.actionLeftDeleteButton} id='deleteButton'>Xóa</span>
                     </span>
                 </span>
