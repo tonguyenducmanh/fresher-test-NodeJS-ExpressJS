@@ -12,6 +12,7 @@ app.use(bodyParser.json({ limit: '30mb', extended: true }))
 app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }))
 app.use(cors());
 
+app.use(express.static('uploads'));
 app.use('/customers', customerRoutes)
 
 const CONNECTION_URL = 'mongodb://localhost:27017/fresher_test'

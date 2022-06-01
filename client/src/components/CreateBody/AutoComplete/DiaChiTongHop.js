@@ -1,15 +1,14 @@
 import styles from './DiaChiTongHop.module.css'
 import {useSelector} from 'react-redux'
 import { useEffect } from 'react'
-import { DiaChi } from './Array/DiaChi'
 import stylesTwo from './TruongChonNhieu.module.css'
 const DiaChiTongHop = () => {
     const getQuocGia = useSelector(state => state.location.quocGia)
     const getTinhThanh = useSelector(state => state.location.tinhThanh)
     const getquanHuyen = useSelector(state => state.location.quanHuyen)
     const getPhuongXa = useSelector(state => state.location.phuongXa)
+    
     let getsoNha= useSelector(state => state.location.soNha)
-
     useEffect(()=>
     {
         let tinhThanh = document.getElementById('tinhThanh')
@@ -21,7 +20,7 @@ const DiaChiTongHop = () => {
         if(quanHuyen.classList.contains(stylesTwo.thongTinContentGray) ){
             quanHuyen =''
         }else { quanHuyen = quanHuyen.textContent + ','}
-        if(phuongXa .classList.contains(stylesTwo.thongTinContentGray)){
+        if(phuongXa.classList.contains(stylesTwo.thongTinContentGray)){
             phuongXa =''
         }else { phuongXa = phuongXa.textContent + ','}
         if(getsoNha){

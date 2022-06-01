@@ -13,12 +13,12 @@ export const Table = () =>{
     const dispatch = useDispatch()
     useEffect( () =>{
         HandleCheckAll()
-    },[HandleCheckAll])
+    },[])
     
 
     useEffect(() => {
             dispatch(fetchCustomersList(`?limit=${limitPagination}&startIndex=${startIndexPagination}`))
-    }, [limitPagination, startIndexPagination])
+    }, [limitPagination, startIndexPagination, dispatch])
     return (
         <div className={styles.tableContainer}>
         <table className={styles.table}>

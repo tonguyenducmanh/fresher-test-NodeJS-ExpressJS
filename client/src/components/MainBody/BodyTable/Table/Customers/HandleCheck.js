@@ -29,7 +29,7 @@ export const HandleCheck = (limit) =>{
                 actionBarOne.classList.add(stylesThree.hiddenComponent)
                 }
                 actionBarTwo.classList.remove(stylesThree.hiddenComponent)
-                if(iconChecks.length == 0){
+                if(iconChecks.length === 0){
                     actionBarOne.classList.remove(stylesThree.hiddenComponent)  
                     actionBarTwo.classList.add(stylesThree.hiddenComponent)
             }
@@ -37,7 +37,7 @@ export const HandleCheck = (limit) =>{
            
             countCheck.innerHTML = `Đã chọn ${iconChecks.length}`
             //nếu check tất cả nút thì check nút check all và ngược lại
-            if( limit != iconChecks.length){
+            if( limit !== iconChecks.length){
                 checkAllButton.classList.remove(stylesTwo.iconHeadingChecked)
                 checkAllButton.classList.add(stylesTwo.iconHeading)
             }else{

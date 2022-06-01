@@ -1,6 +1,15 @@
 import express from 'express'
 import multer from 'multer'
-const upload = multer({dest: 'uploads/'})
+
+const fileStorageEngine = multer.diskStorage({
+    destination: (req,file, cb)=>{
+        cb(null, './uploads')
+    },
+    filename: (req, file, cb)=>{
+        cb(null, Date.now() + '--' + file.originalname)
+    }
+})
+const upload = multer({storage: fileStorageEngine})
 
 import { getCustomer, countCustomer , createCustomer, findCustomer, deleteCustomer} from '../controllers/customers.js'
 

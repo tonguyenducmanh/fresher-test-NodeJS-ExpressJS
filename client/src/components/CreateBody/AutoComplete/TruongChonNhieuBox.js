@@ -1,4 +1,4 @@
-import React, {useEffect, useInsertionEffect}from 'react';
+import React, {useEffect}from 'react';
 
 import styles from './TruongChonNhieuBox.module.css'
 
@@ -8,12 +8,10 @@ export default function TruongChonNhieu({arr}) {
         const thongTinInputBox = document.getElementsByClassName(styles.thongTinInputBox)
         const thongTinInput = document.getElementsByClassName(styles.thongTinInput)
         const thongTinList = document.getElementsByClassName(styles.thongTinList)
-        const thongTinContent = document.getElementsByClassName(styles.thongTinContent)
         const thongTinListItem = document.getElementsByClassName(styles.thongTinListItem)
         const thongTinInputForm = document.getElementsByClassName(styles.thongTinInputForm)
         const thongTinExample = document.getElementsByClassName(styles.thongTinExample)
         const thongtinContainer = document.getElementsByClassName(styles.thongtinContainer)
-        const thongTinContentDecor = document.getElementsByClassName(styles.thongTinContentDecor)
 
 
         //mở nhập inputForm khi bấm vào combobox
@@ -28,7 +26,7 @@ export default function TruongChonNhieu({arr}) {
                     }
                 })
             }
-        },[])
+        },[thongTinInputBox])
 
         //mở dãy gợi ý khi mà hiện tính năng nhập và tùy chỉnh danh sách theo dữ liệu nhập
         //danh sách gợi ý được lọc qua xem có trùng chữ nào thì mới hiện
@@ -54,7 +52,7 @@ export default function TruongChonNhieu({arr}) {
                                         }
                                     }
                                     //nếu không trùng thì mới thêm vào
-                                    if(count == 0){
+                                    if(count === 0){
                                         thongTinListItem[k].style.display = 'block';
                                     } else{
                                     thongTinListItem[k].style.display = 'none'
@@ -68,7 +66,7 @@ export default function TruongChonNhieu({arr}) {
                     }) )
                 }
                 
-        },[])
+        },[thongTinInputBox, thongTinInputForm, thongTinListItem, thongTinList])
             
         // xử lý sự kiện bấm ra ngoài vùng được chọn
         useEffect(() =>{
@@ -84,7 +82,7 @@ export default function TruongChonNhieu({arr}) {
                     }}
                 }
                 );
-        },[])
+        },[thongTinInputForm, thongtinContainer])
 
         //xử lý tính năng nhập nhanh gợi ý vào input
         useEffect(() =>{
@@ -120,7 +118,7 @@ export default function TruongChonNhieu({arr}) {
                             }
                         }
                         //nếu không trùng thì mới thêm vào
-                        if(count == 0){
+                        if(count === 0){
                             thongTinInputBox[i].appendChild(theMoi)
                         }
                         
@@ -153,7 +151,7 @@ export default function TruongChonNhieu({arr}) {
                     }
                 })
                 }
-        },[])
+        },[thongTinExample, thongTinInput, thongTinInputBox, thongTinList])
 
 
 

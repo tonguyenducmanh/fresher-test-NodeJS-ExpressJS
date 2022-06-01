@@ -18,7 +18,7 @@ export const UndoSelected = () =>{
                 listCheckButton[i].parentElement.classList.remove(stylesTwo.itemChecked)
             }
 
-            if(iconChecks.length == 0){
+            if(iconChecks.length === 0){
             actionBarOne.classList.remove(stylesThree.hiddenComponent)  
             actionBarTwo.classList.add(stylesThree.hiddenComponent)
             checkAllButton.classList.remove(styles.iconHeadingChecked)

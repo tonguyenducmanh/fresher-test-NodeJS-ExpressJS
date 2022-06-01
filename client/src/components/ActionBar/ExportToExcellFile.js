@@ -1,11 +1,10 @@
-import { useSelector } from 'react-redux'
 import * as XLSX from 'xlsx/xlsx.mjs';
 
 //mỗi style này là cách gọi tiền tố class riêng dựa theo từng
 //component khác nhau
 export const ExportToExcellFile = (findList) =>{
             //tự động tạo file excell tải về khi state của danh sách khác rộng ( là có 1 khách hàng tiềm năng được chọn tải về )
-    if(findList != ''){
+    if(findList !== ''){
         const rows = findList.map(row => ({
             // _id: row._id,
             //trường mã id khách hàng thực tế có lẽ không cần đọc mà cũng không nên đọc được nên k lấy

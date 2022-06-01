@@ -10,13 +10,12 @@ export const HandleCheckAll = () =>{
     const countCheck = document.getElementById('countCheck')
     const listCheckButton = document.getElementsByClassName('hihi')
     const iconChecks = document.getElementsByClassName(stylesTwo.iconHeadingChecked)
-    const checkId = document.getElementsByClassName(stylesTwo.tdId)
 
     checkAllButton.addEventListener('click', function(){
         if (checkAllButton.classList.contains(styles.iconHeadingChecked)) {
             checkAllButton.classList.add(styles.iconHeading);
             checkAllButton.classList.remove(styles.iconHeadingChecked);
-            for (var i = 0; i < listCheckButton.length; i++) {
+            for (let i = 0; i < listCheckButton.length; i++) {
                     listCheckButton[i].classList.add(stylesTwo.iconHeading);
                     listCheckButton[i].classList.remove(stylesTwo.iconHeadingChecked);
                     listCheckButton[i].parentElement.classList.remove(stylesTwo.itemChecked)
@@ -25,7 +24,7 @@ export const HandleCheckAll = () =>{
         else if(checkAllButton.classList.contains(styles.iconHeading)) {
             checkAllButton.classList.add(styles.iconHeadingChecked);
             checkAllButton.classList.remove(styles.iconHeading);
-            for (var i = 0; i < listCheckButton.length; i++) {
+            for (let i = 0; i < listCheckButton.length; i++) {
                 listCheckButton[i].classList.remove(stylesTwo.iconHeading);
                 listCheckButton[i].classList.add(stylesTwo.iconHeadingChecked);
                 listCheckButton[i].parentElement.classList.add(stylesTwo.itemChecked)
@@ -33,7 +32,7 @@ export const HandleCheckAll = () =>{
                 //hiện menu chỉnh sửa nhanh
                 actionBarOne.classList.add(stylesThree.hiddenComponent)}
                 actionBarTwo.classList.remove(stylesThree.hiddenComponent)
-                if(iconChecks.length == 0){
+                if(iconChecks.length === 0){
                     actionBarOne.classList.remove(stylesThree.hiddenComponent)  
                     actionBarTwo.classList.add(stylesThree.hiddenComponent)
                 

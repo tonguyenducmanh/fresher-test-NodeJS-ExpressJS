@@ -57,12 +57,10 @@ const ActionBar = () =>{
                 idsString = idsString.join(',')
             dispatch(fetchCustomersFind(`?findArray=${idsString}`))
             moreMenu.classList.add(styles.hiddenMenu)
+            ExportToExcellFile(findList)
 
         })
-    },[dispatch])
-    useEffect(() =>{
-        ExportToExcellFile(findList)
-    })
+    },[dispatch, findList])
     useEffect(() =>{
         const deleteButton = document.getElementById('deleteButton')
         const deleteBox = document.getElementsByClassName(stylesThree.container)

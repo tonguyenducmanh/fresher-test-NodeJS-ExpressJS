@@ -1,5 +1,4 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { enablePatches } from "immer";
 import customerAPI from '../../api/customerAPI'
 
 export const paginationSlice = createSlice({

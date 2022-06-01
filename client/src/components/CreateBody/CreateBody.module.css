@@ -243,6 +243,28 @@ textarea{
     background-position: var(--iconUnchecked);
 }
 
+
+.iconChecked{
+    position: relative;
+    width: var(--icon-small);
+    height: var(--icon-small);
+}
+
+.iconChecked:hover{
+    cursor: pointer;
+}
+
+.iconChecked::before{
+    position: absolute;
+    content: '';
+    z-index: 1;
+    width: var(--icon-small);
+    height: var(--icon-small);
+    background-image: url(../../images/icon_collection.svg);
+    background-position: var(--iconChecked);
+}
+
+
 .thongTinCombo{
     position: relative;
     height: calc(var(--padding)*1.5);

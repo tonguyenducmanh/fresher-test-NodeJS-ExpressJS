@@ -9,7 +9,7 @@ export const HandleOption = () =>{
         paginationSelect.innerHTML = e.target.textContent
         e.target.classList.add(styles.paginationOptionSelected)
         for ( var k = 0 ; k < options.length ; k ++){
-            if(options[k].textContent != paginationSelect.textContent){
+            if(options[k].textContent !== paginationSelect.textContent){
             options[k].classList.remove(styles.paginationOptionSelected)
             }
         }

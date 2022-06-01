@@ -22,8 +22,16 @@ import TruongChonNhieuQuocGia from './AutoComplete/TruongChonNhieuQuocGia'
 import { HandleTypingNumberHome } from "./HandleTyping/HandleTypingNumberHome";
 import DiaChiTongHop from "./AutoComplete/DiaChiTongHop";
 
+import { HandleCheck } from "./HandleTyping/HandleCheck";
+
+
 
 const CreateBody = () =>{
+    useEffect(()=>{
+        HandleCheck()
+    })
+
+    
     return (
         <div className={styles.container}>
             <div className={styles.box}>
@@ -43,7 +51,7 @@ const CreateBody = () =>{
                         <div className={styles.thongTinGroupBody}>
                         <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Xưng hô</span>
-                                <TruongChonNhieu arr={XungHo}/>
+                                <TruongChonNhieu arr={XungHo} id={'xungHo'} />
                             </span>
                             <span className={styles.thongTin} >
                                 <span className={styles.thongTinTitle}>Họ và đệm</span>
@@ -51,7 +59,7 @@ const CreateBody = () =>{
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle} >Tên</span>
-                                <input className={styles.thongTinInput} autoComplete="new-password" id='lastName'  onChange={ConnectName}/>
+                                <input  className={styles.thongTinInput} autoComplete="new-password" id='lastName'  onChange={ConnectName}/>
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle} >Họ và tên</span>
@@ -59,11 +67,11 @@ const CreateBody = () =>{
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Phòng ban</span>
-                                <TruongChonNhieu arr={PhongBan}/>
+                                <TruongChonNhieu arr={PhongBan} id={'phongBan'}/>
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Chức danh</span>
-                                <TruongChonNhieu arr={ChucDanh}/>
+                                <TruongChonNhieu arr={ChucDanh} id={'chucDanh'}/>
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>
@@ -72,7 +80,7 @@ const CreateBody = () =>{
                                     <span className={styles.iconToolTip}>Điện thoại di động</span>
                                     </span>
                                 </span>
-                                <input className={styles.thongTinInput}/>
+                                <input className={styles.thongTinInput} id='dienThoaiDiDong'/>
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>
@@ -81,35 +89,35 @@ const CreateBody = () =>{
                                     <span className={styles.iconToolTip}>Điện thoại cơ quan </span>
                                     </span>
                                 </span>
-                                <input className={styles.thongTinInput}/>
+                                <input className={styles.thongTinInput} id='dienThoaiCoQuan'/>
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Nguồn gốc</span>
-                                <TruongChonNhieu arr={NguonGoc}/>
+                                <TruongChonNhieu arr={NguonGoc} id={'nguonGoc'}/>
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Loại tiềm năng</span>
-                                <TruongChonNhieuBox arr={LoaiTiemNang}/>
+                                <TruongChonNhieuBox arr={LoaiTiemNang} />
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Zalo</span>
-                                <input className={styles.thongTinInput}/>
+                                <input className={styles.thongTinInput} id='zalo'/>
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Email cá nhân</span>
-                                <input className={styles.thongTinInput}/>
+                                <input className={styles.thongTinInput} id='emailCaNhan'/>
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Email cơ quan</span>
-                                <input className={styles.thongTinInput}/>
+                                <input className={styles.thongTinInput} id='emailCoQuan'/>
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Tổ chức</span>
-                                <input className={styles.thongTinInput}/>
+                                <input className={styles.thongTinInput} id='toChuc'/>
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Mã số thuế</span>
-                                <input className={styles.thongTinInput}/>
+                                <input className={styles.thongTinInput} id='maSoThue'/>
                             </span>
 
                         </div>
@@ -119,31 +127,31 @@ const CreateBody = () =>{
                         <div className={styles.thongTinGroupBody}>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Tài khoản ngân hàng</span>
-                                <input className={styles.thongTinInput}/>
+                                <input className={styles.thongTinInput} id='taiKhoanNganHang'/>
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Mở tại ngân hàng</span>
-                                <input className={styles.thongTinInput}/>
+                                <input className={styles.thongTinInput} id='moTaiNganHang'/>
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Ngày thành lập</span>
-                                <input type='date' placeholder="DD/MM/YYYY" className={styles.thongTinInput}/>
+                                <input type='date' placeholder="DD/MM/YYYY" className={styles.thongTinInput} id='ngayThanhLap'/>
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Loại hình</span>
-                                <TruongChonNhieu arr={LoaiHinh}/>
+                                <TruongChonNhieu arr={LoaiHinh} id={'loaiHinh'}/>
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Lĩnh vực</span>
-                                <TruongChonNhieu arr={LinhVuc}/>
+                                <TruongChonNhieu arr={LinhVuc} id={'linhVuc'}/>
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Ngành nghề</span>
-                                <TruongChonNhieu arr={NganhNghe}/>
+                                <TruongChonNhieu arr={NganhNghe} id={'nganhNghe'}/>
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>DoanhThu</span>
-                                <TruongChonNhieu arr={DoanhThu}/>
+                                <TruongChonNhieu arr={DoanhThu} id={'doanhThu'}/>
                             </span>
                         </div>
                     </div>
@@ -152,7 +160,7 @@ const CreateBody = () =>{
                         <div className={styles.thongTinGroupBody}>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Quốc gia</span>
-                                <TruongChonNhieuQuocGia arr={QuocGia}/>
+                                <TruongChonNhieuQuocGia arr={QuocGia} id={'quocGia'}/>
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Tỉnh/Thành phố</span>
@@ -172,7 +180,7 @@ const CreateBody = () =>{
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Mã vùng</span>
-                                <input className={styles.thongTinInput}/>
+                                <input className={styles.thongTinInput} id='maVung'/>
                             </span>
                             <span className={styles.thongTinDiaChi}>
                                 <span className={`${styles.thongTinTitle}  ${styles.thongTinDiaChiTitle}`}>Địa chỉ</span>
@@ -185,7 +193,9 @@ const CreateBody = () =>{
                         <div className={styles.thongTinGroupBody}>
                             <span className={styles.thongTinMoTa}>
                                 <span className={`${styles.thongTinTitle} ${styles.thongTinMoTaTilte}`}>Mô tả</span>
-                                <textarea className={`${styles.thongTinInput} ${styles.thongTinMoTaInput}`}/>
+                                <textarea className={`${styles.thongTinInput} ${styles.thongTinMoTaInput}`}
+                                    id='moTa'
+                                />
                             </span>
                             
                         </div>
@@ -195,11 +205,11 @@ const CreateBody = () =>{
                         <div className={styles.thongTinGroupLastBody}>
                             <span className={`${styles.thongTin} ${styles.thongTinLast}`}>
                                 <span className={styles.thongTinLastTitle}>Dùng chung</span>
-                                <span className={styles.iconCheck}></span>
+                                <span className={styles.iconCheck} id='dungChung'></span>
                             </span>
                             <span className={styles.thongTin}>
-                                <span className={styles.thongTinTitle}>Mã tiềm năng</span>
-                                <input className={styles.thongTinInput}/>
+                                <span className={styles.thongTinTitle} >Mã tiềm năng</span>
+                                <input className={styles.thongTinInput} id='maTiemNang'/>
                             </span>
                         </div>
                     </div>
