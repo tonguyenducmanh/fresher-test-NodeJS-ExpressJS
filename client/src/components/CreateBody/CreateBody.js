@@ -24,7 +24,10 @@ import DiaChiTongHop from "./AutoComplete/DiaChiTongHop";
 
 import { HandleCheck } from "./HandleTyping/HandleCheck";
 import { HandleImage } from "./HandleTyping/HandleImage";
-
+import { MustHave } from "./AutoComplete/FormValidate/MustHave";
+import { JustAtoZ } from "./AutoComplete/FormValidate/JustAtoZ";
+import { Just0To9 } from "./AutoComplete/FormValidate/Just0To9";
+import { EmailValidate } from "./AutoComplete/FormValidate/EmailValidate";
 
 
 const CreateBody = () =>{
@@ -33,6 +36,12 @@ const CreateBody = () =>{
         HandleCheck()
     })
 
+    useEffect(()=>{
+        MustHave()
+        JustAtoZ()
+        Just0To9()
+        EmailValidate()
+    },[])
     
     return (
         <div className={styles.container}>
@@ -58,11 +67,23 @@ const CreateBody = () =>{
                             </span>
                             <span className={styles.thongTin} >
                                 <span className={styles.thongTinTitle}>Họ và đệm</span>
-                                <input className={styles.thongTinInput} autoComplete="new-password" id='firstName'  onChange={ConnectName}/>
+                                <span className={styles.thongTinInputFather}>
+                                    <input  className={`${styles.thongTinInput} ${styles.thongtinMustHave} ${styles.thongtinAtoZ}`} autoComplete="new-password" id='firstName'
+                                      onChange={ConnectName}
+                                    />
+                                    <span className={styles.thonngTinWarningText}>Họ và đệm không được để trống</span>
+                                    <span className={styles.thonngTinWarningTextTwo}>Họ và đệm chỉ chứa kí tự từ a-z</span>
+                                </span>
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle} >Tên</span>
-                                <input  className={styles.thongTinInput} autoComplete="new-password" id='lastName'  onChange={ConnectName}/>
+                                <span className={styles.thongTinInputFather}>
+                                    <input  className={`${styles.thongTinInput} ${styles.thongtinMustHave} ${styles.thongtinAtoZ}`} autoComplete="new-password" id='lastName'
+                                      onChange={ConnectName}
+                                    />
+                                    <span className={styles.thonngTinWarningText}>Tên không được để trống</span>
+                                    <span className={styles.thonngTinWarningTextTwo}>Tên chỉ chứa kí tự từ a-z</span>
+                                </span>
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle} >Họ và tên</span>
@@ -83,7 +104,11 @@ const CreateBody = () =>{
                                     <span className={styles.iconToolTip}>Điện thoại di động</span>
                                     </span>
                                 </span>
-                                <input className={styles.thongTinInput} id='dienThoaiDiDong'/>
+                                <span className={styles.thongTinInputFather}>
+                                    <input className={`${styles.thongTinInput} ${styles.thongtinMustHave}`} autoComplete="off" id='dienThoaiDiDong'/>
+                                    <span className={styles.thonngTinWarningText}>Đt di động không được để trống</span>
+                                    <span className={styles.thonngTinWarningTextTwo}>Đt di động chỉ chứa chữ số từ 0 - 9</span>
+                                </span>
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>
@@ -92,7 +117,11 @@ const CreateBody = () =>{
                                     <span className={styles.iconToolTip}>Điện thoại cơ quan </span>
                                     </span>
                                 </span>
-                                <input className={styles.thongTinInput} id='dienThoaiCoQuan'/>
+                                <span className={styles.thongTinInputFather}>
+                                    <input className={`${styles.thongTinInput} ${styles.thongtinMustHave}`} autoComplete="off" id='dienThoaiCoQuan'/>
+                                    <span className={styles.thonngTinWarningText}>Đt cơ quan không được để trống</span>
+                                    <span className={styles.thonngTinWarningTextTwo}>Đt cơ quan chỉ chứa chữ số từ 0 - 9</span>
+                                </span>
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Nguồn gốc</span>
@@ -104,23 +133,35 @@ const CreateBody = () =>{
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Zalo</span>
-                                <input className={styles.thongTinInput} id='zalo'/>
+                                <span className={styles.thongTinInputFather}>
+                                    <input className={styles.thongTinInput} autoComplete="off" id='zalo'/>
+                                </span>
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Email cá nhân</span>
-                                <input className={styles.thongTinInput} id='emailCaNhan'/>
+                                <span className={styles.thongTinInputFather}>
+                                    <input className={styles.thongTinInput} autoComplete="off" id='emailCaNhan'/>
+                                    <span className={styles.thonngTinWarningTextThree}>Email chỉ có thể chứa ký tự đặc biệt @</span>
+                                </span>
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Email cơ quan</span>
-                                <input className={styles.thongTinInput} id='emailCoQuan'/>
+                                <span className={styles.thongTinInputFather}>
+                                    <input className={styles.thongTinInput} autoComplete="off" id='emailCoQuan'/>
+                                    <span className={styles.thonngTinWarningTextThree}>Email chỉ có thể chứa ký tự đặc biệt @</span>
+                                </span>
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Tổ chức</span>
-                                <input className={styles.thongTinInput} id='toChuc'/>
+                                <span className={styles.thongTinInputFather}>
+                                    <input className={styles.thongTinInput} autoComplete="off" id='toChuc'/>
+                                </span>
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Mã số thuế</span>
-                                <input className={styles.thongTinInput} id='maSoThue'/>
+                                <span className={styles.thongTinInputFather}>
+                                    <input className={styles.thongTinInput} autoComplete="off" id='maSoThue'/>
+                                </span>
                             </span>
 
                         </div>
@@ -130,15 +171,22 @@ const CreateBody = () =>{
                         <div className={styles.thongTinGroupBody}>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Tài khoản ngân hàng</span>
-                                <input className={styles.thongTinInput} id='taiKhoanNganHang'/>
+                                <span className={styles.thongTinInputFather}>
+                                    <input className={`${styles.thongTinInput} ${styles.thongtinMustHave}`} autoComplete="off" id='taiKhoanNganHang'/>
+                                    <span className={styles.thonngTinWarningText}>Tài khoản ngân hàng không được để trống</span>
+                                    <span className={styles.thonngTinWarningTextTwo}>TK ngân hàng chỉ chứa chữ số từ 0 - 9</span>
+                                </span>
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Mở tại ngân hàng</span>
-                                <input className={styles.thongTinInput} id='moTaiNganHang'/>
+                                <span className={styles.thongTinInputFather}>
+                                    <input className={`${styles.thongTinInput} ${styles.thongtinMustHave}`} autoComplete="off" id='moTaiNganHang'/>
+                                    <span className={styles.thonngTinWarningText}>Ngân hàng không được để trống</span>
+                                </span>
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Ngày thành lập</span>
-                                <input type='date' placeholder="DD/MM/YYYY" className={styles.thongTinInput} id='ngayThanhLap'/>
+                                <input type='date' placeholder="DD/MM/YYYY" autoComplete="off" className={styles.thongTinInput} id='ngayThanhLap'/>
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Loại hình</span>
@@ -183,7 +231,9 @@ const CreateBody = () =>{
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Mã vùng</span>
-                                <input className={styles.thongTinInput} id='maVung'/>
+                                <span className={styles.thongTinInputFather}>
+                                    <input className={styles.thongTinInput} autoComplete="off" id='maVung'/>
+                                </span>
                             </span>
                             <span className={styles.thongTinDiaChi}>
                                 <span className={`${styles.thongTinTitle}  ${styles.thongTinDiaChiTitle}`}>Địa chỉ</span>
@@ -196,9 +246,9 @@ const CreateBody = () =>{
                         <div className={styles.thongTinGroupBody}>
                             <span className={styles.thongTinMoTa}>
                                 <span className={`${styles.thongTinTitle} ${styles.thongTinMoTaTilte}`}>Mô tả</span>
-                                <textarea className={`${styles.thongTinInput} ${styles.thongTinMoTaInput}`}
-                                    id='moTa'
-                                />
+                                    <textarea className={`${styles.thongTinInput} ${styles.thongTinMoTaInput}`}
+                                        id='moTa'
+                                    />
                             </span>
                             
                         </div>
@@ -212,7 +262,10 @@ const CreateBody = () =>{
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle} >Mã tiềm năng</span>
-                                <input className={styles.thongTinInput} id='maTiemNang'/>
+                                <span className={styles.thongTinInputFather}>
+                                    <input className={`${styles.thongTinInput} ${styles.thongtinMustHave}`} autoComplete="off" id='maTiemNang'/>
+                                    <span className={styles.thonngTinWarningText}>Mã tiềm năng không được để trống</span>
+                                </span>
                             </span>
                         </div>
                     </div>

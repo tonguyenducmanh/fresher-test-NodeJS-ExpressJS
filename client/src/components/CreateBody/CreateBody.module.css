@@ -19,7 +19,8 @@
     --iconUp :-320px -32px;
     --grayDark: #616161;
     --gray: #9ba3b2;
-    --grayLight: #e2e4e9;
+    --grayLight: #e9e2e2;
+    --red: #ff3b3b;
 }
 .icon{
     position: relative;
@@ -111,9 +112,26 @@
 }
 
 .thongTinTitle{
+    position: relative;
     color: var(--grayDark);
     position: relative;
     font-weight: 500;
+}
+
+.thongTinTitleWarning::before{
+    position: absolute;
+    color: var(--red);
+    content: '*';
+    z-index: 1;
+    width: var(--icon-small);
+    height: var(--icon-small);
+    right: -20px;
+    
+}
+
+.thongTinInputFather{
+    display:flex;
+    flex-direction: column;
 }
 
 .thongTinInput{
@@ -130,13 +148,50 @@
 }
 
 
-
 .thongTinInput:focus{
     border: 2px solid var(--blue);
 }
 
 .thongTinInput:disabled{
     background-color: var(--grayLight);
+}
+
+.thongtinMustHave{
+    font-weight: 500;
+}
+
+.thongtinAtoZ{
+    font-weight: 500;
+}
+.thonngTinWarning{
+    border: SOLID var(--red);
+    border-width: 1.8px;
+}
+
+.thonngTinWarningText{
+    margin-left: var(--padding);
+    display: none;
+    margin-top: var(--padding);
+    color: var(--red);
+    font-size: .9rem;
+    font-weight: 500;
+}
+.thonngTinWarningTextTwo{
+    margin-left: var(--padding);
+    display: none;
+    margin-top: var(--padding);
+    color: var(--red);
+    font-size: .9rem;
+    font-weight: 500;
+}
+
+.thonngTinWarningTextThree{
+    margin-left: var(--padding);
+    display: none;
+    margin-top: var(--padding);
+    color: var(--red);
+    font-size: .9rem;
+    font-weight: 500;
 }
 
 .iconInfo{

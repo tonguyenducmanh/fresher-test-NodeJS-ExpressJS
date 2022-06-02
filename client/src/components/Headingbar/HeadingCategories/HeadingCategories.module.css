@@ -150,6 +150,10 @@ a:visited{
     }
 }
 
+.itemOtherHiddenThree{
+    text-decoration: none;
+}
+
 .iconOne::before{
     background-position: 0px -272px;
 }
