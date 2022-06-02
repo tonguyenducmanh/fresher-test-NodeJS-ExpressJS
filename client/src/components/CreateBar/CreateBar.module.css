@@ -106,12 +106,10 @@
     padding: var(--padding);
     margin-right:0px;
     font-weight: 500;
-    opacity: 1;
-    transition: margin-right 0.5s ease-in-out, opacity 3s ease-in-out;
+    transition: margin-right 3s ease-in-out;
 
 }
 
 .notifySuccessAni{
-    opacity: 0;
     margin-right:210px;
 }

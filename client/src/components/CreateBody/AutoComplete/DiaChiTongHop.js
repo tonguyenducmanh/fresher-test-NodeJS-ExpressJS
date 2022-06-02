@@ -32,7 +32,7 @@ const DiaChiTongHop = () => {
     },[getPhuongXa,getTinhThanh,getquanHuyen,getsoNha,getQuocGia])
 
     return(
-        <textarea className={`${styles.thongTinInput}  ${styles.thongTinDiaChiTongHop}`} disabled/>
+        <textarea className={`${styles.thongTinInput}  ${styles.thongTinDiaChiTongHop}`} disabled id='diaChiTongHop'/>
     )
 }
 
