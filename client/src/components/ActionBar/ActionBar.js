@@ -57,6 +57,9 @@ const ActionBar = () =>{
     }, [])
     return (
         <div className={styles.actionbar}>
+            <div className={styles.notifySuccess} id='notifySuccess'>
+                Xóa thành công
+            </div>
             <div className={styles.box}>
                 <span className={`${styles.actionLeft}`} id='actionBarOne'>
                     <span className={styles.actionLeftAllButton} >Tất cả tiềm năng</span>

@@ -50,6 +50,7 @@ const ConfirmDelete = () => {
         const container = document.getElementsByClassName(styles.container)
         const actionBarOne = document.getElementById('actionBarOne')
         const actionBarTwo = document.getElementById('actionBarTwo')
+        const notifySuccess = document.getElementById('notifySuccess')
 
         deleteButtonFinal.addEventListener('click', function(){
             container[0].classList.add(styles.hiddenBox)
@@ -67,6 +68,11 @@ const ConfirmDelete = () => {
             dispatch(deleteCustomers(`?deleteArray=${idsString}`))
             dispatch(fetchCustomersList(`?limit=${limitPagination}&startIndex=${startIndexPagination}`))
             dispatch(fetchCustomersCount())
+
+            notifySuccess.classList.add(stylesThree.notifySuccessAni)
+            notifySuccess.addEventListener("transitionend", ()=>{
+                notifySuccess.classList.remove(stylesThree.notifySuccessAni)
+            });
         })
     },[deleteCount])
     return(
