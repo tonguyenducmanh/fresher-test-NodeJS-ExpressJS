@@ -8,6 +8,29 @@
     --boxShadow: 1px 1px 3px 1px rgb(195, 195, 195);
     --white: #ffffff;
     --blue:#405eec; 
+    --blueOFF:#7e92ea; 
+    --grayDark: #616161;
+    --gray: #9ba3b2;
+    --grayLight: #e2e4e9;
+}
+.icon{
+    position: relative;
+    width: var(--icon-small);
+    height: var(--icon-small);
+    padding-right: var(--padding);
+}
+
+.icon:hover{
+    cursor: pointer;
+}
+
+.icon::before{
+    position: absolute;
+    content: '';
+    z-index: 1;
+    width: var(--icon-small);
+    height: var(--icon-small);
+    background-image: url(../../images/icon_collection.svg);
 }
 
 .actionbar{
@@ -345,4 +368,194 @@
 
 .notifySuccessAni{
     margin-right:210px;
+}
+
+
+.notifyUpdateWarning{
+    position: fixed;
+    top:47px;
+    right: -280px;
+    z-index: 5;
+    background-color: var(--white);
+    border: var(--border);
+    border-radius: var(--boderRadius);
+    box-shadow: var(--boxShadow);
+    padding: var(--padding);
+    margin-right:0px;
+    font-weight: 500;
+    transition: margin-right 3s ease-in-out;
+
+}
+
+.notifyUpdateWarningAni{
+    margin-right:290px;
+}
+
+.notifyUpdateSuccess{
+    position: fixed;
+    top:47px;
+    right: -220px;
+    z-index: 5;
+    background-color: var(--white);
+    border: var(--border);
+    border-radius: var(--boderRadius);
+    box-shadow: var(--boxShadow);
+    padding: var(--padding);
+    margin-right:0px;
+    font-weight: 500;
+    transition: margin-right 3s ease-in-out;
+}
+
+.notifyUpdateSuccessAni{
+    margin-right:230px;
+}
+
+.updateBox{
+    top:141px;
+    left: 0;
+    position: fixed;
+    z-index: 9;
+    background-color: rgba(0, 0, 0, 0.347);
+    width: 100vw;
+    height: 100vh;
+}
+
+.hiddenUpdateBox{
+    display: none;
+}
+
+.updateBoxForm{
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    position: fixed;
+    z-index: 10;
+    background-color: var(--white);
+    width: 500px;
+    height: 210px;
+    border-radius: 4px;
+}
+
+.updateTitle{
+    position: fixed;
+    top: 12%;
+    left: 5%;
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: #22252c;
+}
+
+.updateBottomGroup{
+    position: fixed;
+    justify-content: end;
+    bottom: 0;
+    background-color: var(--grayLight);
+    width: 100%;
+    height: calc(var(--padding)*6);
+    display: flex;
+    font-weight: 500;
+}
+
+.updateCancel{
+    right: 140px;
+    bottom: 30px;
+    border: var(--border);
+    border-radius: 4px;
+    background-color: var(--white);
+    padding: calc(var(--padding)*1) calc(var(--padding)*2);
+    height: calc(var(--padding)*2);
+    margin: var(--padding);
+    cursor: pointer;
+
+}
+.updateYes{
+    right: 35px;
+    bottom: 30px;
+    color: var(--white);
+    background-color: var(--blue);
+    border-radius: 4px;
+    padding: calc(var(--padding)*1) calc(var(--padding)*2);
+    height: calc(var(--padding)*2);
+    margin: var(--padding);
+    margin-left: calc(var(--padding)/2);
+    cursor: pointer;
+}
+
+.updateYesDisabled{
+    background-color: var(--blueOFF);
+}
+
+.updateCancelButton{
+    position: fixed;
+    right: 7px;
+    top: 20px;
+}
+.updateCancelButton::before{
+    background-position: -80px -17px;
+    transform: scale(1.5);
+}
+
+.updateHelp{
+    position: fixed;
+    right: 30px;
+    top: 19.5px;
+}
+
+.updateHelp::before{
+    background-position: -224px 0px;
+    transform: scale(1.1);
+}
+
+.iconToolTip{
+    display: none;
+    top:-40px;
+    right: 10px;
+    width: 200px;
+    height: 38px;
+    position: fixed;
+    background-color: var(--grayDark);
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    z-index: 1;
+}
+
+.iconToolTip::after{
+    content: "";
+    position: fixed;
+    border-width: 5px;
+    border-style: solid;
+    border-color: var(--grayDark) transparent transparent transparent;
+    top:7.5px;
+    right: 43px;
+}
+
+.helpButton:hover .iconToolTip{
+    display: block;
+}
+
+.comboBox{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: calc(var(--padding)*2.4);
+    margin-top:calc(var(--padding)*8);
+}
+
+.comboBoxInput{
+    font-weight: 500;
+    font-size: 1rem;
+    color: #616161;
+    position: relative;
+    height: calc(var(--padding)*1.5);
+    border: SOLID var(--grayLight);
+    border-width: 1.8px;
+    border-radius: 4px;
+    width: 215px;
+    padding: var(--padding) calc(var(--padding)*1.8);
+    background-color: var(--white);
+}
+.comboBoxInputDisabled{
+    background-color: var(--grayLight);
 }

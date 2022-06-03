@@ -1,0 +1,15 @@
+:root{
+    --icon-small: 16px;
+    --icon-medium: 20px;
+    --icon-large: 24px;
+    --padding: 10px;
+    --border: 1px solid rgba(120, 120, 120, 0.347);
+    --boderRadius: 4px;
+    --boxShadow: 1px 1px 3px 1px rgb(195, 195, 195);
+    --white: #ffffff;
+    --blue:#405eec; 
+    --blueOFF:#7e92ea; 
+    --grayDark: #616161;
+    --gray: #9ba3b2;
+    --grayLight: #e2e4e9;
+}

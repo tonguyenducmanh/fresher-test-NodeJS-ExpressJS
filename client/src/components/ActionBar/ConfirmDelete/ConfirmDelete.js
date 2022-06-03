@@ -74,7 +74,7 @@ const ConfirmDelete = () => {
                 notifySuccess.classList.remove(stylesThree.notifySuccessAni)
             });
         })
-    },[deleteCount])
+    },[deleteCount,dispatch,limitPagination,startIndexPagination])
     return(
         <span className={`${styles.container} ${styles.hiddenBox}`}>
             <span className={styles.deleteBox}>

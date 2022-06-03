@@ -7,6 +7,7 @@ import styles from './CreateBar.module.css'
 import { HandleSave } from "./HandleSave/HandleSave";
 import { HandleSaveAndAdd } from "./HandleSave/HandleSaveAndAdd";
 
+
 const CreateBar = () =>{
     const dispatch = useDispatch()
 
@@ -19,6 +20,9 @@ const CreateBar = () =>{
         <div className={styles.createBar}>
             <div className={styles.notifySuccess} id='notifySuccess'>
                 Thêm mới thành công
+            </div>
+            <div className={styles.notifyNotEnough} id='notifyNotEnough'>
+                Hãy điền đủ các mục có màu đỏ
             </div>
             <div className={styles.box}>
                 <span className={`${styles.createLeft}`} >

@@ -2,6 +2,7 @@ import { createCustomer } from "../../../features/customers/customersSlice";
 import styles from '../CreateBar.module.css'
 import stylesTwo from '../../CreateBody/AutoComplete/TruongChonNhieuBox.module.css'
 import stylesThree from '../../CreateBody/CreateBody.module.css'
+import stylesFour from '../CreateBar.module.css'
 
 
 export const HandleSave = (dispatch) =>{
@@ -19,13 +20,18 @@ export const HandleSave = (dispatch) =>{
                         thongtinMustHaves[i].classList.add(stylesThree.thonngTinWarning)
                         thongtinMustHaves[i].parentElement.children[1].style.display = 'block'
                         thongtinMustHaves[i].parentElement.parentElement.children[0].classList.add(stylesThree.thongTinTitleWarning)
+                        //
+                        //hiện thông báo nhập cho ló đầy đủ vào
+                        const notifyNotEnough = document.getElementById('notifyNotEnough')
+                        //thông báo rằng người dùng chỉ có thể sửa 1 tiềm năng 1 lúc
+                        notifyNotEnough.classList.add(stylesFour.notifyNotEnoughAni)
+                        notifyNotEnough.addEventListener("transitionend", ()=>{
+                            notifyNotEnough.classList.remove(stylesFour.notifyNotEnoughAni)
+                        });
                     }
                 }
                 
-                if(thongtinChuaDien > 0){
-                    console.log('hãy điền đầy đủ thông tin đi bạn êi')
-                } else{
-                    console.log('hmm cx oke đấy')
+                if(thongtinChuaDien === 0){
                     const anh =  document.getElementById('anhValue')
                     const maTiemNang = document.getElementById('maTiemNang').value
                     const xungHo = document.getElementById('xungHo').textContent

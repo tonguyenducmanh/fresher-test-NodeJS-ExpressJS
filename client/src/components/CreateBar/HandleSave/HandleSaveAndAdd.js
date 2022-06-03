@@ -2,7 +2,7 @@ import { createCustomer } from "../../../features/customers/customersSlice";
 import styles from '../CreateBar.module.css'
 import stylesTwo from '../../CreateBody/AutoComplete/TruongChonNhieuBox.module.css'
 import stylesThree from '../../CreateBody/CreateBody.module.css'
-import stylesFour from '../../CreateBody/AutoComplete/TruongChonNhieuBox.module.css'
+import stylesFour from '../CreateBar.module.css'
 
 export const HandleSaveAndAdd = (dispatch) =>{
     
@@ -18,13 +18,18 @@ export const HandleSaveAndAdd = (dispatch) =>{
                         thongtinMustHaves[i].classList.add(stylesThree.thonngTinWarning)
                         thongtinMustHaves[i].parentElement.children[1].style.display = 'block'
                         thongtinMustHaves[i].parentElement.parentElement.children[0].classList.add(stylesThree.thongTinTitleWarning)
+                                                //
+                        //hiện thông báo nhập cho ló đầy đủ vào
+                        const notifyNotEnough = document.getElementById('notifyNotEnough')
+                        //thông báo rằng người dùng chỉ có thể sửa 1 tiềm năng 1 lúc
+                        notifyNotEnough.classList.add(stylesFour.notifyNotEnoughAni)
+                        notifyNotEnough.addEventListener("transitionend", ()=>{
+                            notifyNotEnough.classList.remove(stylesFour.notifyNotEnoughAni)
+                        });
                     }
                 }
                 
-                if(thongtinChuaDien > 0){
-                    console.log('hãy điền đầy đủ thông tin đi bạn êi')
-                } else{
-                    console.log('hmm cx oke đấy')
+                if(thongtinChuaDien === 0){
                     const anh =  document.getElementById('anhValue')
                     const maTiemNang = document.getElementById('maTiemNang').value
                     const xungHo = document.getElementById('xungHo').textContent
@@ -180,31 +185,6 @@ export const HandleSaveAndAdd = (dispatch) =>{
                     document.getElementById('maVung').value = ''
                     document.getElementById('moTa').value = ''
 
-                    // xóa toàn bộ thông tin trong trường chọn nhiều
-                            
-                    const thongTinInputBox = document.getElementsByClassName(stylesFour.thongTinInputBox)
-                    const thongTinInput = document.getElementsByClassName(stylesFour.thongTinInput)
-                    const thongTinList = document.getElementsByClassName(stylesFour.thongTinList)
-                    const thongTinExample = document.getElementsByClassName(stylesFour.thongTinExample)
-
-
-                    // for(let i = 0 ; i < thongTinInputBox.length; i++){
-                    //     for( let k = 0 ; k < thongTinInputBox[i].children.length +1 ; k++){
-                    //         while(thongTinInputBox[i].firstElementChild) {
-                    //             thongTinInputBox[i].firstElementChild.remove();
-                    //         }
-                    //     }
-
-
-                    //     if(!thongTinExample[i]){
-                    //         const theMoi =document.createElement("span")
-                    //         theMoi.innerHTML = '- Không chọn -'
-                    //         theMoi.classList.add(stylesFour.thongTinExample)
-                    //         thongTinList[i].target.parentElement.parentElement.parentElement.children[0].appendChild(theMoi)
-                    //     }
-                    //     thongTinInput[i].focus()
-                        // focus này để refresh lại danh sách khi ấn vào không chọn
-                    // }
 
     }} )
 }
