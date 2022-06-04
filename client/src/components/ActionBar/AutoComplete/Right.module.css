@@ -1,0 +1,116 @@
+:root{
+    --icon-small: 16px;
+    --icon-medium: 20px;
+    --icon-large: 24px;
+    --padding: 10px;
+    --border: 0.5px solid rgba(120, 120, 120, 0.347);
+    --boderRadius: 4px;
+    --boxShadow: 1px 1px 3px 1px rgb(195, 195, 195);
+    --heightRow: calc(var(--padding)*4);
+    --marginRightTD: calc(var(--padding)*4);
+    --iconUnchecked: -192px -16px;
+    --iconChecked: -177px -17px;
+    --white: #ffffff;
+    --blue:#405eec; 
+    --group:1200px;
+    --iconUnchecked: -192px -16px;
+    --iconChecked: -177px -17px;
+    --iconDown : -336px -32px;
+    --iconUp :-320px -32px;
+    --grayDark: #616161;
+    --gray: #9ba3b2;
+    --grayLight: #e9e2e2;
+    --red: #ff3b3b;
+}
+
+.rightContainer{
+    display: block;
+    position: relative;
+}
+
+
+.comboBoxInput{
+    font-weight: 500;
+    font-size: 1rem;
+    color: #616161;
+    position: relative;
+    height: calc(var(--padding)*1.5);
+    border: SOLID var(--grayLight);
+    border-width: 1.8px;
+    border-radius: 4px;
+    width: 215px;
+    padding: var(--padding) calc(var(--padding)*1.8);
+    background-color: var(--white);
+}
+.comboBoxInputDisabled{
+    background-color: var(--grayLight);
+}
+
+
+.comboBoxInputFile::-webkit-file-upload-button {
+    visibility: hidden;
+    position: absolute;
+    width: 0px;
+}
+
+.diaChiInput{
+    font-weight: 500;
+    font-size: 1rem;
+    color: #616161;
+    position: relative;
+    height: calc(var(--padding)*1.5);
+    border: SOLID var(--grayLight);
+    border-width: 1.8px;
+    border-radius: 4px;
+    width: 215px;
+    padding: var(--padding) calc(var(--padding)*1.8);
+    background-color: var(--grayLight);  
+}
+
+.comboBoxInputFile{
+    background-color: var(--white);
+}
+
+
+.iconCheck{
+    position: relative;
+    width: var(--icon-small);
+    height: var(--icon-small);
+}
+
+.iconCheck:hover{
+    cursor: pointer;
+}
+
+.iconCheck::before{
+    position: absolute;
+    content: '';
+    z-index: 1;
+    width: var(--icon-small);
+    height: var(--icon-small);
+    background-image: url(../../../images/icon_collection.svg);
+    background-position: var(--iconUnchecked);
+}
+
+
+.iconChecked{
+    position: relative;
+    width: var(--icon-small);
+    height: var(--icon-small);
+}
+
+.iconChecked:hover{
+    cursor: pointer;
+}
+
+.iconChecked::before{
+    position: absolute;
+    content: '';
+    z-index: 1;
+    width: var(--icon-small);
+    height: var(--icon-small);
+    background-image: url(../../../images/icon_collection.svg);
+    background-position: var(--iconChecked);
+}
+
+

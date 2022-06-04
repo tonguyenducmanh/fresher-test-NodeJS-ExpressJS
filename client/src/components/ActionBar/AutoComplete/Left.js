@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 
-import { TruongChonNhieuLeftClick } from './HandleClick/TruongChonNhieuLeftClick';
-import styles from './TruongChonNhieuLeft.module.css'
+import { LeftClick } from './HandleClick/LeftClick';
+import styles from './Left.module.css'
 
 export default function TruongChonNhieu({arr, id}) {
         const options = arr;
@@ -82,14 +82,15 @@ export default function TruongChonNhieu({arr, id}) {
         })
 
         return (
-            <div className={styles.thongTinInputBox}>
+            <div className={styles.thongTinInputBox} id='thongTinInputLeftBox'>
                 <input className={styles.thongTinInput} placeholder='Tìm kiếm'/>
                 
                 <ul className={styles.thongTinList}>
                 {options.map((option, index) => (
                     <li className={styles.thongTinListItem} 
                         key={index}
-                        onClick={()=>TruongChonNhieuLeftClick()}
+                        onClick={(e)=>
+                    LeftClick(e)}
                     >{option}
                     </li>
                     ))}

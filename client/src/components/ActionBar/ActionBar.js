@@ -11,7 +11,8 @@ import { ExportToExcellFile } from "./ExportToExcellFile";
 import { ShowQuickUpdate } from "./HandleUpdate/ShowQuickUpdate";
 import { HideQuickUpdate } from "./HandleUpdate/HideQuickUpdate";
 import { HandleUpdateButton } from "./HandleUpdate/HandleUpdateButton";
-import TruongChonNhieuLeft from './AutoComplete/TruongChonNhieuLeft'
+import Left from './AutoComplete/Left'
+import Right from "./AutoComplete/Right";
 import {ArrayChonNhieu} from '../ActionBar/AutoComplete/ArrayChonNhieu'
 import { OpenMoreMenu } from "./OpenMoreMenu";
 import { UndoSelected } from './UndoSelected'
@@ -26,20 +27,37 @@ const ActionBar = () =>{
         UndoSelected()
         //thêm tính năng kiểm tra xem có bấm ra ngoài menu hay không
         //nếu bấm ra ngoài thì sẽ đóng menu; áp dụng tương tự cho quick update box
+        //trả lại về các giao diện ban đầu.
         const moreMenu = document.getElementById('moreMenu')
         const updateBox = document.getElementById('updateBox')
         const updateBoxForm = document.getElementById('updateBoxForm')
+        const truongChonNhieuRight = document.getElementById('truongChonNhieuRight')
+        const updateButtonFinal = document.getElementById('updateButtonFinal')    
+        const thongTinInputLeftBox = document.getElementById('thongTinInputLeftBox')    
+        const rightContainer = document.getElementById('rightContainer')    
         document.addEventListener("mousedown", (event) => {
             if(!moreMenu.contains(event.target)){
                 moreMenu.classList.add(styles.hiddenMenu)
             }
             if(!updateBoxForm.contains(event.target)){
+                thongTinInputLeftBox.children[2].innerHTML = '- Chọn trường -'
+                thongTinInputLeftBox.children[2].style.color = '#9ba3b2'
+                for ( let i = 0 ; i < rightContainer.children.length ; i++){
+                    rightContainer.children[i].style.display = 'none'
+                }
+                //ẩn tất cả những mục khác đi và quay về ô input màu xám đậm
+                // ý là chưa cho nhập
+                truongChonNhieuRight.style.display = 'block'
+                truongChonNhieuRight.style.backgroundColor = '#e2e4e9'
                 updateBox.classList.add(styles.hiddenUpdateBox)
+                truongChonNhieuRight.classList.add(styles.comboBoxInputDisabled)
+                truongChonNhieuRight.setAttribute('disabled','true')
+                updateButtonFinal.classList.add(styles.updateYesDisabled)
             }
           });
 
           
-    },[])
+        })
 
     useEffect(() =>{
         const tdIds =  document.getElementsByClassName(stylesTwo.tdId)
@@ -104,9 +122,9 @@ const ActionBar = () =>{
                             <span className={styles.updateTitle}>
                                 Cập nhật thông tin
                             </span>
-                            <span className={styles.comboBox}>
-                                <TruongChonNhieuLeft arr={ArrayChonNhieu}/>
-                                <input className={`${styles.comboBoxInput} ${styles.comboBoxInputDisabled}`} disabled={true} id='truongChonNhieuRight'/>
+                            <span className={styles.comboBox} id='updateComBoBox'>
+                                <Left arr={ArrayChonNhieu}/>
+                                <Right/>
                             </span>
                             <span className={styles.updateBottomGroup}>
                                 <span className={styles.updateCancel} id='updateCancelButton' onClick={()=>HideQuickUpdate()}>
@@ -119,7 +137,8 @@ const ActionBar = () =>{
                             <span className={styles.helpButton}>
                                 <span className={`${styles.icon} ${styles.updateHelp}`}>
                                 </span>
-                                <span className={styles.iconToolTip}>Cập nhật nhanh thông tin tiềm năng theo mục</span>
+                                <span className={styles.iconToolTip}>Cập nhật nhanh thông tin <br></br>1 trường trong tiềm năng
+                                </span>
                             </span>
                             <span className={`${styles.icon} ${styles.updateCancelButton}`} onClick={()=>HideQuickUpdate()}>
                             </span>

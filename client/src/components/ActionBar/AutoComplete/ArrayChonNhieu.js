@@ -13,7 +13,7 @@ export const ArrayChonNhieu = [
     'Email cá nhân' ,
     'Email cơ quan' ,
     'Tổ chức' ,
-    'Mã số thế' ,
+    'Mã số thuế' ,
     'Tài khoản ngân hàng' ,
     'Mở tại ngân hàng' ,
     'Ngày thành lập ' ,

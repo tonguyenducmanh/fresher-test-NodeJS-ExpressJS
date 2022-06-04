@@ -483,6 +483,7 @@
 
 .updateYesDisabled{
     background-color: var(--blueOFF);
+    pointer-events: none;
 }
 
 .updateCancelButton{
@@ -541,21 +542,4 @@
     align-items: center;
     margin: calc(var(--padding)*2.4);
     margin-top:calc(var(--padding)*8);
-}
-
-.comboBoxInput{
-    font-weight: 500;
-    font-size: 1rem;
-    color: #616161;
-    position: relative;
-    height: calc(var(--padding)*1.5);
-    border: SOLID var(--grayLight);
-    border-width: 1.8px;
-    border-radius: 4px;
-    width: 215px;
-    padding: var(--padding) calc(var(--padding)*1.8);
-    background-color: var(--white);
-}
-.comboBoxInputDisabled{
-    background-color: var(--grayLight);
 }
