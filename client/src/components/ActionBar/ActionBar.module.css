@@ -73,6 +73,7 @@
     color: var(--blue);
     font-size: 0.9rem;
     font-weight: 500;
+    position: relative;
 }
 
 .actionLeftFixButton:hover{
@@ -543,4 +544,33 @@
     align-items: center;
     margin: calc(var(--padding)*2.4);
     margin-top:calc(var(--padding)*8);
+}
+
+
+.refreshPage{
+    display: none;
+    position: absolute;
+    position: fixed;
+    background-color: var(--grayDark);
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    z-index: 3;
+    padding: var(--padding);
+    margin-top: -60px;
+    margin-left: -50px;
+}
+
+.refreshPage::after{
+    content: "";
+    position: absolute;
+    border-width: 5px;
+    top: 38px;
+    margin-left: -70px;
+    border-style: solid;
+    border-color: var(--grayDark) transparent transparent transparent;
+}
+
+.actionLeftRefreshButton:hover .refreshPage{
+    display: block;
 }

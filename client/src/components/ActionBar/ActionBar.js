@@ -2,6 +2,9 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from "react-router-dom";
 
+import { fetchCustomersList } from '../../features/customers/customersSlice'
+
+
 import styles from './ActionBar.module.css'
 import stylesTwo from '../MainBody/BodyTable/Table/Customers/Customers.module.css'
 import stylesThree from './ConfirmDelete/ConfirmDelete.module.css'
@@ -22,6 +25,8 @@ import { fetchCustomersFind } from "../../features/customers/customersSlice";
 const ActionBar = () =>{
     const dispatch = useDispatch()
     const findList = useSelector(state => state.find.findCustomers)
+    const startIndexPagination = useSelector(state => state.pagination.startIndex)
+    const limitPagination = useSelector(state => state.pagination.limit)
     useEffect(()=>{
         OpenMoreMenu()
         UndoSelected()
@@ -102,7 +107,16 @@ const ActionBar = () =>{
                 <span className={`${styles.actionLeft}`} id='actionBarOne'>
                     <span className={styles.actionLeftAllButton} >Tất cả tiềm năng</span>
                     <span className={styles.actionLeftFixButton}>Sửa</span>
-                    <span className={styles.actionLeftRefreshButton} title='Tải lại'></span>
+                    {/* load lại danh sách */}
+                    <span className={styles.actionLeftRefreshButton}
+                        onClick={()=>{{
+                            dispatch(fetchCustomersList(`?limit=${limitPagination}&startIndex=${startIndexPagination}`))
+                        }}}
+                    >
+                        <span className={styles.refreshPage}>
+                            Tải lại danh sách
+                        </span>
+                    </span>
                 </span>
                 <span className={`${styles.actionLeft} ${styles.hiddenComponent}`} id='actionBarTwo'>
                     <span className={styles.actionLeftSelectedCountButton} id='countCheck'></span>

@@ -59,7 +59,7 @@ const ConfirmDelete = () => {
             actionBarOne.classList.remove(stylesThree.hiddenComponent)
             actionBarTwo.classList.add(stylesThree.hiddenComponent)
             let idsString = []
-            for( var i = 0 ; i < tdIds.length ; i ++){
+            for( let i = 0 ; i < tdIds.length ; i ++){
                 if(checkedButton[i].classList.contains(stylesTwo.iconHeadingChecked)){
                     idsString = idsString.concat(tdIds[i].textContent)
                 }
