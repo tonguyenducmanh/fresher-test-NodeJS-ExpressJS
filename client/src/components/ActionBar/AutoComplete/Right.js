@@ -41,6 +41,7 @@ export default function TruongChonNhieuRight() {
                 <input className={`${styles.comboBoxInput} ${styles.comboBoxInputDisabled}`} 
                     disabled={true} 
                     id='truongChonNhieuRight'
+                    autoComplete="off"   
                 />
                 <input type='file' className={`${styles.comboBoxInput} ${styles.comboBoxInputFile} ${styles.comboBoxInputDisabled}`} 
                     id='AnhQuick'

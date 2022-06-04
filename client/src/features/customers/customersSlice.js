@@ -332,6 +332,21 @@ export const editCustomerSlice = createSlice({
     }
 })
 
+export const tempCustomerSlice = createSlice({
+    name: 'tempCustomer',
+    initialState:{
+        editCustomer:{}
+    },
+    reducers:{
+        addTempCustomer: (state,action) => {
+            state.editCustomer = action.payload
+        },
+        removeTempCustomer: (state) =>{
+            state.editCustomer = {}
+        }
+    }
+})
+
 export const { nextPagination, previousPagination, limitTen, limitFifty, limitOneHundred, limitTwenty,firstIndex , lastIndex } = paginationSlice.actions
 export const paginationReducer = paginationSlice.reducer
 export const customersReducer = customersSlice.reducer
@@ -340,3 +355,5 @@ export const findReducer = findCustomersSlice.reducer
 export const deleteRducer = deleteCustomersSlice.reducer
 export const createReducer = createCustomerSlice.reducer
 export const editReducer = editCustomerSlice.reducer
+export const { addTempCustomer, removeTempCustomer } = tempCustomerSlice.actions
+export const tempCustomerReducer = tempCustomerSlice.reducer

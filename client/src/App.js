@@ -9,8 +9,8 @@ import ActionBar from "./components/ActionBar/ActionBar";
 import MainBody from "./components/MainBody/MainBody";
 import CreateBar from "./components/CreateBar/CreateBar"
 import CreateBody from "./components/CreateBody/CreateBody"
+import EditBody from "./components/EditBody/EditBody";
 import Others from "./components/Others/Others";
-import Test from "./Test";
 
 import styles from './styles.css'
 const App = () =>{
@@ -33,9 +33,15 @@ const App = () =>{
                     <Route exact path="/create" element={
                     <>
                         <CreateBar/>
-                        <CreateBody/>
+                        <CreateBody />
 
-                        {/* <Test/> */}
+                    </>}>
+                    </Route>
+                    <Route exact path="/edit" element={
+                    <>
+                        <CreateBar/>
+                        <EditBody />
+
                     </>}>
                     </Route>
                     <Route exact path="/others" element={<Others />}>

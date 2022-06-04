@@ -87,6 +87,13 @@ tbody{
 .tdAnh{
     display: none;
 }
+
+.tdLink{
+    display: none;
+}
+.tdLinkToEdit{
+    color: black;
+}
 .trId{
     font-weight: 400;
 }

@@ -106,7 +106,13 @@ const ActionBar = () =>{
             <div className={styles.box}>
                 <span className={`${styles.actionLeft}`} id='actionBarOne'>
                     <span className={styles.actionLeftAllButton} >Tất cả tiềm năng</span>
-                    <span className={styles.actionLeftFixButton}>Sửa</span>
+                    <span className={styles.actionLeftFixButton}>
+                        Sửa
+                        <span className={styles.actionLeftFixButtonTip}>
+                            Click chuột trái 2 lần vào 1 trường để sửa
+                        </span>    
+                    </span>
+                    
                     {/* load lại danh sách */}
                     <span className={styles.actionLeftRefreshButton}
                         onClick={()=>{{

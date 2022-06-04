@@ -534,6 +534,38 @@
     right: 43px;
 }
 
+
+.actionLeftFixButtonTip{
+    font-weight: 400;
+    font-size: 1rem;
+    display: none;
+    width: 210px;
+    margin-top: -88px;
+    margin-left: -90px;
+    height: 38px;
+    position: fixed;
+    background-color: var(--grayDark);
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 10px 0;
+    z-index: 2;
+}
+
+.actionLeftFixButtonTip::after{
+    content: "";
+    position: fixed;
+    border-width: 5px;
+    border-style: solid;
+    border-color: var(--grayDark) transparent transparent transparent;
+    top: 95px;
+    margin-left: -55px;
+}
+
+.actionLeftFixButton:hover .actionLeftFixButtonTip{
+    display: block;
+}
+
 .helpButton:hover .iconToolTip{
     display: block;
 }
