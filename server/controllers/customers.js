@@ -126,4 +126,73 @@ export const createCustomer = async (req, res) => {
     }
 }
 
+
+export const editCustomer = async (req,res) => {
+    let anhValue
+    typeof req.file !== 'undefined' ? anhValue = req.file.filename : anhValue
+    // nếu không có ảnh up lên thì mặc định không để giá trị, để loại nó đi
+    const newValues = {
+        _id: req.body._id,
+        xungho: req.body.xungHo,
+        anh: anhValue,
+        hovadem: req.body.hoVaDem,
+        ten: req.body.ten,
+        phongban: req.body.phongBan,
+        chucdanh: req.body.chucDanh,
+        dtdidong: req.body.dienThoaiDiDong,
+        dtcoquan: req.body.dienThoaiCoQuan,
+        nguongoc: req.body.nguonGoc,
+        zalo: req.body.zalo,
+        emailcanhan: req.body.emailCaNhan,
+        emailcoquan: req.body.emailCoQuan,
+        tochuc: req.body.toChuc,
+        masothue: req.body.maSoThue,
+        taikhoannganhang: req.body.taiKhoanNganHang,
+        motainganhang: req.body.moTaiNganHang,
+        ngaythanhlap: req.body.ngayThanhLap,
+        loaihinh: req.body.loaiHinh,
+        linhvuc: req.body.linhVuc,
+        nganhnghe: req.body.nganhNghe,
+        doanhthu: req.body.doanhThu,
+        quocgia: req.body.quocGia,
+        tinhthanhpho: req.body.tinhThanh,
+        quanhuyen: req.body.quanHuyen,
+        phuongxa: req.body.phuongXa,
+        sonha: req.body.soNha,
+        mavung: req.body.maVung,
+        mota: req.body.moTa,
+        loaitiemnang: req.body.loaiTiemNang,
+        dungchung: req.body.dungChung
+
+    }
+
+    const anhCu = req.body.anhCuValue
+    try{
+
+
+        if(anhCu){
+            // chỉ xét trường hợp có ảnh mới mới xóa ảnh cũ thôi
+            // bên client document đăng ảnh mới thì kệ
+            let imagePath = `uploads/${anhCu}`
+            fs.unlink(imagePath, (err) => {
+                if (err) {
+                    res.status(404).json({ message: err.message })
+                    return
+                }
+                //file removed
+            })
+        }
+        
+        const editCustomerInfo = await customerInfo.updateOne(newValues)
+        
+
+
+        res.status(201).json(editCustomerInfo);
+    }
+    catch (error){
+        res.status(409).json({message: error.message})
+    }
+}
+
+
 export default router;

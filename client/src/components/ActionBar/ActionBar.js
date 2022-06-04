@@ -144,7 +144,7 @@ const ActionBar = () =>{
                                 <span className={styles.updateCancel} id='updateCancelButton' onClick={()=>HideQuickUpdate()}>
                                     Hủy bỏ
                                 </span>
-                                <span className={`${styles.updateYes} ${styles.updateYesDisabled}`} id='updateButtonFinal' onClick={()=>HandleUpdateButton()}>
+                                <span className={`${styles.updateYes} ${styles.updateYesDisabled}`} id='updateButtonFinal' onClick={()=>HandleUpdateButton(dispatch)}>
                                     Cập nhật
                                 </span>
                             </span>

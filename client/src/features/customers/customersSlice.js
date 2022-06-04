@@ -263,6 +263,74 @@ export const createCustomerSlice = createSlice({
     }
 })
 
+export const editCustomer = createAsyncThunk('customers/editCustomer', async (path) => {
+    const respone = await customerAPI.put('/edit',path,  {validateStatus() { return true } } )
+    return respone.data
+
+    //{validateStatus() { return true } } phải có dòng này
+})
+
+
+export const editCustomerSlice = createSlice({
+    name: 'edit',
+    initialState:{
+        createCustomer: {
+            _id: '',
+            anh: '',
+            xungho: '',
+            hovadem: '',
+            ten: '',
+            phongban: '',
+            chucdanh: '',
+            dtdidong: '',
+            dtcoquan: '',
+            dtkhac: '',
+            loaitiemnang: '',
+            nguongoc: '',
+            khonggoidien: '',
+            khongguiemail: '',
+            zalo: '',
+            emailcanhan: '',
+            emailcoquan: '',
+            tochuc: '',
+            masothue: '',
+            taikhoannganhang: '',
+            motainganhang: '',
+            ngaythanhlap: '',
+            loaihinh: '',
+            linhvuc: '',
+            nganhnghe: '',
+            doanhthu: '',
+            quocgia: '',
+            tinhthanhpho: '',
+            quanhuyen: '',
+            phuongxa: '',
+            sonha: '',
+            mavung: '',
+            mota: '',
+            dungchung: '',
+        },
+        status: 'idle',
+        error: null
+    }
+    , reducers:{
+
+    },
+    extraReducers(builder){
+        builder
+        .addCase(editCustomer.pending, (state, action) =>{
+            state.status = 'loading'
+        })
+        .addCase(editCustomer.fulfilled, (state, action) =>{
+            state.status = 'succeeded'
+            state.editCustomer._id = action.payload
+        })
+        .addCase(editCustomer.rejected, (state, action) => {
+            state.status = 'failed'
+            state.error = action.error.message
+        })
+    }
+})
 
 export const { nextPagination, previousPagination, limitTen, limitFifty, limitOneHundred, limitTwenty,firstIndex , lastIndex } = paginationSlice.actions
 export const paginationReducer = paginationSlice.reducer
@@ -271,3 +339,4 @@ export const countReducer = countSlice.reducer
 export const findReducer = findCustomersSlice.reducer
 export const deleteRducer = deleteCustomersSlice.reducer
 export const createReducer = createCustomerSlice.reducer
+export const editReducer = editCustomerSlice.reducer

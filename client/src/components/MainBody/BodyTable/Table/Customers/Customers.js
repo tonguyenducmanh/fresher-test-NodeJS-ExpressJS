@@ -16,6 +16,7 @@ export const Customers = () => {
                 <tr className={styles.trId} key={customer._id}>
                     <td className={`${styles.iconHeading} hihi`}></td>
                     <td className={styles.tdId}>{customer._id}</td>
+                    <td className={styles.tdAnh}>{customer.anh}</td>
                     <td className={styles.tdOne} title={customer.loaitiemnang} >{customer.loaitiemnang.join(', ')}</td>
                     {/* <td className={styles.tdTwo} title={customer.xungho} ><img className={styles.image} src={`http://localhost:5000/${customer.anh}`}/></td> */}
                     <td className={styles.tdTwo} title={customer.xungho} >{customer.xungho}</td>

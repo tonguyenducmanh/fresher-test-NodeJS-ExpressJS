@@ -84,6 +84,9 @@ tbody{
 .tdId{
     display: none;
 }
+.tdAnh{
+    display: none;
+}
 .trId{
     font-weight: 400;
 }

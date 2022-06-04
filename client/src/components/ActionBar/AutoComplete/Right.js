@@ -37,6 +37,7 @@ export default function TruongChonNhieuRight() {
                 <TruongChonNhieu arr={PhongBan} id='PhongBanQuick'/>
                 <TruongChonNhieu arr={QuocGia} id='QuocGiaQuick'/>
                 <TruongChonNhieuBox arr={LoaiTiemNang} id='LoaiTiemNangQuick'/>
+                {/* trường chọn nhiều ở đây là dùng cho nhiều thằng cùng là ô nhập */}
                 <input className={`${styles.comboBoxInput} ${styles.comboBoxInputDisabled}`} 
                     disabled={true} 
                     id='truongChonNhieuRight'
