@@ -1,0 +1,166 @@
+:root{
+    --icon-small: 16px;
+    --icon-medium: 20px;
+    --icon-large: 24px;
+    --padding: 10px;
+    --border: 0.5px solid rgba(120, 120, 120, 0.347);
+    --boderRadius: 4px;
+    --boxShadow: 1px 1px 3px 1px rgb(195, 195, 195);
+    --heightRow: calc(var(--padding)*4);
+    --marginRightTD: calc(var(--padding)*4);
+    --iconUnchecked: -192px -16px;
+    --iconChecked: -177px -17px;
+    --white: #ffffff;
+    --blue:#405eec; 
+    --group:1200px;
+    --iconUnchecked: -192px -16px;
+    --iconChecked: -177px -17px;
+    --iconDown : -336px -32px;
+    --iconUp :-320px -32px;
+    --grayDark: #616161;
+    --gray: #9ba3b2;
+    --grayLight: #e2e4e9;
+}
+.icon{
+    position: relative;
+    width: var(--icon-small);
+    height: var(--icon-small);
+}
+
+.icon:hover{
+    cursor: pointer;
+}
+
+.icon::before{
+    position: absolute;
+    content: '';
+    z-index: 1;
+    width: var(--icon-small);
+    height: var(--icon-small);
+    background-image: url(../../../../images/icon_collection.svg);
+}
+.thongtinContainer{
+    display: grid;
+    grid-template-columns: 100%;
+}
+.thongTinInputBox{
+    font-weight: 500;
+    font-size: 1rem;
+    color: #616161;
+    position: relative;
+    min-height: calc(var(--padding)*1.5);
+    height: auto;
+    max-height: calc(var(--padding)*7);
+    overflow-y: auto;
+    border: SOLID var(--grayLight);
+    border-width: 1.8px;
+    border-radius: 4px;
+    width: 215px;
+    padding: var(--padding) calc(var(--padding)*1.8);
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.thongTinContent{
+    color: var(--gray);
+}
+
+.thongTinContentDecor{
+    color: var(--grayDark);
+    position: relative;
+    background-color: var(--grayLight);
+    padding: calc(var(--padding)/2) var(--padding);
+    padding-right: calc(var(--padding)*3);
+    border-radius: 4px;
+    margin: 4px;
+}
+
+.thongTinContentDecor::after{
+    position: absolute;
+    top:7px;
+    margin-right: 7px;
+    content: '';
+    right: 0;
+    z-index: 2;
+    width: var(--icon-small);
+    height: var(--icon-small);
+    mask-image: url(../../../../images/icon_collection.svg);
+    mask-position: -80px -16.4px;
+    transform: scale(.7);
+    background-color: var(--grayDark);
+}
+
+.thongTinInputForm{
+    position: relative;
+    display: none;
+    margin-left: 2px;
+}
+
+.thongTinInput{
+    position: absolute;
+    font-weight: 500;
+    z-index: 3;
+    margin-bottom: calc( var(--padding)* -4);
+    bottom:0;
+    margin-left: -2px;
+    left: 0;
+    font-size: 1rem;
+    color: #616161;
+    height: calc(var(--padding)*1.5);
+    border: SOLID var(--grayLight);
+    border-width: 1.8px;
+    border-radius: 4px;
+    width: 215px;
+
+    padding: var(--padding) calc(var(--padding)*1.8);
+}
+.thongTinInputSearch{
+    top: 10px;
+    right: 12px;
+    position: absolute;
+    z-index: 4;
+    width: var(--icon-small);
+    height: var(--icon-small);
+    background-image: url(../../../../images/icon_collection.svg);
+    background-position: -32px 0px;
+}
+.thongTinInput:focus{
+    border: 2px solid var(--blue);
+}
+
+.thongTinInput::placeholder{
+    color: #9ba3b2;
+}
+
+.thongTinList{
+    position: absolute;
+    top: calc(var(--padding)*4);
+    margin-left: -2px;
+    left: 0;
+    background-color: var(--white);
+    z-index: 4;
+    max-height: 200px;
+    border: SOLID var(--grayLight);
+    border-width: 1.8px;
+    border-radius: 4px;
+    width: 250px;
+    overflow-y: auto;
+    list-style-type: none;
+}
+
+.thongTinListItem{
+    font-weight: 500;
+    color: var(--grayDark);
+    padding: var(--padding) calc(var(--padding)*2);
+}
+
+.thongTinListItem:hover{
+    background-color: var(--grayLight);
+    cursor: pointer;
+}
+
+.thongTinExample{
+    color: var(--gray);
+}

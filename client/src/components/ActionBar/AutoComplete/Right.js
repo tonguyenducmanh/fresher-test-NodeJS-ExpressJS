@@ -3,6 +3,8 @@ import React, {useEffect} from 'react';
 import styles from './Right.module.css'
 
 import TruongChonNhieu from './RightCustom/TruongChonNhieu'
+import TruongChonNhieuBox from './RightCustom/TruongChonNhieuBox'
+
 
 import { HandleCheck } from './HandleClick/HandleCheck';
 
@@ -16,6 +18,7 @@ import {NganhNghe} from '../../CreateBody/AutoComplete/Array/NganhNghe'
 import {NguonGoc} from '../../CreateBody/AutoComplete/Array/NguonGoc'
 import {PhongBan} from '../../CreateBody/AutoComplete/Array/PhongBan'
 import {QuocGia} from '../../CreateBody/AutoComplete/Array/QuocGia'
+import {LoaiTiemNang} from '../../CreateBody/AutoComplete/Array/LoaiTiemNang'
 
 export default function TruongChonNhieuRight() {
     useEffect(()=>{
@@ -33,6 +36,7 @@ export default function TruongChonNhieuRight() {
                 <TruongChonNhieu arr={NguonGoc} id='NguonGocQuick'/>
                 <TruongChonNhieu arr={PhongBan} id='PhongBanQuick'/>
                 <TruongChonNhieu arr={QuocGia} id='QuocGiaQuick'/>
+                <TruongChonNhieuBox arr={LoaiTiemNang} id='LoaiTiemNangQuick'/>
                 <input className={`${styles.comboBoxInput} ${styles.comboBoxInputDisabled}`} 
                     disabled={true} 
                     id='truongChonNhieuRight'
@@ -40,6 +44,10 @@ export default function TruongChonNhieuRight() {
                 <input type='file' className={`${styles.comboBoxInput} ${styles.comboBoxInputFile} ${styles.comboBoxInputDisabled}`} 
                     id='AnhQuick'
                     placeholder='Chọn ảnh'
+                />
+                <input type='date' placeholder="DD/MM/YYYY"  className={`${styles.comboBoxInput}`} 
+                    autoComplete="off"   
+                    id='NgayThanhLapQuick'
                 />
                 <span className={styles.iconCheck} id='DungChungQuick'></span>
                 <span className={styles.diaChiInput} id='DiaChiQuick'>Trường này bị phụ thuộc</span>

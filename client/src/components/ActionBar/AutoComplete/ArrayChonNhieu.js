@@ -16,7 +16,7 @@ export const ArrayChonNhieu = [
     'Mã số thuế' ,
     'Tài khoản ngân hàng' ,
     'Mở tại ngân hàng' ,
-    'Ngày thành lập ' ,
+    'Ngày thành lập' ,
     'Loại hình' ,
     'Lĩnh vực' ,
     'Ngành nghề' ,

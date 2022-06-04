@@ -86,7 +86,6 @@ export default function TruongChonNhieu({arr, id}) {
                 {options.map((option, index) => (
                     <li className={styles.thongTinListItem} 
                         key={index}
-                        onClick={(e)=>TruongChonNhieu(e)}
                     >{option}
                     </li>
                     ))}

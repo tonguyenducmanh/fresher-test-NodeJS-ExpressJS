@@ -14,9 +14,10 @@ export const LeftClick = (e) =>{
     const NganhNgheQuick = document.getElementById('NganhNgheQuick')
     const NguonGocQuick = document.getElementById('NguonGocQuick')
     const PhongBanQuick = document.getElementById('PhongBanQuick')
-    const QuocGiaQuick = document.getElementById('QuocGiaQuick')
     const DungChungQuick = document.getElementById('DungChungQuick')
     const DiaChiQuick = document.getElementById('DiaChiQuick')
+    const LoaiTiemNangQuick = document.getElementById('LoaiTiemNangQuick')
+    const NgayThanhLapQuick = document.getElementById('NgayThanhLapQuick')
     //click vô rồi thì mới hiện cái nút cập nhật và ô input lên chứ
     console.log(e.target.textContent)
 
@@ -25,6 +26,7 @@ export const LeftClick = (e) =>{
         truongChonNhieuRight.classList.remove(styles.comboBoxInputDisabled)
         updateButtonFinal.classList.remove(styles.updateYesDisabled)
         truongChonNhieuRight.style.display = 'none'
+
     }
 
     
@@ -66,6 +68,12 @@ export const LeftClick = (e) =>{
             break;
         case 'Dùng chung':
             DungChungQuick.style.display = 'block'
+            break;
+        case 'Loại tiềm năng':
+            LoaiTiemNangQuick.style.display = 'block'
+            break;
+        case 'Ngày thành lập':
+            NgayThanhLapQuick.style.display = 'block'
             break;
         case 'Quốc gia':
         case 'Tỉnh thành':

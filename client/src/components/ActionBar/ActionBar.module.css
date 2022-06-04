@@ -432,7 +432,8 @@
     z-index: 10;
     background-color: var(--white);
     width: 500px;
-    height: 210px;
+    min-height: 210px;
+    max-height: 400px;
     border-radius: 4px;
 }
 
