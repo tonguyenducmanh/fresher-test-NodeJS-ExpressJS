@@ -1,6 +1,7 @@
 
 import styles from '../ActionBar.module.css'
 import stylesTwo from '../../MainBody/BodyTable/Table/Customers/Customers.module.css'
+import stylesThree from '../AutoComplete/Right.module.css'
 
 import { editCustomer } from '../../../features/customers/customersSlice'
 export const HandleUpdateButton = (dispatch) =>{
@@ -58,7 +59,7 @@ export const HandleUpdateButton = (dispatch) =>{
     if(loaiHinh.style.display ==='block'){data.append('loaiHinh', loaiHinh.children[2].textContent)}
     if(linhVuc.style.display ==='block'){data.append('linhVuc', linhVuc.children[2].textContent)}
     if(nganhNghe.style.display ==='block'){data.append('nganhNghe', nganhNghe.children[2].textContent)}
-    if(dungChung.style.display === 'block'){if(dungChung.classList.contains(styles.iconChecked)){data.append('dungChung', true)}else{data.append('dungChung', false)}}
+    if(dungChung.style.display === 'block'){if(dungChung.classList.contains(stylesThree.iconChecked)){data.append('dungChung', true)}else{data.append('dungChung', false)}}
     if(truongChonNhieuRight.style.display === 'block'){
         switch (valueLeft){
             case 'Họ và đệm':

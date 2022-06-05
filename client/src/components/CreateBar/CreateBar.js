@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 
 import styles from './CreateBar.module.css'
 
+import { HandleCancel } from "./HandleSave/HandleCancel";
 import { HandleSave } from "./HandleSave/HandleSave";
 import { HandleSaveAndAdd } from "./HandleSave/HandleSaveAndAdd";
 
@@ -12,6 +13,7 @@ const CreateBar = () =>{
     const dispatch = useDispatch()
 
     useEffect(()=>{
+        HandleCancel(dispatch)
         HandleSaveAndAdd(dispatch)
         HandleSave(dispatch)
     },[dispatch])
@@ -32,7 +34,7 @@ const CreateBar = () =>{
                 </span>
                 <span className={styles.createRight}>
                     <button type="button" className={styles.createRightButton} 
-
+                        id='cancelCreateButton'
                     >
 
                         <Link to="/" className={styles.cancelButton}>Hủy bỏ</Link >

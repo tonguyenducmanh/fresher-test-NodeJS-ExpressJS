@@ -2,7 +2,7 @@ import React, {useEffect}from 'react';
 
 import styles from './TruongChonNhieuBox.module.css'
 
-export default function TruongChonNhieu({arr}) {
+export default function TruongChonNhieu({arr, value}) {
         const options = arr;
         
         const thongTinInputBox = document.getElementsByClassName(styles.thongTinInputBox)

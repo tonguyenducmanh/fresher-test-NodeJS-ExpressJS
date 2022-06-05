@@ -96,7 +96,7 @@ export default function TruongChonNhieu({arr, id, value}) {
                     >{option}</li>
                     ))}
                 </ul>
-                <span className={styles.thongTinContent} id={id}>{value}</span>
+                <span className={styles.thongTinContent} style={value ? {color: '#616161'} : {color: '#9ba3b2'} } id = {id}>{value ? value : '- không chọn -'}</span>
                 <span className={styles.thongTinInputSearch}></span>
             </div>
         );

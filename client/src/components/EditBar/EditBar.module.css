@@ -92,7 +92,7 @@
 .notifySuccess{
     position: fixed;
     top:47px;
-    right: -200px;
+    right: -210px;
     z-index: 5;
     background-color: var(--white);
     border: var(--border);
@@ -106,7 +106,7 @@
 }
 
 .notifySuccessAni{
-    margin-right:210px;
+    margin-right:220px;
 }
 
 

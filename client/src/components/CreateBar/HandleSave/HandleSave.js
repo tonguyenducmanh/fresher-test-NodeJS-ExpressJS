@@ -1,4 +1,6 @@
 import { createCustomer } from "../../../features/customers/customersSlice";
+import { resetLocation } from '../../../features/location/locationSlice';
+
 import styles from '../CreateBar.module.css'
 import stylesTwo from '../../CreateBody/AutoComplete/TruongChonNhieuBox.module.css'
 import stylesThree from '../../CreateBody/CreateBody.module.css'
@@ -127,21 +129,24 @@ export const HandleSave = (dispatch) =>{
         
                     let dungChungBtn = false
         
-                    if(dungChungCheck.length ===1){
+                    if(dungChungCheck.classList.contains(stylesThree.iconChecked)){
                         dungChungBtn = true
                     }
                     data.append('dungChung', dungChungBtn)
                     dispatch(createCustomer(data))
+                    dispatch(resetLocation())
                     
                     notifySuccess.classList.add(styles.notifySuccessAni)
                     notifySuccess.addEventListener("transitionend", ()=>{
                         saveDoneAndReturnHome.click()
                     });
-        
+                    
+
                     // giả lập click vào nút link của react-router-dom bên dưới.
                     // mình ẩn nó đi rồi không cho ai truy cập vào.
                     // khi nào các thông tin quan trọng nhập vào được rồi thì mới
                     // click ảo thôi (giả lập 2 giây để còn hiện thông báo tạo thành công)
+
                 }
 
         } )

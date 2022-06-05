@@ -77,7 +77,7 @@ export default function TruongChonNhieuTinhThanh({value}) {
             for(let i = 0 ; i< thongTinList.length; i++){
                 thongTinList[i].addEventListener('click', (e)=>{
                     e.target.parentElement.parentElement.children[2].innerHTML = e.target.textContent
-                    e.target.parentElement.parentElement.children[2].classList.remove(styles.thongTinContentGray)
+                    e.target.parentElement.parentElement.children[2].style.color = '#616161'
                     e.target.parentElement.parentElement.children[1].style.display = 'none'
                     e.target.parentElement.parentElement.children[3].style.display = 'none'
                     e.target.parentElement.parentElement.children[0].style.display = 'none'
@@ -98,7 +98,7 @@ export default function TruongChonNhieuTinhThanh({value}) {
                     >{option.name}</li>
                     ))}
                 </ul>
-                <span className={`${styles.thongTinContent} ${styles.thongTinContentGray}`} id ='phuongXaEdit'>{value}</span>
+                <span className={styles.thongTinContent} style={value ? {color: '#616161'} : {color: '#9ba3b2'} } id ='phuongXaEdit'>{value ? value : '- không chọn -'}</span>
                 <span className={styles.thongTinInputSearch}></span>
             </div>
         );

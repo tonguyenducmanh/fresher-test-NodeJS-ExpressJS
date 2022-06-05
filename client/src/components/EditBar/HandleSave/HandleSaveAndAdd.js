@@ -1,7 +1,9 @@
 import { editCustomer } from '../../../features/customers/customersSlice'
+import { resetLocation } from '../../../features/location/locationSlice';
+
 import styles from '../EditBar.module.css'
-import stylesTwo from '../../CreateBody/AutoComplete/TruongChonNhieuBox.module.css'
-import stylesThree from '../../CreateBody/CreateBody.module.css'
+import stylesTwo from '../../EditBody/AutoComplete/TruongChonNhieuBox.module.css'
+import stylesThree from '../../EditBody/EditBody.module.css'
 import stylesFour from '../EditBar.module.css'
 
 export const HandleSaveAndAdd = (dispatch) =>{
@@ -125,11 +127,13 @@ export const HandleSaveAndAdd = (dispatch) =>{
         
                     let dungChungBtn = false
         
-                    if(dungChungCheck.length ===1){
+                    if(dungChungCheck.classList.contains(stylesThree.iconChecked)){
                         dungChungBtn = true
                     }
+                    
                     data.append('dungChung', dungChungBtn)
                     dispatch(editCustomer(data))
+                    dispatch(resetLocation())
                     
                     notifyEditSuccess.classList.add(styles.notifySuccessAni)
                     notifyEditSuccess.addEventListener("transitionend", ()=>{
@@ -142,6 +146,7 @@ export const HandleSaveAndAdd = (dispatch) =>{
                     avatarValue.removeAttribute('style')
                     // xóa style inline css để dùng lại cái file css bên ngoài cho avatar
 
+                    
                     document.getElementById('maEditTiemNang').value = ''
                     document.getElementById('xungHoEdit').textContent = '- Không chọn -'
                     document.getElementById('xungHoEdit').style.color = '#9ba3b2'

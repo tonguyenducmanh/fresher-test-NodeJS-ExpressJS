@@ -26,11 +26,18 @@ export const locationSlice = createSlice({
         },
         addSoNha: (state, action) => {
             state.soNha = action.payload
+        },
+        resetLocation: (state) =>{
+            state.quocGia = ''
+            state.tinhThanh = 0
+            state.quanHuyen = 0
+            state.phuongXa = 0
+            state.soNha = ''
         }
     }
 })
 
 
-export const {addTinhThanh, addQuanHuyen, addPhuongXa, addSoNha, quocGia} = locationSlice.actions
+export const {addTinhThanh, addQuanHuyen, addPhuongXa, addSoNha, quocGia, resetLocation} = locationSlice.actions
 
 export const locationReducer = locationSlice.reducer

@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 
 import styles from './EditBar.module.css'
 
+import { HandleCancel } from "./HandleSave/HandleCancel";
 import { HandleSave } from "./HandleSave/HandleSave";
 import { HandleSaveAndAdd } from "./HandleSave/HandleSaveAndAdd";
 
@@ -12,6 +13,7 @@ const EditBar = () =>{
     const dispatch = useDispatch()
 
     useEffect(()=>{
+        HandleCancel(dispatch)
         HandleSaveAndAdd(dispatch)
         HandleSave(dispatch)
     },[dispatch])
@@ -31,7 +33,7 @@ const EditBar = () =>{
                 </span>
                 <span className={styles.createRight}>
                     <button type="button" className={styles.createRightButton} 
-
+                        id='cancelEditButton'
                     >
 
                         <Link to="/" className={styles.cancelButton}>Hủy bỏ</Link >

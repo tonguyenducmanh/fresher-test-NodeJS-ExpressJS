@@ -150,7 +150,7 @@ const EditBody = () =>{
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Loại tiềm năng</span>
-                                <TruongChonNhieuBox arr={LoaiTiemNang} />
+                                <TruongChonNhieuBox arr={LoaiTiemNang} value={editCustomer.loaitiemnang}/>
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Zalo</span>
@@ -318,7 +318,7 @@ const EditBody = () =>{
                         <div className={styles.thongTinGroupLastBody}>
                             <span className={`${styles.thongTin} ${styles.thongTinLast}`}>
                                 <span className={styles.thongTinLastTitle}>Dùng chung</span>
-                                <span className={styles.iconCheck} id='dungChungEdit'></span>
+                                <span className={editCustomer.dungchung ? `${styles.iconChecked}` : `${styles.iconCheck}`} id='dungChungEdit'></span>
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle} >Mã tiềm năng</span>

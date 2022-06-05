@@ -1,4 +1,6 @@
 import { createCustomer } from "../../../features/customers/customersSlice";
+import { resetLocation } from '../../../features/location/locationSlice';
+
 import styles from '../CreateBar.module.css'
 import stylesTwo from '../../CreateBody/AutoComplete/TruongChonNhieuBox.module.css'
 import stylesThree from '../../CreateBody/CreateBody.module.css'
@@ -124,12 +126,13 @@ export const HandleSaveAndAdd = (dispatch) =>{
                     }
         
                     let dungChungBtn = false
-        
-                    if(dungChungCheck.length ===1){
+                    
+                    if(dungChungCheck.classList.contains(stylesThree.iconChecked)){
                         dungChungBtn = true
                     }
                     data.append('dungChung', dungChungBtn)
                     dispatch(createCustomer(data))
+                    dispatch(resetLocation())
                     
                     notifySuccess.classList.add(styles.notifySuccessAni)
                     notifySuccess.addEventListener("transitionend", ()=>{
