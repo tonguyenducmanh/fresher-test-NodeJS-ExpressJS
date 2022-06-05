@@ -1,6 +1,7 @@
 import { createCustomer } from "../../../features/customers/customersSlice";
 import { resetLocation } from '../../../features/location/locationSlice';
 import {fetchCustomersList} from '../../../features/customers/customersSlice'
+import { fetchCustomersCount } from '../../../features/customers/customersSlice';
 
 
 import styles from '../CreateBar.module.css'
@@ -137,6 +138,7 @@ export const HandleSave = (dispatch,startIndexPagination,limitPagination) =>{
                     dispatch(createCustomer(data))
                     dispatch(resetLocation())
                     dispatch(fetchCustomersList(`?limit=${limitPagination}&startIndex=${startIndexPagination}`))
+                    dispatch(fetchCustomersCount())
                     
                     notifySuccess.classList.add(styles.notifySuccessAni)
                     notifySuccess.addEventListener("transitionend", ()=>{

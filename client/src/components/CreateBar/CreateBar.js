@@ -12,7 +12,6 @@ import { HandleSaveAndAdd } from "./HandleSave/HandleSaveAndAdd";
 const CreateBar = () =>{
     const startIndexPagination = useSelector(state => state.pagination.startIndex)
     const limitPagination = useSelector(state => state.pagination.limit)
-
     const dispatch = useDispatch()
 
     useEffect(()=>{

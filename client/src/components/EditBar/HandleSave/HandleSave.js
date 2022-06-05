@@ -1,6 +1,7 @@
 import { editCustomer } from '../../../features/customers/customersSlice'
 import { resetLocation } from '../../../features/location/locationSlice';
 import {fetchCustomersList} from '../../../features/customers/customersSlice'
+import { fetchCustomersCount } from '../../../features/customers/customersSlice';
 
 import styles from '../EditBar.module.css'
 import stylesTwo from '../../EditBody/AutoComplete/TruongChonNhieuBox.module.css'
@@ -139,6 +140,7 @@ export const HandleSave = (dispatch,startIndexPagination,limitPagination,anhCu) 
                     dispatch(editCustomer(data))
                     dispatch(resetLocation())
                     dispatch(fetchCustomersList(`?limit=${limitPagination}&startIndex=${startIndexPagination}`))
+                    dispatch(fetchCustomersCount())
                     
                     notifyEditSuccess.classList.add(styles.notifySuccessAni)
                     notifyEditSuccess.addEventListener("transitionend", ()=>{

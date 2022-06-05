@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link } from "react-router-dom";
 
 import { fetchCustomersList } from '../../features/customers/customersSlice'
+import { fetchCustomersCount } from '../../features/customers/customersSlice';
+import { resetLocation } from '../../features/location/locationSlice';
 
 
 import styles from './ActionBar.module.css'
@@ -117,6 +119,9 @@ const ActionBar = () =>{
                     <span className={styles.actionLeftRefreshButton}
                         onClick={()=>{{
                             dispatch(fetchCustomersList(`?limit=${limitPagination}&startIndex=${startIndexPagination}`))
+                            dispatch(fetchCustomersCount())
+                            dispatch(resetLocation())
+
                         }}}
                     >
                         <span className={styles.refreshPage}>

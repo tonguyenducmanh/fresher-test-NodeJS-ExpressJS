@@ -1,6 +1,7 @@
 import React, { useEffect }  from "react";
 import styles from './CreateBody.module.css'
 
+import { useSelector } from "react-redux";
 
 import { XungHo } from "./AutoComplete/Array/XungHo";
 import { PhongBan } from "./AutoComplete/Array/PhongBan";
@@ -32,6 +33,11 @@ import { EmailValidate } from "./AutoComplete/FormValidate/EmailValidate";
 
 
 const CreateBody = () =>{
+    const userCount = useSelector(state => state.count.count) + 1
+    const zeroPad = (num, places) => String(num).padStart(places, '0')
+    const newIDCout =zeroPad(userCount, 15)
+    const newTNCount = `TN${newIDCout}`
+    //phải đủ 15 chữ số sau chữ TN
     useEffect(()=>{
         HandleImage()
         HandleCheck()
@@ -264,7 +270,11 @@ const CreateBody = () =>{
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle} >Mã tiềm năng</span>
                                 <span className={styles.thongTinInputFather}>
-                                    <input className={`${styles.thongTinInput} ${styles.thongtinMustHave}`} autoComplete="off" id='maTiemNang'/>
+                                    <input className={`${styles.thongTinInput} ${styles.thongtinMustHave}`} 
+                                    autoComplete="off" 
+                                    id='maTiemNang'
+                                    defaultValue={newTNCount}
+                                    />
                                     <span className={styles.thonngTinWarningText}>Mã tiềm năng không được để trống</span>
                                 </span>
                             </span>

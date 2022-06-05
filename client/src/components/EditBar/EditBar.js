@@ -20,7 +20,7 @@ const EditBar = () =>{
 
     useEffect(()=>{
         HandleCancel(dispatch,startIndexPagination,limitPagination)
-        HandleSaveAndAdd(dispatch)
+        // HandleSaveAndAdd(dispatch)
         //2 trường hợp kia cần useselector để lấy limit và startindex
         // sau đó tự động load lại danh sách mới, còn
         // ông này là thêm thủ công lần nữa nên chưa cần vội
@@ -47,11 +47,11 @@ const EditBar = () =>{
 
                         <Link to="/" className={styles.cancelButton}>Hủy bỏ</Link >
                     </button>
-                    <button type="button" form="EditCustomer" className={styles.createRightButton} 
+                    {/* <button type="button" form="EditCustomer" className={styles.createRightButton} 
                     id='editAndAddButton'
                     >
                         <span className={styles.saveAndAddButton}>Lưu và thêm</span>
-                    </button>
+                    </button> */}
                     <button type="button" form="EditCustomer" className={`${styles.createRightButton} ${styles.saveButton}`}
                         id='editButton'
                     >
