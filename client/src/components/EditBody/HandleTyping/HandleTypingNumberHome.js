@@ -12,7 +12,7 @@ export const HandleTypingNumberHome = ({value}) => {
                 <input className={styles.thongTinInput} 
                 onChange={(e) => dispatch(addSoNha(e.target.value))
                 }
-                id='soNha'
+                id='soNhaEdit'
                 
                 autoComplete="off"
                 defaultValue={value}

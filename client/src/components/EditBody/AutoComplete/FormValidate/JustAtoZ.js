@@ -3,8 +3,8 @@ import styles from '../../EditBody.module.css'
 export const JustAtoZ = () =>{
     // const thongtinAtoZs = document.getElementsByClassName(styles.thongtinAtoZ)
     const thongtinAtoZs = []
-    thongtinAtoZs.push(document.getElementById('firstName'))
-    thongtinAtoZs.push(document.getElementById('lastName'))
+    thongtinAtoZs.push(document.getElementById('firstNameEdit'))
+    thongtinAtoZs.push(document.getElementById('lastNameEdit'))
     for(let i = 0; i< thongtinAtoZs.length; i++){
 
         const re = new RegExp(/[a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ ]/);

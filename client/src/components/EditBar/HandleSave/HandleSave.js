@@ -1,17 +1,17 @@
-import { createCustomer } from "../../../features/customers/customersSlice";
-import styles from '../CreateBar.module.css'
+import { editCustomer } from '../../../features/customers/customersSlice'
+import styles from '../EditBar.module.css'
 import stylesTwo from '../../CreateBody/AutoComplete/TruongChonNhieuBox.module.css'
 import stylesThree from '../../CreateBody/CreateBody.module.css'
-import stylesFour from '../CreateBar.module.css'
+import stylesFour from '../EditBar.module.css'
 
 
 export const HandleSave = (dispatch) =>{
     
-    const saveButton = document.getElementById('saveButton')
-        const saveDoneAndReturnHome = document.getElementById('saveDoneAndReturnHome')
-        saveButton.addEventListener('click', () =>{
+    const editButton = document.getElementById('editButton')
+        const editDoneAndReturnHome = document.getElementById('editDoneAndReturnHome')
+        editButton.addEventListener('click', () =>{
                 const thongtinMustHaves = document.getElementsByClassName(stylesThree.thongtinMustHave)
-                const notifySuccess = document.getElementById('notifySuccess')
+                const notifyEditSuccess = document.getElementById('notifyEditSuccess')
                 //check xem mấy thông tin quan trọng đã điền hết chưa
                 let thongtinChuaDien = 0
                 for( let i = 0 ; i < thongtinMustHaves.length; i++){
@@ -22,47 +22,47 @@ export const HandleSave = (dispatch) =>{
                         thongtinMustHaves[i].parentElement.parentElement.children[0].classList.add(stylesThree.thongTinTitleWarning)
                         //
                         //hiện thông báo nhập cho ló đầy đủ vào
-                        const notifyNotEnough = document.getElementById('notifyNotEnough')
+                        const notifyEditNotEnough = document.getElementById('notifyEditNotEnough')
                         //thông báo rằng người dùng chỉ có thể sửa 1 tiềm năng 1 lúc
-                        notifyNotEnough.classList.add(stylesFour.notifyNotEnoughAni)
-                        notifyNotEnough.addEventListener("transitionend", ()=>{
-                            notifyNotEnough.classList.remove(stylesFour.notifyNotEnoughAni)
+                        notifyEditNotEnough.classList.add(stylesFour.notifyNotEnoughAni)
+                        notifyEditNotEnough.addEventListener("transitionend", ()=>{
+                            notifyEditNotEnough.classList.remove(stylesFour.notifyNotEnoughAni)
                         });
                     }
                 }
                 
                 if(thongtinChuaDien === 0){
-                    const anh =  document.getElementById('anhValue')
-                    const maTiemNang = document.getElementById('maTiemNang').value
-                    const xungHo = document.getElementById('xungHo').textContent
-                    const firstName = document.getElementById('firstName').value
-                    const lastName = document.getElementById('lastName').value
-                    const phongBan = document.getElementById('phongBan').textContent
-                    const chucDanh = document.getElementById('chucDanh').textContent
-                    const dienThoaiDiDong = document.getElementById('dienThoaiDiDong').value
-                    const dienThoaiCoQuan = document.getElementById('dienThoaiCoQuan').value
-                    const nguonGoc = document.getElementById('nguonGoc').textContent
-                    const zalo = document.getElementById('zalo').value
-                    const emailCaNhan = document.getElementById('emailCaNhan').value
-                    const emailCoQuan = document.getElementById('emailCoQuan').value
-                    const toChuc = document.getElementById('toChuc').value
-                    const maSoThue = document.getElementById('maSoThue').value
-                    const taiKhoanNganHang = document.getElementById('taiKhoanNganHang').value
-                    const moTaiNganHang = document.getElementById('moTaiNganHang').value
-                    const ngayThanhLap = document.getElementById('ngayThanhLap').value
-                    const loaiHinh = document.getElementById('loaiHinh').textContent
-                    const linhVuc = document.getElementById('linhVuc').textContent
-                    const nganhNghe = document.getElementById('nganhNghe').textContent
-                    const doanhThu = document.getElementById('doanhThu').textContent
-                    const quocGia = document.getElementById('quocGia').textContent
-                    const tinhThanh = document.getElementById('tinhThanh').textContent
-                    const quanHuyen = document.getElementById('quanHuyen').textContent
-                    const phuongXa = document.getElementById('phuongXa').textContent
-                    const soNha = document.getElementById('soNha').value
-                    const maVung = document.getElementById('maVung').value
-                    const moTa = document.getElementById('moTa').value
-                    const dungChungCheck = document.getElementById('dungChung')
-                    const loaiTiemNang = document.getElementById('loaiTiemNang').children
+                    const anh =  document.getElementById('anhEditValue')
+                    const maTiemNang = document.getElementById('maEditTiemNang').value
+                    const xungHo = document.getElementById('xungHoEdit').textContent
+                    const firstName = document.getElementById('firstNameEdit').value
+                    const lastName = document.getElementById('lastNameEdit').value
+                    const phongBan = document.getElementById('phongBanEdit').textContent
+                    const chucDanh = document.getElementById('chucDanhEdit').textContent
+                    const dienThoaiDiDong = document.getElementById('dienThoaiDiDongEdit').value
+                    const dienThoaiCoQuan = document.getElementById('dienThoaiCoQuanEdit').value
+                    const nguonGoc = document.getElementById('nguonGocEdit').textContent
+                    const zalo = document.getElementById('zaloEdit').value
+                    const emailCaNhan = document.getElementById('emailCaNhanEdit').value
+                    const emailCoQuan = document.getElementById('emailCoQuanEdit').value
+                    const toChuc = document.getElementById('toChucEdit').value
+                    const maSoThue = document.getElementById('maSoThueEdit').value
+                    const taiKhoanNganHang = document.getElementById('taiKhoanNganHangEdit').value
+                    const moTaiNganHang = document.getElementById('moTaiNganHangEdit').value
+                    const ngayThanhLap = document.getElementById('ngayThanhLapEdit').value
+                    const loaiHinh = document.getElementById('loaiHinhEdit').textContent
+                    const linhVuc = document.getElementById('linhVucEdit').textContent
+                    const nganhNghe = document.getElementById('nganhNgheEdit').textContent
+                    const doanhThu = document.getElementById('doanhThuEdit').textContent
+                    const quocGia = document.getElementById('quocGiaEdit').textContent
+                    const tinhThanh = document.getElementById('tinhThanhEdit').textContent
+                    const quanHuyen = document.getElementById('quanHuyenEdit').textContent
+                    const phuongXa = document.getElementById('phuongXaEdit').textContent
+                    const soNha = document.getElementById('soNhaEdit').value
+                    const maVung = document.getElementById('maVungEdit').value
+                    const moTa = document.getElementById('moTaEdit').value
+                    const dungChungCheck = document.getElementById('dungChungEdit')
+                    const loaiTiemNang = document.getElementById('loaiTiemNangEdit').children
                     
         
                     const data = new FormData()
@@ -131,11 +131,11 @@ export const HandleSave = (dispatch) =>{
                         dungChungBtn = true
                     }
                     data.append('dungChung', dungChungBtn)
-                    dispatch(createCustomer(data))
+                    dispatch(editCustomer(data))
                     
-                    notifySuccess.classList.add(styles.notifySuccessAni)
-                    notifySuccess.addEventListener("transitionend", ()=>{
-                        saveDoneAndReturnHome.click()
+                    notifyEditSuccess.classList.add(styles.notifySuccessAni)
+                    notifyEditSuccess.addEventListener("transitionend", ()=>{
+                        editDoneAndReturnHome.click()
                     });
         
                     // giả lập click vào nút link của react-router-dom bên dưới.

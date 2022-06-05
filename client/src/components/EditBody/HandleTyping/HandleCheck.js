@@ -1,7 +1,7 @@
 import styles from '../EditBody.module.css'
 
 export const HandleCheck = () =>{
-    const dungChung = document.getElementById('dungChung')
+    const dungChung = document.getElementById('dungChungEdit')
     dungChung.addEventListener('click', function(e) {
         console.log('hii')
         if(dungChung.classList.contains(styles.iconCheck)){

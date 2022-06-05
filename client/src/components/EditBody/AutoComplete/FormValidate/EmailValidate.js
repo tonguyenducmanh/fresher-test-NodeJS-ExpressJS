@@ -3,8 +3,8 @@ import styles from '../../EditBody.module.css'
 export const EmailValidate = () =>{
     // const emailAtoZs = document.getElementsByClassName(styles.thongtinAtoZ)
     const emailAtoZs = []
-    emailAtoZs.push(document.getElementById('emailCaNhan'))
-    emailAtoZs.push(document.getElementById('emailCoQuan'))
+    emailAtoZs.push(document.getElementById('emailCaNhanEdit'))
+    emailAtoZs.push(document.getElementById('emailCoQuanEdit'))
     for(let i = 0; i< emailAtoZs.length; i++){
 
         const re = new RegExp(/[a-z0-9@.]/i);

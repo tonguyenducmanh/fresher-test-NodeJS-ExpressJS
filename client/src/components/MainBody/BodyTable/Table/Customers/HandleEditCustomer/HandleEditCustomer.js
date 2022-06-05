@@ -12,7 +12,6 @@ export const HandleEditCustomer = (dispatch,customers) =>{
         customerEdits[k].addEventListener('dblclick',(event)=>{
             if(!checkButtons[k].contains(event.target)){
                 tdLinks[k].children[0].click()
-                console.log(customers[k])
                 dispatch(addTempCustomer(customers[k]))
             }
         })

@@ -59,9 +59,9 @@ export const HandleSaveAndAdd = (dispatch) =>{
                     const soNha = document.getElementById('soNha').value
                     const maVung = document.getElementById('maVung').value
                     const moTa = document.getElementById('moTa').value
-                    const loaiTiemNang = document.getElementsByClassName(stylesTwo.thongTinContentDecor)
-                    const dungChungCheck = document.getElementsByClassName(stylesThree.iconChecked)
-                    
+                    const dungChungCheck = document.getElementById('dungChung')
+                    const loaiTiemNang = document.getElementById('loaiTiemNang').children
+                     
         
                     const data = new FormData()
         

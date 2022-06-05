@@ -32,7 +32,9 @@ export const HandleUpdateButton = (dispatch) =>{
     for( let i = 0 ; i < tdIds.length ; i ++){
         if(checkedButton[i].classList.contains(stylesTwo.iconHeadingChecked)){
             idsString = idsString.concat(tdIds[i].textContent)
-            data.append('anhCuValue', tdAnh[i].textContent)
+            if(anh.style.display === 'block'){
+                data.append('anhCuValue', tdAnh[i].textContent)
+            }
             // lưu luôn giá trị ảnh cũ để dùng sau này
         }
     }

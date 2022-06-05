@@ -157,7 +157,7 @@ export default function TruongChonNhieu({arr}) {
 
         return (
             <div className={styles.thongtinContainer}>
-                <div className={styles.thongTinInputBox}>
+                <div className={styles.thongTinInputBox} id='loaiTiemNang'>
                     <span className={styles.thongTinExample}>- Không chọn -</span>
                     {/* <span className={`${styles.thongTinContent} ${styles.thongTinContentDecor}`}>- Không chọn -</span> */}
                 </div>

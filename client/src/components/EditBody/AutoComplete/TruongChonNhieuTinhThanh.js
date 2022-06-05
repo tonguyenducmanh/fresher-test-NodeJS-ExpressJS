@@ -96,7 +96,7 @@ export default function TruongChonNhieuTinhThanh({value}) {
                     >{option.name}</li>
                     ))}
                 </ul>
-                <span className={`${styles.thongTinContent} ${styles.thongTinContentGray}`} id ='tinhThanh'>{value}</span>
+                <span className={`${styles.thongTinContent} ${styles.thongTinContentGray}`} id ='tinhThanhEdit'>{value}</span>
                 <span className={styles.thongTinInputSearch}></span>
             </div>
         );

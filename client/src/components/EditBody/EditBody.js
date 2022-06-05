@@ -49,7 +49,7 @@ const EditBody = () =>{
     return (
         <div className={styles.container}>
             <div className={styles.box}>
-                <form id='createCustomer' 
+                <form id='EditCustomer' 
                     method="post" 
                     encType="multipart/form-data"
                     className={styles.form}
@@ -57,8 +57,8 @@ const EditBody = () =>{
                     <div className={styles.anhTiemNang}>
                         <div className={styles.thongTinGroupTitle}>Ảnh tiềm năng</div>
                         <div className={`${styles.thongTinGroupBody} ${styles.uploadImageBox}`}>
-                            <input className={styles.thongTinImage} type='file' name='anhValue' id='anhValue'/>
-                            <span className={styles.avatarImage} id='avatarValue' 
+                            <input className={styles.thongTinImage} type='file' name='anhEditValue' id='anhEditValue'/>
+                            <span className={styles.avatarImage} id='avatarEditValue' 
                             // style={{background-image:url(`${editCustomer.anh}`)}}
                             ></span>
                         </div>
@@ -68,14 +68,14 @@ const EditBody = () =>{
                         <div className={styles.thongTinGroupBody}>
                         <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Xưng hô</span>
-                                <TruongChonNhieu arr={XungHo} id={'xungHo'} value={editCustomer.xungho} />
+                                <TruongChonNhieu arr={XungHo} id={'xungHoEdit'} value={editCustomer.xungho} />
                             </span>
                             <span className={styles.thongTin} >
                                 <span className={styles.thongTinTitle}>Họ và đệm</span>
                                 <span className={styles.thongTinInputFather}>
                                     <input  className={`${styles.thongTinInput} ${styles.thongtinMustHave} ${styles.thongtinAtoZ}`} 
                                         autoComplete="new-password" 
-                                        id='firstName'
+                                        id='firstNameEdit'
                                         defaultValue={editCustomer.hovadem}
                                         onChange={ConnectName}
                                     />
@@ -88,7 +88,7 @@ const EditBody = () =>{
                                 <span className={styles.thongTinInputFather}>
                                     <input  className={`${styles.thongTinInput} ${styles.thongtinMustHave} ${styles.thongtinAtoZ}`} 
                                         autoComplete="new-password" 
-                                        id='lastName'
+                                        id='lastNameEdit'
                                         defaultValue={editCustomer.ten}
                                         onChange={ConnectName}
                                     />
@@ -98,17 +98,17 @@ const EditBody = () =>{
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle} >Họ và tên</span>
-                                <span className={styles.thongTinHoVaTen} id='fullName'>
+                                <span className={styles.thongTinHoVaTen} id='fullNameEdit'>
                                 {`${editCustomer.hovadem} ${editCustomer.ten}`}
                                 </span>
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Phòng ban</span>
-                                <TruongChonNhieu arr={PhongBan} id={'phongBan'} value={editCustomer.phongban} />
+                                <TruongChonNhieu arr={PhongBan} id={'phongBanEdit'} value={editCustomer.phongban} />
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Chức danh</span>
-                                <TruongChonNhieu arr={ChucDanh} id={'chucDanh'} value={editCustomer.chucdanh} />
+                                <TruongChonNhieu arr={ChucDanh} id={'chucDanhEdit'} value={editCustomer.chucdanh} />
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>
@@ -120,7 +120,7 @@ const EditBody = () =>{
                                 <span className={styles.thongTinInputFather}>
                                     <input className={`${styles.thongTinInput} ${styles.thongtinMustHave}`} 
                                         autoComplete="off" 
-                                        id='dienThoaiDiDong'
+                                        id='dienThoaiDiDongEdit'
                                         defaultValue={editCustomer.dtdidong}    
                                     />
                                     <span className={styles.thonngTinWarningText}>Đt di động không được để trống</span>
@@ -137,7 +137,7 @@ const EditBody = () =>{
                                 <span className={styles.thongTinInputFather}>
                                     <input className={`${styles.thongTinInput} ${styles.thongtinMustHave}`} 
                                         autoComplete="off" 
-                                        id='dienThoaiCoQuan'
+                                        id='dienThoaiCoQuanEdit'
                                         defaultValue={editCustomer.dtcoquan}
                                     />
                                     <span className={styles.thonngTinWarningText}>Đt cơ quan không được để trống</span>
@@ -146,7 +146,7 @@ const EditBody = () =>{
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Nguồn gốc</span>
-                                <TruongChonNhieu arr={NguonGoc} id={'nguonGoc'} value={editCustomer.nguongoc} />
+                                <TruongChonNhieu arr={NguonGoc} id={'nguonGocEdit'} value={editCustomer.nguongoc} />
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Loại tiềm năng</span>
@@ -157,7 +157,7 @@ const EditBody = () =>{
                                 <span className={styles.thongTinInputFather}>
                                     <input className={styles.thongTinInput} 
                                         autoComplete="off" 
-                                        id='zalo'
+                                        id='zaloEdit'
                                         defaultValue={editCustomer.zalo}
                                     />
                                 </span>
@@ -167,7 +167,7 @@ const EditBody = () =>{
                                 <span className={styles.thongTinInputFather}>
                                     <input className={styles.thongTinInput} 
                                         autoComplete="off" 
-                                        id='emailCaNhan'
+                                        id='emailCaNhanEdit'
                                         defaultValue={editCustomer.emailcanhan}
                                     />
                                     <span className={styles.thonngTinWarningTextThree}>Email chỉ có thể chứa ký tự đặc biệt @</span>
@@ -178,7 +178,7 @@ const EditBody = () =>{
                                 <span className={styles.thongTinInputFather}>
                                     <input className={styles.thongTinInput} 
                                         autoComplete="off" 
-                                        id='emailCoQuan'
+                                        id='emailCoQuanEdit'
                                         defaultValue={editCustomer.emailcoquan}
                                     />
                                     <span className={styles.thonngTinWarningTextThree}>Email chỉ có thể chứa ký tự đặc biệt @</span>
@@ -189,7 +189,7 @@ const EditBody = () =>{
                                 <span className={styles.thongTinInputFather}>
                                     <input className={styles.thongTinInput} 
                                         autoComplete="off" 
-                                        id='toChuc'
+                                        id='toChucEdit'
                                         defaultValue={editCustomer.tochuc}
                                     />
                                 </span>
@@ -199,7 +199,7 @@ const EditBody = () =>{
                                 <span className={styles.thongTinInputFather}>
                                     <input className={styles.thongTinInput} 
                                         autoComplete="off" 
-                                        id='maSoThue'
+                                        id='maSoThueEdit'
                                         defaultValue={editCustomer.masothue}
                                     />
                                 </span>
@@ -215,7 +215,7 @@ const EditBody = () =>{
                                 <span className={styles.thongTinInputFather}>
                                     <input className={`${styles.thongTinInput} ${styles.thongtinMustHave}`} 
                                         autoComplete="off" 
-                                        id='taiKhoanNganHang'
+                                        id='taiKhoanNganHangEdit'
                                         defaultValue={editCustomer.taikhoannganhang}
                                         
                                     />
@@ -229,14 +229,14 @@ const EditBody = () =>{
                                     <input className={`${styles.thongTinInput} ${styles.thongtinMustHave}`} 
                                         autoComplete="off" 
                                         defaultValue={editCustomer.motainganhang}
-                                        id='moTaiNganHang'
+                                        id='moTaiNganHangEdit'
                                     />
                                     <span className={styles.thonngTinWarningText}>Ngân hàng không được để trống</span>
                                 </span>
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Ngày thành lập</span>
-                                <input className={styles.thongTinInput} id='ngayThanhLap'
+                                <input className={styles.thongTinInput} id='ngayThanhLapEdit'
                                 type='date' 
                                 placeholder="DD/MM/YYYY" 
                                 autoComplete="off" 
@@ -245,19 +245,19 @@ const EditBody = () =>{
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Loại hình</span>
-                                <TruongChonNhieu arr={LoaiHinh} id={'loaiHinh'} value={editCustomer.loaihinh} />
+                                <TruongChonNhieu arr={LoaiHinh} id={'loaiHinhEdit'} value={editCustomer.loaihinh} />
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Lĩnh vực</span>
-                                <TruongChonNhieu arr={LinhVuc} id={'linhVuc'} value={editCustomer.linhvuc} />
+                                <TruongChonNhieu arr={LinhVuc} id={'linhVucEdit'} value={editCustomer.linhvuc} />
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Ngành nghề</span>
-                                <TruongChonNhieu arr={NganhNghe} id={'nganhNghe'} value={editCustomer.nganhnghe} />
+                                <TruongChonNhieu arr={NganhNghe} id={'nganhNgheEdit'} value={editCustomer.nganhnghe} />
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>DoanhThu</span>
-                                <TruongChonNhieu arr={DoanhThu} id={'doanhThu'} value={editCustomer.doanhthu} />
+                                <TruongChonNhieu arr={DoanhThu} id={'doanhThuEdit'} value={editCustomer.doanhthu} />
                             </span>
                         </div>
                     </div>
@@ -266,7 +266,7 @@ const EditBody = () =>{
                         <div className={styles.thongTinGroupBody}>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Quốc gia</span>
-                                <TruongChonNhieuQuocGia arr={QuocGia} id={'quocGia'} value={editCustomer.quocgia}/>
+                                <TruongChonNhieuQuocGia arr={QuocGia} id={'quocGiaEdit'} value={editCustomer.quocgia}/>
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Tỉnh/Thành phố</span>
@@ -289,7 +289,7 @@ const EditBody = () =>{
                                 <span className={styles.thongTinInputFather}>
                                     <input className={styles.thongTinInput} 
                                     autoComplete="off" 
-                                    id='maVung'
+                                    id='maVungEdit'
                                     defaultValue={editCustomer.mavung}
                                     />
                                 </span>
@@ -306,7 +306,7 @@ const EditBody = () =>{
                             <span className={styles.thongTinMoTa}>
                                 <span className={`${styles.thongTinTitle} ${styles.thongTinMoTaTilte}`}>Mô tả</span>
                                     <textarea className={`${styles.thongTinInput} ${styles.thongTinMoTaInput}`}
-                                        id='moTa'
+                                        id='moTaEdit'
                                         defaultValue={editCustomer.mota}
                                     />
                             </span>
@@ -318,14 +318,14 @@ const EditBody = () =>{
                         <div className={styles.thongTinGroupLastBody}>
                             <span className={`${styles.thongTin} ${styles.thongTinLast}`}>
                                 <span className={styles.thongTinLastTitle}>Dùng chung</span>
-                                <span className={styles.iconCheck} id='dungChung'></span>
+                                <span className={styles.iconCheck} id='dungChungEdit'></span>
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle} >Mã tiềm năng</span>
                                 <span className={styles.thongTinInputFather}>
                                     <input className={`${styles.thongTinInput} ${styles.thongtinMustHave}`} 
                                         autoComplete="off" 
-                                        id='maTiemNang' 
+                                        id='maEditTiemNang' 
                                         defaultValue={editCustomer._id} 
                                     />
                                     <span className={styles.thonngTinWarningText}>Mã tiềm năng không được để trống</span>

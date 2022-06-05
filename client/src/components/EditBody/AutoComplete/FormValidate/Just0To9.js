@@ -3,9 +3,9 @@ import styles from '../../EditBody.module.css'
 export const Just0To9 = () =>{
     // const thongtinAtoZs = document.getElementsByClassName(styles.thongtinAtoZ)
     const thongtin0to9s = []
-    thongtin0to9s.push(document.getElementById('dienThoaiDiDong'))
-    thongtin0to9s.push(document.getElementById('dienThoaiCoQuan'))
-    thongtin0to9s.push(document.getElementById('taiKhoanNganHang'))
+    thongtin0to9s.push(document.getElementById('dienThoaiDiDongEdit'))
+    thongtin0to9s.push(document.getElementById('dienThoaiCoQuanEdit'))
+    thongtin0to9s.push(document.getElementById('taiKhoanNganHangEdit'))
     for(let i = 0; i< thongtin0to9s.length; i++){
 
         const re = new RegExp(/[0-9 ]/);

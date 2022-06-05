@@ -1,6 +1,6 @@
 export const HandleImage = () =>{
-    const anhValue = document.getElementById('anhValue')
-    const avatarValue = document.getElementById('avatarValue')
+    const anhValue = document.getElementById('anhEditValue')
+    const avatarValue = document.getElementById('avatarEditValue')
     const reader = new FileReader();
     reader.addEventListener("load", function () {
         avatarValue.style.backgroundImage = `url(${ reader.result })`;

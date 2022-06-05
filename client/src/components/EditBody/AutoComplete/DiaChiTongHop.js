@@ -11,9 +11,9 @@ const DiaChiTongHop = () => {
     let getsoNha= useSelector(state => state.location.soNha)
     useEffect(()=>
     {
-        let tinhThanh = document.getElementById('tinhThanh')
-        let quanHuyen = document.getElementById('quanHuyen')
-        let phuongXa = document.getElementById('phuongXa')
+        let tinhThanh = document.getElementById('tinhThanhEdit')
+        let quanHuyen = document.getElementById('quanHuyenEdit')
+        let phuongXa = document.getElementById('phuongXaEdit')
         if(tinhThanh.classList.contains(stylesTwo.thongTinContentGray)){
             tinhThanh =''
         }else { tinhThanh = tinhThanh.textContent + ','}

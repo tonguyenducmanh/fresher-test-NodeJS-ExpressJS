@@ -5,11 +5,16 @@ import {
     Route,
   } from "react-router-dom";
 import HeadingBar from "./components/Headingbar/HeadingBar";
+
 import ActionBar from "./components/ActionBar/ActionBar";
 import MainBody from "./components/MainBody/MainBody";
+
 import CreateBar from "./components/CreateBar/CreateBar"
 import CreateBody from "./components/CreateBody/CreateBody"
+
+import EditBar from "./components/EditBar/EditBar";
 import EditBody from "./components/EditBody/EditBody";
+
 import Others from "./components/Others/Others";
 
 import styles from './styles.css'
@@ -39,7 +44,7 @@ const App = () =>{
                     </Route>
                     <Route exact path="/edit" element={
                     <>
-                        <CreateBar/>
+                        <EditBar/>
                         <EditBody />
 
                     </>}>
