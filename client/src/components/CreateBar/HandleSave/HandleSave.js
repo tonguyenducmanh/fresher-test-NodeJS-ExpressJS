@@ -1,5 +1,7 @@
 import { createCustomer } from "../../../features/customers/customersSlice";
 import { resetLocation } from '../../../features/location/locationSlice';
+import {fetchCustomersList} from '../../../features/customers/customersSlice'
+
 
 import styles from '../CreateBar.module.css'
 import stylesTwo from '../../CreateBody/AutoComplete/TruongChonNhieuBox.module.css'
@@ -7,8 +9,7 @@ import stylesThree from '../../CreateBody/CreateBody.module.css'
 import stylesFour from '../CreateBar.module.css'
 
 
-export const HandleSave = (dispatch) =>{
-    
+export const HandleSave = (dispatch,startIndexPagination,limitPagination) =>{
     const saveButton = document.getElementById('saveButton')
         const saveDoneAndReturnHome = document.getElementById('saveDoneAndReturnHome')
         saveButton.addEventListener('click', () =>{
@@ -135,6 +136,7 @@ export const HandleSave = (dispatch) =>{
                     data.append('dungChung', dungChungBtn)
                     dispatch(createCustomer(data))
                     dispatch(resetLocation())
+                    dispatch(fetchCustomersList(`?limit=${limitPagination}&startIndex=${startIndexPagination}`))
                     
                     notifySuccess.classList.add(styles.notifySuccessAni)
                     notifySuccess.addEventListener("transitionend", ()=>{

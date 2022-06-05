@@ -1,5 +1,6 @@
 import { editCustomer } from '../../../features/customers/customersSlice'
 import { resetLocation } from '../../../features/location/locationSlice';
+import {fetchCustomersList} from '../../../features/customers/customersSlice'
 
 import styles from '../EditBar.module.css'
 import stylesTwo from '../../EditBody/AutoComplete/TruongChonNhieuBox.module.css'
@@ -7,7 +8,7 @@ import stylesThree from '../../EditBody/EditBody.module.css'
 import stylesFour from '../EditBar.module.css'
 
 
-export const HandleSave = (dispatch) =>{
+export const HandleSave = (dispatch,startIndexPagination,limitPagination,anhCu) =>{
     
     const editButton = document.getElementById('editButton')
         const editDoneAndReturnHome = document.getElementById('editDoneAndReturnHome')
@@ -71,6 +72,8 @@ export const HandleSave = (dispatch) =>{
         
                     data.append('_id',maTiemNang)
                     
+                    data.append('anhCuValue', anhCu)
+                    //gửi cả đường link của ảnh cũ để còn xóa đi nữa
                     xungHo !== '- Không chọn -' ? data.append('xungHo', xungHo) : data.append('xungHo', '-')
                     
                     let anhValue = 0
@@ -135,12 +138,13 @@ export const HandleSave = (dispatch) =>{
                     data.append('dungChung', dungChungBtn)
                     dispatch(editCustomer(data))
                     dispatch(resetLocation())
+                    dispatch(fetchCustomersList(`?limit=${limitPagination}&startIndex=${startIndexPagination}`))
                     
                     notifyEditSuccess.classList.add(styles.notifySuccessAni)
                     notifyEditSuccess.addEventListener("transitionend", ()=>{
                         editDoneAndReturnHome.click()
                     });
-        
+                    
                     // giả lập click vào nút link của react-router-dom bên dưới.
                     // mình ẩn nó đi rồi không cho ai truy cập vào.
                     // khi nào các thông tin quan trọng nhập vào được rồi thì mới

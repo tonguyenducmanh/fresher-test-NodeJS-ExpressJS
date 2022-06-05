@@ -59,7 +59,14 @@ const EditBody = () =>{
                         <div className={`${styles.thongTinGroupBody} ${styles.uploadImageBox}`}>
                             <input className={styles.thongTinImage} type='file' name='anhEditValue' id='anhEditValue'/>
                             <span className={styles.avatarImage} id='avatarEditValue' 
-                            // style={{background-image:url(`${editCustomer.anh}`)}}
+                               style= {editCustomer.anh ? {
+                                   backgroundImage: `url(http://localhost:5000/${editCustomer.anh})`,
+                                   backgroundPosition : 0,
+                                   backgroundSize: 'cover'
+                               }
+                               : {
+                                display: 'block'
+                            }}
                             ></span>
                         </div>
                     </div>

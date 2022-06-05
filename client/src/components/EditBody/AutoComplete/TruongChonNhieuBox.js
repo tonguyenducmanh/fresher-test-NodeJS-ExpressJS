@@ -4,7 +4,7 @@ import styles from './TruongChonNhieuBox.module.css'
 
 export default function TruongChonNhieu({arr, value}) {
         const options = arr;
-        
+        const selectedLists = value;
         const thongTinInputBox = document.getElementsByClassName(styles.thongTinInputBox)
         const thongTinInput = document.getElementsByClassName(styles.thongTinInput)
         const thongTinList = document.getElementsByClassName(styles.thongTinList)
@@ -158,8 +158,15 @@ export default function TruongChonNhieu({arr, value}) {
         return (
             <div className={styles.thongtinContainer}>
                 <div className={styles.thongTinInputBox} id='loaiTiemNangEdit'>
-                    <span className={styles.thongTinExample}>- Không chọn -</span>
-                    {/* <span className={`${styles.thongTinContent} ${styles.thongTinContentDecor}`}>- Không chọn -</span> */}
+                    {   selectedLists[0] !== '- Không chọn -' ?  selectedLists.map((selected, index) =>(
+                        <span className={`${styles.thongTinContent} ${styles.thongTinContentDecor}`}
+                            key={index}
+                        >
+                            {selected}
+                        </span>
+                    ))
+                    :
+                    <span className={styles.thongTinExample}>- Không chọn -</span>  }
                 </div>
                 <div className={styles.thongTinInputForm}>
                     <input className={styles.thongTinInput} placeholder='Tìm kiếm'/>
