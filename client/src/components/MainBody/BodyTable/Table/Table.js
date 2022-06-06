@@ -1,24 +1,31 @@
 import React, {useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux'
 import {fetchCustomersList} from '../../../../features/customers/customersSlice'
+import { addSearchString } from "../../../../features/customers/customersSlice";
 
 import { HandleCheckAll } from "./HandleCheckAll";
 import { Customers } from "./Customers/Customers";
 import styles from './Table.module.css'
+import stylesTwo from '../../../Headingbar/HeadingTop/HeadingTop.module.css'
 
 export const Table = () =>{
     
     const startIndexPagination = useSelector(state => state.pagination.startIndex)
     const limitPagination = useSelector(state => state.pagination.limit)
+    const searchString = useSelector(state => state.customers.searchString)
+    const searchInput = document.getElementsByClassName(stylesTwo.headingSearchInput)
     const dispatch = useDispatch()
     useEffect( () =>{
         HandleCheckAll()
     },[])
     
-
+    //tìm kiếm theo giá trị cho trước, không có giá trị cho trước thì trả về cả bảng
     useEffect(() => {
-            dispatch(fetchCustomersList(`?limit=${limitPagination}&startIndex=${startIndexPagination}`))
-    }, [limitPagination, startIndexPagination, dispatch])
+            searchInput[0].addEventListener('input',(e) =>{
+                dispatch(addSearchString(e.target.value))
+            })
+            dispatch(fetchCustomersList(`?searchString=${searchString}&limit=${limitPagination}&startIndex=${startIndexPagination}`))
+    }, [limitPagination, startIndexPagination, searchString, dispatch])
     return (
         <div className={styles.tableContainer}>
         <table className={styles.table}>

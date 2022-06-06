@@ -11,7 +11,10 @@ const HeadingTop = () =>{
                 </span>
                 <span className={styles.headingSearch}>
                     <span className={`${styles.icon} ${styles.headingSearchIcon}`}></span>
-                    <input className={styles.headingSearchInput} placeholder="Tìm kiếm tiềm năng, liên hệ, khách hàng"></input>
+                    <input className={styles.headingSearchInput} 
+                        placeholder="Tìm kiếm tiềm năng, liên hệ, khách hàng"
+                        id='searchInput'
+                    ></input>
                 </span>
                 <span className={styles.headingToolRight}>
                 <a href="/" className={`${styles.icon} ${styles.headingToolOne}`} title='Tính năng này đang được phát triển'></a>
