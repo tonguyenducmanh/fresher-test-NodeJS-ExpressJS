@@ -18,6 +18,8 @@ export const HandleTypingNumberHome = ({value}) => {
                 defaultValue={value}
                 />
             <span className={styles.thonngTinWarningText}>Số nhà không được để trống</span>
+            <span className={styles.clearInput}></span>
+
             </span>
         </>
        )

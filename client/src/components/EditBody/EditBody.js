@@ -31,6 +31,9 @@ import { JustAtoZ } from "./AutoComplete/FormValidate/JustAtoZ";
 import { Just0To9 } from "./AutoComplete/FormValidate/Just0To9";
 import { EmailValidate } from "./AutoComplete/FormValidate/EmailValidate";
 
+import { Input } from "./AutoComplete/FormValidate/Input";
+import { ClearInputValue } from "./AutoComplete/FormValidate/ClearInputValue";
+import { ClearMotaValue } from "./AutoComplete/FormValidate/ClearMotaValue";
 
 const EditBody = () =>{
     const editCustomer = useSelector(state => state.tempCustomer.editCustomer)
@@ -44,6 +47,9 @@ const EditBody = () =>{
         JustAtoZ()
         Just0To9()
         EmailValidate()
+        Input()
+        ClearInputValue()
+        ClearMotaValue()
     },[])
     
     return (
@@ -88,6 +94,8 @@ const EditBody = () =>{
                                     />
                                     <span className={styles.thonngTinWarningText}>Họ và đệm không được để trống</span>
                                     <span className={styles.thonngTinWarningTextTwo}>Họ và đệm chỉ chứa kí tự từ a-z</span>
+                                    <span className={styles.clearInput}></span>
+
                                 </span>
                             </span>
                             <span className={styles.thongTin}>
@@ -101,6 +109,8 @@ const EditBody = () =>{
                                     />
                                     <span className={styles.thonngTinWarningText}>Tên không được để trống</span>
                                     <span className={styles.thonngTinWarningTextTwo}>Tên chỉ chứa kí tự từ a-z</span>
+                                    <span className={styles.clearInput}></span>
+
                                 </span>
                             </span>
                             <span className={styles.thongTin}>
@@ -132,6 +142,8 @@ const EditBody = () =>{
                                     />
                                     <span className={styles.thonngTinWarningText}>Đt di động không được để trống</span>
                                     <span className={styles.thonngTinWarningTextTwo}>Đt di động chỉ chứa chữ số từ 0 - 9</span>
+                                    <span className={styles.clearInput}></span>
+
                                 </span>
                             </span>
                             <span className={styles.thongTin}>
@@ -149,6 +161,8 @@ const EditBody = () =>{
                                     />
                                     <span className={styles.thonngTinWarningText}>Đt cơ quan không được để trống</span>
                                     <span className={styles.thonngTinWarningTextTwo}>Đt cơ quan chỉ chứa chữ số từ 0 - 9</span>
+                                    <span className={styles.clearInput}></span>
+
                                 </span>
                             </span>
                             <span className={styles.thongTin}>
@@ -167,6 +181,8 @@ const EditBody = () =>{
                                         id='zaloEdit'
                                         defaultValue={editCustomer.zalo}
                                     />
+                                    <span className={styles.clearInput}></span>
+
                                 </span>
                             </span>
                             <span className={styles.thongTin}>
@@ -178,6 +194,8 @@ const EditBody = () =>{
                                         defaultValue={editCustomer.emailcanhan}
                                     />
                                     <span className={styles.thonngTinWarningTextThree}>Email chỉ có thể chứa ký tự đặc biệt @</span>
+                                    <span className={styles.clearInput}></span>
+
                                 </span>
                             </span>
                             <span className={styles.thongTin}>
@@ -189,6 +207,8 @@ const EditBody = () =>{
                                         defaultValue={editCustomer.emailcoquan}
                                     />
                                     <span className={styles.thonngTinWarningTextThree}>Email chỉ có thể chứa ký tự đặc biệt @</span>
+                                    <span className={styles.clearInput}></span>
+
                                 </span>
                             </span>
                             <span className={styles.thongTin}>
@@ -199,6 +219,8 @@ const EditBody = () =>{
                                         id='toChucEdit'
                                         defaultValue={editCustomer.tochuc}
                                     />
+                                    <span className={styles.clearInput}></span>
+
                                 </span>
                             </span>
                             <span className={styles.thongTin}>
@@ -209,6 +231,8 @@ const EditBody = () =>{
                                         id='maSoThueEdit'
                                         defaultValue={editCustomer.masothue}
                                     />
+                                    <span className={styles.clearInput}></span>
+
                                 </span>
                             </span>
 
@@ -228,6 +252,8 @@ const EditBody = () =>{
                                     />
                                     <span className={styles.thonngTinWarningText}>Tài khoản ngân hàng không được để trống</span>
                                     <span className={styles.thonngTinWarningTextTwo}>TK ngân hàng chỉ chứa chữ số từ 0 - 9</span>
+                                    <span className={styles.clearInput}></span>
+
                                 </span>
                             </span>
                             <span className={styles.thongTin}>
@@ -239,6 +265,8 @@ const EditBody = () =>{
                                         id='moTaiNganHangEdit'
                                     />
                                     <span className={styles.thonngTinWarningText}>Ngân hàng không được để trống</span>
+                                    <span className={styles.clearInput}></span>
+                                    
                                 </span>
                             </span>
                             <span className={styles.thongTin}>
@@ -249,6 +277,8 @@ const EditBody = () =>{
                                 autoComplete="off" 
                                 defaultValue={editCustomer.ngaythanhlap}
                                 />
+                                    <span className={styles.clearInput}></span>
+
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Loại hình</span>
@@ -299,6 +329,8 @@ const EditBody = () =>{
                                     id='maVungEdit'
                                     defaultValue={editCustomer.mavung}
                                     />
+                                    <span className={styles.clearInput}></span>
+
                                 </span>
                             </span>
                             <span className={styles.thongTinDiaChi}>
@@ -316,6 +348,8 @@ const EditBody = () =>{
                                         id='moTaEdit'
                                         defaultValue={editCustomer.mota}
                                     />
+                                    <span className={styles.clearInputMota} title='Xóa mô tả'></span>
+
                             </span>
                             
                         </div>

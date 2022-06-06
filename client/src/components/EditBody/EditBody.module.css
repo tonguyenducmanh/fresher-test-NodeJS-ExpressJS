@@ -132,6 +132,8 @@
 .thongTinInputFather{
     display:flex;
     flex-direction: column;
+    position: relative;
+    
 }
 
 .thongTinInput{
@@ -257,6 +259,7 @@
     margin-top: var(--padding);
 }
 .thongTinMoTa{
+    position: relative;
     display: grid;
     grid-template-columns: 26.5% 73.5%;
 }
@@ -264,6 +267,7 @@
     margin-top: var(--padding);
 }
 .thongTinMoTaInput{
+    position: relative;
     width: 1051px;
     height:  calc(var(--padding)*5);
 }
@@ -428,4 +432,50 @@ textarea{
     padding: var(--padding);
     font-size: .9rem;
     color: var(--blue);
+}
+
+.clearInput{
+    display: none;
+    position: absolute;
+    right: 10px;
+    top:10px;
+    width: var(--icon-small);
+    height: var(--icon-small);
+}
+
+.clearInput:hover{
+    cursor: pointer;
+}
+
+.clearInput::before{
+    position: absolute;
+    content: '';
+    z-index: 1;
+    width: var(--icon-small);
+    height: var(--icon-small);
+    background-image: url(../../images/icon_collection.svg);
+    background-position: -80px -16px;
+}
+
+.clearInputMota{
+    display: none;
+    position: absolute;
+    left: 165px;
+    top:5px;
+    width: var(--icon-small);
+    height: var(--icon-small);
+}
+
+.clearInputMota:hover{
+    cursor: pointer;
+}
+
+.clearInputMota::before{
+    position: absolute;
+    content: '';
+    z-index: 1;
+    width: var(--icon-small);
+    height: var(--icon-small);
+    background-image: url(../../images/icon_collection.svg);
+    background-position: -80px -16px;
 }
