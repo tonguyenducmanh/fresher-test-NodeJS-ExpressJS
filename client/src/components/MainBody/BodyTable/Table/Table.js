@@ -2,7 +2,7 @@ import React, {useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux'
 import {fetchCustomersList} from '../../../../features/customers/customersSlice'
 import { addSearchString } from "../../../../features/customers/customersSlice";
-
+import { fetchCustomersCount } from "../../../../features/customers/customersSlice";
 import { HandleCheckAll } from "./HandleCheckAll";
 import { Customers } from "./Customers/Customers";
 import styles from './Table.module.css'
@@ -25,6 +25,7 @@ export const Table = () =>{
                 dispatch(addSearchString(e.target.value))
             })
             dispatch(fetchCustomersList(`?searchString=${searchString}&limit=${limitPagination}&startIndex=${startIndexPagination}`))
+            dispatch(fetchCustomersCount(`?searchString=${searchString}`))
     }, [limitPagination, startIndexPagination, searchString, dispatch])
     return (
         <div className={styles.tableContainer}>

@@ -110,8 +110,8 @@ extraReducers(builder){
 })
     
     
-export const fetchCustomersCount = createAsyncThunk('customers/fetchCustomersCount', async () =>{
-    const respone = await customerAPI.get('/count')
+export const fetchCustomersCount = createAsyncThunk('customers/fetchCustomersCount', async (path) =>{
+    const respone = await customerAPI.get(`/count${path}`)
     return respone.data
 })
 

@@ -103,7 +103,18 @@ export const deleteCustomer = async (req, res) => {
 
 export const countCustomer = async (req,res) => {
     try{
-        const customerInfos = await customerInfo.count()
+        let searchString 
+        req.query.searchString ? (searchString =  req.query.searchString) :
+        (searchString = '')
+        const queryString = new RegExp(`${searchString}`, "i")
+        const customerInfos = await customerInfo.count(
+            {
+                $or: [
+                    {'hovadem': queryString},
+                    {'ten': queryString},
+                ]
+            }
+        )
 
         res.status(200).json(customerInfos)
     } catch (error) {
