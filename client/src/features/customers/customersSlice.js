@@ -76,13 +76,23 @@ export const customersSlice = createSlice ({
     name: 'customers',
     initialState:{
         customers: [],
+        searchString : '',
+        limit : 0,
+        startIndex : 0,
         status: 'idle',
         error: null
 },
 reducers:{
-    
-}
-,
+    addSearchString: (state, action) => {
+        state.searchString = action.payload
+    },
+    addLimit: (state, action) => {
+        state.limit = action.payload
+    },
+    addStartIndex: (state, action) => {
+        state.startIndex = action.payload
+    },
+},
 extraReducers(builder){
     builder
         .addCase(fetchCustomersList.pending, (state, action) =>{
@@ -381,6 +391,7 @@ export const tempCustomerSlice = createSlice({
 
 export const { nextPagination, previousPagination, limitTen, limitFifty, limitOneHundred, limitTwenty,firstIndex , lastIndex } = paginationSlice.actions
 export const paginationReducer = paginationSlice.reducer
+export const { addSearchString, addLimit, addStartIndex} = customersSlice.actions
 export const customersReducer = customersSlice.reducer
 export const countReducer = countSlice.reducer
 export const findReducer = findCustomersSlice.reducer

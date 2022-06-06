@@ -9,16 +9,43 @@ const router = express.Router()
 export const getCustomer = async (req, res) => {
     try{
         // limit và startIndex được lấy yêu cầu từ frontend qua đây hihi
+        // searchString nếu không có thì để là rỗng, mà tìm chuỗi rỗng thì
+        // có nghĩa là tìm hết còn gì
         const startIndex = parseInt(req.query.startIndex)
         const limit = parseInt(req.query.limit)
-
-        const customerInfos = await customerInfo.find().limit(limit).skip(startIndex)
-
+        let searchString 
+        req.query.searchString ? (searchString =  req.query.searchString) :
+        (searchString = '')
+        const queryString = new RegExp(`${searchString}`, "i")
+        const customerInfos = await customerInfo.find(
+            {
+                $or: [
+                    {'hovadem': queryString},
+                    {'ten': queryString},
+                    // {'xungho': queryString},
+                    // {'phongban': queryString},
+                    // {'chucdanh': queryString},
+                    // {'emailcanhan': queryString},
+                    // {'emailcoquan': queryString},
+                    // {'nguongoc': queryString},
+                    // {'loaihinh': queryString},
+                    // {'linhvuc': queryString},
+                    // {'nganhnghe': queryString},
+                    // {'doanhthu': queryString},
+                    // {'tochuc': queryString},
+                    // {'quocgia': queryString},
+                    // {'tinhthanhpho': queryString},
+                    // {'quanhuyen': queryString},
+                    // {'phuongxa': queryString},
+                ]
+            }
+        ).limit(limit).skip(startIndex)
         res.status(200).json(customerInfos)
     } catch (error) {
         res.status(404).json( { message: error.message })
     }
 }
+
 
 export const checkCustomerExist = async (req, res) => {
     try{

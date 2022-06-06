@@ -13,6 +13,6 @@ export default configureStore({
       location: locationReducer,
       create: createReducer,
       tempCustomer: tempCustomerReducer,
-      check: checkCustomerReducer
+      check: checkCustomerReducer,
     }
   })

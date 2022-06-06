@@ -11,7 +11,7 @@ const fileStorageEngine = multer.diskStorage({
 })
 const upload = multer({storage: fileStorageEngine})
 
-import { getCustomer, countCustomer , createCustomer, findCustomer,checkCustomerExist , deleteCustomer, editCustomer} from '../controllers/customers.js'
+import { getCustomer, countCustomer , createCustomer, findCustomer, checkCustomerExist , deleteCustomer, editCustomer} from '../controllers/customers.js'
 
 const router = express.Router()
 
