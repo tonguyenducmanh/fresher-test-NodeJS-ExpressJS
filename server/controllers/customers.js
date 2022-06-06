@@ -20,6 +20,16 @@ export const getCustomer = async (req, res) => {
     }
 }
 
+export const checkCustomerExist = async (req, res) => {
+    try{
+        const customerInfos =  await customerInfo.find({ _id: req.query.findID})
+        res.status(200).json(customerInfos)
+    } catch (error){
+        res.status(404).json({ message: error.message })
+    }
+}
+
+
 export const findCustomer = async (req, res) => {
     try{
         //lấy mảng được trả về từ bên frontend

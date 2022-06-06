@@ -423,3 +423,9 @@ textarea{
     width: 400px;
     padding: var(--padding) calc(var(--padding)*1.8);
 }
+
+.maTiemNangNotify{
+    padding: var(--padding);
+    font-size: .9rem;
+    color: var(--blue);
+}

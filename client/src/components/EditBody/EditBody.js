@@ -334,8 +334,9 @@ const EditBody = () =>{
                                         autoComplete="off" 
                                         id='maEditTiemNang' 
                                         defaultValue={editCustomer._id} 
+                                        disabled={true}
                                     />
-                                    <span className={styles.thonngTinWarningText}>Mã tiềm năng không được để trống</span>
+                                    <span className={styles.maTiemNangNotify}>Mã tiềm năng không thể thay đổi với mỗi khách hàng</span>
                                 </span>
                             </span>
                         </div>

@@ -10,17 +10,15 @@ import { HandleSaveAndAdd } from "./HandleSave/HandleSaveAndAdd";
 
 
 const CreateBar = () =>{
-    const startIndexPagination = useSelector(state => state.pagination.startIndex)
-    const limitPagination = useSelector(state => state.pagination.limit)
     const dispatch = useDispatch()
 
     useEffect(()=>{
-        HandleCancel(dispatch,startIndexPagination,limitPagination)
+        HandleCancel(dispatch)
         HandleSaveAndAdd(dispatch)
         //2 trường hợp kia cần useselector để lấy limit và startindex
         // sau đó tự động load lại danh sách mới, còn
         // ông này là thêm thủ công lần nữa nên chưa cần vội
-        HandleSave(dispatch,startIndexPagination,limitPagination)
+        HandleSave(dispatch)
     },[dispatch])
 
     return (

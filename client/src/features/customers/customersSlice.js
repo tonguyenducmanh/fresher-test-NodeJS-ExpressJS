@@ -132,6 +132,38 @@ export const countSlice = createSlice({
     }
 })
 
+export const fetchCheckCustomerExist = createAsyncThunk('customers/checkCustomerExist', async (path) =>{
+    const respone = await customerAPI.get(`/check${path}`)
+    return respone.data
+})
+
+
+export const checkCustomer = createSlice({
+    name: 'check',
+    initialState:{
+        check: [],
+        status: 'idle',
+        error: null
+    },
+    reducers: {
+
+    },
+    extraReducers(builder){
+        builder
+            .addCase(fetchCheckCustomerExist.pending, (state, action) =>{
+                state.status = 'loading'
+            }) 
+            .addCase(fetchCheckCustomerExist.fulfilled, (state, action) =>{
+                state.status = 'succeeded'
+                state.check = action.payload
+            })
+            .addCase(fetchCheckCustomerExist.rejected, (state, action) =>{
+                state.status = 'failed'
+                state.error = action.error.message
+            })
+    }
+})
+
 export const fetchCustomersFind = createAsyncThunk('customers/fetchCustomersFind', async (path) => {
     const respone = await customerAPI.get(`/find${path}`)
     return respone.data
@@ -357,3 +389,4 @@ export const createReducer = createCustomerSlice.reducer
 export const editReducer = editCustomerSlice.reducer
 export const { addTempCustomer, removeTempCustomer } = tempCustomerSlice.actions
 export const tempCustomerReducer = tempCustomerSlice.reducer
+export const checkCustomerReducer = checkCustomer.reducer

@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { fetchCustomersList } from '../../features/customers/customersSlice'
 import { fetchCustomersCount } from '../../features/customers/customersSlice';
 import { resetLocation } from '../../features/location/locationSlice';
+import { fetchCheckCustomerExist } from "../../features/customers/customersSlice";
 
 
 import styles from './ActionBar.module.css'
@@ -118,6 +119,7 @@ const ActionBar = () =>{
                     {/* load lại danh sách */}
                     <span className={styles.actionLeftRefreshButton}
                         onClick={()=>{{
+                            dispatch(fetchCheckCustomerExist(`?findID=TN000000000000001`))
                             dispatch(fetchCustomersList(`?limit=${limitPagination}&startIndex=${startIndexPagination}`))
                             dispatch(fetchCustomersCount())
                             dispatch(resetLocation())

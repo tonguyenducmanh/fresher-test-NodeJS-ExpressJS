@@ -1,8 +1,7 @@
 import React, { useEffect }  from "react";
 import styles from './CreateBody.module.css'
 
-import { useSelector } from "react-redux";
-
+import {useDispatch, useSelector } from "react-redux";
 import { XungHo } from "./AutoComplete/Array/XungHo";
 import { PhongBan } from "./AutoComplete/Array/PhongBan";
 import { ChucDanh } from "./AutoComplete/Array/ChucDanh";
@@ -26,18 +25,26 @@ import DiaChiTongHop from "./AutoComplete/DiaChiTongHop";
 
 import { HandleCheck } from "./HandleTyping/HandleCheck";
 import { HandleImage } from "./HandleTyping/HandleImage";
+import { TiemNangValidate } from "./AutoComplete/FormValidate/TiemNangValidate";
 import { MustHave } from "./AutoComplete/FormValidate/MustHave";
 import { JustAtoZ } from "./AutoComplete/FormValidate/JustAtoZ";
 import { Just0To9 } from "./AutoComplete/FormValidate/Just0To9";
 import { EmailValidate } from "./AutoComplete/FormValidate/EmailValidate";
-
+import { XemNgay } from "./AutoComplete/FormValidate/XemNgay";
 
 const CreateBody = () =>{
+    const dispatch = useDispatch()
+    const maBiTrung = useSelector(state => state.check.check)
+
+
     const userCount = useSelector(state => state.count.count) + 1
     const zeroPad = (num, places) => String(num).padStart(places, '0')
     const newIDCout =zeroPad(userCount, 15)
     const newTNCount = `TN${newIDCout}`
+    // maBiTrung = maBiTrung._id
     //phải đủ 15 chữ số sau chữ TN
+    // đang generrate ra tiềm năng với chữ số lớn hơn 1 đơn vị so với tiềm năng
+    // có số thứ tự lớn nhất
     useEffect(()=>{
         HandleImage()
         HandleCheck()
@@ -48,7 +55,9 @@ const CreateBody = () =>{
         JustAtoZ()
         Just0To9()
         EmailValidate()
-    },[])
+        XemNgay()
+        TiemNangValidate(dispatch, maBiTrung)
+    },[dispatch])
     
     return (
         <div className={styles.container}>
@@ -269,13 +278,40 @@ const CreateBody = () =>{
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle} >Mã tiềm năng</span>
-                                <span className={styles.thongTinInputFather}>
-                                    <input className={`${styles.thongTinInput} ${styles.thongtinMustHave}`} 
+                                <span className={styles.thongTinInputFather} id='dienTiemNang'>
+                                    <input className={`${styles.thongTinInput} `} 
                                     autoComplete="off" 
                                     id='maTiemNang'
                                     defaultValue={newTNCount}
                                     />
                                     <span className={styles.thonngTinWarningText}>Mã tiềm năng không được để trống</span>
+                                    <span className={styles.thonngTinWarningText}>Mã tiềm năng phải bắt đầu bằng TN</span>
+                                    <span className={styles.thonngTinWarningText}>Mã tiềm năng phải theo sau bằng chữ số</span>
+                                    <span className={styles.thonngTinWarningText}>
+                                        Mã tiềm năng đã bị trùng. 
+                                        <span className={`${styles.xemNgayText}`} id='xemNgay'>
+                                            Xem ngay 
+                                            <span className={styles.xemNgaySmallBox} style={{display:'none'}}>
+                                                <span className={styles.xemNgaySmallRow}>
+                                                    <span>Mã tiềm năng</span>
+                                                    <span id='oldTiemNangValueCheck'>{maBiTrung[0]? `${maBiTrung[0]._id}` : ''}</span>
+                                                </span>
+                                                <span className={styles.xemNgaySmallRow}>
+                                                    <span>Họ và tên</span>
+                                                    <span>{maBiTrung[0]? `${maBiTrung[0].hovadem} ${maBiTrung[0].ten}` : ''}</span>
+                                                </span>
+                                                <span className={styles.xemNgaySmallRow}>
+                                                    <span>Tỉnh thành</span>
+                                                    <span>{maBiTrung[0]? `${maBiTrung[0].tinhthanhpho}` : ''}</span>
+                                                </span>
+                                                <span className={styles.xemNgaySmallRow}>
+                                                    <span>Quận huyện</span>
+                                                    <span>{maBiTrung[0]? `${maBiTrung[0].quanhuyen}` : ''}</span>
+                                                </span>
+                                            </span>
+                                        </span>    
+                                    </span>
+                                    <span className={styles.thonngTinWarningText}>Mã tiềm năng phải đủ 17 ký tự</span>
                                 </span>
                             </span>
                         </div>

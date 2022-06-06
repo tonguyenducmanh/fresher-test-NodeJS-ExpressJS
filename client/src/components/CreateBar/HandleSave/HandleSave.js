@@ -1,7 +1,5 @@
 import { createCustomer } from "../../../features/customers/customersSlice";
 import { resetLocation } from '../../../features/location/locationSlice';
-import {fetchCustomersList} from '../../../features/customers/customersSlice'
-import { fetchCustomersCount } from '../../../features/customers/customersSlice';
 
 
 import styles from '../CreateBar.module.css'
@@ -10,12 +8,13 @@ import stylesThree from '../../CreateBody/CreateBody.module.css'
 import stylesFour from '../CreateBar.module.css'
 
 
-export const HandleSave = (dispatch,startIndexPagination,limitPagination) =>{
+export const HandleSave = (dispatch) =>{
     const saveButton = document.getElementById('saveButton')
         const saveDoneAndReturnHome = document.getElementById('saveDoneAndReturnHome')
         saveButton.addEventListener('click', () =>{
                 const thongtinMustHaves = document.getElementsByClassName(stylesThree.thongtinMustHave)
                 const notifySuccess = document.getElementById('notifySuccess')
+                const dienTiemNang = document.getElementById('dienTiemNang')
                 //check xem mấy thông tin quan trọng đã điền hết chưa
                 let thongtinChuaDien = 0
                 for( let i = 0 ; i < thongtinMustHaves.length; i++){
@@ -35,6 +34,19 @@ export const HandleSave = (dispatch,startIndexPagination,limitPagination) =>{
                     }
                 }
                 
+                for( let k = 1 ; k< dienTiemNang.children.length; k++){
+                    if(dienTiemNang.children[k].style.display === 'block'){
+                        thongtinChuaDien ++
+                        //hiện thông báo nhập cho ló đầy đủ vào
+                        const notifyNotEnough = document.getElementById('notifyNotEnough')
+                        //thông báo rằng người dùng chỉ có thể sửa 1 tiềm năng 1 lúc
+                        notifyNotEnough.classList.add(stylesFour.notifyNotEnoughAni)
+                        notifyNotEnough.addEventListener("transitionend", ()=>{
+                            notifyNotEnough.classList.remove(stylesFour.notifyNotEnoughAni)
+                        });
+                    }
+                }
+
                 if(thongtinChuaDien === 0){
                     const anh =  document.getElementById('anhValue')
                     const maTiemNang = document.getElementById('maTiemNang').value
@@ -137,8 +149,6 @@ export const HandleSave = (dispatch,startIndexPagination,limitPagination) =>{
                     data.append('dungChung', dungChungBtn)
                     dispatch(createCustomer(data))
                     dispatch(resetLocation())
-                    dispatch(fetchCustomersList(`?limit=${limitPagination}&startIndex=${startIndexPagination}`))
-                    dispatch(fetchCustomersCount())
                     
                     notifySuccess.classList.add(styles.notifySuccessAni)
                     notifySuccess.addEventListener("transitionend", ()=>{
