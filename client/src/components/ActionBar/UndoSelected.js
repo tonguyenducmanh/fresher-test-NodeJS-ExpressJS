@@ -7,12 +7,12 @@ export const UndoSelected = () =>{
     const actionBarOne = document.getElementById('actionBarOne')
     const actionBarTwo = document.getElementById('actionBarTwo')
     const checkAllButton = document.getElementById('iconCheckAll')
-    const listCheckButton = document.getElementsByClassName('hihi')
+    const listCheckButton = document.getElementsByClassName(stylesTwo.iconButtonCustomers)
     const iconChecks = document.getElementsByClassName(stylesTwo.iconHeadingChecked)
     const undoSelect = document.getElementById('undoSelected')
     
         undoSelect.addEventListener('click', function(){
-            for (var i = 0; i < listCheckButton.length; i++) {
+            for (let i = 0; i < listCheckButton.length; i++) {
                 listCheckButton[i].classList.add(stylesTwo.iconHeading);
                 listCheckButton[i].classList.remove(stylesTwo.iconHeadingChecked);
                 listCheckButton[i].parentElement.classList.remove(stylesTwo.itemChecked)

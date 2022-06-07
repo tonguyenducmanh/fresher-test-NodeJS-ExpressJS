@@ -77,7 +77,7 @@ export const deleteCustomer = async (req, res) => {
         //phải gọi vào mongodb để xem tên ảnh là gì rồi xóa em nó trước. sau đó mới xóa hẳn
         // em nó trong database đi
 
-        for(var i = 0 ; i< customerInfosDeleted.length; i++){
+        for(let i = 0 ; i< customerInfosDeleted.length; i++){
             if(customerInfosDeleted[i].anh !=='-'){
                 // chỉ xét trường hợp có ảnh mới xóa thôi
                 // bên client những document đăng không kèm ảnh thì

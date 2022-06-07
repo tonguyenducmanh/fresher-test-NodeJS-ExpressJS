@@ -77,7 +77,6 @@
     position: absolute;
     z-index: 10;
     display: none;
-    /* display: block; */
     bottom:30px;
     left: 0px;
     width: 198px;

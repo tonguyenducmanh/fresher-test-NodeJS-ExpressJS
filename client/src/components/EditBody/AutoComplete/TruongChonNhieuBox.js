@@ -74,7 +74,7 @@ export default function TruongChonNhieu({arr, value}) {
             
     
                 //kiểm tra sự kiện có không đã, nếu không có tức là đang ở trang khác
-                for(var k = 0 ; k<thongtinContainer.length; k++){
+                for(let k = 0 ; k<thongtinContainer.length; k++){
                     if(thongtinContainer[k]){
                             if (!thongTinInputForm[k].contains(event.target)) {
                                 thongTinInputForm[k].style.display = 'none'

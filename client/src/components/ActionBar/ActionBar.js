@@ -71,12 +71,12 @@ const ActionBar = () =>{
 
     useEffect(() =>{
         const tdIds =  document.getElementsByClassName(stylesTwo.tdId)
-        const checkedButton =  document.getElementsByClassName('hihi')
+        const checkedButton =  document.getElementsByClassName(stylesTwo.iconButtonCustomers)
         const moreButton = document.getElementById('moreButton')
         
         moreButton.addEventListener('click', () =>{
             let idsString = []
-            for( var i = 0 ; i < tdIds.length ; i ++){
+            for( let i = 0 ; i < tdIds.length ; i ++){
                 if(checkedButton[i].classList.contains(stylesTwo.iconHeadingChecked)){
                     idsString = idsString.concat(tdIds[i].textContent)
                 }

@@ -8,12 +8,12 @@ export const HandleCheck = (limit) =>{
     const actionBarTwo = document.getElementById('actionBarTwo')
     const checkAllButton = document.getElementById('iconCheckAll')
     const countCheck = document.getElementById('countCheck')
-    const checked = document.getElementsByClassName('hihi')
+    const checked = document.getElementsByClassName(stylesTwo.iconButtonCustomers)
     const iconChecks = document.getElementsByClassName(styles.iconHeadingChecked)
     
     
-    for (var i = 0; i < checked.length; i++) {
-            var ch = checked[i];
+    for (let i = 0; i < checked.length; i++) {
+            let ch = checked[i];
             ch.onclick = function (e) {
             if (this.classList.contains(styles.iconHeadingChecked)) {
                 this.classList.add(styles.iconHeading);

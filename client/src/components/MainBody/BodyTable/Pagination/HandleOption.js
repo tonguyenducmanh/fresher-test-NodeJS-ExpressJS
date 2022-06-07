@@ -1,29 +1,25 @@
+import styles from './PaginationBar/PaginationBar.module.css'
 
-import styles from './Pagination.module.css'
-
-export const HandleOption = () =>{
-    const paginationSelect = document.getElementById('paginationSelect')
-    const paginationOption = document.getElementById('paginationOption')
-    const option = document.getElementById('handleBox')
-    const optionClicked = function(e){
-        paginationSelect.innerHTML = e.target.textContent
-        e.target.classList.add(styles.paginationOptionSelected)
-        for ( var k = 0 ; k < options.length ; k ++){
-            if(options[k].textContent !== paginationSelect.textContent){
-            options[k].classList.remove(styles.paginationOptionSelected)
+export const HandleOption = (e) =>{
+    const paginationPanelFrame = document.getElementsByClassName(styles.paginationPanelFrame)
+    const paginationOption = document.getElementsByClassName(styles.paginationOption)
+    const options = document.getElementsByClassName(styles.paginationOptionItem)
+    for ( let k = 0 ; k < options.length ; k ++){
+        options[k].addEventListener('click', (e) =>{
+            paginationOption[0].style.display='none'
+            paginationPanelFrame[0].innerHTML = e.target.textContent
+            for( let m = 0 ; m < options.length ; m++){
+                e.target.parentElement.children[m].classList.remove(styles.paginationOptionSelected)
             }
-        }
-        paginationOption.style.display='none'
+            e.target.classList.add(styles.paginationOptionSelected)
+        })
     }
-    const options = option.children
     //xử lý nếu click vào trong và ra ngoài
     document.addEventListener("mousedown", (event) => {
-        if (paginationOption.contains(event.target)) {
-            for ( var i = 0 ; i < options.length ; i ++){
-                options[i].addEventListener('click', optionClicked)
-            }
-        } else {
-                paginationOption.style.display = 'none'
+        if(paginationOption[0]){
+            if (!paginationOption[0].contains(event.target)) {
+                paginationOption[0].style.display = 'none'
+           }
         }
       });
 }

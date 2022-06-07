@@ -7,7 +7,7 @@ import { quocGia, addTinhThanh, addQuanHuyen, addPhuongXa } from '../../../../..
 export const HandleEditCustomer = (dispatch,customers) =>{
 
     const customerEdits = document.getElementsByClassName(styles.trId)
-    const checkButtons = document.getElementsByClassName('hihi')
+    const checkButtons = document.getElementsByClassName(styles.iconButtonCustomers)
     const tdLinks = document.getElementsByClassName(styles.tdLink)
     for(let k = 0 ; k < customerEdits.length; k++){
         customerEdits[k].addEventListener('dblclick',(event)=>{

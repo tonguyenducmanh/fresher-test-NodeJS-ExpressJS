@@ -5,10 +5,10 @@ import stylesTwo from '../../MainBody/BodyTable/Table/Customers/Customers.module
 export const ShowQuickUpdate = () =>{
    
     const tdIds =  document.getElementsByClassName(stylesTwo.tdId)
-    const checkedButton =  document.getElementsByClassName('hihi')
+    const checkedButton =  document.getElementsByClassName(stylesTwo.iconButtonCustomers)
     const notifyUpdateWarning = document.getElementById('notifyUpdateWarning')
     let checkCount = 0
-    for( var i = 0 ; i < tdIds.length ; i ++){
+    for( let i = 0 ; i < tdIds.length ; i ++){
         if(checkedButton[i].classList.contains(stylesTwo.iconHeadingChecked)){
             checkCount++
         }

@@ -8,7 +8,7 @@ export const HandleCheckAll = () =>{
     const actionBarOne = document.getElementById('actionBarOne')
     const actionBarTwo = document.getElementById('actionBarTwo')
     const countCheck = document.getElementById('countCheck')
-    const listCheckButton = document.getElementsByClassName('hihi')
+    const listCheckButton = document.getElementsByClassName(stylesTwo.iconButtonCustomers)
     const iconChecks = document.getElementsByClassName(stylesTwo.iconHeadingChecked)
 
     checkAllButton.addEventListener('click', function(){

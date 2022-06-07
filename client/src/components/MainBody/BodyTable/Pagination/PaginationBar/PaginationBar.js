@@ -21,7 +21,7 @@ const PaginationBar = () =>{
     const startIndexPagination = useSelector(state => state.pagination.startIndex)
             
     useEffect(() =>{
-        HandleSelect()
+        
     },[])
 
     useEffect(() => {
@@ -66,7 +66,9 @@ const PaginationBar = () =>{
     return (
         <span className={styles.paginationPanel}>
             <span className={styles.paginationPanelBox}>
-                <span className={styles.paginationPanelFrame} id='paginationSelect'>
+                <span className={styles.paginationPanelFrame}
+                    onClick={()=>HandleSelect()}
+                >
                 10 Bản ghi trên Trang
                 </span>
                 <span className={styles.paginationOption} id='paginationOption'>

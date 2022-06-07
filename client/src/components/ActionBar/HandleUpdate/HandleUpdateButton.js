@@ -7,7 +7,7 @@ import { editCustomer } from '../../../features/customers/customersSlice'
 export const HandleUpdateButton = (dispatch) =>{
     const notifyUpdateSuccess = document.getElementById('notifyUpdateSuccess')
     const undoSelected = document.getElementById('undoSelected')
-    const checkedButton =  document.getElementsByClassName('hihi')
+    const checkedButton =  document.getElementsByClassName(stylesTwo.iconButtonCustomers)
     const tdIds =  document.getElementsByClassName(stylesTwo.tdId)
     const tdAnh =  document.getElementsByClassName(stylesTwo.tdAnh)
 

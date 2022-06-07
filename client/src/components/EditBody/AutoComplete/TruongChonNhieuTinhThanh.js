@@ -55,7 +55,7 @@ export default function TruongChonNhieuTinhThanh({value}) {
             document.addEventListener("mousedown", (event) => {
     
                 //kiểm tra sự kiện có không đã, nếu không có tức là đang ở trang khác
-                for(var k = 0 ; k<thongTinInputBox.length; k++){
+                for(let k = 0 ; k<thongTinInputBox.length; k++){
                     if(thongTinList[k]){
                         if(thongTinInputBox[k]){
                             if (!thongTinInputBox[k].contains(event.target)) {

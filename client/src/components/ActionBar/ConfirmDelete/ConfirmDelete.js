@@ -48,7 +48,7 @@ const ConfirmDelete = () => {
         const tdIds =  document.getElementsByClassName(stylesTwo.tdId)
         const deleteButtonFinal = document.getElementById('deleteButtonFinal')
         const iconCheckAll = document.getElementById('iconCheckAll')
-        const checkedButton =  document.getElementsByClassName('hihi')
+        const checkedButton =  document.getElementsByClassName(stylesTwo.iconButtonCustomers)
         const container = document.getElementsByClassName(styles.container)
         const actionBarOne = document.getElementById('actionBarOne')
         const actionBarTwo = document.getElementById('actionBarTwo')

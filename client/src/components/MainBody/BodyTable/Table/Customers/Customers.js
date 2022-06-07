@@ -48,7 +48,7 @@ export const Customers = () => {
                     key={customer._id} 
                     
                 >
-                    <td className={`${styles.iconHeading} hihi`}></td>
+                    <td className={`${styles.iconHeading} ${styles.iconButtonCustomers}`}></td>
                     <td className={styles.tdId}>{customer._id}</td>
                     <td className={styles.tdAnh}>{customer.anh}</td>
                     <td className={styles.tdLink}>

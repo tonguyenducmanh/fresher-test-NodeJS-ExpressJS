@@ -6,7 +6,7 @@ import stylesFour from '../MainBody/BodyTable/Table/Table.module.css'
 
 export const ExportToExcellFile = (findList) =>{
     const tdIds =  document.getElementsByClassName(stylesTwo.tdId)
-    const checkedButton =  document.getElementsByClassName('hihi')
+    const checkedButton =  document.getElementsByClassName(stylesTwo.iconButtonCustomers)
     const checkedRow =  document.getElementsByClassName(stylesTwo.trId)
     const iconCheckAll = document.getElementById('iconCheckAll')
     const actionBarOne = document.getElementById('actionBarOne')
@@ -15,7 +15,7 @@ export const ExportToExcellFile = (findList) =>{
     
         actionBarOne.classList.remove(styles.hiddenComponent)
         actionBarTwo.classList.add(styles.hiddenComponent)
-        for( var i = 0 ; i < tdIds.length ; i ++){
+        for( let i = 0 ; i < tdIds.length ; i ++){
             if(checkedButton[i].classList.contains(stylesTwo.iconHeadingChecked)){
                 checkedButton[i].classList.remove(stylesTwo.iconHeadingChecked)
                 checkedButton[i].classList.add(stylesTwo.iconHeading)
