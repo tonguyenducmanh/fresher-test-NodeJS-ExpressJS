@@ -9,12 +9,14 @@ const TiemNang = () =>{
     const dispatch = useDispatch()
 
     const maBiTrung = useSelector(state => state.check.check, shallowEqual)
-
-
-    const userCount = useSelector(state => state.count.count) + 1
+    const lastID = useSelector(state => state.lastID.ID)
+    let lastIDArray
+    lastID[0] ? lastIDArray = lastID[0]._id : lastIDArray = 'TN000000000000000'
+    const lastIDNumber = parseInt(lastIDArray.split('').slice(2,17).join('')) +1
     const zeroPad = (num, places) => String(num).padStart(places, '0')
-    const newIDCout =zeroPad(userCount, 15)
+    const newIDCout =zeroPad(lastIDNumber, 15)
     const newTNCount = `TN${newIDCout}`
+    console.log(newTNCount)
     useEffect(()=>{
         ClearInputValue()
         TiemNangValidate(dispatch, maBiTrung)

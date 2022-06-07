@@ -12,6 +12,7 @@ import { HandleSaveAndAdd } from "./HandleSave/HandleSaveAndAdd";
 const EditBar = () =>{
     const editCustomer = useSelector(state => state.tempCustomer.editCustomer)
     const anhCu = editCustomer.anh
+    console.log(anhCu)
 
 
     const dispatch = useDispatch()

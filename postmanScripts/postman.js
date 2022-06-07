@@ -3,10 +3,13 @@ var requestOptions = {
     redirect: 'follow'
   };
   
-  pm.sendRequest("http://localhost:5000/customers/count", function (err, response) {
-      const userCount = response.json() + 1
+  pm.sendRequest("http://localhost:5000/customers/last", function (err, response) {
+      const lastID = response.json()
+      let lastIDArray
+      lastID[0] ? lastIDArray = lastID[0]._id : lastIDArray = 'TN000000000000000'
+      const lastIDNumber = parseInt(lastIDArray.split('').slice(2,17).join('')) +1
       const zeroPad = (num, places) => String(num).padStart(places, '0')
-      const newIDCout =zeroPad(userCount, 15)
+      const newIDCout =zeroPad(lastIDNumber, 15)
       const newTNCount = `TN${newIDCout}`
       return pm.variables.set('_id', newTNCount)
   });

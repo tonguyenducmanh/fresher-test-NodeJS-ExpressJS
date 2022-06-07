@@ -6,7 +6,7 @@ import { fetchCustomersList } from '../../features/customers/customersSlice'
 import { fetchCustomersCount } from '../../features/customers/customersSlice';
 import { resetLocation } from '../../features/location/locationSlice';
 import { fetchCheckCustomerExist } from "../../features/customers/customersSlice";
-
+import { fetchLastID } from "../../features/customers/customersSlice";
 
 import styles from './ActionBar.module.css'
 import stylesTwo from '../MainBody/BodyTable/Table/Customers/Customers.module.css'
@@ -125,6 +125,7 @@ const ActionBar = () =>{
                             dispatch(fetchCustomersCount(`?searchString=${searchString}`))
                             dispatch(resetLocation())
 
+
                         }}}
                     >
                         <span className={styles.refreshPage}>
@@ -175,7 +176,7 @@ const ActionBar = () =>{
                 </span>
                 <ConfirmDelete/>
                 <span className={styles.actionRight}>
-                    <span className={styles.addAndMenuButton}>
+                    <span className={styles.addAndMenuButton} >
                         <Link to="/create" className={styles.addNewButton}><span>Thêm</span></Link >
                         <span className={styles.menuButton}></span>
                     </span>

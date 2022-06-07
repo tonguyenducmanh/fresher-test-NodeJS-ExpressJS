@@ -284,6 +284,7 @@ const EditBody = () =>{
                                 autoComplete="off" 
                                 defaultValue={editCustomer.ngaythanhlap}
                                 />
+                                <span className={styles.clearInput}></span>
 
                             </span>
                             <span className={styles.thongTin}>

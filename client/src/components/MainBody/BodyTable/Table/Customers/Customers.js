@@ -10,6 +10,7 @@ import { HandleEditCustomer } from "./HandleEditCustomer/HandleEditCustomer";
 import {fetchCustomersList} from '../../../../../features/customers/customersSlice'
 import { addSearchString } from "../../../../../features/customers/customersSlice";
 import { fetchCustomersCount } from "../../../../../features/customers/customersSlice";
+import { fetchLastID } from "../../../../../features/customers/customersSlice";
 import styles from './Customers.module.css'
 import stylesTwo from '../../../../Headingbar/HeadingTop/HeadingTop.module.css'
 
@@ -33,6 +34,7 @@ export const Customers = () => {
             })
             dispatch(fetchCustomersList(`?searchString=${searchString}&limit=${limitPagination}&startIndex=${startIndexPagination}`))
             dispatch(fetchCustomersCount(`?searchString=${searchString}`))
+            dispatch(fetchLastID())
     }, [limitPagination, startIndexPagination, searchString, dispatch])
     useEffect( () =>{
         HandleCheck(limit)

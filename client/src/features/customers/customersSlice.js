@@ -24,6 +24,9 @@ export const paginationSlice = createSlice({
             } else{
                 state.limit = 20
             }
+            if(state.startIndex + state.limit > state.count){
+                state.startIndex = state.count - state.limit
+            }
         },
         limitFifty: (state) => {
             if(state.count < 50){
@@ -31,12 +34,18 @@ export const paginationSlice = createSlice({
             } else{
                 state.limit = 50
             }
+            if(state.startIndex + state.limit > state.count){
+                state.startIndex = state.count - state.limit
+            }
         },
         limitOneHundred: (state) => {
             if(state.count < 100){
                 state.limit = state.count
             } else{
                 state.limit = 100
+            }
+            if(state.startIndex + state.limit > state.count){
+                state.startIndex = state.count - state.limit
             }
         },
         firstIndex: (state) => {
@@ -155,6 +164,40 @@ export const countSlice = createSlice({
             })
     }
 })
+
+    
+export const fetchLastID = createAsyncThunk('customers/fetchLastID', async () =>{
+    const respone = await customerAPI.get('/last')
+    return respone.data
+})
+
+
+export const lastIDSlice = createSlice({
+    name: 'lastID',
+    initialState:{
+        ID: [],
+        status: 'idle',
+        error: null
+    },
+    reducers: {
+
+    },
+    extraReducers(builder){
+        builder
+            .addCase(fetchLastID.pending, (state, action) =>{
+                state.status = 'loading'
+            }) 
+            .addCase(fetchLastID.fulfilled, (state, action) =>{
+                state.status = 'succeeded'
+                state.ID = action.payload
+            })
+            .addCase(fetchLastID.rejected, (state, action) =>{
+                state.status = 'failed'
+                state.error = action.error.message
+            })
+    }
+})
+
 
 export const fetchCheckCustomerExist = createAsyncThunk('customers/checkCustomerExist', async (path) =>{
     const respone = await customerAPI.get(`/check${path}`)
@@ -415,3 +458,4 @@ export const editReducer = editCustomerSlice.reducer
 export const { addTempCustomer, removeTempCustomer } = tempCustomerSlice.actions
 export const tempCustomerReducer = tempCustomerSlice.reducer
 export const checkCustomerReducer = checkCustomer.reducer
+export const lastIDReducer = lastIDSlice.reducer

@@ -8,7 +8,7 @@ export const HandleCheck = (limit) =>{
     const actionBarTwo = document.getElementById('actionBarTwo')
     const checkAllButton = document.getElementById('iconCheckAll')
     const countCheck = document.getElementById('countCheck')
-    const checked = document.getElementsByClassName(stylesTwo.iconButtonCustomers)
+    const checked = document.getElementsByClassName(styles.iconButtonCustomers)
     const iconChecks = document.getElementsByClassName(styles.iconHeadingChecked)
     
     

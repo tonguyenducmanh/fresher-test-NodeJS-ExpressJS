@@ -33,7 +33,8 @@ export const HandleSave = (dispatch) =>{
                 }
             }
             
-            for( let k = 1 ; k< dienTiemNang.children.length; k++){
+            for( let k = 1 ; k< dienTiemNang.children.length -1; k++){
+                // phải trừ đi 1 vì còn trường cho cái nút xóa nữa không tính nó
                 if(dienTiemNang.children[k].style.display === 'block'){
                     thongtinChuaDien ++
                     //hiện thông báo nhập cho ló đầy đủ vào
@@ -45,7 +46,7 @@ export const HandleSave = (dispatch) =>{
                     });
                 }
             }
-
+            console.log(thongtinChuaDien)
             if(thongtinChuaDien === 0){
                 const anh =  document.getElementById('anhValue')
                 const maTiemNang = document.getElementById('maTiemNang').value

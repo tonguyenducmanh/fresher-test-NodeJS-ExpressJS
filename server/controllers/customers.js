@@ -22,21 +22,6 @@ export const getCustomer = async (req, res) => {
                 $or: [
                     {'hovadem': queryString},
                     {'ten': queryString},
-                    // {'xungho': queryString},
-                    // {'phongban': queryString},
-                    // {'chucdanh': queryString},
-                    // {'emailcanhan': queryString},
-                    // {'emailcoquan': queryString},
-                    // {'nguongoc': queryString},
-                    // {'loaihinh': queryString},
-                    // {'linhvuc': queryString},
-                    // {'nganhnghe': queryString},
-                    // {'doanhthu': queryString},
-                    // {'tochuc': queryString},
-                    // {'quocgia': queryString},
-                    // {'tinhthanhpho': queryString},
-                    // {'quanhuyen': queryString},
-                    // {'phuongxa': queryString},
                 ]
             }
         ).limit(limit).skip(startIndex)
@@ -46,6 +31,17 @@ export const getCustomer = async (req, res) => {
     }
 }
 
+
+export const lastCustomer = async (req, res) => {
+    try{
+        const customerInfos =  await customerInfo.find().sort({_id:-1}).limit(1);
+        // cú pháp sort trên sẽ sắp xếp theo thứ tự _id giảm dần
+        // thì thằng đầu tiên sẽ là thằng cao nhất
+        res.status(200).json(customerInfos)
+    } catch (error){
+        res.status(404).json({ message: error.message })
+    }
+}
 
 export const checkCustomerExist = async (req, res) => {
     try{
@@ -179,8 +175,8 @@ export const editCustomer = async (req,res) => {
     let anhValue
     typeof req.file !== 'undefined' ? anhValue = req.file.filename : anhValue
     // nếu không có ảnh up lên thì mặc định không để giá trị, để loại nó đi
+    const ID = req.body._id
     const newValues = {
-        _id: req.body._id,
         xungho: req.body.xungHo,
         anh: anhValue,
         hovadem: req.body.hoVaDem,
@@ -214,24 +210,27 @@ export const editCustomer = async (req,res) => {
 
     }
 
-    const anhCu = req.body.anhCuValue
+
     try{
 
 
-        if(anhCu){
+        
+        const editCustomerInfo = await customerInfo.updateOne({_id: ID},newValues)
+
+        const anhCu = req.body.anhCuValue
+        if(anhCu.split('').length>10){
             // chỉ xét trường hợp có ảnh mới mới xóa ảnh cũ thôi
             // bên client document đăng ảnh mới thì kệ
+            // vì ảnh mặc định thêm vào trước tên thời gian đăng, nên chắc chắn dài hơn
+            // 10 ký tự
             let imagePath = `uploads/${anhCu}`
             fs.unlink(imagePath, (err) => {
                 if (err) {
                     res.status(404).json({ message: err.message })
-                    return
                 }
                 //file removed
             })
         }
-        
-        const editCustomerInfo = await customerInfo.updateOne(newValues)
         
 
 

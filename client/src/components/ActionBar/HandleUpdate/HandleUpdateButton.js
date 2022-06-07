@@ -30,12 +30,11 @@ export const HandleUpdateButton = (dispatch) =>{
     const data = new FormData()
 
     let idsString = []
+    let anhCu
     for( let i = 0 ; i < tdIds.length ; i ++){
         if(checkedButton[i].classList.contains(stylesTwo.iconHeadingChecked)){
             idsString = idsString.concat(tdIds[i].textContent)
-            if(anh.style.display === 'block'){
-                data.append('anhCuValue', tdAnh[i].textContent)
-            }
+            anhCu = tdAnh[i].textContent
             // lưu luôn giá trị ảnh cũ để dùng sau này
         }
     }
@@ -129,6 +128,7 @@ export const HandleUpdateButton = (dispatch) =>{
         let anhValue = 0
         anh.files.length !== '0' ? anhValue = anh.files[0] : anhValue = 0
         data.append('anhValue', anhValue)
+        data.append('anhCuValue', anhCu)
     }
     
 
