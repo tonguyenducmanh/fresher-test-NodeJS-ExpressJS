@@ -15,6 +15,8 @@ const ConfirmDelete = () => {
     const startIndexPagination = useSelector(state => state.pagination.startIndex)
     const limitPagination = useSelector(state => state.pagination.limit)
     const deleteCount = useSelector(state=> state.delete.deleteCustomers)
+    const searchString = useSelector(state => state.customers.searchString)
+    const count = useSelector(state => state.pagination.count)
 
     useEffect(() =>{
         const cancelButton = document.getElementById('cancelButton')
@@ -66,8 +68,8 @@ const ConfirmDelete = () => {
             }
                 idsString = idsString.join(',')
             dispatch(deleteCustomers(`?deleteArray=${idsString}`))
-            dispatch(fetchCustomersList(`?limit=${limitPagination}&startIndex=${startIndexPagination}`))
-            dispatch(fetchCustomersCount())
+            dispatch(fetchCustomersList(`?searchString=${searchString}&limit=${limitPagination}&startIndex=${startIndexPagination}`))
+            dispatch(fetchCustomersCount(`?searchString=${searchString}`))
 
             notifySuccess.classList.add(stylesThree.notifySuccessAni)
             notifySuccess.addEventListener("transitionend", ()=>{

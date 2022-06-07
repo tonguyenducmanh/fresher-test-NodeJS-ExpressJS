@@ -5,17 +5,35 @@ import { useDispatch } from 'react-redux'
 
 import { useSelector } from "react-redux";
 import {HandleCheck} from './HandleCheck'
-import { HandleEditCustomer } from "./HandleEditCustomer/HandleEditCustomer";
 
+import { HandleEditCustomer } from "./HandleEditCustomer/HandleEditCustomer";
+import {fetchCustomersList} from '../../../../../features/customers/customersSlice'
+import { addSearchString } from "../../../../../features/customers/customersSlice";
+import { fetchCustomersCount } from "../../../../../features/customers/customersSlice";
 import styles from './Customers.module.css'
+import stylesTwo from '../../../../Headingbar/HeadingTop/HeadingTop.module.css'
+
 
 export const Customers = () => {
     //danh sách các documents
+    const dispatch = useDispatch()
     const customers = useSelector((state) => state.customers.customers)
     const limit = useSelector((state) => state.pagination.limit)
+    const startIndexPagination = useSelector(state => state.pagination.startIndex)
+    const limitPagination = useSelector(state => state.pagination.limit)
+    const searchString = useSelector(state => state.customers.searchString)
+    const searchInput = document.getElementsByClassName(stylesTwo.headingSearchInput)
+    const count = useSelector(state => state.pagination.count)
 
-    const dispatch = useDispatch()
-    // console.log(customers)
+    
+    //tìm kiếm theo giá trị cho trước, không có giá trị cho trước thì trả về cả bảng
+    useEffect(() => {
+            searchInput[0].addEventListener('input',(e) =>{
+                dispatch(addSearchString(e.target.value))
+            })
+            dispatch(fetchCustomersList(`?searchString=${searchString}&limit=${limitPagination}&startIndex=${startIndexPagination}`))
+            dispatch(fetchCustomersCount(`?searchString=${searchString}`))
+    }, [limitPagination, startIndexPagination, searchString, dispatch])
     useEffect( () =>{
         HandleCheck(limit)
     },)

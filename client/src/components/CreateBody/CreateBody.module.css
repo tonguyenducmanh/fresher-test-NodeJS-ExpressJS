@@ -427,40 +427,6 @@ textarea{
     width: 400px;
     padding: var(--padding) calc(var(--padding)*1.8);
 }
-
-.xemNgayText{
-    color: #405eec;
-    cursor: pointer;
-    margin-left: var(--padding);
-    position: relative;
-}
-.maTiemNang{
-    font-weight: 500;
-}
-.xemNgaySmallBox{
-    position: absolute;
-    background-color: var(--white);
-    border-radius: var(--boderRadius);
-    border: var(--border);
-    width:300px;
-    margin-top: -120px;
-    right: -300px;
-    padding: var(--padding);
-    display: flex;
-    flex-direction: column;
-    z-index: 4;
-}
-
-.xemNgaySmallRow{
-    display: grid;
-    grid-template-columns: 40% 60%;
-}
-.xemNgaySmallBox span{
-    color: var(--grayDark);
-    font-weight: 500;
-    font-size: 1rem;
-}
-
 .clearInput{
     display: none;
     position: absolute;

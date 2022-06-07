@@ -106,7 +106,6 @@ export default function TruongChonNhieu({arr}) {
                                 theMoiHai.classList.add(styles.thongTinExample)
                                 theMoiHai.innerHTML = '- Không chọn -'
                                 thongTinInputBox[i].appendChild(theMoiHai)
-                                // console.log(thongTinInputBox[i])
                             }
                             e.target.remove()
                         })

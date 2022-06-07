@@ -1,4 +1,4 @@
-import styles from '../../CreateBody.module.css'
+import styles from '../../TiemNang/TiemNang.module.css'
 import { fetchCheckCustomerExist } from "../../../../features/customers/customersSlice";
 
 export const TiemNangValidate = ( dispatch) =>{
@@ -74,6 +74,11 @@ export const TiemNangValidate = ( dispatch) =>{
                     e.target.parentElement.children[4].style.display = 'none'
                     e.target.parentElement.parentElement.children[0].classList.add(styles.thongTinTitleWarning)
 
+                }
+                if(e.target.value ===''){
+                    e.target.parentElement.children[e.target.parentElement.children.length -1].style.display ='none'
+                } else{
+                    e.target.parentElement.children[e.target.parentElement.children.length -1].style.display ='block'
                 }
         }))
 }

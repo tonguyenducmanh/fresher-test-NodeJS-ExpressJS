@@ -15,7 +15,6 @@ export const locationSlice = createSlice({
             state.quocGia = actions.payload
         },
         addTinhThanh: (state, action) =>{
-            // console.log(action.payload)
             state.tinhThanh = DiaChi.map(e => e.name).indexOf(action.payload)
         },
         addQuanHuyen: (state, action) =>{

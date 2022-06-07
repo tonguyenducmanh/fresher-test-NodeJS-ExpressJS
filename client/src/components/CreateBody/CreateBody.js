@@ -1,7 +1,7 @@
 import React, { useEffect }  from "react";
 import styles from './CreateBody.module.css'
 
-import {useDispatch, useSelector } from "react-redux";
+import {useDispatch, useSelector, shallowEqual } from "react-redux";
 import { XungHo } from "./AutoComplete/Array/XungHo";
 import { PhongBan } from "./AutoComplete/Array/PhongBan";
 import { ChucDanh } from "./AutoComplete/Array/ChucDanh";
@@ -30,39 +30,30 @@ import { MustHave } from "./AutoComplete/FormValidate/MustHave";
 import { JustAtoZ } from "./AutoComplete/FormValidate/JustAtoZ";
 import { Just0To9 } from "./AutoComplete/FormValidate/Just0To9";
 import { EmailValidate } from "./AutoComplete/FormValidate/EmailValidate";
-import { XemNgay } from "./AutoComplete/FormValidate/XemNgay";
 import { Input } from "./AutoComplete/FormValidate/Input";
 import { ClearInputValue } from "./AutoComplete/FormValidate/ClearInputValue";
 import { ClearMotaValue } from "./AutoComplete/FormValidate/ClearMotaValue";
+import TiemNang from "./TiemNang/TiemNang";
 const CreateBody = () =>{
-    const dispatch = useDispatch()
-    const maBiTrung = useSelector(state => state.check.check)
 
-
-    const userCount = useSelector(state => state.count.count) + 1
-    const zeroPad = (num, places) => String(num).padStart(places, '0')
-    const newIDCout =zeroPad(userCount, 15)
-    const newTNCount = `TN${newIDCout}`
-    // maBiTrung = maBiTrung._id
     //phải đủ 15 chữ số sau chữ TN
     // đang generrate ra tiềm năng với chữ số lớn hơn 1 đơn vị so với tiềm năng
     // có số thứ tự lớn nhất
     useEffect(()=>{
         HandleImage()
         HandleCheck()
-    })
+    },[])
 
     useEffect(()=>{
         MustHave()
         JustAtoZ()
         Just0To9()
         EmailValidate()
-        XemNgay()
         Input()
         ClearInputValue()
         ClearMotaValue()
-        TiemNangValidate(dispatch, maBiTrung)
-    },[dispatch])
+    },[])
+
     
     return (
         <div className={styles.container}>
@@ -219,7 +210,6 @@ const CreateBody = () =>{
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Ngày thành lập</span>
                                 <input type='date' placeholder="DD/MM/YYYY" autoComplete="off" className={styles.thongTinInput} id='ngayThanhLap'/>
-                                <span className={styles.clearInput}></span>
                             </span>
                             <span className={styles.thongTin}>
                                 <span className={styles.thongTinTitle}>Loại hình</span>
@@ -295,46 +285,7 @@ const CreateBody = () =>{
                                 <span className={styles.thongTinLastTitle}>Dùng chung</span>
                                 <span className={styles.iconCheck} id='dungChung'></span>
                             </span>
-                            <span className={styles.thongTin}>
-                                <span className={styles.thongTinTitle} >Mã tiềm năng</span>
-                                <span className={styles.thongTinInputFather} id='dienTiemNang'>
-                                    <input className={`${styles.thongTinInput} `} 
-                                    autoComplete="off" 
-                                    id='maTiemNang'
-                                    defaultValue={newTNCount}
-                                    />
-                                    <span className={styles.clearInput}></span>
-                                    <span className={styles.thonngTinWarningText}>Mã tiềm năng không được để trống</span>
-                                    <span className={styles.thonngTinWarningText}>Mã tiềm năng phải bắt đầu bằng TN</span>
-                                    <span className={styles.thonngTinWarningText}>Mã tiềm năng phải theo sau bằng chữ số</span>
-                                    <span className={styles.thonngTinWarningText}>
-                                        Mã tiềm năng đã bị trùng. 
-                                        <span className={`${styles.xemNgayText}`} id='xemNgay'>
-                                            Xem ngay 
-                                            <span className={styles.xemNgaySmallBox} style={{display:'none'}}>
-                                                <span className={styles.xemNgaySmallRow}>
-                                                    <span>Mã tiềm năng</span>
-                                                    <span id='oldTiemNangValueCheck'>{maBiTrung[0]? `${maBiTrung[0]._id}` : ''}</span>
-                                                </span>
-                                                <span className={styles.xemNgaySmallRow}>
-                                                    <span>Họ và tên</span>
-                                                    <span>{maBiTrung[0]? `${maBiTrung[0].hovadem} ${maBiTrung[0].ten}` : ''}</span>
-                                                </span>
-                                                <span className={styles.xemNgaySmallRow}>
-                                                    <span>Tỉnh thành</span>
-                                                    <span>{maBiTrung[0]? `${maBiTrung[0].tinhthanhpho}` : ''}</span>
-                                                </span>
-                                                <span className={styles.xemNgaySmallRow}>
-                                                    <span>Quận huyện</span>
-                                                    <span>{maBiTrung[0]? `${maBiTrung[0].quanhuyen}` : ''}</span>
-                                                </span>
-                                            </span>
-                                        </span>    
-                                    </span>
-                                    <span className={styles.thonngTinWarningText}>Mã tiềm năng phải đủ 17 ký tự</span>
-                                    <span className={styles.clearInput}></span>
-                                </span>
-                            </span>
+                            <TiemNang/>
                         </div>
                     </div>
                     

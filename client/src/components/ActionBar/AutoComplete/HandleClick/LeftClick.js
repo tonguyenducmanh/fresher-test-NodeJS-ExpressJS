@@ -19,7 +19,6 @@ export const LeftClick = (e) =>{
     const LoaiTiemNangQuick = document.getElementById('LoaiTiemNangQuick')
     const NgayThanhLapQuick = document.getElementById('NgayThanhLapQuick')
     //click vô rồi thì mới hiện cái nút cập nhật và ô input lên chứ
-    console.log(e.target.textContent)
 
     if(truongChonNhieuRight){
         truongChonNhieuRight.removeAttribute('disabled')

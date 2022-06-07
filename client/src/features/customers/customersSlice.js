@@ -11,8 +11,46 @@ export const paginationSlice = createSlice({
         error: null
     },
     reducers:{
+        limitTen: (state) => {
+            if(state.count < 10){
+                state.limit = state.count
+            } else{
+                state.limit = 10
+            }
+        },
+        limitTwenty: (state) => {
+            if(state.count < 20){
+                state.limit = state.count
+            } else{
+                state.limit = 20
+            }
+        },
+        limitFifty: (state) => {
+            if(state.count < 50){
+                state.limit = state.count
+            } else{
+                state.limit = 50
+            }
+        },
+        limitOneHundred: (state) => {
+            if(state.count < 100){
+                state.limit = state.count
+            } else{
+                state.limit = 100
+            }
+        },
+        firstIndex: (state) => {
+            state.startIndex = 0
+        },
+        lastIndex: (state) =>{
+            if(state.count < state.limit){
+                state.startIndex = 0
+            }else{
+                state.startIndex = state.count - state.limit
+            }
+        },
         nextPagination: (state) => {
-            if(state.startIndex < (state.count - state.limit)){
+            if(state.startIndex < state.count - state.limit *2){
                 state.startIndex += state.limit
             } else{
                 state.startIndex = state.count - state.limit
@@ -25,30 +63,6 @@ export const paginationSlice = createSlice({
                 state.startIndex = 0
             }
         },
-        limitTen: (state) => {
-            state.limit = 10
-        },
-        limitTwenty: (state) => {
-            if( (state.startIndex + state.limit) < (state.count - 20)){
-                state.limit = 20
-            }
-        },
-        limitFifty: (state) => {
-            if( (state.startIndex + state.limit) < (state.count - 50)){
-                state.limit = 50
-            }
-        },
-        limitOneHundred: (state) => {
-            if( (state.startIndex + state.limit) < (state.count - 100)){
-                state.limit = 100
-            }
-        },
-        firstIndex: (state) => {
-            state.startIndex = 0
-        },
-        lastIndex: (state) =>{
-            state.startIndex = state.count - state.limit
-        }
     },
     extraReducers(builder){
         builder

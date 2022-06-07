@@ -43,7 +43,6 @@ export const HandleUpdateButton = (dispatch) =>{
     // nên lấy id của cái duy nhất đó qua vòng lặp
     idsString = idsString.join(',')
     
-    console.log('đã ấn vào nút cập nhật', idsString)
 
     const maTiemNang = idsString
 
@@ -122,7 +121,6 @@ export const HandleUpdateButton = (dispatch) =>{
             data.append('loaiTiemNang[]', loaiTiemNangArray[k])
 
         }
-        console.log(loaiTiemNangArray)
 
     }
     if(ngayThanhLap.style.display === 'block'){data.append('ngayThanhLap', ngayThanhLap.value)}

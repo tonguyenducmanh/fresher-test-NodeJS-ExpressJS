@@ -1,0 +1,140 @@
+:root{
+    --icon-small: 16px;
+    --icon-medium: 20px;
+    --icon-large: 24px;
+    --padding: 10px;
+    --border: 0.5px solid rgba(120, 120, 120, 0.347);
+    --boderRadius: 4px;
+    --boxShadow: 1px 1px 3px 1px rgb(195, 195, 195);
+    --heightRow: calc(var(--padding)*4);
+    --marginRightTD: calc(var(--padding)*4);
+    --iconUnchecked: -192px -16px;
+    --iconChecked: -177px -17px;
+    --white: #ffffff;
+    --blue:#405eec; 
+    --group:1200px;
+    --iconUnchecked: -192px -16px;
+    --iconChecked: -177px -17px;
+    --iconDown : -336px -32px;
+    --iconUp :-320px -32px;
+    --grayDark: #616161;
+    --gray: #9ba3b2;
+    --grayLight: #e9e2e2;
+    --red: #ff3b3b;
+}
+.icon{
+    position: relative;
+    width: var(--icon-small);
+    height: var(--icon-small);
+}
+
+.icon:hover{
+    cursor: pointer;
+}
+
+.icon::before{
+    position: absolute;
+    content: '';
+    z-index: 1;
+    width: var(--icon-small);
+    height: var(--icon-small);
+    background-image: url(../../../images/icon_collection.svg);
+}
+
+
+.thongTin{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: var(--padding);
+}
+
+.thongTinTitle{
+    position: relative;
+    color: var(--grayDark);
+    position: relative;
+    font-weight: 500;
+}
+
+.thongTinTitleWarning::before{
+    position: absolute;
+    color: var(--red);
+    content: '*';
+    z-index: 1;
+    width: var(--icon-small);
+    height: var(--icon-small);
+    right: -20px;
+    
+}
+
+.thongTinInputFather{
+    display:flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.thongTinInput{
+    font-weight: 500;
+    color: var(--grayDark);
+    font-size: 1rem;
+    position: relative;
+    height: calc(var(--padding)*1.5);
+    border: SOLID var(--grayLight);
+    border-width: 1.8px;
+    border-radius: 4px;
+    width: 400px;
+    padding: var(--padding) calc(var(--padding)*1.8);
+}
+
+
+.thongTinInput:focus{
+    border: 2px solid var(--blue);
+}
+
+.thongTinInput:disabled{
+    background-color: var(--grayLight);
+}
+
+.thongtinMustHave{
+    font-weight: 500;
+}
+
+.thongtinAtoZ{
+    font-weight: 500;
+}
+.thonngTinWarning{
+    border: SOLID var(--red);
+    border-width: 1.8px;
+}
+
+.thonngTinWarningText{
+    margin-left: var(--padding);
+    display: none;
+    margin-top: var(--padding);
+    color: var(--red);
+    font-size: .9rem;
+    font-weight: 500;
+}
+
+.clearInput{
+    display: none;
+    position: absolute;
+    right: 10px;
+    top:10px;
+    width: var(--icon-small);
+    height: var(--icon-small);
+}
+
+.clearInput:hover{
+    cursor: pointer;
+}
+
+.clearInput::before{
+    position: absolute;
+    content: '';
+    z-index: 1;
+    width: var(--icon-small);
+    height: var(--icon-small);
+    background-image: url(../../../images/icon_collection.svg);
+    background-position: -80px -16px;
+}

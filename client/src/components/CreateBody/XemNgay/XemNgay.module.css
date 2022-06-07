@@ -1,0 +1,57 @@
+:root{
+    --icon-small: 16px;
+    --icon-medium: 20px;
+    --icon-large: 24px;
+    --padding: 10px;
+    --border: 0.5px solid rgba(120, 120, 120, 0.347);
+    --boderRadius: 4px;
+    --boxShadow: 1px 1px 3px 1px rgb(195, 195, 195);
+    --heightRow: calc(var(--padding)*4);
+    --marginRightTD: calc(var(--padding)*4);
+    --iconUnchecked: -192px -16px;
+    --iconChecked: -177px -17px;
+    --white: #ffffff;
+    --blue:#405eec; 
+    --group:1200px;
+    --iconUnchecked: -192px -16px;
+    --iconChecked: -177px -17px;
+    --iconDown : -336px -32px;
+    --iconUp :-320px -32px;
+    --grayDark: #616161;
+    --gray: #9ba3b2;
+    --grayLight: #e9e2e2;
+    --red: #ff3b3b;
+}
+.xemNgayText{
+    color: #405eec;
+    cursor: pointer;
+    margin-left: var(--padding);
+    position: relative;
+}
+.maTiemNang{
+    font-weight: 500;
+}
+.xemNgaySmallBox{
+    position: absolute;
+    background-color: var(--white);
+    border-radius: var(--boderRadius);
+    border: var(--border);
+    width:300px;
+    margin-top: -120px;
+    right: -300px;
+    padding: var(--padding);
+    display: flex;
+    flex-direction: column;
+    z-index: 4;
+}
+
+.xemNgaySmallRow{
+    display: grid;
+    grid-template-columns: 40% 60%;
+}
+.xemNgaySmallBox span{
+    color: var(--grayDark);
+    font-weight: 500;
+    font-size: 1rem;
+}
+

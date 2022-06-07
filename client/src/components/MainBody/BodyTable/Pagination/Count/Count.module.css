@@ -1,0 +1,53 @@
+:root{
+    --icon-small: 16px;
+    --icon-medium: 20px;
+    --icon-large: 24px;
+    --padding: 10px;
+    --border: 1px solid rgba(120, 120, 120, 0.347);
+    --boderRadius: 4px;
+    --boxShadow: 1px 1px 3px 1px rgb(195, 195, 195);
+}
+.icon{
+    position: relative;
+    width: var(--icon-small);
+    height: var(--icon-small);
+}
+
+.icon:hover{
+    cursor: pointer;
+}
+
+.icon::before{
+    position: absolute;
+    content: '';
+    z-index: 1;
+    width: var(--icon-small);
+    height: var(--icon-small);
+    background-image: url(../../../../../images/icon_collection.svg);
+}
+
+.pagination{
+    position: relative;
+    width: 100%;
+    height: calc(var(--padding)*4);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.paginationTotal{
+    padding-left: var(--padding);
+    display: flex;
+    align-items: center;
+}
+
+.paginationTotalText{
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.paginationTotalCount{
+    padding-left: var(--padding);
+    font-size: 0.8rem;
+    font-weight: 600;
+}

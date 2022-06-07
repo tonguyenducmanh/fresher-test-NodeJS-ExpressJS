@@ -106,7 +106,6 @@ export default function TruongChonNhieu({arr, value}) {
                                 theMoiHai.classList.add(styles.thongTinExample)
                                 theMoiHai.innerHTML = '- Không chọn -'
                                 thongTinInputBox[i].appendChild(theMoiHai)
-                                // console.log(thongTinInputBox[i])
                             }
                             e.target.remove()
                         })
@@ -158,7 +157,7 @@ export default function TruongChonNhieu({arr, value}) {
         return (
             <div className={styles.thongtinContainer}>
                 <div className={styles.thongTinInputBox} id='loaiTiemNangEdit'>
-                    {   selectedLists[0] !== '- Không chọn -' ?  selectedLists.map((selected, index) =>(
+                    {   selectedLists ? (selectedLists[0] !== '- Không chọn -' ?  selectedLists.map((selected, index) =>(
                         <span className={`${styles.thongTinContent} ${styles.thongTinContentDecor}`}
                             key={index}
                         >
@@ -166,7 +165,9 @@ export default function TruongChonNhieu({arr, value}) {
                         </span>
                     ))
                     :
-                    <span className={styles.thongTinExample}>- Không chọn -</span>  }
+                    <span className={styles.thongTinExample}>- Không chọn -</span>)
+                    :
+                    <span className={styles.thongTinExample}>- Không chọn -</span> }
                 </div>
                 <div className={styles.thongTinInputForm}>
                     <input className={styles.thongTinInput} placeholder='Tìm kiếm'/>

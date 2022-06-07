@@ -37,6 +37,13 @@ import { ClearMotaValue } from "./AutoComplete/FormValidate/ClearMotaValue";
 
 const EditBody = () =>{
     const editCustomer = useSelector(state => state.tempCustomer.editCustomer)
+    const image = `url(http://localhost:5000/${editCustomer.anh})`
+    let urlImage
+    if(editCustomer.anh != '-' && editCustomer.anh != ''){
+        urlImage = image
+    }else{
+        urlImage = '-'
+    }
     useEffect(()=>{
         HandleImage()
         HandleCheck()
@@ -65,8 +72,8 @@ const EditBody = () =>{
                         <div className={`${styles.thongTinGroupBody} ${styles.uploadImageBox}`}>
                             <input className={styles.thongTinImage} type='file' name='anhEditValue' id='anhEditValue'/>
                             <span className={styles.avatarImage} id='avatarEditValue' 
-                               style= {editCustomer.anh ? {
-                                   backgroundImage: `url(http://localhost:5000/${editCustomer.anh})`,
+                               style= {urlImage != '-' ? {
+                                   backgroundImage: urlImage,
                                    backgroundPosition : 0,
                                    backgroundSize: 'cover'
                                }
@@ -277,7 +284,6 @@ const EditBody = () =>{
                                 autoComplete="off" 
                                 defaultValue={editCustomer.ngaythanhlap}
                                 />
-                                    <span className={styles.clearInput}></span>
 
                             </span>
                             <span className={styles.thongTin}>

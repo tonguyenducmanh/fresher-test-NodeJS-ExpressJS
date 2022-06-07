@@ -5,7 +5,6 @@ export const HandleCheck = () =>{
     for (var i = 0; i < checked.children.length; i++) {
             var ch = checked.children[i];
             ch.onclick = function (e) {
-                console.log(e.target)
             if (this.classList.contains(styles.filterItemChecked)) {
                 this.classList.add(styles.filterItem);
                 this.classList.remove(styles.filterItemChecked);

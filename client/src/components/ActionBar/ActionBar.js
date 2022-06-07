@@ -30,6 +30,8 @@ const ActionBar = () =>{
     const findList = useSelector(state => state.find.findCustomers)
     const startIndexPagination = useSelector(state => state.pagination.startIndex)
     const limitPagination = useSelector(state => state.pagination.limit)
+    const searchString = useSelector(state => state.customers.searchString)
+    const count = useSelector(state => state.pagination.count)
     useEffect(()=>{
         OpenMoreMenu()
         UndoSelected()
@@ -119,9 +121,8 @@ const ActionBar = () =>{
                     {/* load lại danh sách */}
                     <span className={styles.actionLeftRefreshButton}
                         onClick={()=>{{
-                            dispatch(fetchCheckCustomerExist(`?findID=TN000000000000001`))
                             dispatch(fetchCustomersList(`?limit=${limitPagination}&startIndex=${startIndexPagination}`))
-                            dispatch(fetchCustomersCount())
+                            dispatch(fetchCustomersCount(`?searchString=${searchString}`))
                             dispatch(resetLocation())
 
                         }}}

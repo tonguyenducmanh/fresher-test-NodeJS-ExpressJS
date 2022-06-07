@@ -25,7 +25,6 @@ export const ExportToExcellFile = (findList) =>{
             }
         }
         moreMenu.classList.add(styles.hiddenMenu)
-        console.log(findList)
                 //tự động tạo file excell tải về khi state của danh sách khác rộng ( là có 1 khách hàng tiềm năng được chọn tải về )
     if(findList !== ''){
         const rows = findList.map(row => ({

@@ -1,6 +1,4 @@
-import styles from '../../CreateBody.module.css'
-
-export const XemNgay = () =>{
+export const XemNgayValidate = () =>{
    const xemNgay = document.getElementById('xemNgay')
    xemNgay.addEventListener('click',()=>{
        if(xemNgay.children[0].style.display =='none'){
