@@ -11,14 +11,17 @@ export const HandleEditCustomer = (dispatch,customers) =>{
     const tdLinks = document.getElementsByClassName(styles.tdLink)
     for(let k = 0 ; k < customerEdits.length; k++){
         customerEdits[k].addEventListener('dblclick',(event)=>{
-            if(!checkButtons[k].contains(event.target)){
-                tdLinks[k].children[0].click()
-                // thêm các dữ liệu về người dùng định sửa vào global state redux toolkits
-                dispatch(addTempCustomer(customers[k]))
-                if(customers[k].quocgia !=='-' && customers[k].quocgia !==''){dispatch(quocGia(customers[k].quocgia))}
-                if(customers[k].tinhthanhpho !=='-' && customers[k].quocgia !==''){dispatch(addTinhThanh(customers[k].tinhthanhpho))}
-                if(customers[k].quanhuyen !=='-' && customers[k].quanhuyen !==''){dispatch(addQuanHuyen(customers[k].quanhuyen))}
-                if(customers[k].phuongxa !=='-' && customers[k].phuongxa !==''){dispatch(addPhuongXa(customers[k].phuongxa))}
+            if(checkButtons[k]){
+                if(!checkButtons[k].contains(event.target)){
+                    console.log(checkButtons[k])
+                    tdLinks[k].children[0].click()
+                    // thêm các dữ liệu về người dùng định sửa vào global state redux toolkits
+                    dispatch(addTempCustomer(customers[k]))
+                    if(customers[k].quocgia !=='-' && customers[k].quocgia !==''){dispatch(quocGia(customers[k].quocgia))}
+                    if(customers[k].tinhthanhpho !=='-' && customers[k].quocgia !==''){dispatch(addTinhThanh(customers[k].tinhthanhpho))}
+                    if(customers[k].quanhuyen !=='-' && customers[k].quanhuyen !==''){dispatch(addQuanHuyen(customers[k].quanhuyen))}
+                    if(customers[k].phuongxa !=='-' && customers[k].phuongxa !==''){dispatch(addPhuongXa(customers[k].phuongxa))}
+                }
             }
         })
     }

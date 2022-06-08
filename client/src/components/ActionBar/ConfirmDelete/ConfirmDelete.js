@@ -1,22 +1,12 @@
 import React, {useEffect} from "react";
-import { useDispatch, useSelector} from 'react-redux'
-import { deleteCustomers,fetchCustomersList,fetchCustomersCount
- } from '../../../features/customers/customersSlice'
+import { useDispatch} from 'react-redux'
 import styles from './ConfirmDelete.module.css'
-import stylesTwo from '../../MainBody/BodyTable/Table/Customers/Customers.module.css'
-import stylesThree from '../../ActionBar/ActionBar.module.css'
-import stylesFour from '../../MainBody/BodyTable/Table/Table.module.css'
 
+import { DeleteEvent } from "./DeleteEvent";
 
 
 const ConfirmDelete = () => {
     const dispatch = useDispatch()
-
-    const startIndexPagination = useSelector(state => state.pagination.startIndex)
-    const limitPagination = useSelector(state => state.pagination.limit)
-    const deleteCount = useSelector(state=> state.delete.deleteCustomers)
-    const searchString = useSelector(state => state.customers.searchString)
-    const count = useSelector(state => state.pagination.count)
 
     useEffect(() =>{
         const cancelButton = document.getElementById('cancelButton')
@@ -44,45 +34,14 @@ const ConfirmDelete = () => {
             );
     },[])
     
-    useEffect(()=>{
-        const tdIds =  document.getElementsByClassName(stylesTwo.tdId)
-        const deleteButtonFinal = document.getElementById('deleteButtonFinal')
-        const iconCheckAll = document.getElementById('iconCheckAll')
-        const checkedButton =  document.getElementsByClassName(stylesTwo.iconButtonCustomers)
-        const container = document.getElementsByClassName(styles.container)
-        const actionBarOne = document.getElementById('actionBarOne')
-        const actionBarTwo = document.getElementById('actionBarTwo')
-        const notifySuccess = document.getElementById('notifySuccess')
-
-        deleteButtonFinal.addEventListener('click', function(){
-            container[0].classList.add(styles.hiddenBox)
-            iconCheckAll.classList.remove(stylesFour.iconHeadingChecked)
-            iconCheckAll.classList.add(stylesFour.iconHeading)
-            actionBarOne.classList.remove(stylesThree.hiddenComponent)
-            actionBarTwo.classList.add(stylesThree.hiddenComponent)
-            let idsString = []
-            for( let i = 0 ; i < tdIds.length ; i ++){
-                if(checkedButton[i].classList.contains(stylesTwo.iconHeadingChecked)){
-                    idsString = idsString.concat(tdIds[i].textContent)
-                }
-            }
-                idsString = idsString.join(',')
-            dispatch(deleteCustomers(`?deleteArray=${idsString}`))
-            dispatch(fetchCustomersList(`?searchString=${searchString}&limit=${limitPagination}&startIndex=${startIndexPagination}`))
-            dispatch(fetchCustomersCount(`?searchString=${searchString}`))
-
-            notifySuccess.classList.add(stylesThree.notifySuccessAni)
-            notifySuccess.addEventListener("transitionend", ()=>{
-                notifySuccess.classList.remove(stylesThree.notifySuccessAni)
-            });
-        })
-    },[deleteCount,dispatch,limitPagination,startIndexPagination])
     return(
         <span className={`${styles.container} ${styles.hiddenBox}`}>
             <span className={styles.deleteBox}>
                 <span className={styles.deleteNotify}>Bạn có chắc muốn xóa Tiềm năng này không?</span>
                 <span className={styles.deleteCancel} id='cancelButton'>Hủy bỏ</span>
-                <span className={styles.deleteYes} id='deleteButtonFinal'>Đồng ý</span>
+                <span className={styles.deleteYes} id='deleteButtonFinal'
+                    onClick={()=> DeleteEvent(dispatch)}
+                >Đồng ý</span>
                 <span className={`${styles.icon} ${styles.deleteCancelButton}`} id='cancelButtonTwo'></span>
             </span>
         </span>

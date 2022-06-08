@@ -24,7 +24,6 @@ export const Customers = () => {
     const limitPagination = useSelector(state => state.pagination.limit)
     const searchString = useSelector(state => state.customers.searchString)
     const searchInput = document.getElementsByClassName(stylesTwo.headingSearchInput)
-    const count = useSelector(state => state.pagination.count)
 
     
     //tìm kiếm theo giá trị cho trước, không có giá trị cho trước thì trả về cả bảng
@@ -42,7 +41,7 @@ export const Customers = () => {
     // hiện bảng sửa thông tin
     useEffect(() =>{
         HandleEditCustomer(dispatch, customers)
-    },[customers])
+    },[dispatch, customers])
     return (
             <tbody>
                 {customers.map((customer) => (

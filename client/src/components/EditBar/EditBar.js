@@ -11,14 +11,18 @@ import { HandleSaveAndAdd } from "./HandleSave/HandleSaveAndAdd";
 
 const EditBar = () =>{
     const editCustomer = useSelector(state => state.tempCustomer.editCustomer)
+    const startIndexPagination = useSelector(state => state.pagination.startIndex)
+    const limitPagination = useSelector(state => state.pagination.limit)
+    const searchString = useSelector(state => state.customers.searchString)
+
+
     const anhCu = editCustomer.anh
-    console.log(anhCu)
 
 
     const dispatch = useDispatch()
 
     useEffect(()=>{
-        HandleCancel(dispatch)
+        HandleCancel(dispatch,startIndexPagination,limitPagination,searchString)
         // HandleSaveAndAdd(dispatch)
         //2 trường hợp kia cần useselector để lấy limit và startindex
         // sau đó tự động load lại danh sách mới, còn

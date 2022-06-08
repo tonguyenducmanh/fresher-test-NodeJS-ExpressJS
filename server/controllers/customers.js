@@ -74,7 +74,7 @@ export const deleteCustomer = async (req, res) => {
         // em nó trong database đi
 
         for(let i = 0 ; i< customerInfosDeleted.length; i++){
-            if(customerInfosDeleted[i].anh !=='-'){
+            if(customerInfosDeleted[i].anh.split('').length>10){
                 // chỉ xét trường hợp có ảnh mới xóa thôi
                 // bên client những document đăng không kèm ảnh thì
                 // trường ảnh được để thành giá trị '-'

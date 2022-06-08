@@ -5,8 +5,6 @@ import { Link } from "react-router-dom";
 import { fetchCustomersList } from '../../features/customers/customersSlice'
 import { fetchCustomersCount } from '../../features/customers/customersSlice';
 import { resetLocation } from '../../features/location/locationSlice';
-import { fetchCheckCustomerExist } from "../../features/customers/customersSlice";
-import { fetchLastID } from "../../features/customers/customersSlice";
 
 import styles from './ActionBar.module.css'
 import stylesTwo from '../MainBody/BodyTable/Table/Customers/Customers.module.css'
@@ -33,7 +31,6 @@ const ActionBar = () =>{
     const searchString = useSelector(state => state.customers.searchString)
     const count = useSelector(state => state.pagination.count)
     useEffect(()=>{
-        OpenMoreMenu()
         UndoSelected()
         //thêm tính năng kiểm tra xem có bấm ra ngoài menu hay không
         //nếu bấm ra ngoài thì sẽ đóng menu; áp dụng tương tự cho quick update box
@@ -121,7 +118,7 @@ const ActionBar = () =>{
                     {/* load lại danh sách */}
                     <span className={styles.actionLeftRefreshButton}
                         onClick={()=>{{
-                            dispatch(fetchCustomersList(`?limit=${limitPagination}&startIndex=${startIndexPagination}`))
+                            dispatch(fetchCustomersList(`?searchString=${searchString}&limit=${limitPagination}&startIndex=${startIndexPagination}`))
                             dispatch(fetchCustomersCount(`?searchString=${searchString}`))
                             dispatch(resetLocation())
 
@@ -140,7 +137,7 @@ const ActionBar = () =>{
                         Cập nhật thông tin
                     <span id='updateQuick'></span>
                     </span>
-                    <span className={styles.actionLeftMoreButton} id='moreButton'>
+                    <span className={styles.actionLeftMoreButton} id='moreButton' onClick={()=>OpenMoreMenu()}>
                     </span>
                     <span className={`${styles.actionLeftMoreMenu} ${styles.hiddenMenu}`} id='moreMenu'>
                         <span className={styles.actionLeftExportButton} id='exportExcell' onClick={()=>ExportToExcellFile(findList)}>Xuất khẩu</span>
