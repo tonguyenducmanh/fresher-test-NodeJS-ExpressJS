@@ -28,12 +28,18 @@ export const Customers = () => {
     
     //tìm kiếm theo giá trị cho trước, không có giá trị cho trước thì trả về cả bảng
     useEffect(() => {
-            searchInput[0].addEventListener('input',(e) =>{
+            const searchInputEvent = (e) =>{
                 dispatch(addSearchString(e.target.value))
-            })
+            }
+            searchInput[0].addEventListener('input',searchInputEvent)
             dispatch(fetchCustomersList(`?searchString=${searchString}&limit=${limitPagination}&startIndex=${startIndexPagination}`))
             dispatch(fetchCustomersCount(`?searchString=${searchString}`))
             dispatch(fetchLastID())
+
+            return()=>{
+            searchInput[0].removeEventListener('input',searchInputEvent)
+
+            }
     }, [limitPagination, startIndexPagination, searchString, dispatch])
     useEffect( () =>{
         HandleCheck(limit)
@@ -81,4 +87,3 @@ export const Customers = () => {
             </tbody>
     )
 }
-

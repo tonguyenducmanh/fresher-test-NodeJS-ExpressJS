@@ -16,7 +16,6 @@ const TiemNang = () =>{
     const zeroPad = (num, places) => String(num).padStart(places, '0')
     const newIDCout =zeroPad(lastIDNumber, 15)
     const newTNCount = `TN${newIDCout}`
-    console.log(newTNCount)
     useEffect(()=>{
         ClearInputValue()
         TiemNangValidate(dispatch, maBiTrung)

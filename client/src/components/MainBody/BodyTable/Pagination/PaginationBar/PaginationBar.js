@@ -37,30 +37,49 @@ const PaginationBar = () =>{
         const limitOneHundredButton = document.getElementById('limitOneHundred')
         const firstButton = document.getElementById('firstButton')
         const lastButton = document.getElementById('lastButton')
-        limitTenButton.addEventListener('click',function(){
+        const limitTenButtonEvent = function(){
             dispatch(limitTen())
-        })
-        limitTwentyButton.addEventListener('click',function(){
+        }
+        const limitTwentyButtonEvent = function(){
             dispatch(limitTwenty())
-        })
-        limitFiftyButton.addEventListener('click',function(){
+        }
+        const limitFiftyButtonEvent = function(){
             dispatch(limitFifty())
-        })
-        limitOneHundredButton.addEventListener('click',function(){
+        }
+        const limitOneHundredButtonEvent = function(){
             dispatch(limitOneHundred())
-        })
-        firstButton.addEventListener('click',function(){
+        }
+        const firstButtonEvent = function(){
             dispatch(firstIndex())
-        })
-        lastButton.addEventListener('click',function(){
+        }
+        const lastButtonEvent = function(){
             dispatch(lastIndex())
-        })
-        nextButton.addEventListener('click',function(){
+        }
+        const nextButtonEvent = function(){
             dispatch(nextPagination())
-        })
-        previousButton.addEventListener('click',function(){
+        }
+        const previousButtonEvent = function(){
             dispatch(previousPagination())
-        })
+        }
+        limitTenButton.addEventListener('click',limitTenButtonEvent)
+        limitTwentyButton.addEventListener('click',limitTwentyButtonEvent)
+        limitFiftyButton.addEventListener('click',limitFiftyButtonEvent)
+        limitOneHundredButton.addEventListener('click',limitOneHundredButtonEvent)
+        firstButton.addEventListener('click',firstButtonEvent)
+        lastButton.addEventListener('click',lastButtonEvent)
+        nextButton.addEventListener('click',nextButtonEvent)
+        previousButton.addEventListener('click',previousButtonEvent)
+
+        return()=>{
+            limitTenButton.removeEventListener('click',limitTenButtonEvent)
+            limitTwentyButton.removeEventListener('click',limitTwentyButtonEvent)
+            limitFiftyButton.removeEventListener('click',limitFiftyButtonEvent)
+            limitOneHundredButton.removeEventListener('click',limitOneHundredButtonEvent)
+            firstButton.removeEventListener('click',firstButtonEvent)
+            lastButton.removeEventListener('click',lastButtonEvent)
+            nextButton.removeEventListener('click',nextButtonEvent)
+            previousButton.removeEventListener('click',previousButtonEvent)
+        }
     }, [dispatch])
 
     return (

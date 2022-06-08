@@ -34,8 +34,12 @@ export const DeleteEvent = (dispatch) =>{
     dispatch(deleteCustomers(`?deleteArray=${idsString}`))
     refreshButton.click()
     
-    notifySuccess.classList.add(stylesThree.notifySuccessAni)
-    notifySuccess.addEventListener("transitionend", ()=>{
+    const notifySuccessEvent = ()=>{
         notifySuccess.classList.remove(stylesThree.notifySuccessAni)
-    });
+    }
+    notifySuccess.classList.add(stylesThree.notifySuccessAni)
+    notifySuccess.addEventListener("transitionend", notifySuccessEvent);
+    return()=>{
+        notifySuccess.removeEventListener("transitionend", notifySuccessEvent);
+    }
 }

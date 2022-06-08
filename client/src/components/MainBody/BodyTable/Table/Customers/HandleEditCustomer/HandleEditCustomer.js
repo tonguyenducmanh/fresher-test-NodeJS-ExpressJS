@@ -13,7 +13,6 @@ export const HandleEditCustomer = (dispatch,customers) =>{
         customerEdits[k].addEventListener('dblclick',(event)=>{
             if(checkButtons[k]){
                 if(!checkButtons[k].contains(event.target)){
-                    console.log(checkButtons[k])
                     tdLinks[k].children[0].click()
                     // thêm các dữ liệu về người dùng định sửa vào global state redux toolkits
                     dispatch(addTempCustomer(customers[k]))

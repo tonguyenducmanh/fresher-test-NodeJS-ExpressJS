@@ -15,23 +15,35 @@ const ConfirmDelete = () => {
         const deleteBox = document.getElementsByClassName(styles.deleteBox)
         //xử lý sự kiện bấm ra ngoài vùng được chọn và bấm hủy thì sẽ hủy tính năng
         //xóa
-        document.addEventListener("mousedown", (event) => {
+        const documentEvent = (event) => {
             //kiểm tra sự kiện có không đã, nếu không có tức là đang ở trang khác
+            const cancelButtonEvent = () =>{
+                contanier[0].classList.add(styles.hiddenBox)
+            }
+            const cancelButtonTwoEvent = () =>{
+                contanier[0].classList.add(styles.hiddenBox)
+            }
             if(deleteBox[0]){
                 if (deleteBox[0].contains(event.target)) {
-                    cancelButton.addEventListener('click', function(){
-                        contanier[0].classList.add(styles.hiddenBox)
-                    })
+                    cancelButton.addEventListener('click',cancelButtonEvent )
                     
-                    cancelButtonTwo.addEventListener('click', function(){
-                        contanier[0].classList.add(styles.hiddenBox)
-                    })
+                    cancelButtonTwo.addEventListener('click',cancelButtonTwoEvent)
+                    return()=>{
+                        cancelButton.removeEventListener('click',cancelButtonEvent )
+                    
+                    cancelButtonTwo.removeEventListener('click',cancelButtonTwoEvent)
+                    }
                 } else {
                     contanier[0].classList.add(styles.hiddenBox)
                 }
               }
             }
+        document.addEventListener("mousedown", documentEvent
             );
+        return()=>{
+            document.removeEventListener("mousedown", documentEvent
+            );
+        }
     },[])
     
     return(

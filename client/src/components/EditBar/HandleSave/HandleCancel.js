@@ -5,9 +5,14 @@ export const HandleCancel = (dispatch) =>{
     
  
     const cancelEditButton = document.getElementById('cancelEditButton')
-        cancelEditButton.addEventListener('click', () =>{
-                    dispatch(resetLocation())
-                    
-                })
+    const cancelEditButtonEvent = () =>{
+        dispatch(resetLocation())
+        
+    }
+        cancelEditButton.addEventListener('click',cancelEditButtonEvent )
 
+    return()=>{
+        cancelEditButton.removeEventListener('click',cancelEditButtonEvent )
+        
+    }
 }

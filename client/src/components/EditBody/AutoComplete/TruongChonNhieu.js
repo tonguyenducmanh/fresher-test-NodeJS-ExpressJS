@@ -12,45 +12,60 @@ export default function TruongChonNhieu({arr, id, value}) {
         const thongTinListItem = document.getElementsByClassName(styles.thongTinListItem)
         //mở nhập input khi bấm vào combobox
         useEffect(()=>{
+            const thongTinInputBoxEvent = (e)=>{
+                if(e.target.children[0]){
+                    if(e.target.children[0].style.display !== 'block'){
+                        e.target.children[0].style.display = 'block'
+                        e.target.children[3].style.display = 'block'
+                        e.target.children[0].focus()
+                        e.target.style.setProperty('--iconDown', '-320px -32px')
+                    } 
+                }
+            }
             for(let z = 0 ; z <thongTinInputBox.length; z++){
-                thongTinInputBox[z].addEventListener('click', (e)=>{
-                    if(e.target.children[0]){
-                        if(e.target.children[0].style.display !== 'block'){
-                            e.target.children[0].style.display = 'block'
-                            e.target.children[3].style.display = 'block'
-                            e.target.children[0].focus()
-                            e.target.style.setProperty('--iconDown', '-320px -32px')
-                        } 
-                    }
-                })
+                thongTinInputBox[z].addEventListener('click',thongTinInputBoxEvent )
+            }
+
+            return()=>{
+                for(let z = 0 ; z <thongTinInputBox.length; z++){
+                    thongTinInputBox[z].removeEventListener('click',thongTinInputBoxEvent )
+                }
             }
         },[thongTinInputBox])
 
         //mở dãy gợi ý khi mà hiện tính năng nhập và tùy chỉnh danh sách theo dữ liệu nhập
         //danh sách gợi ý được lọc qua xem có trùng chữ nào thì mới hiện
         useEffect(()=>{
+            const thongTinInputBoxEventTwo = (e)=>{
+                e.target.parentElement.children[1].style.display = 'block'
+                let inputValue = e.target.value.toUpperCase()
+                for( let k = 0 ; k < thongTinListItem.length ; k++){
+                    if(thongTinListItem[k].innerHTML.toUpperCase().indexOf(inputValue) > -1){
+                        thongTinListItem[k].style.display = 'block';
+                    } else{
+                        thongTinListItem[k].style.display = 'none'
+                    }
+                }
+                
+            }
             for(let i = 0 ; i< thongTinInputBox.length; i++){
                 ['click','focus','input'].forEach( evt =>
-                    thongTinInputBox[i].children[0].addEventListener(evt,(e)=>{
-                        e.target.parentElement.children[1].style.display = 'block'
-                        let inputValue = e.target.value.toUpperCase()
-                        for( let k = 0 ; k < thongTinListItem.length ; k++){
-                            if(thongTinListItem[k].innerHTML.toUpperCase().indexOf(inputValue) > -1){
-                                thongTinListItem[k].style.display = 'block';
-                            } else{
-                                thongTinListItem[k].style.display = 'none'
-                            }
-                        }
-                        
-                    }) )
+                    thongTinInputBox[i].children[0].addEventListener(evt,thongTinInputBoxEventTwo) )
                 }
+
+            return()=>{
+                for(let i = 0 ; i< thongTinInputBox.length; i++){
+                    ['click','focus','input'].forEach( evt =>
+                        thongTinInputBox[i].children[0].removeEventListener(evt,thongTinInputBoxEventTwo) )
+                    }
+            }
                 
             },[thongTinInputBox, thongTinListItem])
             
         //xử lý sự kiện bấm ra ngoài vùng được chọn và bấm hủy thì sẽ hủy tính năng
         //xóa
         useEffect(() =>{
-            document.addEventListener("mousedown", (event) => {
+            const documentEvent =  (event) => {
     
                 //kiểm tra sự kiện có không đã, nếu không có tức là đang ở trang khác
                 for(let k = 0 ; k<thongTinInputBox.length; k++){
@@ -65,25 +80,36 @@ export default function TruongChonNhieu({arr, id, value}) {
                         }
                     }}
                 }
+            document.addEventListener("mousedown",documentEvent
                 );
+            return()=>{
+                document.removeEventListener("mousedown",documentEvent
+                );
+            }
         })
         //xử lý tính năng nhập nhanh gợi ý vào input
         useEffect(() =>{
+            const thongTinListEvent = (e)=>{
+                e.target.parentElement.parentElement.children[2].innerHTML = e.target.textContent
+                e.target.parentElement.parentElement.children[2].style.color = '#616161'
+                e.target.parentElement.parentElement.children[1].style.display = 'none'
+                e.target.parentElement.parentElement.children[3].style.display = 'none'
+                e.target.parentElement.parentElement.children[0].style.display = 'none'
+                e.target.parentElement.parentElement.style.setProperty('--iconDown', '-336px -32px')
+            }
             for(let i = 0 ; i< thongTinList.length; i++){
                 // if(oldValue){
                 //     // nếu tồn tại giá trị cho trước thì nhập nó vào luôn
                 //     thongTinContent.innerHTML = oldValue
                 //     thongTinContent.style.color = '#616161'
                 // }else{
-                    thongTinList[i].addEventListener('click', (e)=>{
-                        e.target.parentElement.parentElement.children[2].innerHTML = e.target.textContent
-                        e.target.parentElement.parentElement.children[2].style.color = '#616161'
-                        e.target.parentElement.parentElement.children[1].style.display = 'none'
-                        e.target.parentElement.parentElement.children[3].style.display = 'none'
-                        e.target.parentElement.parentElement.children[0].style.display = 'none'
-                        e.target.parentElement.parentElement.style.setProperty('--iconDown', '-336px -32px')
-                    })
+                    thongTinList[i].addEventListener('click', thongTinListEvent)
                 // }
+            }
+            return()=>{
+                for(let i = 0 ; i< thongTinList.length; i++){
+                        thongTinList[i].removeEventListener('click', thongTinListEvent)
+                }
             }
         },[])
 

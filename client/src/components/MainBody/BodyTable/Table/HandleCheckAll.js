@@ -10,8 +10,7 @@ export const HandleCheckAll = () =>{
     const countCheck = document.getElementById('countCheck')
     const listCheckButton = document.getElementsByClassName(stylesTwo.iconButtonCustomers)
     const iconChecks = document.getElementsByClassName(stylesTwo.iconHeadingChecked)
-
-    checkAllButton.addEventListener('click', function(){
+    const checkAllButtonEvent = function(){
         if (checkAllButton.classList.contains(styles.iconHeadingChecked)) {
             checkAllButton.classList.add(styles.iconHeading);
             checkAllButton.classList.remove(styles.iconHeadingChecked);
@@ -40,5 +39,12 @@ export const HandleCheckAll = () =>{
         }
         countCheck.innerHTML = `Đã chọn ${iconChecks.length}`
 
-    })
+    }
+
+    checkAllButton.addEventListener('click', checkAllButtonEvent)
+    
+    return()=>{
+        checkAllButton.removeEventListener('click', checkAllButtonEvent)
+
+    }
 }

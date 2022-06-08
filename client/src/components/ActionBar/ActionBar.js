@@ -41,8 +41,9 @@ const ActionBar = () =>{
         const truongChonNhieuRight = document.getElementById('truongChonNhieuRight')
         const updateButtonFinal = document.getElementById('updateButtonFinal')    
         const thongTinInputLeftBox = document.getElementById('thongTinInputLeftBox')    
-        const rightContainer = document.getElementById('rightContainer')    
-        document.addEventListener("mousedown", (event) => {
+        const rightContainer = document.getElementById('rightContainer') 
+        
+        const mousedownEvent = (event) => {
             if(!moreMenu.contains(event.target)){
                 moreMenu.classList.add(styles.hiddenMenu)
             }
@@ -61,8 +62,11 @@ const ActionBar = () =>{
                 truongChonNhieuRight.setAttribute('disabled','true')
                 updateButtonFinal.classList.add(styles.updateYesDisabled)
             }
-          });
-
+          }
+        document.addEventListener("mousedown",mousedownEvent );
+        return () =>{
+            document.removeEventListener("mousedown",mousedownEvent )
+            }
           
         })
 
@@ -71,7 +75,7 @@ const ActionBar = () =>{
         const checkedButton =  document.getElementsByClassName(stylesTwo.iconButtonCustomers)
         const moreButton = document.getElementById('moreButton')
         
-        moreButton.addEventListener('click', () =>{
+        const moreButtonEvent =() =>{
             let idsString = []
             for( let i = 0 ; i < tdIds.length ; i ++){
                 if(checkedButton[i].classList.contains(stylesTwo.iconHeadingChecked)){
@@ -81,17 +85,27 @@ const ActionBar = () =>{
                 idsString = idsString.join(',')
             dispatch(fetchCustomersFind(`?findArray=${idsString}`))
 
-        })
+        }
+
+        moreButton.addEventListener('click', moreButtonEvent)
+        return () =>{
+        moreButton.removeEventListener('click', moreButtonEvent)
+        }
     },[dispatch, findList])
     
     useEffect(() =>{
         const deleteButton = document.getElementById('deleteButton')
         const deleteBox = document.getElementsByClassName(stylesThree.container)
         const moreMenu = document.getElementById('moreMenu')
-        deleteButton.addEventListener('click',function(){
+
+        const deleteButtonEvent = () =>{
             deleteBox[0].classList.remove(stylesThree.hiddenBox)
             moreMenu.classList.add(styles.hiddenMenu)
-        })
+        }
+        deleteButton.addEventListener('click',deleteButtonEvent)
+        return () =>{
+            deleteButton.removeEventListener('click',deleteButtonEvent)
+        }
     }, [])
     
     return (

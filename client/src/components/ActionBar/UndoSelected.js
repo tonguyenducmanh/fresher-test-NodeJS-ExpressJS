@@ -11,19 +11,23 @@ export const UndoSelected = () =>{
     const iconChecks = document.getElementsByClassName(stylesTwo.iconHeadingChecked)
     const undoSelect = document.getElementById('undoSelected')
     
-        undoSelect.addEventListener('click', function(){
-            for (let i = 0; i < listCheckButton.length; i++) {
-                listCheckButton[i].classList.add(stylesTwo.iconHeading);
-                listCheckButton[i].classList.remove(stylesTwo.iconHeadingChecked);
-                listCheckButton[i].parentElement.classList.remove(stylesTwo.itemChecked)
-            }
+    const undoSelectEvent =  () => {
+        for (let i = 0; i < listCheckButton.length; i++) {
+            listCheckButton[i].classList.add(stylesTwo.iconHeading);
+            listCheckButton[i].classList.remove(stylesTwo.iconHeadingChecked);
+            listCheckButton[i].parentElement.classList.remove(stylesTwo.itemChecked)
+        }
 
-            if(iconChecks.length === 0){
-            actionBarOne.classList.remove(stylesThree.hiddenComponent)  
-            actionBarTwo.classList.add(stylesThree.hiddenComponent)
-            checkAllButton.classList.remove(styles.iconHeadingChecked)
-            checkAllButton.classList.add(styles.iconHeading)
-            }     
-        })
+        if(iconChecks.length === 0){
+        actionBarOne.classList.remove(stylesThree.hiddenComponent)  
+        actionBarTwo.classList.add(stylesThree.hiddenComponent)
+        checkAllButton.classList.remove(styles.iconHeadingChecked)
+        checkAllButton.classList.add(styles.iconHeading)
+        }     
+    }
+        undoSelect.addEventListener('click', undoSelectEvent)
+        return ()=>{
+        undoSelect.removeEventListener('click', undoSelectEvent)
             
+        }
 }

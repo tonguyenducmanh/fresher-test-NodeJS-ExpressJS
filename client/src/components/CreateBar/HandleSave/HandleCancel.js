@@ -2,11 +2,14 @@ import { resetLocation } from '../../../features/location/locationSlice';
 
 
 export const HandleCancel = (dispatch) =>{
-
     const cancelCreateButton = document.getElementById('cancelCreateButton')
-        cancelCreateButton.addEventListener('click', () =>{
-                    dispatch(resetLocation())
-                    
-                })
+    const cancelCreateButtonEvent = () =>{
+        dispatch(resetLocation())
+        
+    }
+        cancelCreateButton.addEventListener('click',cancelCreateButtonEvent )
+    return()=>{
+        cancelCreateButton.removeEventListener('click',cancelCreateButtonEvent )
 
+    }
 }

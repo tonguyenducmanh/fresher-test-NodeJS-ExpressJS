@@ -7,6 +7,9 @@ export const ShowQuickUpdate = () =>{
     const tdIds =  document.getElementsByClassName(stylesTwo.tdId)
     const checkedButton =  document.getElementsByClassName(stylesTwo.iconButtonCustomers)
     const notifyUpdateWarning = document.getElementById('notifyUpdateWarning')
+    const notifyUpdateWarningEvent = ()=>{
+        notifyUpdateWarning.classList.remove(styles.notifyUpdateWarningAni)
+    }
     let checkCount = 0
     for( let i = 0 ; i < tdIds.length ; i ++){
         if(checkedButton[i].classList.contains(stylesTwo.iconHeadingChecked)){
@@ -16,9 +19,10 @@ export const ShowQuickUpdate = () =>{
     if(checkCount> 1){
         //thông báo rằng người dùng chỉ có thể sửa 1 tiềm năng 1 lúc
         notifyUpdateWarning.classList.add(styles.notifyUpdateWarningAni)
-        notifyUpdateWarning.addEventListener("transitionend", ()=>{
-            notifyUpdateWarning.classList.remove(styles.notifyUpdateWarningAni)
-        });
+        notifyUpdateWarning.addEventListener("transitionend", notifyUpdateWarningEvent);
+        return()=>{
+            notifyUpdateWarning.removeEventListener("transitionend", notifyUpdateWarningEvent);
+        }
     } else{
         //hiện bảng sửa nhanh
         const updateBox = document.getElementById('updateBox')

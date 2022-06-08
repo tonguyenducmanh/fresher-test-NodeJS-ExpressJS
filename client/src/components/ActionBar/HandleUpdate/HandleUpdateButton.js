@@ -134,15 +134,21 @@ export const HandleUpdateButton = (dispatch) =>{
 
     //gửi kết quả chỉnh sửa lên server
     dispatch(editCustomer(data))
-
+    const notifyUpdateSuccessEvent = ()=>{
+        notifyUpdateSuccess.classList.remove(styles.notifyUpdateSuccessAni)
+    }
     //thông báo rằng cập nhật thông tin thành công
     notifyUpdateSuccess.classList.add(styles.notifyUpdateSuccessAni)
-    notifyUpdateSuccess.addEventListener("transitionend", ()=>{
-        notifyUpdateSuccess.classList.remove(styles.notifyUpdateSuccessAni)
-    });
+    notifyUpdateSuccess.addEventListener("transitionend", notifyUpdateSuccessEvent);
+
     //ẩn box quick update
     const updateBox = document.getElementById('updateBox')
     updateBox.classList.add(styles.hiddenUpdateBox)
     //giả lập ấn vào nút bỏ chọn để tắt trường đã chọn đi
     undoSelected.click()
+    return()=>{
+        notifyUpdateSuccess.removeEventListener("transitionend", notifyUpdateSuccessEvent);
+    
+        }
+
 }
