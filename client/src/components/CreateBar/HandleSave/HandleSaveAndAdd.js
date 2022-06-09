@@ -29,7 +29,7 @@ export const HandleSaveAndAdd = (dispatch) =>{
                 thongtinMustHaves[i].classList.add(stylesThree.thonngTinWarning)
                 thongtinMustHaves[i].parentElement.children[1].style.display = 'block'
                 thongtinMustHaves[i].parentElement.parentElement.children[0].classList.add(stylesThree.thongTinTitleWarning)
-                                        //
+                
                 //hiện thông báo nhập cho ló đầy đủ vào
                 //thông báo rằng người dùng chỉ có thể sửa 1 tiềm năng 1 lúc
                 notifyNotEnough.classList.add(stylesFour.notifyNotEnoughAni)
@@ -149,7 +149,14 @@ export const HandleSaveAndAdd = (dispatch) =>{
             avatarValue.removeAttribute('style')
             // xóa style inline css để dùng lại cái file css bên ngoài cho avatar
 
-            document.getElementById('maTiemNang').value = ''
+
+            const maTiemNangPlus = parseInt(maTiemNang.split('').slice(2,17).join('')) + 1
+            const zeroPad = (num, places) => String(num).padStart(places, '0')
+            const TiemNangMoi =zeroPad(maTiemNangPlus, 15)
+            const maTiemNangMoi = `TN${TiemNangMoi}`
+
+
+            document.getElementById('maTiemNang').value = maTiemNangMoi
             document.getElementById('xungHo').textContent = '- Không chọn -'
             document.getElementById('xungHo').style.color = '#9ba3b2'
             document.getElementById('firstName').value = ''

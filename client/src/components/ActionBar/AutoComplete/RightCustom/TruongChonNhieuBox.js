@@ -16,63 +16,78 @@ export default function TruongChonNhieu({arr, id}) {
 
         //mở nhập inputForm khi bấm vào updateComBoBox
         useEffect(()=>{
-            for(let z = 0 ; z <thongTinInputBox.length; z++){
-                thongTinInputBox[z].addEventListener('click', (e)=>{
+            const thongTinInputBoxEvent = (z)=>{
+                return(e)=>{
                     if(e.target.children[0]){
                         if(e.target.parentElement.children[1].style.display !== 'block'){
                             e.target.parentElement.children[1].style.display = 'block'
                             e.target.parentElement.children[1].children[0].focus()
                         } 
                     }
-                })
+                }
+            }
+            for(let z = 0 ; z <thongTinInputBox.length; z++){
+                thongTinInputBox[z].addEventListener('click', thongTinInputBoxEvent(z))
+            }
+            return()=>{
+                for(let z = 0 ; z <thongTinInputBox.length; z++){
+                    thongTinInputBox[z].removeEventListener('click', thongTinInputBoxEvent(z))
+                }
             }
         },[thongTinInputBox])
 
         //mở dãy gợi ý khi mà hiện tính năng nhập và tùy chỉnh danh sách theo dữ liệu nhập
         //danh sách gợi ý được lọc qua xem có trùng chữ nào thì mới hiện
         useEffect(()=>{
-            for(let i = 0 ; i< thongTinInputForm.length; i++){
-                ['click','focus','input'].forEach( evt =>
-                    thongTinInputForm[i].children[0].addEventListener(evt,(e)=>{
-                        let inputValue = e.target.value.toLowerCase()
-                        for( let k = 0 ; k < thongTinListItem.length ; k++){
-                            if(thongTinListItem[k].innerHTML.toLowerCase().indexOf(inputValue) > -1){
-                                //check xem có bao nhiêu giá trị bị trùng, nếu trùng thì gỡ nó đi khỏi thanh gợi ý,
-                                // nếu không trùng thì xét từng chữ cái 1 xem có trùng không, trùng thì gợi ý hiện ra
-                                // trường hợp trùng thằng đầu tiên thì hiện tất cả (ý là không có chọn)
-                                if(thongTinInputBox[i].children[0].textContent.includes('- Không chọn -')){
-                                    for(let p = 0; p< thongTinList[i].children.length; p ++){
-                                        thongTinList[i].children[k].style.display = 'block';
-                                    }
-                                } else{
-                                    let count = 0
-                                    for( let p = 0 ; p< thongTinInputBox[i].children.length ; p++){
-                                        if(thongTinInputBox[i].children[p].textContent.includes(thongTinList[i].children[k].innerHTML)){
-                                            count = count + 1
-                                        }
-                                    }
-                                    //nếu không trùng thì mới thêm vào
-                                    if(count === 0){
-                                        thongTinListItem[k].style.display = 'block';
-                                    } else{
-                                    thongTinListItem[k].style.display = 'none'
-                                    }
+            const thongTinInputFormEvent = (i)=>{
+                return(e)=>{
+                    let inputValue = e.target.value.toLowerCase()
+                    for( let k = 0 ; k < thongTinListItem.length ; k++){
+                        if(thongTinListItem[k].innerHTML.toLowerCase().indexOf(inputValue) > -1){
+                            //check xem có bao nhiêu giá trị bị trùng, nếu trùng thì gỡ nó đi khỏi thanh gợi ý,
+                            // nếu không trùng thì xét từng chữ cái 1 xem có trùng không, trùng thì gợi ý hiện ra
+                            // trường hợp trùng thằng đầu tiên thì hiện tất cả (ý là không có chọn)
+                            if(thongTinInputBox[i].children[0].textContent.includes('- Không chọn -')){
+                                for(let p = 0; p< thongTinList[i].children.length; p ++){
+                                    thongTinList[i].children[k].style.display = 'block';
                                 }
                             } else{
+                                let count = 0
+                                for( let p = 0 ; p< thongTinInputBox[i].children.length ; p++){
+                                    if(thongTinInputBox[i].children[p].textContent.includes(thongTinList[i].children[k].innerHTML)){
+                                        count = count + 1
+                                    }
+                                }
+                                //nếu không trùng thì mới thêm vào
+                                if(count === 0){
+                                    thongTinListItem[k].style.display = 'block';
+                                } else{
                                 thongTinListItem[k].style.display = 'none'
+                                }
                             }
+                        } else{
+                            thongTinListItem[k].style.display = 'none'
                         }
+                    }
 
-                    }) )
                 }
+            }
+            for(let i = 0 ; i< thongTinInputForm.length; i++){
+                ['click','focus','input'].forEach( evt =>
+                    thongTinInputForm[i].children[0].addEventListener(evt,thongTinInputFormEvent(i)) )
+                }
+            return()=>{
+                for(let i = 0 ; i< thongTinInputForm.length; i++){
+                    ['click','focus','input'].forEach( evt =>
+                        thongTinInputForm[i].children[0].removeEventListener(evt,thongTinInputFormEvent(i)) )
+                    }
+            }
                 
         },[thongTinInputBox, thongTinInputForm, thongTinListItem, thongTinList])
             
         // xử lý sự kiện bấm ra ngoài vùng được chọn
         useEffect(() =>{
-            document.addEventListener("mousedown", (event) => {
-            
-    
+            const documentEvent = (event) => {
                 //kiểm tra sự kiện có không đã, nếu không có tức là đang ở trang khác
                 for(let k = 0 ; k<thongtinContainer.length; k++){
                     if(thongtinContainer[k]){
@@ -81,35 +96,43 @@ export default function TruongChonNhieu({arr, id}) {
                           }
                     }}
                 }
+            document.addEventListener("mousedown", documentEvent
                 );
+            return()=>{
+                document.removeEventListener("mousedown", documentEvent
+                );
+            }
         },[thongTinInputForm, thongtinContainer])
 
         //xử lý tính năng nhập nhanh gợi ý vào input
         useEffect(() =>{
-            for(let i = 0 ; i< thongTinList.length; i++){
-                //check xem có giá trị nào bị trùng chưa
-
-
-                //thêm sự kiện click
-                thongTinList[i].addEventListener('click', (e)=>{
+            const thongTinListEvent = (i)=>{
+                return(e)=>{
                     if(e.target.textContent !== '- Không chọn -'){
                         e.target.parentElement.parentElement.parentElement.style.height = '150px'
+                        e.target.parentElement.parentElement.parentElement.parentElement.parentElement.style.alignItems = 'baseline'
 
                         //tạo thẻ chọn mới nè hihi
                         const theMoi =document.createElement("span")
+                        const theMoiEvent = (i)=>{
+                            return(e)=>{
+                                //thêm luôn tính năng tự hủy khi bấm vào
+                                if(thongTinInputBox[i].children.length <2){
+                                    const theMoiHai = document.createElement('span')
+                                    theMoiHai.classList.add(styles.thongTinExample)
+                                    theMoiHai.innerHTML = '- Không chọn -'
+                                    thongTinInputBox[i].appendChild(theMoiHai)
+                                    theMoiHai.parentElement.parentElement.style.height = ''
+                                    theMoiHai.parentElement.parentElement.parentElement.parentElement.style.alignItems = 'center'
+
+                                }
+                                e.target.remove()
+                            }
+                        }
                         theMoi.innerHTML = e.target.textContent
                         theMoi.classList.add(styles.thongTinContent)
                         theMoi.classList.add(styles.thongTinContentDecor)
-                        theMoi.addEventListener('click', (e)=>{
-                            //thêm luôn tính năng tự hủy khi bấm vào
-                            if(thongTinInputBox[i].children.length <2){
-                                const theMoiHai = document.createElement('span')
-                                theMoiHai.classList.add(styles.thongTinExample)
-                                theMoiHai.innerHTML = '- Không chọn -'
-                                thongTinInputBox[i].appendChild(theMoiHai)
-                            }
-                            e.target.remove()
-                        })
+                        theMoi.addEventListener('click', theMoiEvent(i))
                         let count = 0
                         //check xem có bao nhiêu giá trị bị trùng
                         for( let k = 0 ; k< thongTinInputBox[i].children.length ; k++){
@@ -127,7 +150,9 @@ export default function TruongChonNhieu({arr, id}) {
                             thongTinExample[i].remove()
                         }
                         thongTinInput[i].focus()
-
+                        return()=>{
+                            theMoi.removeEventListener('click', theMoiEvent(i))
+                        }
                     } else{
                         e.target.parentElement.parentElement.parentElement.style.height = 'auto'
                         
@@ -150,8 +175,18 @@ export default function TruongChonNhieu({arr, id}) {
                         // focus này để refresh lại danh sách khi ấn vào không chọn
                         
                     }
-                })
                 }
+            }
+            for(let i = 0 ; i< thongTinList.length; i++){
+                //thêm sự kiện click
+                thongTinList[i].addEventListener('click',thongTinListEvent(i) )
+                }
+            return()=>{
+                for(let i = 0 ; i< thongTinList.length; i++){
+                    //thêm sự kiện click
+                    thongTinList[i].removeEventListener('click',thongTinListEvent(i) )
+                    }
+            }
         },[thongTinExample, thongTinInput, thongTinInputBox, thongTinList])
 
 

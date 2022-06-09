@@ -9,8 +9,8 @@ export const HandleEditCustomer = (dispatch,customers) =>{
     const customerEdits = document.getElementsByClassName(styles.trId)
     const checkButtons = document.getElementsByClassName(styles.iconButtonCustomers)
     const tdLinks = document.getElementsByClassName(styles.tdLink)
-    for(let k = 0 ; k < customerEdits.length; k++){
-        customerEdits[k].addEventListener('dblclick',(event)=>{
+    const customerEditsEvent = (k)=>{
+        return(event)=>{
             if(checkButtons[k]){
                 if(!checkButtons[k].contains(event.target)){
                     tdLinks[k].children[0].click()
@@ -22,6 +22,14 @@ export const HandleEditCustomer = (dispatch,customers) =>{
                     if(customers[k].phuongxa !=='-' && customers[k].phuongxa !==''){dispatch(addPhuongXa(customers[k].phuongxa))}
                 }
             }
-        })
+        }
+    }
+    for(let k = 0 ; k < customerEdits.length; k++){
+        customerEdits[k].addEventListener('dblclick',customerEditsEvent(k))
+    }
+    return()=>{
+        for(let k = 0 ; k < customerEdits.length; k++){
+            customerEdits[k].removeEventListener('dblclick',customerEditsEvent(k))
+        }
     }
 }

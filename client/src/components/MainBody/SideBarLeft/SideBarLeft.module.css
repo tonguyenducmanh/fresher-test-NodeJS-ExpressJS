@@ -7,8 +7,18 @@
     --boderRadius: 4px;
     --boxShadow: 1px 1px 3px 1px rgb(195, 195, 195);
     --bgPositionOne: -288px -32px;
+    --iconUnchecked: -192px -16px;
+    --iconChecked: -177px -17px;
     --white: #ffffff;
     --blue:#405eec; 
+    --group:1200px;
+    --iconUnchecked: -192px -16px;
+    --iconChecked: -177px -17px;
+    --iconDown : -336px -32px;
+    --iconUp :-320px -32px;
+    --grayDark: #616161;
+    --gray: #9ba3b2;
+    --grayLight: #e2e4e9;
 }
 
 .icon{
@@ -33,8 +43,15 @@
     background-color: var(--white);
     width: 30%;
     border: var(--border);
-    overflow-y: auto;
     bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.filterContainer{
+    position: relative;
+    overflow-y: auto;
 }
 
 .box{
@@ -63,6 +80,12 @@
     margin-left: 90%;
 }
 
+.filterBoxList{
+    position: relative;
+}
+.filterSelect{
+    font-size: 1rem;
+}
 
 .filterItem{
     cursor: pointer;
@@ -77,6 +100,24 @@
     background-position: -193px -17px;
     margin-left:-20px;
     
+}
+
+.filterTextContent{
+    display: none;
+    margin-top: calc(var(--padding));
+    font-size: 1rem;
+    color: #616161;
+    height: calc(var(--padding)*1.5);
+    border: SOLID var(--grayLight);
+    border-width: 1.8px;
+    border-radius: 4px;
+    width: calc(100% - var(--padding)*1);
+    padding: var(--padding) 0;
+    padding-left: var(--padding);
+}
+
+.filterTextContent:focus{
+    border: 2px solid var(--blue);
 }
 
 .filterItemChecked{
@@ -119,4 +160,48 @@
 
 .SideBarButtonLeft:hover::before{
     margin-left: 2px;
+}
+
+.filterAction{
+    background-color: var(--grayLight);
+    height: calc(var(--padding) * 8);
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.filterActionCancel{
+    font-weight: 500;
+    display: block;
+    padding: calc(var(--padding)*1) calc(var(--padding)*2);
+    margin: var(--padding);
+    border: var(--border);
+    background-color: var(--white);
+    border-radius: var(--boderRadius);
+}
+
+.filterActionApply{
+    font-weight: 500;
+    padding: calc(var(--padding)*1) calc(var(--padding)*2);
+    margin: var(--padding);
+    margin-left: 0;
+    margin-right: calc(var(--padding)*3);
+    border: var(--border);
+    background-color: var(--blue);
+    border-radius: var(--boderRadius);
+    color: var(--white);
+    display: block;
+}
+
+.filterActionSave{
+    font-weight: 500;
+    padding: calc(var(--padding)*1) calc(var(--padding)*2);
+    margin: var(--padding);
+    margin-left: 0;
+    margin-right: calc(var(--padding)*3);
+    border: var(--border);
+    background-color: var(--blue);
+    border-radius: var(--boderRadius);
+    color: var(--white);
+    display: none;
 }
