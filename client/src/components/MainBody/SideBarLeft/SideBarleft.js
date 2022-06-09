@@ -1,14 +1,25 @@
 import React, {useEffect}  from "react";
 
-import {HandleSideBarLeft} from './HandleSideBarLeft'
-import {HandleCheck} from './HandleCheck'
+import {HandleSideBarLeft} from './HandleClick/HandleSideBarLeft'
+import {HandleCheck} from './HandleClick/HandleCheck'
+import { HandleUncheckAll } from "./HandleClick/HandleUncheckAll";
+import { HandleTyping } from "./HandleClick/HandleTyping";
+import { HandleDeleteValue } from "./HandleClick/HandleDeleteValue";
+import { HandleApply } from "./HandleClick/HandleApply";
+import { HandleSaveFilter } from "./HandleClick/HandleSaveFilter";
+
 import styles from './SideBarLeft.module.css'
 import TruongChonNhieu from "./Autocomplete/TruongChonNhieu";
 import { Array } from "./Array/Array";
 const SideBarLeft = () =>{
-        useEffect( () =>{
+        useEffect(() =>{
                 HandleCheck()
-        })
+                HandleUncheckAll()
+                HandleTyping()
+                HandleDeleteValue()
+                HandleApply()
+                HandleSaveFilter()
+        },[])
     return (
         
         <div className={styles.container} id='sideBarLeft'>
@@ -24,6 +35,7 @@ const SideBarLeft = () =>{
                         </div>
                         <TruongChonNhieu arr={Array}/>
                         <input className={styles.filterTextContent}/>
+                        <span className={styles.clearInput}></span>
                     </div>
                     <div className={styles.filterSelect}>
                         <div className={ `${styles.icon} ${styles.filterItem}`} >
@@ -31,6 +43,7 @@ const SideBarLeft = () =>{
                         </div>
                         <TruongChonNhieu arr={Array}/>
                         <input className={styles.filterTextContent}/>
+                        <span className={styles.clearInput}></span>
                     </div>
                     <div className={styles.filterSelect}>
                         <div className={ `${styles.icon} ${styles.filterItem}`} >
@@ -38,6 +51,7 @@ const SideBarLeft = () =>{
                         </div>
                         <TruongChonNhieu arr={Array}/>
                         <input className={styles.filterTextContent}/>
+                        <span className={styles.clearInput}></span>
                     </div>
                     <div className={styles.filterSelect}>
                         <div className={ `${styles.icon} ${styles.filterItem}`} >
@@ -45,6 +59,7 @@ const SideBarLeft = () =>{
                         </div>
                         <TruongChonNhieu arr={Array}/>
                         <input className={styles.filterTextContent}/>
+                        <span className={styles.clearInput}></span>
                     </div>
                     <div className={styles.filterSelect}>
                         <div className={ `${styles.icon} ${styles.filterItem}`} >
@@ -52,6 +67,7 @@ const SideBarLeft = () =>{
                         </div>
                         <TruongChonNhieu arr={Array}/>
                         <input className={styles.filterTextContent}/>
+                        <span className={styles.clearInput}></span>
                     </div>
                     <div className={styles.filterSelect}>
                         <div className={ `${styles.icon} ${styles.filterItem}`} >
@@ -59,6 +75,7 @@ const SideBarLeft = () =>{
                         </div>
                         <TruongChonNhieu arr={Array}/>
                         <input className={styles.filterTextContent}/>
+                        <span className={styles.clearInput}></span>
                     </div>
                     <div className={styles.filterSelect}>
                         <div className={ `${styles.icon} ${styles.filterItem}`} >
@@ -66,6 +83,7 @@ const SideBarLeft = () =>{
                         </div>
                         <TruongChonNhieu arr={Array}/>
                         <input className={styles.filterTextContent}/>
+                        <span className={styles.clearInput}></span>
                     </div>
                     <div className={styles.filterSelect}>
                         <div className={ `${styles.icon} ${styles.filterItem}`} >
@@ -73,6 +91,7 @@ const SideBarLeft = () =>{
                         </div>
                         <TruongChonNhieu arr={Array}/>
                         <input className={styles.filterTextContent}/>
+                        <span className={styles.clearInput}></span>
                     </div>
                     <div className={styles.filterSelect}>
                         <div className={ `${styles.icon} ${styles.filterItem}`} >
@@ -80,6 +99,7 @@ const SideBarLeft = () =>{
                         </div>
                         <TruongChonNhieu arr={Array}/>
                         <input className={styles.filterTextContent}/>
+                        <span className={styles.clearInput}></span>
                     </div>
                     <div className={styles.filterSelect}>
                         <div className={ `${styles.icon} ${styles.filterItem}`} >
@@ -87,6 +107,7 @@ const SideBarLeft = () =>{
                         </div>
                         <TruongChonNhieu arr={Array}/>
                         <input className={styles.filterTextContent}/>
+                        <span className={styles.clearInput}></span>
                     </div>
                     <div className={styles.filterSelect}>
                         <div className={ `${styles.icon} ${styles.filterItem}`} >
@@ -94,6 +115,7 @@ const SideBarLeft = () =>{
                         </div>
                         <TruongChonNhieu arr={Array}/>
                         <input className={styles.filterTextContent}/>
+                        <span className={styles.clearInput}></span>
                     </div>
                     <div className={styles.filterSelect}>
                         <div className={ `${styles.icon} ${styles.filterItem}`} >
@@ -101,6 +123,7 @@ const SideBarLeft = () =>{
                         </div>
                         <TruongChonNhieu arr={Array}/>
                         <input className={styles.filterTextContent}/>
+                        <span className={styles.clearInput}></span>
                     </div>
                     <div className={styles.filterSelect}>
                         <div className={ `${styles.icon} ${styles.filterItem}`} >
@@ -108,6 +131,7 @@ const SideBarLeft = () =>{
                         </div>
                         <TruongChonNhieu arr={Array}/>
                         <input className={styles.filterTextContent}/>
+                        <span className={styles.clearInput}></span>
                     </div>
                     <div className={styles.filterSelect}>
                         <div className={ `${styles.icon} ${styles.filterItem}`} >
@@ -115,6 +139,7 @@ const SideBarLeft = () =>{
                         </div>
                         <TruongChonNhieu arr={Array}/>
                         <input className={styles.filterTextContent}/>
+                        <span className={styles.clearInput}></span>
                     </div>
                     <div className={styles.filterSelect}>
                         <div className={ `${styles.icon} ${styles.filterItem}`} >
@@ -122,6 +147,7 @@ const SideBarLeft = () =>{
                         </div>
                         <TruongChonNhieu arr={Array}/>
                         <input className={styles.filterTextContent}/>
+                        <span className={styles.clearInput}></span>
                     </div>
                     <div className={styles.filterSelect}>
                         <div className={ `${styles.icon} ${styles.filterItem}`} >
@@ -129,6 +155,7 @@ const SideBarLeft = () =>{
                         </div>
                         <TruongChonNhieu arr={Array}/>
                         <input className={styles.filterTextContent}/>
+                        <span className={styles.clearInput}></span>
                     </div>
                     <div className={styles.filterSelect}>
                         <div className={ `${styles.icon} ${styles.filterItem}`} >
@@ -136,6 +163,7 @@ const SideBarLeft = () =>{
                         </div>
                         <TruongChonNhieu arr={Array}/>
                         <input className={styles.filterTextContent}/>
+                        <span className={styles.clearInput}></span>
                     </div>
                     <div className={styles.filterSelect}>
                         <div className={ `${styles.icon} ${styles.filterItem}`} >
@@ -143,6 +171,7 @@ const SideBarLeft = () =>{
                         </div>
                         <TruongChonNhieu arr={Array}/>
                         <input className={styles.filterTextContent}/>
+                        <span className={styles.clearInput}></span>
                     </div>
                     <div className={styles.filterSelect}>
                         <div className={ `${styles.icon} ${styles.filterItem}`} >
@@ -150,6 +179,7 @@ const SideBarLeft = () =>{
                         </div>
                         <TruongChonNhieu arr={Array}/>
                         <input className={styles.filterTextContent}/>
+                        <span className={styles.clearInput}></span>
                     </div>
                     <div className={styles.filterSelect}>
                         <div className={ `${styles.icon} ${styles.filterItem}`} >
@@ -157,20 +187,21 @@ const SideBarLeft = () =>{
                         </div>
                         <TruongChonNhieu arr={Array}/>
                         <input className={styles.filterTextContent}/>
+                        <span className={styles.clearInput}></span>
                     </div>
                 </div>
             </div>
            </div>
            <div className={styles.filterAction}>
-                <span className={styles.filterActionCancel}>
+                <button className={styles.filterActionCancel}>
                         Bỏ lọc
-                </span>
-                <span className={styles.filterActionApply}>
+                </button>
+                <button className={`${styles.filterActionApply} ${styles.filterActionApplyDisabled}`}>
                         Áp dụng
-                </span>
-                <span className={styles.filterActionSave}>
+                </button>
+                <button className={styles.filterActionSave}>
                         Lưu
-                </span>
+                </button>
            </div>
         </div>
     )
