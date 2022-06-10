@@ -1,0 +1,71 @@
+:root{
+    --icon-small: 16px;
+    --icon-medium: 20px;
+    --icon-large: 24px;
+    --padding: 10px;
+    --border: 1px solid rgba(120, 120, 120, 0.347);
+    --boderRadius: 4px;
+    --boxShadow: 1px 1px 3px 1px rgb(195, 195, 195);
+    --bgPositionOne: -288px -32px;
+    --iconUnchecked: -192px -16px;
+    --iconChecked: -177px -17px;
+    --white: #ffffff;
+    --blue:#405eec; 
+    --blueOFF:#7e92ea; 
+    --group:1200px;
+    --iconUnchecked: -192px -16px;
+    --iconChecked: -177px -17px;
+    --iconDown : -336px -32px;
+    --iconUp :-320px -32px;
+    --grayDark: #616161;
+    --gray: #9ba3b2;
+    --grayLight: #e2e4e9;
+}
+
+.icon{
+    position: relative;
+}
+.icon:hover{
+    cursor: pointer;
+}
+
+.icon::before{
+    position: absolute;
+    content: '';
+    z-index: 1;
+    width: var(--icon-small);
+    height: var(--icon-small);
+    background-image: url(../../../../images/icon_collection.svg);
+}
+
+.filterSaveContainer{
+    position: relative;
+    margin-bottom: 30px;
+}
+
+
+.filterSave{
+    cursor: pointer;
+    text-transform: uppercase;
+    margin-top: var(--padding);
+}
+
+.filterSave::before{
+    background-position: var(--iconUp) ;
+    margin-left: 90%;
+}
+
+.filterSaveOpen::before{
+    background-position: var(--iconDown);
+}
+.filterSaveList{
+    display: none;
+    flex-direction: column;
+    position: relative;
+    background-color: var(--grayLight);
+    margin-left: calc( - var(--padding) *2);
+}
+
+.filterSaveItemTitle{
+    color: var(--blue)
+}

@@ -60,27 +60,6 @@
 
 }
 
-
-.filterSave{
-    text-transform: uppercase;
-    margin-top: var(--padding);
-    margin-bottom: 30px;
-}
-
-.filterSave::before{
-    background-position: -32px -32px ;
-    margin-left: 90%;
-}
-
-.filterBox{
-    text-transform: uppercase;
-}
-
-.filterBox::before{
-    background-position: -32px 0px ;
-    margin-left: 90%;
-}
-
 .filterBoxList{
     position: relative;
 }

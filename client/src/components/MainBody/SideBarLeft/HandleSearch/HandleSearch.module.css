@@ -1,0 +1,104 @@
+:root{
+    --icon-small: 16px;
+    --icon-medium: 20px;
+    --icon-large: 24px;
+    --padding: 10px;
+    --border: 1px solid rgba(120, 120, 120, 0.347);
+    --boderRadius: 4px;
+    --boxShadow: 1px 1px 3px 1px rgb(195, 195, 195);
+    --bgPositionOne: -288px -32px;
+    --iconUnchecked: -192px -16px;
+    --iconChecked: -177px -17px;
+    --white: #ffffff;
+    --blue:#405eec; 
+    --blueOFF:#7e92ea; 
+    --group:1200px;
+    --iconUnchecked: -192px -16px;
+    --iconChecked: -177px -17px;
+    --iconDown : -336px -32px;
+    --iconUp :-320px -32px;
+    --grayDark: #616161;
+    --gray: #9ba3b2;
+    --grayLight: #e2e4e9;
+}
+
+.icon{
+    position: relative;
+}
+.icon:hover{
+    cursor: pointer;
+}
+
+.icon::before{
+    position: absolute;
+    content: '';
+    z-index: 1;
+    width: var(--icon-small);
+    height: var(--icon-small);
+    background-image: url(../../../../images/icon_collection.svg);
+}
+
+.filterBoxContainer{
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.filterBox{
+    text-transform: uppercase;
+    display: block;
+}
+
+.iconSearch{
+    display: block;
+}
+
+.iconSearch::before{
+    background-position: -32px 0px ;
+    margin-left: -25px;
+    margin-top: -10px;
+}
+
+.filterInputSearchBox{
+    display: none;
+    position: relative;
+    width: 100%;
+}
+.filterInputSearchBox::before{
+    position: absolute;
+    content: '';
+    z-index: 10;
+    width: var(--icon-small);
+    height: var(--icon-small);
+    background-image: url(../../../../images/icon_collection.svg);
+    background-position: -32px 0px ;
+    margin-top: var(--padding);
+    margin-left: var(--padding);
+}
+
+.filterInputSearch{
+    position: relative;
+    font-size: 1rem;
+    color: #616161;
+    height: calc(var(--padding)*1.5);
+    border: SOLID var(--grayLight);
+    border-width: 1.8px;
+    border-radius: 4px;
+    width: 75%;
+    padding: var(--padding) 0;
+    padding-left: calc(var(--padding)*3);
+    padding-right: calc(var(--padding)*2);
+}
+
+.filterInputSearch:focus{
+    border: 2px solid var(--blue);
+}
+
+.filterCancelSearch{
+    cursor: pointer;
+    display: none;
+    color: var(--blue);
+    margin-left: var(--padding);
+    margin-right: calc(var(--padding)/2);
+}

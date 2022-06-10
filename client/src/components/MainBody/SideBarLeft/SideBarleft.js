@@ -8,6 +8,9 @@ import { HandleDeleteValue } from "./HandleClick/HandleDeleteValue";
 import { HandleApply } from "./HandleClick/HandleApply";
 import { HandleSaveFilter } from "./HandleClick/HandleSaveFilter";
 
+import { HandleSearch } from "./HandleSearch/HandleSearch";
+import { HandleFilterSave } from "./HandleFilterSave/HandleFilterSave";
+
 import styles from './SideBarLeft.module.css'
 import TruongChonNhieu from "./Autocomplete/TruongChonNhieu";
 import { Array } from "./Array/Array";
@@ -26,8 +29,8 @@ const SideBarLeft = () =>{
            <div className={styles.filterContainer}>
            <div className={`${styles.SideBarButtonLeft} ${styles.icon}`} id='sideBarLeftButton' onClick={HandleSideBarLeft}></div>
             <div className={styles.box} >
-                <div className={`${styles.filterSave} ${styles.icon}`}>Bộ lọc đã lưu</div>
-                <div className={`${styles.filterBox} ${styles.icon}`}>Lọc tiềm năng theo</div>
+                <HandleFilterSave/>
+                <HandleSearch/>
                 <div className={styles.filterBoxList}>
                     <div className={styles.filterSelect}>
                         <div className={ `${styles.icon} ${styles.filterItem}`} >
