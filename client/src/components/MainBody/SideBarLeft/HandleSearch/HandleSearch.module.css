@@ -46,6 +46,7 @@
     align-items: center;
 }
 .filterBox{
+    padding-left: var(--padding);
     text-transform: uppercase;
     display: block;
 }
@@ -61,6 +62,7 @@
 }
 
 .filterInputSearchBox{
+    padding-left: var(--padding);
     display: none;
     position: relative;
     width: 100%;

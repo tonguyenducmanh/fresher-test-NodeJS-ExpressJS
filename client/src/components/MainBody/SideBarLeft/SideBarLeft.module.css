@@ -56,12 +56,13 @@
 }
 
 .box{
-    padding: var(--padding);
-
+    font-size: 1rem;
 }
 
 .filterBoxList{
     position: relative;
+    padding: var(--padding);
+    padding-top: 0;
 }
 .filterSelect{
     position: relative;

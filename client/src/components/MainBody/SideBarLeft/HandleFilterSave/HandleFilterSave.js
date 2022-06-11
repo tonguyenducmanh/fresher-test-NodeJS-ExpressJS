@@ -2,6 +2,7 @@ import  React, { useEffect } from 'react'
 import styles from './HandleFilterSave.module.css'
 
 import { HandleSearchIconClick } from './HandleFilterSaveOpen/HandleFilterSaveOpen'
+import { FilterSaveItem } from './FilterSaveItem/FilterSaveItem'
 
 export const HandleFilterSave = ()=>{
     
@@ -13,15 +14,7 @@ export const HandleFilterSave = ()=>{
         <div className={styles.filterSaveContainer}>
             <div className={`${styles.filterSave} ${styles.icon} ${styles.filterSaveOpen}`}>Bộ lọc đã lưu</div>
             <div className={styles.filterSaveList}>
-                <span className={styles.filterSaveItem}>
-                    <span className={styles.filterSaveItemTitle}>
-                        Bộ lọc nè
-                    </span>
-                    <span className={styles.filterSaveItemMenu}>
-                        <span className={styles.filterSaveItemChangeName}>Đổi tên</span>
-                        <span className={styles.filterSaveItemDelete}>Xóa</span>
-                    </span>
-                </span>
+                <FilterSaveItem/>
             </div>
         </div>
 

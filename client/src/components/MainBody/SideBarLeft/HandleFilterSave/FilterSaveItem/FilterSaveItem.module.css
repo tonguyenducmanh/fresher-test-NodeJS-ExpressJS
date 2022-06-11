@@ -1,0 +1,98 @@
+:root{
+    --icon-small: 16px;
+    --icon-medium: 20px;
+    --icon-large: 24px;
+    --padding: 10px;
+    --border: 1px solid rgba(120, 120, 120, 0.347);
+    --boderRadius: 4px;
+    --boxShadow: 1px 1px 3px 1px rgb(195, 195, 195);
+    --bgPositionOne: -288px -32px;
+    --iconUnchecked: -192px -16px;
+    --iconChecked: -177px -17px;
+    --white: #ffffff;
+    --blue:#405eec; 
+    --blueOFF:#7e92ea; 
+    --group:1200px;
+    --iconUnchecked: -192px -16px;
+    --iconChecked: -177px -17px;
+    --iconDown : -336px -32px;
+    --iconUp :-320px -32px;
+    --grayDark: #616161;
+    --gray: #9ba3b2;
+    --grayLight: #e2e4e9;
+}
+
+.icon{
+    position: relative;
+}
+.icon:hover{
+    cursor: pointer;
+}
+
+.icon::before{
+    position: absolute;
+    content: '';
+    z-index: 1;
+    width: var(--icon-small);
+    height: var(--icon-small);
+    background-image: url(../../../../../images/icon_collection.svg);
+}
+
+
+.filterSaveItem{
+    background-color: var(--grayLight);
+    padding: var(--padding);
+    display: flex;
+    justify-content: space-between;
+}
+
+.filterSaveItemTitle{
+    color: var(--blue)
+}
+
+.filterSaveItemMenu{
+    position: relative;
+}
+
+.filterSaveItemMenu::before{
+    margin-left: -15px;
+    margin-top: 4px;
+    background-position: -336px -18px;
+}
+
+
+.filterSaveItemMenuTool{
+    z-index: 2;
+    position: absolute;
+    background-color: var(--white);
+    border-radius: var(--boderRadius);
+    box-shadow: var(--boxShadow);
+    right: calc(var(--padding));
+    top: calc(var(--padding) *3);
+    width: 100px;
+    display: none;
+    flex-direction: column;
+}
+
+.filterSaveItemChangeName{
+    padding: var(--padding);
+    padding-left: calc(var(--padding)*3.5);
+}
+
+.filterSaveItemChangeName::before{
+    margin-left: calc(var(--padding)*(-2.3));
+    margin-top: calc(var(--padding)*(.2));
+    background-position: -128px 0px;
+}
+
+.filterSaveItemDelete{
+    color: #ec4243;
+    padding: var(--padding);
+    padding-left: calc(var(--padding)*3.5);
+}
+
+.filterSaveItemDelete::before{
+    margin-left: calc(var(--padding)*(-2.3));
+    margin-top: calc(var(--padding)*(.1));
+    background-position: -192px -128px;
+}
