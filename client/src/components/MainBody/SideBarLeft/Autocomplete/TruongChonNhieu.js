@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 
 import styles from './TruongChonNhieu.module.css'
+import { TruongChonNhieuItemClick } from './TruongChonNhieuItemClick';
 
 export default function TruongChonNhieu({arr, id}) {
         const options = arr;
@@ -83,26 +84,6 @@ export default function TruongChonNhieu({arr, id}) {
                 );
             }
         })
-        //xử lý tính năng nhập nhanh gợi ý vào input
-        useEffect(() =>{
-            const thongTinListEvent = (e)=>{
-                e.target.parentElement.parentElement.children[2].innerHTML = e.target.textContent
-                e.target.parentElement.parentElement.children[2].style.color = '#616161'
-                e.target.parentElement.parentElement.children[1].style.display = 'none'
-                e.target.parentElement.parentElement.children[3].style.display = 'none'
-                e.target.parentElement.parentElement.children[0].style.display = 'none'
-                e.target.parentElement.parentElement.style.setProperty('--iconDown', '-336px -32px')
-            }
-            for(let i = 0 ; i< thongTinList.length; i++){
-                thongTinList[i].addEventListener('click',thongTinListEvent)
-                }
-
-            return()=>{
-                for(let i = 0 ; i< thongTinList.length; i++){
-                    thongTinList[i].removeEventListener('click',thongTinListEvent)
-                    }
-            }
-        })
 
         return (
             <div className={styles.thongTinInputBox}>
@@ -110,7 +91,10 @@ export default function TruongChonNhieu({arr, id}) {
                 
                 <ul className={styles.thongTinList}>
                 {options.map((option, index) => (
-                    <li className={styles.thongTinListItem} key={index}>{option}</li>
+                    <li className={styles.thongTinListItem} key={index}
+                    onClick={(e)=>TruongChonNhieuItemClick(e)}
+
+                    >{option}</li>
                     ))}
                 </ul>
                 <span className={styles.thongTinContent} id = {id}>Chứa</span>
