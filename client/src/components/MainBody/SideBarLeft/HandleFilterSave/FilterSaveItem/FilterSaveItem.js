@@ -7,6 +7,21 @@ export const FilterSaveItem = () =>{
     useEffect(()=>{
         HandleFilterItemOpenMenu()
     },[])
+    //ẩn menu nhỏ khi ấn ra ngoài
+    useEffect(()=>{
+        const filterSaveItemMenuTool = document.getElementsByClassName(styles.filterSaveItemMenuTool)
+        const mousedownEvent = (event) => {
+            for(let i = 0 ; i < filterSaveItemMenuTool.length; i++){
+                if(!filterSaveItemMenuTool[i].contains(event.target)){
+                    filterSaveItemMenuTool[i].style.display = 'none'
+                }
+            }
+        }
+        document.addEventListener("mousedown",mousedownEvent );
+        return () =>{
+            document.removeEventListener("mousedown",mousedownEvent )
+            }
+    },[])
     return(
         <span className={styles.filterSaveItem}>
             <span className={styles.filterSaveItemTitle}>
