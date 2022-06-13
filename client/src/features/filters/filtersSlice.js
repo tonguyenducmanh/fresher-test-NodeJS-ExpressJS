@@ -63,5 +63,39 @@ export const deleteFiltersSlice = createSlice ({
     }
 })
 
-export const deleteReducer = deleteFiltersSlice.reducer
+export const editFilter = createAsyncThunk('filters/editFilters', async (data) => {
+    const respone = await filterAPI.put(`/edit`,data,{validateStatus() { return true } })
+    return respone.data
+})
+
+export const editFiltersSlice = createSlice ({
+    name:'editFilter',
+    initialState:{
+        filter:'',
+        status: 'idle',
+        error: null
+    },
+    reducers:{
+
+    },
+    extraReducers(builder){
+        builder
+            .addCase(editFilter.pending, (state, action) =>{
+                state.status = 'loading'
+            })
+            .addCase(editFilter.fulfilled, (state, action) =>{
+                state.status = 'succeeded'
+                state.filter = action.payload
+
+            })
+            .addCase(editFilter.rejected, (state, action) => {
+                state.status = 'failed'
+                state.error = action.error.message
+            })
+    }
+})
+
+
+export const editFilterReducer = editFiltersSlice.reducer
+export const deleteFilterReducer = deleteFiltersSlice.reducer
 export const filterReducer = filtersSlice.reducer

@@ -12,6 +12,7 @@ import { HandleSaveFilter } from "./HandleClick/HandleSaveFilter";
 
 import { HandleSearch } from "./HandleSearch/HandleSearch";
 import { HandleFilterSave } from "./HandleFilterSave/HandleFilterSave";
+import { UpdateBox } from "./UpdateBox/UpdateBox";
 
 import styles from './SideBarLeft.module.css'
 import TruongChonNhieu from "./Autocomplete/TruongChonNhieu";
@@ -33,6 +34,7 @@ const SideBarLeft = () =>{
         
         <div className={styles.container} id='sideBarLeft'>
            <div className={styles.filterContainer}>
+            <UpdateBox/>
            <div className={`${styles.SideBarButtonLeft} ${styles.icon}`} id='sideBarLeftButton' onClick={HandleSideBarLeft}></div>
             <div className={styles.box} >
                 <HandleFilterSave/>

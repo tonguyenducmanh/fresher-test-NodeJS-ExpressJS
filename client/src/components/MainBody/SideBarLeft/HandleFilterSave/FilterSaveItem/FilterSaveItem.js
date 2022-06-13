@@ -7,6 +7,7 @@ import { fetchFiltersList } from '../../../../../features/filters/filtersSlice'
 
 import { HandleFilterItemOpenMenu } from './HandleFilterItemOpenMenu/HandleFilterItemOpenMenu'
 import { HandleDeleteFilter } from './HandleDeleteFilter/HandleDeleteFilter'
+import { HandleFilterEditName } from './HandleFilterEditName/HandleFilterEditName'
 
 export const FilterSaveItem = () =>{
     const dispatch = useDispatch()
@@ -49,7 +50,9 @@ export const FilterSaveItem = () =>{
                     >
                     </span>
                     <span className={styles.filterSaveItemMenuTool}>
-                        <span className={`${styles.icon} ${styles.filterSaveItemChangeName}`}>Đổi tên</span>
+                        <span className={`${styles.icon} ${styles.filterSaveItemChangeName}`}
+                            onClick={(e)=>HandleFilterEditName(e)}
+                        >Đổi tên</span>
                         <span className={`${styles.icon} ${styles.filterSaveItemDelete}`}
                             onClick={(e)=>HandleDeleteFilter(dispatch,e)}
                         >Xóa</span>

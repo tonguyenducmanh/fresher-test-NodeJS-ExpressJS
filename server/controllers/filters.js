@@ -1,5 +1,4 @@
 import express from 'express'
-
 import customerFilter from '../models/customerFilter.js'
 
 const router = express.Router()
@@ -27,6 +26,18 @@ export const deleteFilter = async (req, res) => {
     }
 }
 
+export const editFilter = async (req,res) =>{
+    const ID = req.body.id
+    const newName = req.body.newName
+    try {
+        const editFilter = await customerFilter.updateOne({_id:ID}, 
+            {$set: {name: newName}},
+        )
+        res.status(201).json(editFilter)
+    } catch (error) {
+        res.status(409).json({message:error.message})
+    }
+}
 
 export const createFilter = async (req,res) =>{
     const post = {

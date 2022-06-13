@@ -1,0 +1,187 @@
+:root{
+    --icon-small: 16px;
+    --icon-medium: 20px;
+    --icon-large: 24px;
+    --padding: 10px;
+    --border: 1px solid rgba(120, 120, 120, 0.347);
+    --boderRadius: 4px;
+    --boxShadow: 1px 1px 3px 1px rgb(195, 195, 195);
+    --white: #ffffff;
+    --blue:#405eec; 
+    --blueOFF:#7e92ea; 
+    --grayDark: #616161;
+    --gray: #9ba3b2;
+    --grayLight: #e2e4e9;
+}
+.icon{
+    position: relative;
+    width: var(--icon-small);
+    height: var(--icon-small);
+    padding-right: var(--padding);
+}
+
+.icon:hover{
+    cursor: pointer;
+}
+
+.icon::before{
+    position: absolute;
+    content: '';
+    z-index: 1;
+    width: var(--icon-small);
+    height: var(--icon-small);
+    background-image: url(../../../../images/icon_collection.svg);
+}
+
+.editFilter{
+    top:141px;
+    left: 0;
+    position: fixed;
+    z-index: 9;
+    background-color: rgba(0, 0, 0, 0.347);
+    width: 100vw;
+    height: 100vh;
+}
+
+.hiddenEditFilter{
+    display: none;
+}
+.filterID{
+    display: none;
+}
+.editFilterForm{
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    position: fixed;
+    z-index: 10;
+    background-color: var(--white);
+    width: 500px;
+    min-height: 210px;
+    max-height: 400px;
+    border-radius: 4px;
+}
+
+.editTitle{
+    position: fixed;
+    top: 12%;
+    left: 5%;
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: #22252c;
+}
+
+.comboBox{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: calc(var(--padding)*2.4);
+    margin-top:calc(var(--padding)*8);
+}
+.filterTenMoi{
+    margin-top: 6px;
+}
+.filterInput{
+    margin-top: calc(var(--padding));
+    font-size: 1rem;
+    color: #616161;
+    height: calc(var(--padding)*1.5);
+    border: SOLID var(--grayLight);
+    border-width: 1.8px;
+    border-radius: 4px;
+    width: 70%;
+    padding: var(--padding) 0;
+    padding-left: var(--padding);
+}
+
+.filterInput:focus{
+    border: 2px solid var(--blue);
+}
+
+.editBottomGroup{
+    position: fixed;
+    justify-content: end;
+    bottom: 0;
+    background-color: var(--grayLight);
+    width: 100%;
+    height: calc(var(--padding)*6);
+    display: flex;
+    font-weight: 500;
+}
+
+.editCancel{
+    right: 140px;
+    bottom: 30px;
+    border: var(--border);
+    border-radius: 4px;
+    background-color: var(--white);
+    padding: calc(var(--padding)*1) calc(var(--padding)*2);
+    height: calc(var(--padding)*2);
+    margin: var(--padding);
+    cursor: pointer;
+
+}
+.editYes{
+    right: 35px;
+    bottom: 30px;
+    color: var(--white);
+    background-color: var(--blue);
+    border-radius: 4px;
+    padding: calc(var(--padding)*1) calc(var(--padding)*2);
+    height: calc(var(--padding)*2);
+    margin: var(--padding);
+    margin-left: calc(var(--padding)/2);
+    cursor: pointer;
+}
+
+.editYesDisabled{
+    background-color: var(--blueOFF);
+    pointer-events: none;
+}
+
+.editCancelButton{
+    position: fixed;
+    right: 7px;
+    top: 20px;
+}
+.editCancelButton::before{
+    background-position: -80px -17px;
+    transform: scale(1.5);
+}
+
+.editHelp{
+    position: fixed;
+    right: 30px;
+    top: 19.5px;
+}
+
+.editHelp::before{
+    background-position: -224px 0px;
+    transform: scale(1.1);
+}
+
+.iconToolTip{
+    display: none;
+    top:-40px;
+    right: 10px;
+    width: 200px;
+    height: 38px;
+    position: fixed;
+    background-color: var(--grayDark);
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    z-index: 1;
+}
+
+.iconToolTip::after{
+    content: "";
+    position: fixed;
+    border-width: 5px;
+    border-style: solid;
+    border-color: var(--grayDark) transparent transparent transparent;
+    top:7.5px;
+    right: 43px;
+}
+

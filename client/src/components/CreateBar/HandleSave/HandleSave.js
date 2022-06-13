@@ -48,7 +48,6 @@ export const HandleSave = (dispatch) =>{
                 notifyNotEnough.addEventListener("transitionend", notifyNotEnoughEvent);
             }
         }
-        console.log(thongtinChuaDien)
         if(thongtinChuaDien === 0){
             const anh =  document.getElementById('anhValue')
             const maTiemNang = document.getElementById('maTiemNang').value
