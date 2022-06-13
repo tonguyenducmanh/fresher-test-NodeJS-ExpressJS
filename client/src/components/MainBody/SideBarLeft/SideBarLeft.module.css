@@ -220,3 +220,19 @@
     background-image: url(../../../images/icon_collection.svg);
     background-position: -80px -16px;
 }
+
+
+.filterItem{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin: calc(var(--padding)*2) 0;
+    margin-left: calc(var(--padding)*2);
+    height: 16px;
+    padding-right: var(--padding);
+}
+.filterItem::before{
+    background-position: -193px -17px;
+    margin-left:-20px;
+    
+}

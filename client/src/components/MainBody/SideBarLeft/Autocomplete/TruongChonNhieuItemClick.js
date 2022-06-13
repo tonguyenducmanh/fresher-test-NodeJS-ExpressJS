@@ -18,8 +18,16 @@ export const TruongChonNhieuItemClick = (e) => {
         filterActionApply[0].classList.remove(styles.filterActionApplyDisabled)
     }
     else{
-        e.target.parentElement.parentElement.parentElement.children[2].style.display = 'block'
-        e.target.parentElement.parentElement.parentElement.children[3].style.display = 'none'
+        if(e.target.parentElement.parentElement.parentElement.children[2]){
+            e.target.parentElement.parentElement.parentElement.children[2].style.display = 'block'
+            e.target.parentElement.parentElement.parentElement.children[3].style.display = 'none'
+        }
         filterActionApply[0].classList.add(styles.filterActionApplyDisabled)
+    }
+
+
+    // Xử lý riêng trường hợp mà cho nút dùng chung, vì thăng này không có input
+    if(e.target.textContent ==="Có" || e.target.textContent ==='Không'){
+        filterActionApply[0].classList.remove(styles.filterActionApplyDisabled)
     }
 }

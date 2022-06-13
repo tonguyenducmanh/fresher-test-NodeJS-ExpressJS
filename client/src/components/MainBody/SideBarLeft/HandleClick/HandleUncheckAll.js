@@ -1,5 +1,8 @@
 import styles from '../SideBarLeft.module.css'
-export const HandleUncheckAll = () =>{
+
+import { clearCustomerFilter } from '../../../../features/customers/customersSlice'
+
+export const HandleUncheckAll = (dispatch) =>{
     const filterSelect = document.getElementsByClassName(styles.filterSelect)
     const filterActionCancel = document.getElementsByClassName(styles.filterActionCancel)
 
@@ -23,6 +26,8 @@ export const HandleUncheckAll = () =>{
         if(filterActionCancel[0].parentElement.children[2].style.display='block'){
             filterActionCancel[0].parentElement.children[2].style.display='none'
         }
+
+        dispatch(clearCustomerFilter())
     }
 
     filterActionCancel[0].addEventListener('click', filterActionCancelEvent)

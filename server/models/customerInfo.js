@@ -1,5 +1,8 @@
 import mongoose from "mongoose";
 
+// để phục vụ cho quá trình lọc và tìm theo từng ký tự
+// kể cả giá trị số như số điện thoại cũng lưu dưới dạng string chuỗi
+// để có thể dùng biểu thức chính quy
 const customerSchema = mongoose.Schema({
     _id: String,
     anh: String,
@@ -8,8 +11,8 @@ const customerSchema = mongoose.Schema({
     ten: String,
     phongban: String,
     chucdanh: String,
-    dtdidong: Number,
-    dtcoquan: Number,
+    dtdidong: String,
+    dtcoquan: String,
     dtkhac: String,
     loaitiemnang: Array,
     nguongoc: String,
