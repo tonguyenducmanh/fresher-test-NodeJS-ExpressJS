@@ -37,7 +37,12 @@
     height: var(--icon-small);
     background-image: url(../../../../../images/icon_collection.svg);
 }
-
+.filterContainer{
+    position: relative;
+    height: auto;
+    max-height: 200px;
+    overflow-y: auto;
+}
 
 .filterSaveItem{
     background-color: var(--grayLight);
@@ -53,11 +58,12 @@
 }
 
 .filterSaveItemMenu{
+    width: var(--icon-small);
+    height: var(--icon-small);
     position: relative;
 }
 
 .filterSaveItemMenu::before{
-    margin-left: -15px;
     margin-top: 4px;
     background-position: -336px -18px;
 }
