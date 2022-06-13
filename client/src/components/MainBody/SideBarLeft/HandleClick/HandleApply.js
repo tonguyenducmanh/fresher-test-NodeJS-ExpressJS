@@ -1,6 +1,6 @@
 import styles from '../SideBarLeft.module.css'
 
-import { addCustomerFilter, tempCustomerSlice } from '../../../../features/customers/customersSlice'
+import { addCustomerFilter } from '../../../../features/customers/customersSlice'
 
 export const HandleApply = (dispatch) =>{
     const filterActionApply = document.getElementsByClassName(styles.filterActionApply)
@@ -74,27 +74,26 @@ export const HandleApply = (dispatch) =>{
             }
 
             function testCondition(condition){
-            let conditionResult
-            switch (condition) {
-            case 'Chứa':
-                return conditionResult = 3
-            case 'Không chứa':
-                return conditionResult = 4
-            case 'Là':
-                return conditionResult = 1
-            case 'Không là':
-                return conditionResult = 2
-            case 'Trống':
-                return conditionResult = 5
-            case 'Không trống':
-                return conditionResult = 6
-            case 'Có':
-                return conditionResult = 7
-            case 'Không':
-                return conditionResult = 7
-            default:
-                break;
-            }
+                switch (condition) {
+                case 'Chứa':
+                    return 3
+                case 'Không chứa':
+                    return 4
+                case 'Là':
+                    return 1
+                case 'Không là':
+                    return 2
+                case 'Trống':
+                    return 5
+                case 'Không trống':
+                    return 6
+                case 'Có':
+                    return 7
+                case 'Không':
+                    return 7
+                default:
+                    break;
+                }
             }
 
             const newFilter =  {

@@ -48,6 +48,7 @@
 }
 
 .filterSaveItemTitle{
+    cursor: pointer;
     color: var(--blue)
 }
 
@@ -96,4 +97,7 @@
     margin-left: calc(var(--padding)*(-2.3));
     margin-top: calc(var(--padding)*(.1));
     background-position: -192px -128px;
+}
+.filterSaveItemId{
+    display: none;
 }

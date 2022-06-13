@@ -6,7 +6,6 @@ export const HandleFilterItemOpenMenu = () =>{
 
     const filterSaveItemMenuEvent = (i) =>{
         return()=>{
-            console.log('hihi')
             if(filterSaveItemMenuTool[i].style.display !== 'flex'){
                 filterSaveItemMenuTool[i].style.display = 'flex'
             }else{

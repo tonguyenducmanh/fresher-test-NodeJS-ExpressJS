@@ -4,7 +4,7 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 
 import customerRoutes from './routes/customers.js'
-
+import filterRoutes from './routes/filters.js'
 
 const app = express()
 
@@ -14,6 +14,7 @@ app.use(cors());
 
 app.use(express.static('uploads'));
 app.use('/customers', customerRoutes)
+app.use('/filters', filterRoutes)
 
 const CONNECTION_URL = 'mongodb://localhost:27017/fresher_test'
 const PORT = process.env.PORT || 5000

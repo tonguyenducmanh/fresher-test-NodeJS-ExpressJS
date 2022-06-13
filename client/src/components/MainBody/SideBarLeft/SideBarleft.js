@@ -20,8 +20,8 @@ import { Array } from "./Array/Array";
 import { ArrayBoolean } from "./Array/ArrayBoolean";
 const SideBarLeft = () =>{
         const dispatch = useDispatch()
-        useEffect(() =>{
 
+        useEffect(() =>{
                 HandleCheck()
                 HandleUncheckAll(dispatch)
                 HandleTyping()
