@@ -8,6 +8,7 @@ import { fetchFiltersList } from '../../../../../features/filters/filtersSlice'
 import { HandleFilterItemOpenMenu } from './HandleFilterItemOpenMenu/HandleFilterItemOpenMenu'
 import { HandleDeleteFilter } from './HandleDeleteFilter/HandleDeleteFilter'
 import { HandleFilterEditName } from './HandleFilterEditName/HandleFilterEditName'
+import { HandleApplyFilter } from './HandleApplyFilter/HandleApplyFilter'
 
 export const FilterSaveItem = () =>{
     let filtersLists
@@ -43,7 +44,9 @@ export const FilterSaveItem = () =>{
             <span className={styles.filterSaveItem}
                 key={filter._id}
                 >
-                    <span className={styles.filterSaveItemTitle}>
+                    <span className={styles.filterSaveItemTitle}
+                        onClick={(e)=>HandleApplyFilter(filter,e)}
+                    >
                         {filter.name}
                     </span>
                     <span className={`${styles.icon} ${styles.filterSaveItemMenu}`}

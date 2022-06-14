@@ -34,6 +34,9 @@ const SideBarLeft = () =>{
     return (
         
         <div className={styles.container} id='sideBarLeft'>
+            <div className={styles.notifySuccess} id='applyFilterSuccess'>
+                Áp dụng bộ lọc thành công
+            </div>
            <div className={styles.filterContainer}>
             <UpdateBox/>
             <SaveFilterBox/>

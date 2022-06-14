@@ -236,3 +236,22 @@
     margin-left:-20px;
     
 }
+.notifySuccess{
+    position: fixed;
+    top:47px;
+    right: -220px;
+    z-index: 5;
+    background-color: var(--white);
+    border: var(--border);
+    border-radius: var(--boderRadius);
+    box-shadow: var(--boxShadow);
+    padding: var(--padding);
+    margin-right:0px;
+    font-weight: 500;
+    transition: margin-right 3s ease-in-out;
+
+}
+
+.notifySuccessAni{
+    margin-right:230px;
+}
