@@ -86,7 +86,7 @@ export const HandleSave = (dispatch) =>{
 
             data.append('_id',maTiemNang)
             
-            xungHo !== '- Không chọn -' ? data.append('xungHo', xungHo) : data.append('xungHo', '-')
+            xungHo !== '- Không chọn -' ? data.append('xungHo', xungHo) : data.append('xungHo', '')
             
             let anhValue = 0
             anh.files.length !== '0' ? anhValue = anh.files[0] : anhValue = 0
@@ -95,14 +95,14 @@ export const HandleSave = (dispatch) =>{
             data.append('hoVaDem',firstName)
             data.append('ten',lastName)
 
-            phongBan !== '- Không chọn -' ? data.append('phongBan', phongBan) : data.append('phongBan', '-')
+            phongBan !== '- Không chọn -' ? data.append('phongBan', phongBan) : data.append('phongBan', '')
 
-            chucDanh !== '- Không chọn -' ? data.append('chucDanh', chucDanh) : data.append('chucDanh', '-')
+            chucDanh !== '- Không chọn -' ? data.append('chucDanh', chucDanh) : data.append('chucDanh', '')
 
             data.append('dienThoaiDiDong', dienThoaiDiDong)
             data.append('dienThoaiCoQuan', dienThoaiCoQuan)
 
-            nguonGoc !== '- Không chọn -' ? data.append('nguonGoc', nguonGoc) : data.append('nguonGoc', '-')
+            nguonGoc !== '- Không chọn -' ? data.append('nguonGoc', nguonGoc) : data.append('nguonGoc', '')
 
             data.append('zalo', zalo)
             data.append('emailCaNhan', emailCaNhan)
@@ -113,21 +113,21 @@ export const HandleSave = (dispatch) =>{
             data.append('moTaiNganHang', moTaiNganHang)
             data.append('ngayThanhLap', ngayThanhLap)
 
-            loaiHinh !== '- Không chọn -' ? data.append('loaiHinh', loaiHinh) : data.append('loaiHinh', '-')
+            loaiHinh !== '- Không chọn -' ? data.append('loaiHinh', loaiHinh) : data.append('loaiHinh', '')
 
-            linhVuc !== '- Không chọn -' ? data.append('linhVuc', linhVuc) : data.append('linhVuc', '-')
+            linhVuc !== '- Không chọn -' ? data.append('linhVuc', linhVuc) : data.append('linhVuc', '')
 
-            nganhNghe !== '- Không chọn -' ? data.append('nganhNghe', nganhNghe) : data.append('nganhNghe', '-')
+            nganhNghe !== '- Không chọn -' ? data.append('nganhNghe', nganhNghe) : data.append('nganhNghe', '')
 
-            doanhThu !== '- Không chọn -' ? data.append('doanhThu', doanhThu) : data.append('doanhThu', '-')
+            doanhThu !== '- Không chọn -' ? data.append('doanhThu', doanhThu) : data.append('doanhThu', '')
 
-            quocGia !== '- Không chọn -' ? data.append('quocGia', quocGia) : data.append('quocGia', '-')
+            quocGia !== '- Không chọn -' ? data.append('quocGia', quocGia) : data.append('quocGia', '')
 
-            tinhThanh !== '- Không chọn -' ? data.append('tinhThanh', tinhThanh) : data.append('tinhThanh', '-')
+            tinhThanh !== '- Không chọn -' ? data.append('tinhThanh', tinhThanh) : data.append('tinhThanh', '')
 
-            quanHuyen !== '- Không chọn -' ? data.append('quanHuyen', quanHuyen) : data.append('quanHuyen', '-')
+            quanHuyen !== '- Không chọn -' ? data.append('quanHuyen', quanHuyen) : data.append('quanHuyen', '')
 
-            phuongXa !== '- Không chọn -' ? data.append('phuongXa', phuongXa) : data.append('phuongXa', '-')
+            phuongXa !== '- Không chọn -' ? data.append('phuongXa', phuongXa) : data.append('phuongXa', '')
 
             data.append('soNha', soNha)
             data.append('maVung', maVung)
@@ -139,7 +139,11 @@ export const HandleSave = (dispatch) =>{
             }
 
             for(let k=0; k< loaiTiemNangArray.length; k++){
-                data.append('loaiTiemNang[]', loaiTiemNangArray[k])
+                if(loaiTiemNangArray[k] !=='- Không chọn -'){
+                    data.append('loaiTiemNang[]', loaiTiemNangArray[k])
+                }else{
+                    data.append('loaiTiemNang[]', '')
+                }
             }
 
             let dungChungBtn = false

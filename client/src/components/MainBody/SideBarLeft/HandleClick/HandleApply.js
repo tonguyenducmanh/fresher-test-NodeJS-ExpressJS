@@ -22,7 +22,7 @@ export const HandleApply = (dispatch) =>{
             const dtdidongFilterValue = document.getElementById('dtdidongFilterValue').value
             const dtdidongFilter = document.getElementById('dtdidongFilter').textContent
             const dtcoquanFilterValue = document.getElementById('dtcoquanFilterValue').value
-            const dtcoquanFilter = document.getElementById('loaitiemnangFilter').textContent
+            const dtcoquanFilter = document.getElementById('dtcoquanFilter').textContent
             const emailcanhanFilterValue = document.getElementById('emailcanhanFilterValue').value
             const emailcanhanFilter = document.getElementById('emailcanhanFilter').textContent
             const emailcoquanFilterValue = document.getElementById('emailcoquanFilterValue').value

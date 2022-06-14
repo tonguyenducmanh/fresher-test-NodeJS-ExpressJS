@@ -10,12 +10,13 @@ import { HandleDeleteFilter } from './HandleDeleteFilter/HandleDeleteFilter'
 import { HandleFilterEditName } from './HandleFilterEditName/HandleFilterEditName'
 
 export const FilterSaveItem = () =>{
+    let filtersLists
     const dispatch = useDispatch()
     useEffect(()=>{
         dispatch(fetchFiltersList())
-    },[dispatch])
+    },[dispatch,filtersLists])
 
-    const filtersLists = useSelector(state => state.filters.filters)
+    filtersLists = useSelector(state => state.filters.filters)
 
 
     

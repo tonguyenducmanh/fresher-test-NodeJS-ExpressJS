@@ -261,7 +261,7 @@ export const countCustomer = async (req,res) => {
 
 export const createCustomer = async (req, res) => {
     let anhValue
-    typeof req.file !== 'undefined' ? anhValue = req.file.filename : anhValue = '-'
+    typeof req.file !== 'undefined' ? anhValue = req.file.filename : anhValue = ''
     // nếu không có ảnh up lên thì mặc định để giá trị '-'
     const post = {
         _id: req.body._id,

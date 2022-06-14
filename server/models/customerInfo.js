@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 // kể cả giá trị số như số điện thoại cũng lưu dưới dạng string chuỗi
 // để có thể dùng biểu thức chính quy
 const customerSchema = mongoose.Schema({
+    _id:String,
     anh: String,
     xungho: String,
     hovadem: String,

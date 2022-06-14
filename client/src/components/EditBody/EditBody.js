@@ -42,7 +42,7 @@ const EditBody = () =>{
     if(editCustomer.anh != '-' && editCustomer.anh != ''){
         urlImage = image
     }else{
-        urlImage = '-'
+        urlImage = ''
     }
     useEffect(()=>{
         HandleImage()
@@ -72,7 +72,7 @@ const EditBody = () =>{
                         <div className={`${styles.thongTinGroupBody} ${styles.uploadImageBox}`}>
                             <input className={styles.thongTinImage} type='file' name='anhEditValue' id='anhEditValue'/>
                             <span className={styles.avatarImage} id='avatarEditValue' 
-                               style= {urlImage != '-' ? {
+                               style= {urlImage != '' ? {
                                    backgroundImage: urlImage,
                                    backgroundPosition : 0,
                                    backgroundSize: 'cover'

@@ -1,12 +1,12 @@
 import React, {useEffect} from 'react'
 import { useDispatch } from 'react-redux'
 
-import styles from './UpdateBox.module.css'
+import styles from './SaveFilterBox.module.css'
 
 import { HandleCancelButtonOne } from './HandleCancelButtonOne'
 import { HandleSaveFilter } from './HandleSaveFilter'
 
-export const UpdateBox =()=>{
+export const SaveFilterBox =()=>{
     const dispatch = useDispatch()
     // bật nút lưu khi có giá trị đầu vào
     useEffect(()=>{
@@ -50,11 +50,11 @@ export const UpdateBox =()=>{
         <span className={`${styles.editFilter} ${styles.hiddenEditFilter}`}>
             <span className={styles.editFilterForm}>
                 <span className={styles.editTitle}>
-                    Đổi tên bộ lọc
+                    Lưu bộ lọc
                 </span>
                 <span className={styles.comboBox}>
-                    <span className={styles.filterTenMoi}>Tên mới</span>
-                    <input className={styles.filterInput}/>
+                    <span className={styles.filterTenMoi}>Tên bộ lọc</span>
+                    <input className={styles.filterInput} id='filterInputSaveName'/>
                     <span className={styles.filterID}></span>
                 </span>
                 <span className={styles.editBottomGroup}>

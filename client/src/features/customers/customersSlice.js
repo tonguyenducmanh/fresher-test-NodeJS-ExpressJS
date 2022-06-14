@@ -296,7 +296,7 @@ export const fetchLastID = createAsyncThunk('customers/fetchLastID', async () =>
 export const lastIDSlice = createSlice({
     name: 'lastID',
     initialState:{
-        ID: [],
+        ID: '',
         status: 'idle',
         error: null
     },

@@ -26,7 +26,7 @@ var requestOptions = {
   
   
   function ramdomPhongBan(){
-      const phongban = [ '-' ,
+      const phongban = [ '' ,
       'Phòng Marketing' ,
       'Phòng hành chính' ,
       'Phòng công nghệ thông tin' ,
@@ -43,7 +43,7 @@ var requestOptions = {
   pm.variables.set('phongBan', ramdomPhongBan());
   
   function ramdomChucDanh(){
-      const chucDanh = [ '-' ,
+      const chucDanh = [ '' ,
       'Giám đốc' ,
       'Phó giám đốc' ,
       'Trưởng phòng' ,
@@ -58,7 +58,7 @@ var requestOptions = {
   pm.variables.set('chucDanh', ramdomChucDanh());
   
   function ramdomNguonGoc(){
-      const nguongGoc = [ '-' ,
+      const nguongGoc = [ '' ,
       'Giám đốc' ,
       'Không xác định' ,
       'Chủ động mua hàng' ,
@@ -82,7 +82,7 @@ var requestOptions = {
       'Marvels' ,
       'DC' ,
       'Disney' ,
-      '-' ,
+      '' ,
       ]
       const the = toChuc[Math.floor(Math.random() * toChuc.length)]
       return the;
@@ -100,7 +100,7 @@ var requestOptions = {
       'Techcombank' ,
       'Viettinbank' ,
       'Saccombank' ,
-      '-' ,
+      '' ,
       ]
       const the = nganHang[Math.floor(Math.random() * nganHang.length)]
       return the;
@@ -116,7 +116,7 @@ var requestOptions = {
       'Tổ chức tài chính' ,
       'Ngân hàng nhà nước' ,
       'Ngân hàng tư nhân' ,
-      '-' ,
+      '' ,
       ]
       const the = loaiHinh[Math.floor(Math.random() * loaiHinh.length)]
       return the;
@@ -132,7 +132,7 @@ var requestOptions = {
       '2015-07-21' ,
       '2019-09-15' ,
       '2022-06-06' ,
-      '-' ,
+      '' ,
       ]
       const the = ngayThanhLap[Math.floor(Math.random() * ngayThanhLap.length)]
       return the;
@@ -149,7 +149,7 @@ var requestOptions = {
       'Bất động sản' ,
       'Xây dựng' ,
       'Y tế' ,
-      '-' ,
+      '' ,
       ]
       const the = linhVuc[Math.floor(Math.random() * linhVuc.length)]
       return the;
@@ -167,7 +167,7 @@ var requestOptions = {
       'Bất động sản' ,
       'Xây dựng' ,
       'Y tế' ,
-      '-' ,
+      '' ,
       ]
       const the = nganhNghe[Math.floor(Math.random() * nganhNghe.length)]
       return the;
@@ -182,7 +182,7 @@ var requestOptions = {
       'Từ 100 triệu đến 500 triệu' ,
       'Từ 500 triệu đến 1 tỷ' ,
       'Trên 1 tỷ hàng năm' ,
-      '-' ,
+      '' ,
       ]
       const the = doanhThu[Math.floor(Math.random() * doanhThu.length)]
       return the;
@@ -197,7 +197,7 @@ var requestOptions = {
       'Nhát gái' ,
       'Bên ngoài đẹp trai bên trong nhiều tiền' ,
       'Gọi anh là food boy' ,
-      '-' ,
+      '' ,
       ]
       const the = moTa[Math.floor(Math.random() * moTa.length)]
       return the;
@@ -212,7 +212,7 @@ var requestOptions = {
       'Nhát gái' ,
       'Bên ngoài đẹp trai bên trong nhiều tiền' ,
       'Gọi anh là food boy' ,
-      '-' ,
+      '' ,
       ]
       const the = moTa[Math.floor(Math.random() * moTa.length)]
       return the;
@@ -223,7 +223,7 @@ var requestOptions = {
   
   function ramdomLoaiTiemNang(){
       const loaiTiemNang = [
-      '- Không chọn -' ,
+      '' ,
       'Khách hàng lẻ' ,
       'Khách hàng dự án' ,
       'Khách hàng trẻ tuổi' ,

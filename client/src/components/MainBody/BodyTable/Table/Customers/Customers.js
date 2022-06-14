@@ -33,7 +33,9 @@ export const Customers = () => {
             const searchInputEvent = (e) =>{
                 dispatch(addSearchString(e.target.value))
             }
-            searchInput[0].addEventListener('input',searchInputEvent)
+            for(let i = 0 ; i < searchInput.length ; i++){
+                searchInput[i].addEventListener('input',searchInputEvent)
+            }
             dispatch(fetchCustomersList(`?searchString=${searchString}&limit=${limitPagination}&startIndex=${startIndexPagination}
             &xunghoString=${customerFilter.xunghoString}&xunghoCondition=${customerFilter.xunghoCondition}
             &hovademString=${customerFilter.hovademString}&hovademCondition=${customerFilter.hovademCondition}
@@ -68,8 +70,9 @@ export const Customers = () => {
             dispatch(fetchLastID())
 
             return()=>{
-            searchInput[0].removeEventListener('input',searchInputEvent)
-
+                for(let i = 0 ; i < searchInput.length ; i++){
+                    searchInput[i].removeEventListener('input',searchInputEvent)
+                }
             }
     }, [dispatch, limitPagination, startIndexPagination, searchString, customerFilter, searchInput])
     useEffect( () =>{
