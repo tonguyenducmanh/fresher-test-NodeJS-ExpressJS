@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { fetchCustomersList } from '../../features/customers/customersSlice'
 import { fetchCustomersCount } from '../../features/customers/customersSlice';
 import { resetLocation } from '../../features/location/locationSlice';
+import { fetchFiltersList } from "../../features/filters/filtersSlice";
 
 import styles from './ActionBar.module.css'
 import stylesTwo from '../MainBody/BodyTable/Table/Customers/Customers.module.css'
@@ -29,6 +30,7 @@ const ActionBar = () =>{
     const startIndexPagination = useSelector(state => state.pagination.startIndex)
     const limitPagination = useSelector(state => state.pagination.limit)
     const searchString = useSelector(state => state.customers.searchString)
+    const customerFilter = useSelector(state => state.customers.customerFilter)
     const count = useSelector(state => state.pagination.count)
     useEffect(()=>{
         UndoSelected()
@@ -132,8 +134,67 @@ const ActionBar = () =>{
                     {/* load lại danh sách */}
                     <span className={styles.actionLeftRefreshButton}
                         onClick={()=>{{
-                            dispatch(fetchCustomersList(`?searchString=${searchString}&limit=${limitPagination}&startIndex=${startIndexPagination}`))
-                            dispatch(fetchCustomersCount(`?searchString=${searchString}`))
+                            dispatch(fetchCustomersList(`?searchString=${searchString}&limit=${limitPagination}&startIndex=${startIndexPagination}
+                            &xunghoString=${customerFilter.xunghoString}&xunghoCondition=${customerFilter.xunghoCondition}
+                            &hovademString=${customerFilter.hovademString}&hovademCondition=${customerFilter.hovademCondition}
+                            &tenString=${customerFilter.tenString}&tenCondition=${customerFilter.tenCondition}
+                            &phongbanString=${customerFilter.phongbanString}&phongbanCondition=${customerFilter.phongbanCondition}
+                            &chucdanhString=${customerFilter.chucdanhString}&chucdanhCondition=${customerFilter.chucdanhCondition}
+                            &dtdidongString=${customerFilter.dtdidongString}&dtdidongCondition=${customerFilter.dtdidongCondition}
+                            &dtcoquanString=${customerFilter.dtcoquanString}&dtcoquanCondition=${customerFilter.dtcoquanCondition}
+                            &loaitiemnangString=${customerFilter.loaitiemnangString}&loaitiemnangCondition=${customerFilter.loaitiemnangCondition}
+                            &nguongocString=${customerFilter.nguongocString}&nguongocCondition=${customerFilter.nguongocCondition}
+                            &zaloString=${customerFilter.zaloString}&zaloCondition=${customerFilter.zaloCondition}
+                            &emailcanhanString=${customerFilter.emailcanhanString}&emailcanhanCondition=${customerFilter.emailcanhanCondition}
+                            &emailcoquanString=${customerFilter.emailcoquanString}&emailcoquanCondition=${customerFilter.emailcoquanCondition}
+                            &tochucString=${customerFilter.tochucString}&tochucCondition=${customerFilter.tochucCondition}
+                            &masothueString=${customerFilter.masothueString}&masothueCondition=${customerFilter.masothueCondition}
+                            &taikhoannganhangString=${customerFilter.taikhoannganhangString}&taikhoannganhangCondition=${customerFilter.taikhoannganhangCondition}
+                            &motainganhangString=${customerFilter.motainganhangString}&motainganhangCondition=${customerFilter.motainganhangCondition}
+                            &ngaythanhlapString=${customerFilter.ngaythanhlapString}&ngaythanhlapCondition=${customerFilter.ngaythanhlapCondition}
+                            &loaihinhString=${customerFilter.loaihinhString}&loaihinhCondition=${customerFilter.loaihinhCondition}
+                            &linhvucString=${customerFilter.linhvucString}&linhvucCondition=${customerFilter.linhvucCondition}
+                            &nganhngheString=${customerFilter.nganhngheString}&nganhngheCondition=${customerFilter.nganhngheCondition}
+                            &doanhthuString=${customerFilter.doanhthuString}&doanhthuCondition=${customerFilter.doanhthuCondition}
+                            &quocgiaString=${customerFilter.quocgiaString}&quocgiaCondition=${customerFilter.quocgiaCondition}
+                            &tinhthanhphoString=${customerFilter.tinhthanhphoString}&tinhthanhphoCondition=${customerFilter.tinhthanhphoCondition}
+                            &quanhuyenString=${customerFilter.quanhuyenString}&quanhuyenCondition=${customerFilter.quanhuyenCondition}
+                            &phuongxaString=${customerFilter.phuongxaString}&phuongxaCondition=${customerFilter.phuongxaCondition}
+                            &sonhaString=${customerFilter.sonhaString}&sonhaCondition=${customerFilter.sonhaCondition}
+                            &motaString=${customerFilter.motaString}&motaCondition=${customerFilter.motaCondition}
+                            &dungchungString=${customerFilter.dungchungString}&dungchungCondition=${customerFilter.dungchungCondition}
+                            `))
+                            
+                            dispatch(fetchCustomersCount(`?searchString=${searchString}&xunghoString=${customerFilter.xunghoString}&xunghoCondition=${customerFilter.xunghoCondition}
+                            &hovademString=${customerFilter.hovademString}&hovademCondition=${customerFilter.hovademCondition}
+                            &tenString=${customerFilter.tenString}&tenCondition=${customerFilter.tenCondition}
+                            &phongbanString=${customerFilter.phongbanString}&phongbanCondition=${customerFilter.phongbanCondition}
+                            &chucdanhString=${customerFilter.chucdanhString}&chucdanhCondition=${customerFilter.chucdanhCondition}
+                            &dtdidongString=${customerFilter.dtdidongString}&dtdidongCondition=${customerFilter.dtdidongCondition}
+                            &dtcoquanString=${customerFilter.dtcoquanString}&dtcoquanCondition=${customerFilter.dtcoquanCondition}
+                            &loaitiemnangString=${customerFilter.loaitiemnangString}&loaitiemnangCondition=${customerFilter.loaitiemnangCondition}
+                            &nguongocString=${customerFilter.nguongocString}&nguongocCondition=${customerFilter.nguongocCondition}
+                            &zaloString=${customerFilter.zaloString}&zaloCondition=${customerFilter.zaloCondition}
+                            &emailcanhanString=${customerFilter.emailcanhanString}&emailcanhanCondition=${customerFilter.emailcanhanCondition}
+                            &emailcoquanString=${customerFilter.emailcoquanString}&emailcoquanCondition=${customerFilter.emailcoquanCondition}
+                            &tochucString=${customerFilter.tochucString}&tochucCondition=${customerFilter.tochucCondition}
+                            &masothueString=${customerFilter.masothueString}&masothueCondition=${customerFilter.masothueCondition}
+                            &taikhoannganhangString=${customerFilter.taikhoannganhangString}&taikhoannganhangCondition=${customerFilter.taikhoannganhangCondition}
+                            &motainganhangString=${customerFilter.motainganhangString}&motainganhangCondition=${customerFilter.motainganhangCondition}
+                            &ngaythanhlapString=${customerFilter.ngaythanhlapString}&ngaythanhlapCondition=${customerFilter.ngaythanhlapCondition}
+                            &loaihinhString=${customerFilter.loaihinhString}&loaihinhCondition=${customerFilter.loaihinhCondition}
+                            &linhvucString=${customerFilter.linhvucString}&linhvucCondition=${customerFilter.linhvucCondition}
+                            &nganhngheString=${customerFilter.nganhngheString}&nganhngheCondition=${customerFilter.nganhngheCondition}
+                            &doanhthuString=${customerFilter.doanhthuString}&doanhthuCondition=${customerFilter.doanhthuCondition}
+                            &quocgiaString=${customerFilter.quocgiaString}&quocgiaCondition=${customerFilter.quocgiaCondition}
+                            &tinhthanhphoString=${customerFilter.tinhthanhphoString}&tinhthanhphoCondition=${customerFilter.tinhthanhphoCondition}
+                            &quanhuyenString=${customerFilter.quanhuyenString}&quanhuyenCondition=${customerFilter.quanhuyenCondition}
+                            &phuongxaString=${customerFilter.phuongxaString}&phuongxaCondition=${customerFilter.phuongxaCondition}
+                            &sonhaString=${customerFilter.sonhaString}&sonhaCondition=${customerFilter.sonhaCondition}
+                            &motaString=${customerFilter.motaString}&motaCondition=${customerFilter.motaCondition}
+                            &dungchungString=${customerFilter.dungchungString}&dungchungCondition=${customerFilter.dungchungCondition}
+                            `))
+                            dispatch(fetchFiltersList())
                             dispatch(resetLocation())
 
 

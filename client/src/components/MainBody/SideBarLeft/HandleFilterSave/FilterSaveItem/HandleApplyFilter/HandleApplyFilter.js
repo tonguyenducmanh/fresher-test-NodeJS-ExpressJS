@@ -60,7 +60,6 @@ export const HandleApplyFilter = (filter,e) =>{
     let doanhthuFilter = document.getElementById('doanhthuFilter')
     let zaloFilterValue = document.getElementById('zaloFilterValue')
     let zaloFilter = document.getElementById('zaloFilter')
-    let dungchungFilter = document.getElementById('dungchungFilter')
 
 
     //hàm tự động cho tất cả
@@ -91,9 +90,14 @@ export const HandleApplyFilter = (filter,e) =>{
         const filterAction  = document.getElementsByClassName(styles.filterAction)
         if(filterAction[0].style.display !=='flex'){
             filterAction[0].style.display = 'flex'
+
             if(filterAction[0].children[1].classList.contains(styles.filterActionApplyDisabled)){
                 filterAction[0].children[1].classList.remove(styles.filterActionApplyDisabled)
             }
+        }
+        if(filterAction[0].children[1].style.display !=='block'){
+            filterAction[0].children[1].style.display='block'
+            filterAction[0].children[2].style.display='none'
         }
 
     applyFilter(xunghoFilter, xunghoFilterValue, thisFilter.xunghoString, thisFilter.xunghoCondition)
@@ -106,7 +110,7 @@ export const HandleApplyFilter = (filter,e) =>{
     applyFilter(emailcanhanFilter, emailcanhanFilterValue, thisFilter.emailcanhanString, thisFilter.emailcanhanCondition)
     applyFilter(emailcoquanFilter, emailcoquanFilterValue, thisFilter.emailcoquanString, thisFilter.emailcoquanCondition)
     applyFilter(tochucFilter, tochucFilterValue, thisFilter.tochucString, thisFilter.tochucCondition)
-    applyFilter(phongbanFilter, phongbanFilter, thisFilter.phongbanString, thisFilter.phongbanCondition)
+    applyFilter(phongbanFilter, phongbanFilterValue, thisFilter.phongbanString, thisFilter.phongbanCondition)
     applyFilter(masothueFilter, masothueFilterValue, thisFilter.masothueString, thisFilter.masothueCondition)
     applyFilter(taikhoannganhangFilter, taikhoannganhangFilterValue, thisFilter.taikhoannganhangString, thisFilter.taikhoannganhangCondition)
     applyFilter(motainganhangFilter, motainganhangFilterValue, thisFilter.motainganhangString, thisFilter.motainganhangCondition)
@@ -125,7 +129,30 @@ export const HandleApplyFilter = (filter,e) =>{
     applyFilter(zaloFilter, zaloFilterValue, thisFilter.zaloString, thisFilter.zaloCondition)
 
 
+    
+    let dungchungFilter = document.getElementById('dungchungFilter')
+    let dungchungSelect = document.getElementById('dungchungSelect')
 
+
+    //hàm dành riêng cho dùng chung
+        if(thisFilter.dungchungCondition !==''){
+            if(thisFilter.dungchungCondition === 'true'){
+                dungchungFilter.textContent = 'Có'
+            }
+            if(thisFilter.dungchungCondition === 'false'){
+                dungchungFilter.textContent = 'Không'
+            }
+            dungchungFilter.style.color = '#616161'
+            dungchungFilter.parentElement.style.display ='block'
+            dungchungSelect.classList.remove(styles.filterItem)
+            dungchungSelect.classList.add(styles.filterItemChecked)
+        }else{
+            dungchungFilter.textContent = "Chứa"
+            dungchungFilter.style.color = '#9ba3b2'
+            dungchungFilter.parentElement.style.display ='none'
+            dungchungSelect.classList.add(styles.filterItem)
+            dungchungSelect.classList.remove(styles.filterItemChecked)
+        }
 
 
 

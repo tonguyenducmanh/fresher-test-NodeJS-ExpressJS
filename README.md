@@ -24,7 +24,11 @@ chi tiết của tiềm năng đó.
 ### Tạo nhiều document bằng Postman
 ![giao diện postman](./screenshots/2.png)
 ### Đường link api được lấy từ backend trả về dạng JSON, sau này thêm vào frontend
+#### Có 2 cơ sở dữ liệu
+#### 1 là lưu tiềm năng
 ![giao diện link backend](./screenshots/3.png)
+#### 2 là lưu bộ lọc
+![giao diện link backend](./screenshots/5.png)
 ### Cơ sở dữ liệu khách hàng trong MongoDB Compass
 ![cơ sở dữ liệu](./screenshots/4.png)
 
@@ -35,6 +39,9 @@ chi tiết của tiềm năng đó.
 Sử dụng công nghệ và thư viện dưới đây:
 
 - UI component Framework: JavaScript library: ReactJs
+- UPload ảnh lên server : Middleware Multer
+- Excell export : XLSX npm module
+- JSON data tỉnh thành Việt Nam
 - State management : Redux Toolkits
 - API service: NodeJS : ExpressJS
 - Database: MongoDB Cloud Atlas

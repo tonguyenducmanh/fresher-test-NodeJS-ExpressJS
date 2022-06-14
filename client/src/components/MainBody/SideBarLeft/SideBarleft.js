@@ -35,7 +35,7 @@ const SideBarLeft = () =>{
         
         <div className={styles.container} id='sideBarLeft'>
             <div className={styles.notifySuccess} id='applyFilterSuccess'>
-                Áp dụng bộ lọc thành công
+                 Tải bộ lọc thành công
             </div>
            <div className={styles.filterContainer}>
             <UpdateBox/>
@@ -254,7 +254,9 @@ const SideBarLeft = () =>{
                         <span className={styles.clearInput}></span>
                     </div>
                     <div className={styles.filterSelect}>
-                        <div className={ `${styles.icon} ${styles.filterItem} ${styles.filterBoolean}`} >
+                        <div className={ `${styles.icon} ${styles.filterItem} ${styles.filterBoolean}`} 
+                        id='dungchungSelect'
+                        >
                                 Dùng chung
                         </div>
                         <TruongChonBoolean arr={ArrayBoolean} id='dungchungFilter' />

@@ -239,16 +239,156 @@ export const deleteCustomer = async (req, res) => {
 }
 
 export const countCustomer = async (req,res) => {
+         //từ khóa tìm kiếm
+
+         let searchString 
+         req.query.searchString ? (searchString =  req.query.searchString) :
+         (searchString = '')
+         searchString = new RegExp(`${searchString}`, "i")
+ 
+         //từ khóa lọc
+ 
+         let xunghoString = req.query.xunghoString
+         let xunghoCondition = req.query.xunghoCondition
+         let hovademString = req.query.hovademString
+         let hovademCondition = req.query.hovademCondition
+         let tenString = req.query.tenString
+         let tenCondition = req.query.tenCondition
+         let phongbanString = req.query.phongbanString
+         let phongbanCondition = req.query.phongbanCondition
+         let chucdanhString = req.query.chucdanhString
+         let chucdanhCondition = req.query.chucdanhCondition
+         let dtdidongString = req.query.dtdidongString
+         let dtdidongCondition = req.query.dtdidongCondition
+         let dtcoquanString = req.query.dtcoquanString
+         let dtcoquanCondition = req.query.dtcoquanCondition
+         let loaitiemnangString = req.query.loaitiemnangString
+         let loaitiemnangCondition = req.query.loaitiemnangCondition
+         let nguongocString = req.query.nguongocString
+         let nguongocCondition = req.query.nguongocCondition
+         let zaloString = req.query.zaloString
+         let zaloCondition = req.query.zaloCondition
+         let emailcanhanString = req.query.emailcanhanString
+         let emailcanhanCondition = req.query.emailcanhanCondition
+         let emailcoquanString = req.query.emailcoquanString
+         let emailcoquanCondition = req.query.emailcoquanCondition
+         let tochucString = req.query.tochucString
+         let tochucCondition = req.query.tochucCondition
+         let masothueString = req.query.masothueString
+         let masothueCondition = req.query.masothueCondition
+         let taikhoannganhangString = req.query.taikhoannganhangString
+         let taikhoannganhangCondition = req.query.taikhoannganhangCondition
+         let motainganhangString = req.query.motainganhangString
+         let motainganhangCondition = req.query.motainganhangCondition
+         let ngaythanhlapString = req.query.ngaythanhlapString
+         let ngaythanhlapCondition = req.query.ngaythanhlapCondition
+         let loaihinhString = req.query.loaihinhString
+         let loaihinhCondition = req.query.loaihinhCondition
+         let linhvucString = req.query.linhvucString
+         let linhvucCondition = req.query.linhvucCondition
+         let nganhngheString = req.query.nganhngheString
+         let nganhngheCondition = req.query.nganhngheCondition
+         let doanhthuString = req.query.doanhthuString
+         let doanhthuCondition = req.query.doanhthuCondition
+         let quocgiaString = req.query.quocgiaString
+         let quocgiaCondition = req.query.quocgiaCondition
+         let tinhthanhphoString = req.query.tinhthanhphoString
+         let tinhthanhphoCondition = req.query.tinhthanhphoCondition
+         let quanhuyenString = req.query.quanhuyenString
+         let quanhuyenCondition = req.query.quanhuyenCondition
+         let phuongxaString = req.query.phuongxaString
+         let phuongxaCondition = req.query.phuongxaCondition
+         let sonhaString = req.query.sonhaString
+         let sonhaCondition = req.query.sonhaCondition
+         let motaString = req.query.motaString
+         let motaCondition = req.query.motaCondition
+         let dungchungString = req.query.dungchungString
+         let dungchungCondition = req.query.dungchungCondition
+ 
+ 
+         //chức năng lọc theo từ khóa
+ 
+         function getFilter (string, condition){
+             let filterString
+             let filterCondition = parseInt(condition)
+     
+             switch (filterCondition) {
+                 case 1:
+                     //trường hợp là
+                     filterString = string
+                     break;
+                 case 2:
+                     //trường hợp không là
+                     filterString = { $not: { $eq: string } }
+                     break;
+                 case 3:
+                     //trường hợp chứa, dùng thêm cả $options: 'i' để không phân biệt hoa thường
+                     filterString = {$regex:`${string}`, $options: 'i'}
+                     break;
+                 case 4:
+                     //trường hợp không chứa, dùng thêm cả $options: 'i' để phân biệt hoa thường
+                     filterString = { $not: {$regex:`${string}`, $options: 'i'}}
+                     break;
+                 case 5:
+                     //trường hợp trống, mặc định code bên kia trống sẽ chứa cái này khi lưu
+                     filterString = ''
+                     break;
+                 case 6:
+                     //trường hợp không trống, tức là khác rỗng
+                     filterString = {$not: { $eq: '' }}
+                     break;
+                 case 7:
+                     //trường hợp giá trị true false, trả về true hoặc false
+                     filterString = string
+                     break;
+             
+                 default:
+                     //nếu không giống bất kỳ cái nào thì cứ hiện ra toàn bộ danh sách thôi
+                     //cái dưới có nghĩa là tồn tại
+                     filterString = {$exists: true}
+                     break;
+             }
+ 
+             return filterString
+     
+         }
+ 
     try{
-        let searchString 
-        req.query.searchString ? (searchString =  req.query.searchString) :
-        (searchString = '')
-        const queryString = new RegExp(`${searchString}`, "i")
         const customerInfos = await customerInfo.count(
             {
                 $or: [
-                    {'hovadem': queryString},
-                    {'ten': queryString},
+                    {'hovadem': searchString},
+                    {'ten': searchString},
+                ],
+                $and: [
+                    {'xungho': getFilter(xunghoString,xunghoCondition)},
+                    {'hovadem': getFilter(hovademString,hovademCondition)},
+                    {'ten': getFilter(tenString,tenCondition)},
+                    {'phongban': getFilter(phongbanString,phongbanCondition)},
+                    {'chucdanh': getFilter(chucdanhString,chucdanhCondition)},
+                    {'dtdidong': getFilter(dtdidongString,dtdidongCondition)},
+                    {'dtcoquan': getFilter(dtcoquanString,dtcoquanCondition)},
+                    {'loaitiemnang': getFilter(loaitiemnangString,loaitiemnangCondition)},
+                    {'nguongoc': getFilter(nguongocString,nguongocCondition)},
+                    {'zalo': getFilter(zaloString,zaloCondition)},
+                    {'emailcanhan': getFilter(emailcanhanString,emailcanhanCondition)},
+                    {'emailcoquan': getFilter(emailcoquanString,emailcoquanCondition)},
+                    {'tochuc': getFilter(tochucString,tochucCondition)},
+                    {'masothue': getFilter(masothueString,masothueCondition)},
+                    {'taikhoannganhang': getFilter(taikhoannganhangString,taikhoannganhangCondition)},
+                    {'motainganhang': getFilter(motainganhangString,motainganhangCondition)},
+                    {'ngaythanhlap': getFilter(ngaythanhlapString,ngaythanhlapCondition)},
+                    {'loaihinh': getFilter(loaihinhString,loaihinhCondition)},
+                    {'linhvuc': getFilter(linhvucString,linhvucCondition)},
+                    {'nganhnghe': getFilter(nganhngheString,nganhngheCondition)},
+                    {'doanhthu': getFilter(doanhthuString,doanhthuCondition)},
+                    {'quocgia': getFilter(quocgiaString,quocgiaCondition)},
+                    {'tinhthanhpho': getFilter(tinhthanhphoString,tinhthanhphoCondition)},
+                    {'quanhuyen': getFilter(quanhuyenString,quanhuyenCondition)},
+                    {'phuongxa': getFilter(phuongxaString,phuongxaCondition)},
+                    {'sonha': getFilter(sonhaString,sonhaCondition)},
+                    {'mota': getFilter(motaString,motaCondition)},
+                    {'dungchung': getFilter(dungchungString,dungchungCondition)},
                 ]
             }
         )
