@@ -17,6 +17,9 @@ app.use('/customers', customerRoutes)
 app.use('/filters', filterRoutes)
 
 const CONNECTION_URL = 'mongodb://localhost:27017/fresher_test'
+
+// URL deploy
+// const CONNECTION_URL = 'mongodb+srv://ducmanh:manh1403@cluster1.cxmm0.mongodb.net/?retryWrites=true&w=majority'
 const PORT = process.env.PORT || 5000
 
 mongoose.connect(CONNECTION_URL)
