@@ -10,6 +10,8 @@ export const HandleApplyFilter = (filter,e) =>{
     let xunghoFilter = document.getElementById('xunghoFilter')
     let loaitiemnangFilterValue = document.getElementById('loaitiemnangFilterValue')
     let loaitiemnangFilter = document.getElementById('loaitiemnangFilter')
+    let theFilterValue = document.getElementById('theFilterValue')
+    let theFilter = document.getElementById('theFilter')
     let hovademFilterValue = document.getElementById('hovademFilterValue')
     let hovademFilter = document.getElementById('hovademFilter')
     let tenFilterValue = document.getElementById('tenFilterValue')
@@ -61,26 +63,24 @@ export const HandleApplyFilter = (filter,e) =>{
     let zaloFilterValue = document.getElementById('zaloFilterValue')
     let zaloFilter = document.getElementById('zaloFilter')
 
-
+    //xóa toàn bộ các nút đã check
+    const filterItemChecked = document.getElementsByClassName(styles.filterItemChecked)
+    for(let p = 0 ; p < filterItemChecked.length; p++){
+        filterItemChecked[p].click()
+    }
+    
     //hàm tự động cho tất cả
     function applyFilter(filter,filterValue,string, condition){
         if(condition !==''){
+            filterValue.parentElement.children[0].click()
             filterValue.value = string
-            filterValue.style.display = 'block'
             filter.textContent = condition
             filter.style.color = '#616161'
-            filter.parentElement.style.display = 'block'
-            filterValue.parentElement.children[0].classList.remove(styles.filterItem)
-            filterValue.parentElement.children[0].classList.add(styles.filterItemChecked)
             filterValue.parentElement.children[3].style.display ='block'
         }else{
             filterValue.value = ''
-            filterValue.style.display = 'none'
             filter.textContent = "Chứa"
             filter.style.color = '#9ba3b2'
-            filter.parentElement.style.display = 'none'
-            filterValue.parentElement.children[0].classList.add(styles.filterItem)
-            filterValue.parentElement.children[0].classList.remove(styles.filterItemChecked)
             filterValue.parentElement.children[3].style.display ='none'
         }
     }
@@ -88,13 +88,9 @@ export const HandleApplyFilter = (filter,e) =>{
 
     //hiện thanh áp dụng ở bottom và xóa các kết quả cũ đi đã
         const filterAction  = document.getElementsByClassName(styles.filterAction)
-        if(filterAction[0].style.display !=='flex'){
-            filterAction[0].style.display = 'flex'
-
             if(filterAction[0].children[1].classList.contains(styles.filterActionApplyDisabled)){
                 filterAction[0].children[1].classList.remove(styles.filterActionApplyDisabled)
             }
-        }
         if(filterAction[0].children[1].style.display !=='block'){
             filterAction[0].children[1].style.display='block'
             filterAction[0].children[2].style.display='none'
@@ -102,6 +98,7 @@ export const HandleApplyFilter = (filter,e) =>{
 
     applyFilter(xunghoFilter, xunghoFilterValue, thisFilter.xunghoString, thisFilter.xunghoCondition)
     applyFilter(loaitiemnangFilter, loaitiemnangFilterValue, thisFilter.loaitiemnangString, thisFilter.loaitiemnangCondition)
+    applyFilter(theFilter, theFilterValue, thisFilter.theString, thisFilter.theCondition)
     applyFilter(hovademFilter, hovademFilterValue, thisFilter.hovademString, thisFilter.hovademCondition)
     applyFilter(tenFilter, tenFilterValue, thisFilter.tenString, thisFilter.tenCondition)
     applyFilter(chucdanhFilter, chucdanhFilterValue, thisFilter.chucdanhString, thisFilter.chucdanhCondition)

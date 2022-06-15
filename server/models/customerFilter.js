@@ -19,6 +19,8 @@ const filterSchema = mongoose.Schema({
         dtcoquanCondition: String,
         loaitiemnangString: String,
         loaitiemnangCondition: String,
+        theString: String,
+        theCondition: String,
         nguongocString: String,
         nguongocCondition:String,
         zaloString: String,

@@ -17,6 +17,12 @@ export const HandleSaveFilter = (dispatch, e) =>{
             const loaitiemnangFilter = document.getElementById('loaitiemnangFilter')
             loaitiemnangFilter.parentElement.style.display !== 'block' ? loaitiemnang = '' : loaitiemnang = loaitiemnangFilter.textContent
 
+            const theFilterValue = document.getElementById('theFilterValue').value
+
+            let the
+            const theFilter = document.getElementById('theFilter')
+            theFilter.parentElement.style.display !== 'block' ? the = '' : the = theFilter.textContent
+
             const hovademFilterValue = document.getElementById('hovademFilterValue').value
 
             let hovadem
@@ -211,6 +217,8 @@ export const HandleSaveFilter = (dispatch, e) =>{
               dtcoquanCondition: dtcoquan,
               loaitiemnangString: loaitiemnangFilterValue,
               loaitiemnangCondition: loaitiemnang,
+              theString: theFilterValue,
+              theCondition: the,
               nguongocString: nguongocFilterValue,
               nguongocCondition:nguongoc,
               zaloString: zaloFilterValue,

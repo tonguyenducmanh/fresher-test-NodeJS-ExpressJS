@@ -47,6 +47,14 @@ const SideBarLeft = () =>{
                 <div className={styles.filterBoxList}>
                     <div className={styles.filterSelect}>
                         <div className={ `${styles.icon} ${styles.filterItem}`} >
+                                Thẻ
+                        </div>
+                        <TruongChonNhieu arr={Array} id='theFilter' />
+                        <input className={styles.filterTextContent} id='theFilterValue'/>
+                        <span className={styles.clearInput}></span>
+                    </div>
+                    <div className={styles.filterSelect}>
+                        <div className={ `${styles.icon} ${styles.filterItem}`} >
                                 Xưng hô
                         </div>
                         <TruongChonNhieu arr={Array} id='xunghoFilter' />

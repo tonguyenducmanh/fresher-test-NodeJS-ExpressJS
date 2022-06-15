@@ -59,6 +59,8 @@ export const createFilter = async (req,res) =>{
             dtcoquanCondition: req.body.dtcoquanCondition,
             loaitiemnangString: req.body.loaitiemnangString,
             loaitiemnangCondition: req.body.loaitiemnangCondition,
+            theString: req.body.theString,
+            theCondition: req.body.theCondition,
             nguongocString: req.body.nguongocString,
             nguongocCondition:req.body.nguongocCondition,
             zaloString: req.body.zaloString,

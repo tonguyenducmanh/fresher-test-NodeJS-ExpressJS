@@ -39,6 +39,8 @@ export const getCustomer = async (req, res) => {
         let dtcoquanCondition = req.query.dtcoquanCondition
         let loaitiemnangString = req.query.loaitiemnangString
         let loaitiemnangCondition = req.query.loaitiemnangCondition
+        let theString = req.query.theString
+        let theCondition = req.query.theCondition
         let nguongocString = req.query.nguongocString
         let nguongocCondition = req.query.nguongocCondition
         let zaloString = req.query.zaloString
@@ -143,6 +145,7 @@ export const getCustomer = async (req, res) => {
                     {'dtdidong': getFilter(dtdidongString,dtdidongCondition)},
                     {'dtcoquan': getFilter(dtcoquanString,dtcoquanCondition)},
                     {'loaitiemnang': getFilter(loaitiemnangString,loaitiemnangCondition)},
+                    {'the': getFilter(theString,theCondition)},
                     {'nguongoc': getFilter(nguongocString,nguongocCondition)},
                     {'zalo': getFilter(zaloString,zaloCondition)},
                     {'emailcanhan': getFilter(emailcanhanString,emailcanhanCondition)},
@@ -264,6 +267,8 @@ export const countCustomer = async (req,res) => {
          let dtcoquanCondition = req.query.dtcoquanCondition
          let loaitiemnangString = req.query.loaitiemnangString
          let loaitiemnangCondition = req.query.loaitiemnangCondition
+         let theString = req.query.theString
+         let theCondition = req.query.theCondition
          let nguongocString = req.query.nguongocString
          let nguongocCondition = req.query.nguongocCondition
          let zaloString = req.query.zaloString
@@ -369,6 +374,7 @@ export const countCustomer = async (req,res) => {
                     {'dtdidong': getFilter(dtdidongString,dtdidongCondition)},
                     {'dtcoquan': getFilter(dtcoquanString,dtcoquanCondition)},
                     {'loaitiemnang': getFilter(loaitiemnangString,loaitiemnangCondition)},
+                    {'the': getFilter(theString,theCondition)},
                     {'nguongoc': getFilter(nguongocString,nguongocCondition)},
                     {'zalo': getFilter(zaloString,zaloCondition)},
                     {'emailcanhan': getFilter(emailcanhanString,emailcanhanCondition)},

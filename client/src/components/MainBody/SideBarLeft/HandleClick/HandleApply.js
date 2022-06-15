@@ -13,6 +13,8 @@ export const HandleApply = (dispatch) =>{
             const xunghoFilter = document.getElementById('xunghoFilter').textContent
             const loaitiemnangFilterValue = document.getElementById('loaitiemnangFilterValue').value
             const loaitiemnangFilter = document.getElementById('loaitiemnangFilter').textContent
+            const theFilterValue = document.getElementById('theFilterValue').value
+            const theFilter = document.getElementById('theFilter').textContent
             const hovademFilterValue = document.getElementById('hovademFilterValue').value
             const hovademFilter = document.getElementById('hovademFilter').textContent
             const tenFilterValue = document.getElementById('tenFilterValue').value
@@ -104,6 +106,8 @@ export const HandleApply = (dispatch) =>{
             }
 
             const newFilter =  {
+            theString: theFilterValue,
+            theCondition: testCondition(theFilter),
             xunghoString: xunghoFilterValue,
             xunghoCondition: testCondition(xunghoFilter),
             hovademString: hovademFilterValue,

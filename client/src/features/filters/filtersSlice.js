@@ -121,6 +121,8 @@ export const createFilterSlice = createSlice({
             dtcoquanCondition: '',
             loaitiemnangString: '',
             loaitiemnangCondition: '',
+            theString: '',
+            theCondition: '',
             nguongocString: '',
             nguongocCondition:'',
             zaloString: '',

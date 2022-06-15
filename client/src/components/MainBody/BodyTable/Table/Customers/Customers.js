@@ -37,6 +37,7 @@ export const Customers = () => {
                 searchInput[i].addEventListener('input',searchInputEvent)
             }
             dispatch(fetchCustomersList(`?searchString=${searchString}&limit=${limitPagination}&startIndex=${startIndexPagination}
+            &theString=${customerFilter.theString}&theCondition=${customerFilter.theCondition}
             &xunghoString=${customerFilter.xunghoString}&xunghoCondition=${customerFilter.xunghoCondition}
             &hovademString=${customerFilter.hovademString}&hovademCondition=${customerFilter.hovademCondition}
             &tenString=${customerFilter.tenString}&tenCondition=${customerFilter.tenCondition}
@@ -68,6 +69,7 @@ export const Customers = () => {
             `))
             
             dispatch(fetchCustomersCount(`?searchString=${searchString}&xunghoString=${customerFilter.xunghoString}&xunghoCondition=${customerFilter.xunghoCondition}
+            &theString=${customerFilter.theString}&theCondition=${customerFilter.theCondition}
             &hovademString=${customerFilter.hovademString}&hovademCondition=${customerFilter.hovademCondition}
             &tenString=${customerFilter.tenString}&tenCondition=${customerFilter.tenCondition}
             &phongbanString=${customerFilter.phongbanString}&phongbanCondition=${customerFilter.phongbanCondition}
