@@ -437,6 +437,7 @@ export const createCustomerSlice = createSlice({
             dtcoquan: '',
             dtkhac: '',
             loaitiemnang: '',
+            the: '',
             nguongoc: '',
             khonggoidien: '',
             khongguiemail: '',

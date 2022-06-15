@@ -14,6 +14,7 @@ const customerSchema = mongoose.Schema({
     dtcoquan: String,
     dtkhac: String,
     loaitiemnang: Array,
+    the: Array,
     nguongoc: String,
     khonggoidien: Boolean,
     khongguiemail: Boolean,

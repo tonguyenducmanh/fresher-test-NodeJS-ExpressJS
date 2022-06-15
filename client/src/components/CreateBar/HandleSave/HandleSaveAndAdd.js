@@ -69,7 +69,9 @@ export const HandleSaveAndAdd = (dispatch) =>{
             const moTa = document.getElementById('moTa').value
             const dungChungCheck = document.getElementById('dungChung')
             const loaiTiemNang = document.getElementById('loaiTiemNang').children
-             
+            const the = ['']
+            //lúc khởi tạo tiềm năng thì cho thẻ giá trị rỗng
+           
 
             const data = new FormData()
 
@@ -132,6 +134,19 @@ export const HandleSaveAndAdd = (dispatch) =>{
                     data.append('loaiTiemNang[]', loaiTiemNangArray[k])
                 }else{
                     data.append('loaiTiemNang[]', '')
+                }
+            }
+
+            let theArray = []
+            for(let i = 0 ; i < the.length; i ++){
+                theArray.push(the[i])
+            }
+
+            for(let k=0; k< theArray.length; k++){
+                if(theArray[k] !=='- Không chọn -'){
+                    data.append('the[]', theArray[k])
+                }else{
+                    data.append('the[]', '')
                 }
             }
 
