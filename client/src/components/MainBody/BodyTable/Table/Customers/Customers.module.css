@@ -98,9 +98,40 @@ tbody{
     font-weight: 400;
 }
 .tdOne{
-    width: 170px;
+    width: 150px;
 }
 
+.tdTheCon{
+    display: inline-block;
+    border: var(--border);
+    border-radius: var(--boderRadius);
+    margin-right: var(--padding);
+    background-color: var(--white);
+    padding-left: calc(var(--padding) / 2);
+    padding-right: calc(var(--padding) / 2);
+}
+.tdAllThe{
+    position: relative;
+    padding-left: calc(var(--padding) / 2);
+    padding-right: calc(var(--padding) / 2);
+    margin-left: 5px;
+}
+.tdAllThe::before{
+    background-position: -48px 3px;
+    margin-left: -5px;
+}
+.tdAllThe::after{
+    position: absolute;
+    content: '';
+    padding-left: calc(var(--padding) / 2);
+    padding-right: calc(var(--padding) / 2);
+    height: 19px;
+    width: 14px;
+    margin-left: -10px;
+    border: var(--border);
+    border-radius: var(--boderRadius);
+    background-color: var(--white);
+}
 .tdTwo{
     width: 80px;
 }
@@ -181,7 +212,7 @@ tbody{
     padding-left: var(--padding);
     background-color: var(--white);
     height: 30px;
-    z-index: 1;
+    z-index: 2;
 }
 tr:hover .iconButtonCustomers{
     background-color: #e7ebfc;

@@ -124,7 +124,20 @@ export const Customers = () => {
                     <td className={styles.tdLink}>
                         <Link to='/edit' className={styles.tdLinkToEdit}/>
                     </td>
-                    <td className={styles.tdOne} title={customer.loaitiemnang} >{customer.loaitiemnang.join(', ')}</td>
+                    <td className={styles.tdOne} title={customer.the} >
+                        {   customer.the.length === 1 && customer.the[0] !== '' &&
+                            <span className={styles.tdTheCon} >{customer.the[0]}</span>}
+                        {   customer.the.length === 2 &&
+                            customer.the.map((theCon)=>(
+                                <span key={theCon} className={styles.tdTheCon}>{theCon}</span> ))}
+                        {   customer.the.length >2 && 
+                            <>
+                                <span className={styles.tdTheCon}>{customer.the[0]}</span>
+                                <span className={styles.tdTheCon}>{customer.the[1]}</span>
+                                <span className={` ${styles.icon} ${styles.tdAllThe}`}></span>
+                            </>
+                        }
+                    </td>
                     <td className={styles.tdTwo} title={customer.xungho} >{customer.xungho}</td>
                     <td className={styles.tdThree} title={`${customer.hovadem} ${customer.ten}`} >{`${customer.hovadem} ${customer.ten}`}</td>
                     <td className={styles.tdFour} title={customer.chucdanh} >{customer.chucdanh}</td>

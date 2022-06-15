@@ -32,9 +32,10 @@ export const ExportToExcellFile = (findList) =>{
         const rows = findList.map(row => ({
             // _id: row._id,
             //trường mã id khách hàng thực tế có lẽ không cần đọc mà cũng không nên đọc được nên k lấy
+            the : row.the.join(', '),
             loaitiemnang: row.loaitiemnang.join(', '),
             xungho: row.xungho,
-            hovaten: row.hovadem + row.ten,
+            hovaten: row.hovadem + '' + row.ten,
             chucdanh: row.chucdanh,
             dtdidong: row.dtdidong,
             dtcoquan: row.dtcoquan,
@@ -64,7 +65,7 @@ export const ExportToExcellFile = (findList) =>{
             XLSX.utils.book_append_sheet(workbook, worksheet, "Khách hàng");
         
             /* hàng đầu tiên là tiêu đề */
-            XLSX.utils.sheet_add_aoa(worksheet, [["Loại tiềm năng", "Xưng hô", "Họ và tên", "Chức danh", "Điện thoại di động", "Điện thoại cơ quan",
+            XLSX.utils.sheet_add_aoa(worksheet, [["Thẻ","Loại tiềm năng", "Xưng hô", "Họ và tên", "Chức danh", "Điện thoại di động", "Điện thoại cơ quan",
             "Email cá nhân","Email cơ quan", "Tổ chức", "Địa chỉ", "Tỉnh/Thành phố", "Quận/Huyện", "Phường/Xã", "Nguồn gốc", "Loại hình", "Lĩnh vực",
             "Mô tả", "Chủ sở hữu", "Doanh thu","Dùng chung","Zalo"
 
@@ -72,7 +73,7 @@ export const ExportToExcellFile = (findList) =>{
         
             /* chiều rộng của từng cột */
             worksheet["!cols"] = [ 
-                { wch: 25 } ,{ wch: 10 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 },{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 }
+                { wch: 25 }, { wch: 25 } ,{ wch: 10 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 },{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 }
             ];
             /* xuất ra file excell với tên khachhang.xlsx */
             XLSX.writeFile(workbook, "khachhang.xlsx");
