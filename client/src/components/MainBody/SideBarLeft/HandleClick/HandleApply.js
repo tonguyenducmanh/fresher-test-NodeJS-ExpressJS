@@ -45,7 +45,6 @@ export const HandleApply = (dispatch) =>{
             const motaFilter = document.getElementById('motaFilter').textContent
             const doanhthuFilterValue = document.getElementById('doanhthuFilterValue').value
             const doanhthuFilter = document.getElementById('doanhthuFilter').textContent
-            const dungchungFilter = document.getElementById('dungchungFilter').textContent
             const zaloFilterValue = document.getElementById('zaloFilterValue').value
             const zaloFilter = document.getElementById('zaloFilter').textContent
             const phongbanFilterValue = document.getElementById('phongbanFilterValue').value
@@ -64,13 +63,19 @@ export const HandleApply = (dispatch) =>{
             const quocgiaFilter = document.getElementById('quocgiaFilter').textContent
             const sonhaFilterValue = document.getElementById('sonhaFilterValue').value
             const sonhaFilter = document.getElementById('sonhaFilter').textContent
-
+            
+            let dungchungFilter = document.getElementById('dungchungFilter').textContent
+            let dungchungSelect = document.getElementById('dungchungSelect')
             let dungchungFilterValue
             if(dungchungFilter === 'Có'){
             dungchungFilterValue = true
             }
             if(dungchungFilter === 'Không'){
             dungchungFilterValue = false
+            }
+            if(dungchungSelect.classList.contains(styles.filterItem)){
+                dungchungFilter = ''
+                dungchungFilterValue = ''
             }
 
             function testCondition(condition){
@@ -90,7 +95,9 @@ export const HandleApply = (dispatch) =>{
                 case 'Có':
                     return 7
                 case 'Không':
-                    return 7
+                 return 7   
+                case '':
+                return ''   
                 default:
                     break;
                 }

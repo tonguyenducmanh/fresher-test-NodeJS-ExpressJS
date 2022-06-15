@@ -177,14 +177,18 @@ export const HandleSaveFilter = (dispatch, e) =>{
             const dungchungFilter = document.getElementById('dungchungFilter')
             
             let dungchungFilterValue
+            let dungchung
             if(dungchungFilter.parentElement.style.display !=='block'){
               dungchungFilterValue =''
+              dungchung = ''
             }else{
               if(dungchungFilter.textContent === 'Có'){
                 dungchungFilterValue = true
+                dungchung = 'Có'
                 }
                 if(dungchungFilter.textContent === 'Không'){
                 dungchungFilterValue = false
+                dungchung = 'Không'
                 }
             }
 
@@ -245,7 +249,8 @@ export const HandleSaveFilter = (dispatch, e) =>{
               sonhaCondition: sonha,
               motaString: motaFilterValue,
               motaCondition:mota,
-              dungchungCondition: dungchungFilterValue,
+              dungchungString: dungchungFilterValue,
+              dungchungCondition: dungchung,
               });
             dispatch(createFilter(data))
             dispatch(fetchFiltersList())
