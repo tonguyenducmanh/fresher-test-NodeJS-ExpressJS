@@ -18,6 +18,8 @@ export const ExportToExcellFile = (findList) =>{
         for( let i = 0 ; i < tdIds.length ; i ++){
             if(checkedButton[i].classList.contains(stylesTwo.iconHeadingChecked)){
                 checkedButton[i].classList.remove(stylesTwo.iconHeadingChecked)
+                checkedButton[i].classList.remove(stylesTwo.iconButtonCustomersChecked)
+
                 checkedButton[i].classList.add(stylesTwo.iconHeading)
                 checkedRow[i].classList.remove(stylesTwo.itemChecked)
                 iconCheckAll.classList.remove(stylesFour.iconHeadingChecked)

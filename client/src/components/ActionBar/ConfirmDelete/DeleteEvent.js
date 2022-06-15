@@ -26,6 +26,7 @@ export const DeleteEvent = (dispatch) =>{
         if(checkedButton[i].classList.contains(stylesTwo.iconHeadingChecked)){
             idsString = idsString.concat(tdIds[i].textContent)
             checkedButton[i].classList.remove(stylesTwo.iconHeadingChecked)
+            checkedButton[i].classList.remove(stylesTwo.iconButtonCustomersChecked)
             checkedButton[i].classList.add(stylesTwo.iconHeading)
             checkedButton[i].parentElement.classList.remove(stylesTwo.itemChecked)
         }
