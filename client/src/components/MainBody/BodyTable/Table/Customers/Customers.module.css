@@ -176,8 +176,19 @@ tbody{
 
 .iconButtonCustomers{
     font-size: 400;
+    position: sticky;
+    left: -1px;
+    padding-left: var(--padding);
+    background-color: var(--white);
+    height: 30px;
+    z-index: 1;
 }
-
+tr:hover .iconButtonCustomers{
+    background-color: #e7ebfc;
+}
+.iconButtonCustomersChecked{
+    background-color: #feefe7;
+}
 .tdThirteen{
     width: 130px;
 }

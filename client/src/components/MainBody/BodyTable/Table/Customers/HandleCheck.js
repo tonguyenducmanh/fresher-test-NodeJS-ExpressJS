@@ -19,8 +19,10 @@ export const HandleCheck = (limit) =>{
                 this.classList.add(styles.iconHeading);
                 this.classList.remove(styles.iconHeadingChecked);
                 e.target.parentElement.classList.remove(styles.itemChecked)
+                e.target.parentElement.children[0].classList.remove(styles.iconButtonCustomersChecked)
             }
             else if(this.classList.contains(styles.iconHeading)) {
+                e.target.parentElement.children[0].classList.add(styles.iconButtonCustomersChecked)
                 this.classList.add(styles.iconHeadingChecked);
                 this.classList.remove(styles.iconHeading);
                 e.target.parentElement.classList.add(styles.itemChecked)

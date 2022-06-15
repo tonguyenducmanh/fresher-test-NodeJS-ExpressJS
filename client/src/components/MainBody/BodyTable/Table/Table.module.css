@@ -86,7 +86,7 @@ thead{
     position: sticky;
     top: 0;
     background-color: #f0f2f4;
-    z-index: 1;
+    z-index: 2;
 }
 thead tr {
     border-top: var(--border);
@@ -120,6 +120,15 @@ td{
     white-space: nowrap;
     text-overflow:ellipsis;
     overflow: hidden;
+}
+
+thead tr td:first-child{
+    position: sticky;
+    left: -1px;
+    padding-left: var(--padding);
+    height: calc(var(--heightRow) - 5px);
+    z-index: 3;
+    background-color: #f0f2f4;
 }
 
 .tdOne{

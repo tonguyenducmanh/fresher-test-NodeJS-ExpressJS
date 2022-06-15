@@ -18,6 +18,7 @@ export const HandleCheckAll = () =>{
                     listCheckButton[i].classList.add(stylesTwo.iconHeading);
                     listCheckButton[i].classList.remove(stylesTwo.iconHeadingChecked);
                     listCheckButton[i].parentElement.classList.remove(stylesTwo.itemChecked)
+                    listCheckButton[i].classList.remove(stylesTwo.iconButtonCustomersChecked)
                 }
         }
         else if(checkAllButton.classList.contains(styles.iconHeading)) {
@@ -27,6 +28,7 @@ export const HandleCheckAll = () =>{
                 listCheckButton[i].classList.remove(stylesTwo.iconHeading);
                 listCheckButton[i].classList.add(stylesTwo.iconHeadingChecked);
                 listCheckButton[i].parentElement.classList.add(stylesTwo.itemChecked)
+                listCheckButton[i].parentElement.children[0].classList.add(stylesTwo.iconButtonCustomersChecked)
             }
                 //hiện menu chỉnh sửa nhanh
                 actionBarOne.classList.add(stylesThree.hiddenComponent)}
