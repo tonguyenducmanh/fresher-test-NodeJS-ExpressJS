@@ -488,6 +488,7 @@ export const editCustomer = async (req,res) => {
         mavung: req.body.maVung,
         mota: req.body.moTa,
         loaitiemnang: req.body.loaiTiemNang,
+        the: req.body.the,
         dungchung: req.body.dungChung
 
     }

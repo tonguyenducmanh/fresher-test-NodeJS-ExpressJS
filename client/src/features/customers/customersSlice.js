@@ -507,6 +507,7 @@ export const editCustomerSlice = createSlice({
             dtcoquan: '',
             dtkhac: '',
             loaitiemnang: '',
+            the: '',
             nguongoc: '',
             khonggoidien: '',
             khongguiemail: '',

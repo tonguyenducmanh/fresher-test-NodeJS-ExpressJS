@@ -72,6 +72,7 @@ export const HandleSave = (dispatch,anhCu) =>{
                 const moTa = document.getElementById('moTaEdit').value
                 const dungChungCheck = document.getElementById('dungChungEdit')
                 const loaiTiemNang = document.getElementById('loaiTiemNangEdit').children
+                const theTagInput = document.getElementById('theTagInput').value
                 
     
                 const data = new FormData()
@@ -145,7 +146,26 @@ export const HandleSave = (dispatch,anhCu) =>{
                 if(dungChungCheck.classList.contains(stylesThree.iconChecked)){
                     dungChungBtn = true
                 }
+                
                 data.append('dungChung', dungChungBtn)
+                
+                let the = theTagInput.split('#')
+
+                //trường hợp có nhiều hơn 1 thẻ thì loại bỏ thẻ rỗng ở đầu đi, do thẻ # sinh ra
+                if(the.length>1){
+                    if(the[0] === ''){
+                        the.shift()
+                    }
+                }
+
+                for(let k=0; k< the.length; k++){
+                    if(the[k] !==''){
+                        data.append('the[]', the[k])
+                    }else{
+                        data.append('the[]', '')
+                    }
+                }
+
                 dispatch(editCustomer(data))
                 dispatch(resetLocation())
                 

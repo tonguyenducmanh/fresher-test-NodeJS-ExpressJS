@@ -35,6 +35,8 @@ import { Input } from "./AutoComplete/FormValidate/Input";
 import { ClearInputValue } from "./AutoComplete/FormValidate/ClearInputValue";
 import { ClearMotaValue } from "./AutoComplete/FormValidate/ClearMotaValue";
 
+import { The } from "./The/The";
+
 const EditBody = () =>{
     const editCustomer = useSelector(state => state.tempCustomer.editCustomer)
     const image = `url(http://localhost:5000/${editCustomer.anh})`
@@ -76,11 +78,12 @@ const EditBody = () =>{
                                    backgroundImage: urlImage,
                                    backgroundPosition : 0,
                                    backgroundSize: 'cover'
-                               }
-                               : {
-                                display: 'block'
-                            }}
-                            ></span>
+                                }
+                                : {
+                                    display: 'block'
+                                }}
+                                ></span>
+                            <The editCustomer={editCustomer}/>
                         </div>
                     </div>
                     <div className={styles.thongTinChung}>

@@ -23,6 +23,15 @@ var requestOptions = {
   }
   
   pm.variables.set('xungHo', randomXungHo());
+
+  function randomThe(){
+    const xungHo = ["deptrai", "xinhgai", "", "nhieutien"
+    ]
+    const the = xungHo[Math.floor(Math.random() * xungHo.length)]
+    return the;
+}
+
+pm.variables.set('the', randomThe());
   
   
   function ramdomPhongBan(){

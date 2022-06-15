@@ -41,39 +41,19 @@
     background-image: url(../../../images/icon_collection.svg);
 }
 
-
-.thongTin{
+.theTag{
+    height: auto;
+}
+.theTagContainer{
+    margin-left: -500px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding-bottom: var(--padding);
 }
-
-.thongTinTitle{
-    position: relative;
-    color: var(--grayDark);
-    position: relative;
-    font-weight: 500;
+.theTagContainer span{
+    margin-right: var(--padding);
 }
-
-.thongTinTitleWarning::before{
-    position: absolute;
-    color: var(--red);
-    content: '*';
-    z-index: 1;
-    width: var(--icon-small);
-    height: var(--icon-small);
-    right: -20px;
-    
-}
-
-.thongTinInputFather{
-    display:flex;
-    flex-direction: column;
-    position: relative;
-}
-
-.thongTinInput{
+.theTagInput{
+    margin-left: var(--padding);
     font-weight: 500;
     color: var(--grayDark);
     font-size: 1rem;
@@ -82,59 +62,93 @@
     border: SOLID var(--grayLight);
     border-width: 1.8px;
     border-radius: 4px;
-    width: 400px;
+    width: 200px;
     padding: var(--padding) calc(var(--padding)*1.8);
 }
-
-
-.thongTinInput:focus{
+.theTagInput:focus{
     border: 2px solid var(--blue);
 }
 
-.thongTinInput:disabled{
-    background-color: var(--grayLight);
-}
-
-.thongtinMustHave{
-    font-weight: 500;
-}
-
-.thongtinAtoZ{
-    font-weight: 500;
-}
-.thonngTinWarning{
-    border: SOLID var(--red);
-    border-width: 1.8px;
-}
-
-.thonngTinWarningText{
-    margin-left: var(--padding);
+.theTagHidden{
     display: none;
-    margin-top: var(--padding);
-    color: var(--red);
-    font-size: .9rem;
-    font-weight: 500;
+}
+.theTagIcon::before{
+    background-position: -160px 0px;
 }
 
-.clearInput{
-    display: none;
-    position: absolute;
-    right: 10px;
-    top:10px;
+.iconInfo{
     width: var(--icon-small);
     height: var(--icon-small);
 }
 
-.clearInput:hover{
+.iconInfo:hover{
     cursor: pointer;
 }
 
-.clearInput::before{
+.iconInfo::before{
+    margin-left: 10px;
     position: absolute;
     content: '';
     z-index: 1;
     width: var(--icon-small);
     height: var(--icon-small);
-    background-image: url(../../../images/icon_collection.svg);
-    background-position: -80px -16px;
+}
+
+
+.iconToolTip{
+    display: none;
+    width: 150px;
+    position: absolute;
+    background-color: var(--grayDark);
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    z-index: 1;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -65px;
+}
+
+.iconToolTip::after{
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: var(--grayDark) transparent transparent transparent;
+}
+
+.iconInfo:hover .iconToolTip{
+    display: block;
+}
+
+.theTagTitle{
+    font-weight: 500;
+    margin-left: var(--padding);
+    cursor: pointer;
+}
+.theTagItemGroup{
+    margin-left: var(--padding);
+    display: flex;
+    align-items: center;
+}
+.theTagItem{
+    border: var(--border);
+    border-radius: var(--boderRadius);
+    margin-right: var(--padding);
+    background-color: var(--white);
+    padding: calc(var(--padding) * 0.7) calc(var(--padding)*2);
+}
+.theTagItem:first{
+    margin-left: 20px;
+}
+.theTagItemAddMore{
+    height: 20px;
+    margin-left: -10px;
+}
+.theTagItemAddMore::before{
+    background-position: -32px -16px;
 }
