@@ -98,7 +98,7 @@
     position: fixed;
     top:47px;
     right: -200px;
-    z-index: 5;
+    z-index: 10;
     background-color: var(--white);
     border: var(--border);
     border-radius: var(--boderRadius);
@@ -119,7 +119,7 @@
     position: fixed;
     top:47px;
     right: -260px;
-    z-index: 5;
+    z-index: 10;
     background-color: var(--white);
     border: var(--border);
     border-radius: var(--boderRadius);

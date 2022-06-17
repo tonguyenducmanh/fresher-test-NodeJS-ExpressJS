@@ -355,7 +355,7 @@
     position: fixed;
     top:47px;
     right: -200px;
-    z-index: 5;
+    z-index: 10;
     background-color: var(--white);
     border: var(--border);
     border-radius: var(--boderRadius);
@@ -376,7 +376,7 @@
     position: fixed;
     top:47px;
     right: -280px;
-    z-index: 5;
+    z-index: 10;
     background-color: var(--white);
     border: var(--border);
     border-radius: var(--boderRadius);
@@ -396,7 +396,7 @@
     position: fixed;
     top:47px;
     right: -220px;
-    z-index: 5;
+    z-index: 10;
     background-color: var(--white);
     border: var(--border);
     border-radius: var(--boderRadius);
@@ -549,7 +549,7 @@
     text-align: center;
     border-radius: 6px;
     padding: 10px 0;
-    z-index: 2;
+    z-index: 8;
 }
 
 .actionLeftFixButtonTip::after{
@@ -587,7 +587,7 @@
     color: #fff;
     text-align: center;
     border-radius: 6px;
-    z-index: 3;
+    z-index: 8;
     padding: var(--padding);
     margin-top: -60px;
     margin-left: -50px;
