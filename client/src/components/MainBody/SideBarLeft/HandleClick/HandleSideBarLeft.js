@@ -9,6 +9,7 @@ export const HandleSideBarLeft= () => {
     const notifySuccess = document.getElementsByClassName(styles.notifySuccess)
     const filterItemChecked = document.getElementsByClassName(styles.filterItemChecked)
     if(sideBarLeft.style.flex !== '0 1 0px'){
+        sideBarLeftButton.style.setProperty('--bgPositionOne', '-304px -32px')
         if( sideBarRight.style.flex !== '0 1 0px'){
             console.log('hihi')
             leftBox.style.display = 'none'
@@ -27,6 +28,7 @@ export const HandleSideBarLeft= () => {
             console.log(notifySuccess[0])
         }
     }else{
+        sideBarLeftButton.style.setProperty('--bgPositionOne', '-288px -32px')
         if(sideBarRight.style.flex !== '0 1 0px'){
             leftBox.style.display = 'block'
             if(filterItemChecked.length>0){
@@ -44,10 +46,4 @@ export const HandleSideBarLeft= () => {
             container.style.flex = '4 1 0px'
         }
     }
-    if(sideBarLeftButton.style.hasOwnProperty('--bgPositionTwo', '-304px -32px')){
-        sideBarLeftButton.style.setProperty('--bgPositionTwo', '-288px -32px')
-    }
-    else{
-        sideBarLeftButton.style.setProperty('--bgPositionTwo', '304px -32px')
-    } 
 }
