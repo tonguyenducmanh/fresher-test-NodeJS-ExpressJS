@@ -62,7 +62,11 @@ a:visited{
     background-image: blue;
 }
 
-.itemSelected a {
+.itemSelected {
+    color: var(--blue);
+}
+
+.itemSelected:visited {
     color: var(--blue);
 }
 

@@ -22,7 +22,7 @@ export const HandleCheck = () =>{
             e.target.classList.add(styles.filterItem)
             e.target.parentElement.children[1].style.display = 'none'
             e.target.parentElement.children[1].children[2].innerHTML = 'Chứa'
-            e.target.parentElement.children[1].children[2].style.color = '#9ba3b2'
+            e.target.parentElement.children[1].children[2].style.color = '#616161'
             if(e.target.parentElement.children[2]){
                 e.target.parentElement.children[2].style.display = 'none'
                 e.target.parentElement.children[2].value = ''

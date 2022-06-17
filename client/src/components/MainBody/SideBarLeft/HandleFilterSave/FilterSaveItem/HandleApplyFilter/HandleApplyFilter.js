@@ -66,7 +66,10 @@ export const HandleApplyFilter = (filter,e) =>{
 
     //xóa toàn bộ các nút đã check
     const filterItemChecked = document.getElementsByClassName(styles.filterItemChecked)
+    const filterActionCancel = document.getElementsByClassName(styles.filterActionCancel)
+    filterActionCancel[0].click()
     for(let p = 0 ; p < filterItemChecked.length; p++){
+        filterItemChecked[p].parentElement.children[3].click()
         filterItemChecked[p].click()
     }
     

@@ -71,7 +71,7 @@
 }
 
 .thongTinContentGray{
-    color: #9ba3b2;
+    color: #616161;
 }
 
 .thongTinInput{
@@ -108,7 +108,7 @@
 }
 
 .thongTinInput::placeholder{
-    color: #9ba3b2;
+    color: #616161;
 }
 
 .thongTinList{
