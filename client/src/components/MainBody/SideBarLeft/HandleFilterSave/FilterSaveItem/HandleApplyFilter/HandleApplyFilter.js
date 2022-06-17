@@ -3,6 +3,7 @@ import styles from '../../../SideBarLeft.module.css'
 
 export const HandleApplyFilter = (filter,e) =>{
     const notifySuccess = document.getElementById('applyFilterSuccess')
+    
 
     let thisFilter = filter.filter
 
@@ -80,7 +81,7 @@ export const HandleApplyFilter = (filter,e) =>{
         }else{
             filterValue.value = ''
             filter.textContent = "Chứa"
-            filter.style.color = '#9ba3b2'
+            filter.style.color = '#616161'
             filterValue.parentElement.children[3].style.display ='none'
         }
     }
@@ -94,6 +95,10 @@ export const HandleApplyFilter = (filter,e) =>{
         if(filterAction[0].children[1].style.display !=='block'){
             filterAction[0].children[1].style.display='block'
             filterAction[0].children[2].style.display='none'
+        }
+        if(filterAction[0].children[1].style.display === 'none'){
+            filterAction[0].children[1].style.display = 'block'
+            filterAction[0].children[2].style.display = 'none'
         }
 
     applyFilter(xunghoFilter, xunghoFilterValue, thisFilter.xunghoString, thisFilter.xunghoCondition)
@@ -145,7 +150,7 @@ export const HandleApplyFilter = (filter,e) =>{
             dungchungSelect.classList.add(styles.filterItemChecked)
         }else{
             dungchungFilter.textContent = "Chứa"
-            dungchungFilter.style.color = '#9ba3b2'
+            dungchungFilter.style.color = '#616161'
             dungchungFilter.parentElement.style.display ='none'
             dungchungSelect.classList.add(styles.filterItem)
             dungchungSelect.classList.remove(styles.filterItemChecked)

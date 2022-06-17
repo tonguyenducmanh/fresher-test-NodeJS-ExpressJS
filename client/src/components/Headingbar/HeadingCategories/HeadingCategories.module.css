@@ -8,7 +8,9 @@
 }
 a{
     text-decoration: none;
+    color: black;
 }
+
 a:visited{
     text-emphasis: none;
     color: black;
@@ -17,7 +19,7 @@ a:visited{
     position: relative;
     width: var(--icon-small);
     height: var(--icon-small);
-    padding-right: var(--padding);
+    padding-right: calc(var(--padding) * 2.5);
 }
 
 .icon:hover{
@@ -30,7 +32,9 @@ a:visited{
     z-index: 1;
     width: var(--icon-small);
     height: var(--icon-small);
-    background-image: url(../../../images/icon_collection.svg);
+    mask-image: url(../../../images/icon_collection.svg);
+    background-color: black;
+    background-image: none;
 }
 
 .categories{
@@ -53,10 +57,9 @@ a:visited{
     border-bottom: 2px solid var(--blue);
 }
 
-.itemSelected .icontwo::before{
-    mask:url(../../../images/icon_collection.svg);
+.itemSelected span::before{
     background-color: var(--blue);
-    background-image: none;
+    background-image: blue;
 }
 
 .itemSelected a {
@@ -75,12 +78,16 @@ a:visited{
     display: none;
 }
 
-.itemOtherList{
-    display: none;
-}
-
 .lastItem{
+    margin-right: calc(var(--padding)*3);
+    padding-bottom: var(--padding);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
     position: relative;
+}
+.itemOther{
+    margin-left: -15px;
 }
 .itemOtherList{
     position: absolute;
@@ -155,61 +162,61 @@ a:visited{
 }
 
 .iconOne::before{
-    background-position: 0px -272px;
+    mask-position: 0px -272px;
 }
 
 .iconTwo::before{
-    background-position: -160px -288px;
+    mask-position: -160px -288px;
 }
 
 .iconThree::before{
-    background-position: -15.9px -272px;
+    mask-position: -15.9px -272px;
 }
 
 .iconFour::before{
-    background-position: -128px -48px;
+    mask-position: -128px -48px;
 }
 
 .iconFive::before{
-    background-position: -112px -48px;
+    mask-position: -112px -48px;
 }
 
 .iconSix::before{
-    background-position: -80px -48px;
+    mask-position: -80px -48px;
 }
 
 .iconSeven::before{
-    background-position: -63px -48px;
+    mask-position: -63px -48px;
 }
 
 .iconEight::before{
-    background-position: -144px -48px;
+    mask-position: -144px -48px;
 }
 
 .iconNine::before{
-    background-position: -320px -176px;
+    mask-position: -320px -176px;
 }
 
 .iconTen::before{
-    background-position: -64px -304px;
+    mask-position: -64px -304px;
 }
 
 .iconEleven::before{
-    background-position: -128px -272px;
+    mask-position: -128px -272px;
 }
 
 .iconTwelve::before{
-    background-position: -80px -272px;
+    mask-position: -80px -272px;
 }
 
 .iconThirteen::before{
-    background-position: -208px -50px;
+    mask-position: -208px -50px;
 }
 
 .iconFourteen::before{
-    background-position: -31.7px -272px;
+    mask-position: -31.7px -272px;
 }
 
 .iconFifteen::before{
-    background-position: -49px -272px;
+    mask-position: -49px -272px;
 }

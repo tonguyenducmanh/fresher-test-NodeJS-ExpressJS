@@ -42,7 +42,6 @@
     margin: 0;
     padding: 0;
     position: relative;
-    margin-bottom: 30px;
 }
 
 
@@ -64,5 +63,9 @@
     display: none;
     flex-direction: column;
     position: relative;
+}
+
+.filterSaveList:last-child{
+    margin-bottom: var(--padding);
 }
 

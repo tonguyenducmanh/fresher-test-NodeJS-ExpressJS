@@ -3,7 +3,12 @@ import styles from '../SideBarLeft.module.css'
 export const HandleTyping = () =>{
     const filterTextContent = document.getElementsByClassName(styles.filterTextContent)
     const filterActionApply = document.getElementsByClassName(styles.filterActionApply)
+    const filterAction = document.getElementsByClassName(styles.filterAction)
     const filterTextContentEvent = (e)=>{
+        if(filterAction[0].children[1].style.display === 'none'){
+            filterAction[0].children[1].style.display = 'block'
+            filterAction[0].children[2].style.display = 'none'
+        }
         if(e.target.value !==''){
             e.target.parentElement.children[e.target.parentElement.children.length-1].style.display = 'block'
         }else{

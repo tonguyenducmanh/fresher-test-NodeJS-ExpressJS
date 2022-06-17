@@ -1,95 +1,165 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import styles from './HeadingCategories.module.css'
 const HeadingCategories = () =>{
-    
+    useEffect(()=>{
+        const itemElement = document.getElementsByClassName(styles.item)
+        const itemOtherList = document.getElementsByClassName(styles.itemOtherList)
+        const itemElementEvent = (i)=>{
+            return (e)=>{
+                for(let p = 0 ; p< itemElement.length ; p++){
+                    if(itemElement[p].classList.contains(styles.itemSelected)){
+                        itemElement[p].classList.remove(styles.itemSelected)
+                    }
+                }
+                if(!itemElement[i].classList.contains(styles.lastItem)){
+                    itemElement[i].classList.add(styles.itemSelected)
+                    if( itemElement[i].parentElement.classList.contains(styles.itemOtherList)){
+                        itemElement[i].style.border='none'
+                    }
+                }
+
+            }
+        }
+
+        for(let i = 0 ; i < itemElement.length ; i++){
+            itemElement[i].addEventListener('click', itemElementEvent(i))
+        }
+        return()=>{
+            for(let i = 0 ; i < itemElement.length; i++){
+                itemElement[i].removeEventListener('click', itemElementEvent(i))
+            }
+        }
+    },[])
+
+
     return (
         <div className={styles.categories}>
-            <span className={styles.item}>
+            <Link to="/others" className={styles.item}>
+                
+                <span className={styles.itemText}>
                 <span className={`${styles.icon} ${styles.iconOne}`}></span>
-                <Link to="/others" className={styles.itemText}>Bàn làm việc</Link>
-            </span>
-            <span className={`${styles.item} ${styles.itemSelected}`}>
+                    Bàn làm việc</span>
+            </Link>
+            <Link to="/" className={`${styles.item} ${styles.itemSelected}`}>
+                
+                <span   className={styles.itemText}>
                 <span className={`${styles.icon} ${styles.iconTwo}`}></span>
-                <Link to="/"  className={styles.itemText}>Tiềm năng</Link>
-            </span>
-            <span className={styles.item}>
+                Tiềm năng</span>
+            </Link>
+            <Link to="/others" className={styles.item}>
+                
+                <span  className={styles.itemText}>
                 <span className={`${styles.icon} ${styles.iconThree}`}></span>
-                <Link to="/others"  className={styles.itemText}>Chào hàng</Link>
-            </span>
-            <span className={styles.item}>
+                Chào hàng</span>
+            </Link>
+            <Link to="/others" className={styles.item}>
+                
+                <span  className={styles.itemText}>
                 <span className={`${styles.icon} ${styles.iconFour}`}></span>
-                <Link to="/others"  className={styles.itemText}>Liên hệ</Link>
-            </span>
-            <span className={styles.item}>
+                Liên hệ</span>
+            </Link>
+            <Link to="/others" className={styles.item}>
+                
+                <span  className={styles.itemText}>
                 <span className={`${styles.icon} ${styles.iconFive}`}></span>
-                <Link to="/others"  className={styles.itemText}>Khách hàng</Link>
-            </span>
-            <span className={styles.item}>
+                Khách hàng</span>
+            </Link>
+            <Link to="/others" className={styles.item}>
+                
+                <span  className={styles.itemText}>
                 <span className={`${styles.icon} ${styles.iconSix}`}></span>
-                <Link to="/others"  className={styles.itemText}>Cơ hội</Link>
-            </span>
-            <span className={styles.item}>
+                Cơ hội</span>
+            </Link>
+            <Link to="/others" className={styles.item}>
+                
+                <span  className={styles.itemText}>
                 <span className={`${styles.icon} ${styles.iconSeven}`}></span>
-                <Link to="/others"  className={styles.itemText}>Báo giá</Link>
-            </span>
-            <span className={`${styles.item} `}>
+                Báo giá</span>
+            </Link>
+            <Link to="/others" className={`${styles.item} `}>
+                
+                <span  className={styles.itemText}>
                 <span className={`${styles.icon} ${styles.iconEight}`}></span>
-                <Link to="/others"  className={styles.itemText}>Đơn hàng</Link>
-            </span>
-            <span className={`${styles.item} ${styles.itemHiddenTwo}`}>
+                Đơn hàng</span>
+            </Link>
+            <Link to="/others" className={`${styles.item} ${styles.itemHiddenTwo}`}>
+               
+                <span  className={styles.itemText}>
                 <span className={`${styles.icon} ${styles.iconNine}`}></span>
-                <Link to="/others"  className={styles.itemText}>Hóa đơn</Link>
-            </span>
-            <span className={`${styles.item} ${styles.itemHiddenTwo}`}>
+                Hóa đơn</span>
+            </Link>
+            <Link to="/others" className={`${styles.item} ${styles.itemHiddenTwo}`}>
+                
+                <span  className={styles.itemText}>
                 <span className={`${styles.icon} ${styles.iconTen}`}></span>
-                <Link to="/others"  className={styles.itemText}>Ao cơ hội</Link>
-            </span>
-            <span className={`${styles.item} ${styles.itemHiddenThree}`}>
+                Ao cơ hội</span>
+            </Link>
+            <Link to="/others" className={`${styles.item} ${styles.itemHiddenThree}`}>
+                
+                <span  className={styles.itemText}>
                 <span className={`${styles.icon} ${styles.iconEleven}`}></span>
-                <Link to="/others"  className={styles.itemText}>Hoạt động</Link>
-            </span>
-            <span className={`${styles.item} ${styles.itemHiddenThree}`}>
+                Hoạt động</span>
+            </Link>
+            <Link to="/others" className={`${styles.item} ${styles.itemHiddenThree}`}>
+                
+                <span  className={styles.itemText}>
                 <span className={`${styles.icon} ${styles.iconTwelve}`}></span>
-                <Link to="/others"  className={styles.itemText}>Mục tiêu</Link>
-            </span>
-            <span className={`${styles.item} ${styles.itemHiddenThree}`}>
+                Mục tiêu</span>
+            </Link>
+            <Link to="/others" className={`${styles.item} ${styles.itemHiddenThree}`}>
+                
+                <span  className={styles.itemText}>
                 <span className={`${styles.icon} ${styles.iconThirteen}`}></span>
-                <Link to="/others"  className={styles.itemText}>Chiến dịch</Link>
-            </span>
-            <span className={`${styles.item} ${styles.itemHiddenThree}`}>
+                Chiến dịch</span>
+            </Link>
+            <Link to="/others" className={`${styles.item} ${styles.itemHiddenThree}`}>
+                
+                <span  className={styles.itemText}>
                 <span className={`${styles.icon} ${styles.iconFourteen}`}></span>
-                <Link to="/others"  className={styles.itemText}>Báo cáo</Link>
-            </span>
-            <span className={`${styles.item} ${styles.lastItem}`}>
+                Báo cáo</span>
+            </Link>
+            <span className={` ${styles.lastItem}`}>
                 <span className={`${styles.icon} ${styles.iconFifteen}`}></span>
-                <span className={styles.itemText}>Khác</span>
+                <span className={`${styles.itemText} ${styles.itemOther}`}>Khác</span>
                 <span className={styles.itemOtherList}>
-                    <span className={`${styles.item} ${styles.itemOtherHiddenTwo}`}>
+                    <Link to="/others" className={`${styles.item} ${styles.itemOtherHiddenTwo}`}>
+                        
+                        <span  className={styles.itemText}>
                         <span className={`${styles.icon} ${styles.iconNine}`}></span>
-                        <Link to="/others"  className={styles.itemText}>Hóa đơn</Link>
-                    </span>
-                    <span className={`${styles.item} ${styles.itemOtherHiddenTwo}`}>
+                        Hóa đơn</span>
+                    </Link>
+                    <Link to="/others" className={`${styles.item} ${styles.itemOtherHiddenTwo}`}>
+                       
+                        <span  className={styles.itemText}>
                         <span className={`${styles.icon} ${styles.iconTen}`}></span>
-                        <Link to="/others"  className={styles.itemText}>Ao cơ hội</Link>
-                    </span>
-                    <span className={`${styles.item} ${styles.itemOtherHiddenThree}`}>
+                        Ao cơ hội</span>
+                    </Link>
+                    <Link to="/others" className={`${styles.item} ${styles.itemOtherHiddenThree}`}>
+                        
+                        <span  className={styles.itemText}>
                         <span className={`${styles.icon} ${styles.iconEleven}`}></span>
-                        <Link to="/others"  className={styles.itemText}>Hoạt động</Link>
-                    </span>
-                    <span className={`${styles.item} ${styles.itemOtherHiddenThree}`}>
+                        Hoạt động</span>
+                    </Link>
+                    <Link to="/others" className={`${styles.item} ${styles.itemOtherHiddenThree}`}>
+                        
+                        <span  className={styles.itemText}>
                         <span className={`${styles.icon} ${styles.iconTwelve}`}></span>
-                        <Link to="/others"  className={styles.itemText}>Mục tiêu</Link>
-                    </span>
-                    <span className={`${styles.item} ${styles.itemOtherHiddenThree}`}>
+                        Mục tiêu</span>
+                    </Link>
+                    <Link to="/others" className={`${styles.item} ${styles.itemOtherHiddenThree}`}>
+                        
+                        <span  className={styles.itemText}>
                         <span className={`${styles.icon} ${styles.iconThirteen}`}></span>
-                        <Link to="/others"  className={styles.itemText}>Chiến dịch</Link>
-                    </span>
-                    <span className={`${styles.item} ${styles.itemOtherHiddenThree}`}>
+                        Chiến dịch</span>
+                    </Link>
+                    <Link to="/others" className={`${styles.item} ${styles.itemOtherHiddenThree}`}>
+                        
+                        <span  className={styles.itemText}>
                         <span className={`${styles.icon} ${styles.iconFourteen}`}></span>
-                        <Link to="/others"  className={styles.itemText}>Báo cáo</Link>
-                    </span>
+                        Báo cáo</span>
+                    </Link>
                 </span>
             </span>
         </div>

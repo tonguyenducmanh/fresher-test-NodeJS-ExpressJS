@@ -40,29 +40,32 @@
 
 .container{
     position: relative;
-    left: 0;
     background-color: var(--white);
     width: 30%;
     border: var(--border);
-    bottom: 0;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
 }
 
 .filterContainer{
     position: relative;
-    overflow-y: auto;
+    height: 100%;
 }
 
 .box{
     font-size: 1rem;
+    position: absolute;
+    height:inherit;
+    right: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .filterBoxList{
-    position: relative;
     padding: var(--padding);
-    padding-top: 0;
+    padding-top: 0;  
+    overflow-y: auto;
 }
 .filterSelect{
     position: relative;

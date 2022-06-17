@@ -36,6 +36,10 @@ export const HandleCheck = () =>{
             //nếu nhiều nút được check thì hiện cái thanh áp dụng
             if(filterCheck > 0){
                 filterAction[0].style.display = 'flex'
+                if(filterAction[0].children[1].style.display === 'none'){
+                    filterAction[0].children[1].style.display = 'block'
+                    filterAction[0].children[2].style.display = 'none'
+                }
             }
 
         //nếu không có  nút được check thì ẩn cái thanh áp dụng

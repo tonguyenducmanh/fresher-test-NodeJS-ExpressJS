@@ -3,8 +3,13 @@ import styles from '../SideBarLeft.module.css'
 export const HandleDeleteValue = () =>{
     const clearInput = document.getElementsByClassName(styles.clearInput)
     const filterActionApply = document.getElementsByClassName(styles.filterActionApply)
+    const filterAction = document.getElementsByClassName(styles.filterAction)
     
     const clearInputEvent = (e)=>{
+        if(filterAction[0].children[1].style.display === 'none'){
+            filterAction[0].children[1].style.display = 'block'
+            filterAction[0].children[2].style.display = 'none'
+        }
         let count = 0 
         e.target.parentElement.children[2].value = ''
         e.target.style.display = 'none'

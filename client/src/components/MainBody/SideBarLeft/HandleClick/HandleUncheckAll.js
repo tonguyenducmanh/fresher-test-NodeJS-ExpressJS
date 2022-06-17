@@ -11,7 +11,9 @@ export const HandleUncheckAll = (dispatch) =>{
         for (let i = 0; i < filterSelect.length; i++) {
                 if(filterSelect[i].children[0].classList.contains(styles.filterItemChecked)){
                     filterSelect[i].children[0].click()
-                    filterSelect[i].children[3].click()
+                    if(filterSelect[i].children[3]){
+                        filterSelect[i].children[3].click()
+                    }
                 }
         }
 

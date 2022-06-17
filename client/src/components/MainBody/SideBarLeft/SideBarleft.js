@@ -50,7 +50,7 @@ const SideBarLeft = () =>{
                                 Thẻ
                         </div>
                         <TruongChonNhieu arr={Array} id='theFilter' />
-                        <input className={styles.filterTextContent} id='theFilterValue'/>
+                        <input className={styles.filterTextContent} autoComplete='off' id='theFilterValue'/>
                         <span className={styles.clearInput}></span>
                     </div>
                     <div className={styles.filterSelect}>
@@ -58,7 +58,7 @@ const SideBarLeft = () =>{
                                 Xưng hô
                         </div>
                         <TruongChonNhieu arr={Array} id='xunghoFilter' />
-                        <input className={styles.filterTextContent} id='xunghoFilterValue'/>
+                        <input className={styles.filterTextContent} autoComplete='off' id='xunghoFilterValue'/>
                         <span className={styles.clearInput}></span>
                     </div>
                     <div className={styles.filterSelect}>
@@ -66,7 +66,7 @@ const SideBarLeft = () =>{
                                 Loại tiềm năng
                         </div>
                         <TruongChonNhieu arr={Array} id='loaitiemnangFilter' />
-                        <input className={styles.filterTextContent} id='loaitiemnangFilterValue'/>
+                        <input className={styles.filterTextContent} autoComplete='off' id='loaitiemnangFilterValue'/>
                         <span className={styles.clearInput}></span>
                     </div>
                     <div className={styles.filterSelect}>
@@ -74,7 +74,7 @@ const SideBarLeft = () =>{
                                 Họ và đệm
                         </div>
                         <TruongChonNhieu arr={Array} id='hovademFilter' />
-                        <input className={styles.filterTextContent} id='hovademFilterValue'/>
+                        <input className={styles.filterTextContent} autoComplete='off' id='hovademFilterValue'/>
                         <span className={styles.clearInput}></span>
                     </div>
                     <div className={styles.filterSelect}>
@@ -82,7 +82,7 @@ const SideBarLeft = () =>{
                                 Tên
                         </div>
                         <TruongChonNhieu arr={Array} id='tenFilter' />
-                        <input className={styles.filterTextContent} id='tenFilterValue'/>
+                        <input className={styles.filterTextContent} autoComplete='off' id='tenFilterValue'/>
                         <span className={styles.clearInput}></span>
                     </div>
                     <div className={styles.filterSelect}>
@@ -90,7 +90,7 @@ const SideBarLeft = () =>{
                                 Chức danh
                         </div>
                         <TruongChonNhieu arr={Array} id='chucdanhFilter' />
-                        <input className={styles.filterTextContent} id='chucdanhFilterValue'/>
+                        <input className={styles.filterTextContent} autoComplete='off' id='chucdanhFilterValue'/>
                         <span className={styles.clearInput}></span>
                     </div>
                     <div className={styles.filterSelect}>
@@ -98,7 +98,7 @@ const SideBarLeft = () =>{
                                 ĐT di động
                         </div>
                         <TruongChonNhieu arr={Array} id='dtdidongFilter' />
-                        <input className={styles.filterTextContent} id='dtdidongFilterValue'/>
+                        <input className={styles.filterTextContent} autoComplete='off' id='dtdidongFilterValue'/>
                         <span className={styles.clearInput}></span>
                     </div>
                     <div className={styles.filterSelect}>
@@ -106,7 +106,7 @@ const SideBarLeft = () =>{
                                 ĐT cơ quan
                         </div>
                         <TruongChonNhieu arr={Array} id='dtcoquanFilter' />
-                        <input className={styles.filterTextContent} id='dtcoquanFilterValue'/>
+                        <input className={styles.filterTextContent} autoComplete='off' id='dtcoquanFilterValue'/>
                         <span className={styles.clearInput}></span>
                     </div>
                     <div className={styles.filterSelect}>
@@ -114,7 +114,7 @@ const SideBarLeft = () =>{
                                 Email cá nhân
                         </div>
                         <TruongChonNhieu arr={Array} id='emailcanhanFilter' />
-                        <input className={styles.filterTextContent} id='emailcanhanFilterValue'/>
+                        <input className={styles.filterTextContent} autoComplete='off' id='emailcanhanFilterValue'/>
                         <span className={styles.clearInput}></span>
                     </div>
                     <div className={styles.filterSelect}>
@@ -122,7 +122,7 @@ const SideBarLeft = () =>{
                                 Email cơ quan
                         </div>
                         <TruongChonNhieu arr={Array} id='emailcoquanFilter' />
-                        <input className={styles.filterTextContent} id='emailcoquanFilterValue'/>
+                        <input className={styles.filterTextContent} autoComplete='off' id='emailcoquanFilterValue'/>
                         <span className={styles.clearInput}></span>
                     </div>
                     <div className={styles.filterSelect}>
@@ -130,7 +130,7 @@ const SideBarLeft = () =>{
                                 Tổ chức
                         </div>
                         <TruongChonNhieu arr={Array} id='tochucFilter' />
-                        <input className={styles.filterTextContent} id='tochucFilterValue'/>
+                        <input className={styles.filterTextContent} autoComplete='off' id='tochucFilterValue'/>
                         <span className={styles.clearInput}></span>
                     </div>
                     <div className={styles.filterSelect}>
@@ -138,7 +138,7 @@ const SideBarLeft = () =>{
                                 Phòng ban
                         </div>
                         <TruongChonNhieu arr={Array} id='phongbanFilter' />
-                        <input className={styles.filterTextContent} id='phongbanFilterValue'/>
+                        <input className={styles.filterTextContent} autoComplete='off' id='phongbanFilterValue'/>
                         <span className={styles.clearInput}></span>
                     </div>
                     <div className={styles.filterSelect}>
@@ -146,7 +146,7 @@ const SideBarLeft = () =>{
                                Mã số thuế
                         </div>
                         <TruongChonNhieu arr={Array} id='masothueFilter' />
-                        <input className={styles.filterTextContent} id='masothueFilterValue'/>
+                        <input className={styles.filterTextContent} autoComplete='off' id='masothueFilterValue'/>
                         <span className={styles.clearInput}></span>
                     </div>
                     <div className={styles.filterSelect}>
@@ -154,7 +154,7 @@ const SideBarLeft = () =>{
                                Tài khoản ngân hàng
                         </div>
                         <TruongChonNhieu arr={Array} id='taikhoannganhangFilter' />
-                        <input className={styles.filterTextContent} id='taikhoannganhangFilterValue'/>
+                        <input className={styles.filterTextContent} autoComplete='off' id='taikhoannganhangFilterValue'/>
                         <span className={styles.clearInput}></span>
                     </div>
                     <div className={styles.filterSelect}>
@@ -162,7 +162,7 @@ const SideBarLeft = () =>{
                                Mở tại ngân hàng
                         </div>
                         <TruongChonNhieu arr={Array} id='motainganhangFilter' />
-                        <input className={styles.filterTextContent} id='motainganhangFilterValue'/>
+                        <input className={styles.filterTextContent} autoComplete='off' id='motainganhangFilterValue'/>
                         <span className={styles.clearInput}></span>
                     </div>
                     <div className={styles.filterSelect}>
@@ -170,7 +170,7 @@ const SideBarLeft = () =>{
                                Ngày thành lập
                         </div>
                         <TruongChonNhieu arr={Array} id='ngaythanhlapFilter' />
-                        <input className={styles.filterTextContent} id='ngaythanhlapFilterValue'/>
+                        <input className={styles.filterTextContent} autoComplete='off' id='ngaythanhlapFilterValue'/>
                         <span className={styles.clearInput}></span>
                     </div>
                     <div className={styles.filterSelect}>
@@ -178,7 +178,7 @@ const SideBarLeft = () =>{
                                 Ngành nghề
                         </div>
                         <TruongChonNhieu arr={Array} id='nganhngheFilter' />
-                        <input className={styles.filterTextContent} id='nganhngheFilterValue'/>
+                        <input className={styles.filterTextContent} autoComplete='off' id='nganhngheFilterValue'/>
                         <span className={styles.clearInput}></span>
                     </div>
                     <div className={styles.filterSelect}>
@@ -186,7 +186,7 @@ const SideBarLeft = () =>{
                                 Tỉnh/Thành phố
                         </div>
                         <TruongChonNhieu arr={Array} id='tinhthanhFilter' />
-                        <input className={styles.filterTextContent} id='tinhthanhFilterValue'/>
+                        <input className={styles.filterTextContent} autoComplete='off' id='tinhthanhFilterValue'/>
                         <span className={styles.clearInput}></span>
                     </div>
                     <div className={styles.filterSelect}>
@@ -194,7 +194,7 @@ const SideBarLeft = () =>{
                                 Quốc gia
                         </div>
                         <TruongChonNhieu arr={Array} id='quocgiaFilter' />
-                        <input className={styles.filterTextContent} id='quocgiaFilterValue'/>
+                        <input className={styles.filterTextContent} autoComplete='off' id='quocgiaFilterValue'/>
                         <span className={styles.clearInput}></span>
                     </div>
                     <div className={styles.filterSelect}>
@@ -202,7 +202,7 @@ const SideBarLeft = () =>{
                                 Quận/Huyện
                         </div>
                         <TruongChonNhieu arr={Array} id='quanhuyenFilter' />
-                        <input className={styles.filterTextContent} id='quanhuyenFilterValue'/>
+                        <input className={styles.filterTextContent} autoComplete='off' id='quanhuyenFilterValue'/>
                         <span className={styles.clearInput}></span>
                     </div>
                     <div className={styles.filterSelect}>
@@ -210,7 +210,7 @@ const SideBarLeft = () =>{
                                 Phường/Xã
                         </div>
                         <TruongChonNhieu arr={Array} id='phuongxaFilter' />
-                        <input className={styles.filterTextContent} id='phuongxaFilterValue'/>
+                        <input className={styles.filterTextContent} autoComplete='off' id='phuongxaFilterValue'/>
                         <span className={styles.clearInput}></span>
                     </div>
                     <div className={styles.filterSelect}>
@@ -218,7 +218,7 @@ const SideBarLeft = () =>{
                                 Số nhà
                         </div>
                         <TruongChonNhieu arr={Array} id='sonhaFilter' />
-                        <input className={styles.filterTextContent} id='sonhaFilterValue'/>
+                        <input className={styles.filterTextContent} autoComplete='off' id='sonhaFilterValue'/>
                         <span className={styles.clearInput}></span>
                     </div>
                     <div className={styles.filterSelect}>
@@ -226,7 +226,7 @@ const SideBarLeft = () =>{
                                 Nguồn gốc
                         </div>
                         <TruongChonNhieu arr={Array} id='nguongocFilter' />
-                        <input className={styles.filterTextContent} id='nguongocFilterValue'/>
+                        <input className={styles.filterTextContent} autoComplete='off' id='nguongocFilterValue'/>
                         <span className={styles.clearInput}></span>
                     </div>
                     <div className={styles.filterSelect}>
@@ -234,7 +234,7 @@ const SideBarLeft = () =>{
                                 Loại hình
                         </div>
                         <TruongChonNhieu arr={Array} id='loaihinhFilter' />
-                        <input className={styles.filterTextContent} id='loaihinhFilterValue'/>
+                        <input className={styles.filterTextContent} autoComplete='off' id='loaihinhFilterValue'/>
                         <span className={styles.clearInput}></span>
                     </div>
                     <div className={styles.filterSelect}>
@@ -242,7 +242,7 @@ const SideBarLeft = () =>{
                                 Lĩnh vực
                         </div>
                         <TruongChonNhieu arr={Array} id='linhvucFilter' />
-                        <input className={styles.filterTextContent} id='linhvucFilterValue'/>
+                        <input className={styles.filterTextContent} autoComplete='off' id='linhvucFilterValue'/>
                         <span className={styles.clearInput}></span>
                     </div>
                     <div className={styles.filterSelect}>
@@ -250,7 +250,7 @@ const SideBarLeft = () =>{
                                 Mô tả
                         </div>
                         <TruongChonNhieu arr={Array} id='motaFilter' />
-                        <input className={styles.filterTextContent} id='motaFilterValue'/>
+                        <input className={styles.filterTextContent} autoComplete='off' id='motaFilterValue'/>
                         <span className={styles.clearInput}></span>
                     </div>
                     <div className={styles.filterSelect}>
@@ -258,7 +258,7 @@ const SideBarLeft = () =>{
                                 Doanh thu
                         </div>
                         <TruongChonNhieu arr={Array} id='doanhthuFilter' />
-                        <input className={styles.filterTextContent} id='doanhthuFilterValue'/>
+                        <input className={styles.filterTextContent} autoComplete='off' id='doanhthuFilterValue'/>
                         <span className={styles.clearInput}></span>
                     </div>
                     <div className={styles.filterSelect}>
@@ -274,7 +274,7 @@ const SideBarLeft = () =>{
                                 Zalo
                         </div>
                         <TruongChonNhieu arr={Array} id='zaloFilter' />
-                        <input className={styles.filterTextContent} id='zaloFilterValue'/>
+                        <input className={styles.filterTextContent} autoComplete='off' id='zaloFilterValue'/>
                         <span className={styles.clearInput}></span>
                     </div>
                 </div>

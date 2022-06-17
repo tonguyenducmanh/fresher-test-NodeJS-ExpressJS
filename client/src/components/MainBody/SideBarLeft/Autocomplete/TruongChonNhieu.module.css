@@ -65,7 +65,7 @@
 }
 
 .thongTinContent{
-    color: var(--gray);
+    color: var(--grayDark);
     pointer-events: none;
     padding-left: var(--padding);
 }
