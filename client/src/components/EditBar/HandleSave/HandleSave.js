@@ -70,6 +70,7 @@ export const HandleSave = (dispatch,anhCu) =>{
                 const soNha = document.getElementById('soNhaEdit').value
                 const maVung = document.getElementById('maVungEdit').value
                 const moTa = document.getElementById('moTaEdit').value
+                const history = document.getElementById('historyEdit').value
                 const dungChungCheck = document.getElementById('dungChungEdit')
                 const loaiTiemNang = document.getElementById('loaiTiemNangEdit').children
                 const theTagInput = document.getElementById('theTagInput').value
@@ -128,6 +129,18 @@ export const HandleSave = (dispatch,anhCu) =>{
                 data.append('maVung', maVung)
                 data.append('moTa', moTa)
     
+                                
+                const historyArray = history.replace(/(\r\n|\n|\r)/gm, "").split(';')
+                console.log(historyArray)
+
+                for(let k=0; k< historyArray.length; k++){
+                    if(historyArray[k] !=='- Không chọn -'){
+                        data.append('history[]', historyArray[k])
+                    }else{
+                        data.append('history[]', '')
+                    }
+                }
+
                 let loaiTiemNangArray = []
                 for(let i = 0 ; i < loaiTiemNang.length; i ++){
                     loaiTiemNangArray.push(loaiTiemNang[i].textContent)

@@ -55,6 +55,7 @@ export const ExportToExcellFile = (findList) =>{
             doanhthu: row.doanhthu,
             dungchung: row.dungchung ? 'có' : 'không',
             zalo: row.zalo,
+            history: row.history.join(';'),
             // __v: row.__v
             //trường này được sinh ra tự động từ mongodb nên cũng không cần
             }));
@@ -67,13 +68,13 @@ export const ExportToExcellFile = (findList) =>{
             /* hàng đầu tiên là tiêu đề */
             XLSX.utils.sheet_add_aoa(worksheet, [["Thẻ","Loại tiềm năng", "Xưng hô", "Họ và tên", "Chức danh", "Điện thoại di động", "Điện thoại cơ quan",
             "Email cá nhân","Email cơ quan", "Tổ chức", "Địa chỉ", "Tỉnh/Thành phố", "Quận/Huyện", "Phường/Xã", "Nguồn gốc", "Loại hình", "Lĩnh vực",
-            "Mô tả", "Chủ sở hữu", "Doanh thu","Dùng chung","Zalo"
+            "Mô tả", "Chủ sở hữu", "Doanh thu","Dùng chung","Zalo","Lịch sử giao dịch"
 
         ]], { origin: "A1" });
         
             /* chiều rộng của từng cột */
             worksheet["!cols"] = [ 
-                { wch: 25 }, { wch: 25 } ,{ wch: 10 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 },{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 }
+                { wch: 25 }, { wch: 25 } ,{ wch: 10 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 },{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 } ,{ wch: 20 },{ wch: 40 }
             ];
             /* xuất ra file excell với tên khachhang.xlsx */
             XLSX.writeFile(workbook, "khachhang.xlsx");

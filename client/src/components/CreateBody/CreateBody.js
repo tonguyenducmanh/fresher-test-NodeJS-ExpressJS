@@ -278,6 +278,18 @@ const CreateBody = () =>{
                             </span>
                             
                         </div>
+                        <div className={styles.thongTinGroupTitle}>Thông tin Giao dịch</div>
+                        <div className={styles.thongTinGroupBody}>
+                            <span className={styles.thongTinMoTa}>
+                                <span className={`${styles.thongTinTitle} ${styles.thongTinMoTaTilte}`}>Danh sách giao dịch</span>
+                                    <textarea className={`${styles.thongTinInput} ${styles.thongTinMoTaInput}`}
+                                        id='history'
+                                        placeholder='Cú pháp nhập danh sách: giao dịch A#tên nhân viên#ngày giao dịch;'
+                                    />
+                                    <span className={styles.clearInputMota} title='Xóa danh sách giao dịch'></span>
+                            </span>
+                            
+                        </div>
                     </div>
                     <div className={styles.thongTinChung}>
                         <div className={styles.thongTinGroupTitle}>Thông tin hệ thống</div>

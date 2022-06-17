@@ -78,6 +78,7 @@ export const HandleSave = (dispatch) =>{
             const soNha = document.getElementById('soNha').value
             const maVung = document.getElementById('maVung').value
             const moTa = document.getElementById('moTa').value
+            const history = document.getElementById('history').value
             const dungChungCheck = document.getElementById('dungChung')
             const loaiTiemNang = document.getElementById('loaiTiemNang').children
             const the = ['']
@@ -134,6 +135,17 @@ export const HandleSave = (dispatch) =>{
             data.append('soNha', soNha)
             data.append('maVung', maVung)
             data.append('moTa', moTa)
+            
+            const historyArray = history.replace(/(\r\n|\n|\r)/gm, "").split(';')
+            console.log(historyArray)
+
+            for(let k=0; k< historyArray.length; k++){
+                if(historyArray[k] !=='- Không chọn -'){
+                    data.append('history[]', historyArray[k])
+                }else{
+                    data.append('history[]', '')
+                }
+            }
 
             let loaiTiemNangArray = []
             for(let i = 0 ; i < loaiTiemNang.length; i ++){
