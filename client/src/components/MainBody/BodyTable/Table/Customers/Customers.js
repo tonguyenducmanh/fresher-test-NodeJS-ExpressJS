@@ -6,6 +6,8 @@ import { useDispatch } from 'react-redux'
 import { useSelector } from "react-redux";
 import {HandleCheck} from './HandleCheck'
 
+import { HandleShowHistory } from "./HandleShowHistory";
+
 import { HandleEditCustomer } from "./HandleEditCustomer/HandleEditCustomer";
 import {fetchCustomersList} from '../../../../../features/customers/customersSlice'
 import { addSearchString } from "../../../../../features/customers/customersSlice";
@@ -118,7 +120,7 @@ export const Customers = () => {
                 {customers.map((customer) => (
                 <tr className={styles.trId} 
                     key={customer._id} 
-                    
+                    onClick={()=>HandleShowHistory(dispatch,customer.history)}
                 >
                     <td className={`${styles.iconHeading} ${styles.iconButtonCustomers}`}></td>
                     <td className={styles.tdId}>{customer._id}</td>

@@ -5,6 +5,7 @@ import {paginationReducer, customersReducer, countReducer,
   tempCustomerReducer, checkCustomerReducer, lastIDReducer
 } from '../features/customers/customersSlice'
 
+import { historyReducer } from '../features/history/historySlice'
 import { filterReducer,deleteFilterReducer,editFilterReducer, createFilterReducer } from '../features/filters/filtersSlice'
 
 export default configureStore({
@@ -22,6 +23,7 @@ export default configureStore({
       filters: filterReducer,
       deleteFilter: deleteFilterReducer,
       eidtFilter:editFilterReducer,
-      createFilter: createFilterReducer
+      createFilter: createFilterReducer,
+      history: historyReducer,
     }
   })

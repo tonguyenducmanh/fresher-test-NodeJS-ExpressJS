@@ -160,3 +160,18 @@
     background-position: var(--bgPositionTwo);
     margin-top: 16px;
 }
+.historyBox{
+    position: absolute;
+    height:inherit;
+    right: 0;
+    left: 0;
+    top: 70px;
+    bottom: 0;   
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+.notifyClickNow{
+    padding: var(--padding);
+    font-size: .9rem;
+}

@@ -25,7 +25,7 @@ var requestOptions = {
   pm.variables.set('xungHo', randomXungHo());
 
   function randomThe(){
-    const xungHo = ["deptrai", "xinhgai", "", "nhieutien"
+    const xungHo = ["deptrai", "xinhgai", "nhieutien"
     ]
     const the = xungHo[Math.floor(Math.random() * xungHo.length)]
     return the;
@@ -33,6 +33,25 @@ var requestOptions = {
 
 pm.variables.set('the', randomThe());
   
+function randomThe2(){
+    const xungHo = ["nhapho", "giau", "vision"
+    ]
+    const the = xungHo[Math.floor(Math.random() * xungHo.length)]
+    return the;
+}
+
+pm.variables.set('the2', randomThe2());
+ 
+function randomThe3(){
+    const xungHo = ["sh", "khoe", "luongcao"
+    ]
+    const the = xungHo[Math.floor(Math.random() * xungHo.length)]
+    return the;
+}
+
+pm.variables.set('the3', randomThe3());
+
+
   
   function ramdomPhongBan(){
       const phongban = [ '' ,
@@ -498,6 +517,86 @@ pm.variables.set('the', randomThe());
   pm.variables.set('ten', result[1]);
   pm.variables.set('emailCaNhan', resultEmail);
   pm.variables.set('emailCoQuan', resultEmailTwo);
+  
+  
+  
+    
+  
+  function randomHistory(){
+    const historyArray = [
+    'Giao dịch ngoại hối#nhân viên Long#20122022' ,
+    'Giao dịch nội địa#nhân viên Mạnh#20122021' ,
+    
+    ]
+    const history = historyArray[Math.floor(Math.random() * historyArray.length)]
+    return history;
+}
+
+pm.variables.set('history', randomHistory());
+
+  
+  
+  function randomHistory2(){
+    const historyArray = [
+
+    'Giao dịch tại chỗ#nhân viên TÚ#20122001' ,
+    'Giao dịch tại quầy#nhân viên Nam#20122021' ,
+    'Giao dịch tại sàn#nhân viên Oanh#22022007' ,
+  
+    ]
+    const history = historyArray[Math.floor(Math.random() * historyArray.length)]
+    return history;
+}
+
+pm.variables.set('history2', randomHistory2());
+
+
+  function randomHistory3(){
+    const historyArray = [
+    'Giao dịch bị hủy#nhân viên Trang#11012011' ,
+    'Giao dịch không thành#nhân viên Giang#21072018' ,
+    'Giao dịch thành công#nhân viên Tuấn#22042020' ,
+    ]
+    const history = historyArray[Math.floor(Math.random() * historyArray.length)]
+    return history;
+}
+
+pm.variables.set('history3', randomHistory3());
+
+  
+  
+  
+  
+
+  function randomHistory4(){
+    const historyArray = [
+    'Giao dịch lớn#nhân viên Đào#05082019' ,
+    'Giao dịch nhiều lần#nhân viên Phương#01092018' ,
+    'Giao dịch đang đợi#nhân viên Mai#01012020' ,
+    'Giao dịch sớm#nhân viên Hải#02052022' ,
+    'Giao dịch paypal#nhân viên John#19122021' ,
+    ]
+    const history = historyArray[Math.floor(Math.random() * historyArray.length)]
+    return history;
+}
+
+pm.variables.set('history4', randomHistory4());
+
+
+  function randomHistory5(){
+    const historyArray = [
+    'Giao dịch ngoại hối#nhân viên Hoàng#201122011' ,
+    'Giao dịch trong nước#nhân viên Chi#20122010' ,
+    'Giao dịch tại nhà#nhân viên Thảo#22022010' ,
+    'Giao dịch tại sàn#nhân viên Oanh#20122017' ,
+    ]
+    const history = historyArray[Math.floor(Math.random() * historyArray.length)]
+    return history;
+}
+
+pm.variables.set('history5', randomHistory5());
+
+  
   
   
   

@@ -461,6 +461,7 @@ export const createCustomerSlice = createSlice({
             mavung: '',
             mota: '',
             dungchung: '',
+            history: '',
         },
         status: 'idle',
         error: null
@@ -531,6 +532,7 @@ export const editCustomerSlice = createSlice({
             mavung: '',
             mota: '',
             dungchung: '',
+            history: '',
         },
         status: 'idle',
         error: null
