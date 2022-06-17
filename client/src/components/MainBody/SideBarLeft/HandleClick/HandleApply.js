@@ -1,7 +1,7 @@
 import styles from '../SideBarLeft.module.css'
 
 import { addCustomerFilter } from '../../../../features/customers/customersSlice'
-
+import { firstIndex } from '../../../../features/customers/customersSlice'
 export const HandleApply = (dispatch) =>{
     const filterActionApply = document.getElementsByClassName(styles.filterActionApply)
 
@@ -167,6 +167,7 @@ export const HandleApply = (dispatch) =>{
             }
 
             dispatch(addCustomerFilter(newFilter))
+            dispatch(firstIndex())
 
  
         }

@@ -16,6 +16,8 @@ export const UndoSelected = () =>{
             listCheckButton[i].classList.add(stylesTwo.iconHeading);
             listCheckButton[i].classList.remove(stylesTwo.iconHeadingChecked);
             listCheckButton[i].parentElement.classList.remove(stylesTwo.itemChecked)
+            listCheckButton[i].classList.remove(stylesTwo.iconButtonCustomersChecked)
+
         }
 
         if(iconChecks.length === 0){

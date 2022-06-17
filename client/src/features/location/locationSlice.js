@@ -18,10 +18,16 @@ export const locationSlice = createSlice({
             state.tinhThanh = DiaChi.map(e => e.name).indexOf(action.payload)
         },
         addQuanHuyen: (state, action) =>{
-            state.quanHuyen = DiaChi[state.tinhThanh].districts.map(e => e.name).indexOf(action.payload)
+            if(DiaChi[state.tinhThanh]){
+                state.quanHuyen = DiaChi[state.tinhThanh].districts.map(e => e.name).indexOf(action.payload)
+            }
         },
         addPhuongXa: (state, action) =>{
-            state.phuongXa = DiaChi[state.tinhThanh].districts[state.quanHuyen].wards.map(e => e.name).indexOf(action.payload)
+            if(DiaChi[state.tinhThanh]){
+                if(DiaChi[state.tinhThanh].districts[state.quanHuyen]){
+                    state.phuongXa = DiaChi[state.tinhThanh].districts[state.quanHuyen].wards.map(e => e.name).indexOf(action.payload)
+                }
+            }
         },
         addSoNha: (state, action) => {
             state.soNha = action.payload

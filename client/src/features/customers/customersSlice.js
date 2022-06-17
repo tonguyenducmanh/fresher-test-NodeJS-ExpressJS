@@ -91,7 +91,7 @@ export const paginationSlice = createSlice({
     })
     
 export const fetchCustomersList = createAsyncThunk('customers/fetchCustomersList', async (path) =>{
-    const respone = await customerAPI.get(`/${path}`)
+    const respone = await customerAPI.post('/all',path,  {validateStatus() { return true } })
     return respone.data
 })
 
@@ -117,6 +117,8 @@ export const customersSlice = createSlice ({
             dtcoquanCondition: '',
             loaitiemnangString: '',
             loaitiemnangCondition: '',
+            theString: '',
+            theCondition: '',
             nguongocString: '',
             nguongocCondition:'',
             zaloString: '',
@@ -194,6 +196,8 @@ reducers:{
             dtcoquanCondition: '',
             loaitiemnangString: '',
             loaitiemnangCondition: '',
+            theString: '',
+            theCondition: '',
             nguongocString: '',
             nguongocCondition:'',
             zaloString: '',
@@ -255,7 +259,7 @@ extraReducers(builder){
     
     
 export const fetchCustomersCount = createAsyncThunk('customers/fetchCustomersCount', async (path) =>{
-    const respone = await customerAPI.get(`/count${path}`)
+    const respone = await customerAPI.post(`/count`,path,  {validateStatus() { return true } })
     return respone.data
 })
 
@@ -353,7 +357,7 @@ export const checkCustomer = createSlice({
 })
 
 export const fetchCustomersFind = createAsyncThunk('customers/fetchCustomersFind', async (path) => {
-    const respone = await customerAPI.get(`/find${path}`)
+    const respone = await customerAPI.post('/find',path,  {validateStatus() { return true } } )
     return respone.data
 })
 
@@ -384,7 +388,7 @@ export const findCustomersSlice = createSlice ({
 })
 
 export const deleteCustomers = createAsyncThunk('customers/deleteCustomer', async (path) => {
-    const respone = await customerAPI.get(`/delete${path}`)
+    const respone = await customerAPI.post('/delete',path,  {validateStatus() { return true } } )
     return respone.data
 })
 

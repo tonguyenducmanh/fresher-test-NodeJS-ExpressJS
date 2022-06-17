@@ -15,12 +15,13 @@ import { getCustomer, countCustomer ,lastCustomer, createCustomer, findCustomer,
 
 const router = express.Router()
 
-router.get('/', getCustomer)
+//phải luôn có tham số middleware ở giữa nếu dùng formdata
+router.post('/all', upload.single('anhValue'), getCustomer)
 router.get('/last', lastCustomer)
-router.get('/find',findCustomer)
+router.post('/find', upload.single('anhValue'),findCustomer)
 router.get('/check',checkCustomerExist)
-router.get('/delete',deleteCustomer)
-router.get('/count', countCustomer)
+router.post('/delete', upload.single('anhValue'),deleteCustomer)
+router.post('/count', upload.single('anhValue'), countCustomer)
 router.post('/', upload.single('anhValue') , createCustomer)
 router.put('/edit', upload.single('anhValue') , editCustomer)
 

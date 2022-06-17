@@ -7,80 +7,79 @@ import fs from 'fs'
 const router = express.Router()
 
 export const getCustomer = async (req, res) => {
-    try{
         // limit và startIndex được lấy yêu cầu từ frontend qua đây hihi
         // searchString nếu không có thì để là rỗng, mà tìm chuỗi rỗng thì
         // có nghĩa là tìm hết còn gì
-        const startIndex = parseInt(req.query.startIndex)
-        const limit = parseInt(req.query.limit)
+        const startIndex = parseInt(req.body.startIndex)
+        const limit = parseInt(req.body.limit)
 
         //từ khóa tìm kiếm
 
         let searchString 
-        req.query.searchString ? (searchString =  req.query.searchString) :
+        req.body.searchString ? (searchString =  req.body.searchString) :
         (searchString = '')
         searchString = new RegExp(`${searchString}`, "i")
 
         //từ khóa lọc
 
-        let xunghoString = req.query.xunghoString
-        let xunghoCondition = req.query.xunghoCondition
-        let hovademString = req.query.hovademString
-        let hovademCondition = req.query.hovademCondition
-        let tenString = req.query.tenString
-        let tenCondition = req.query.tenCondition
-        let phongbanString = req.query.phongbanString
-        let phongbanCondition = req.query.phongbanCondition
-        let chucdanhString = req.query.chucdanhString
-        let chucdanhCondition = req.query.chucdanhCondition
-        let dtdidongString = req.query.dtdidongString
-        let dtdidongCondition = req.query.dtdidongCondition
-        let dtcoquanString = req.query.dtcoquanString
-        let dtcoquanCondition = req.query.dtcoquanCondition
-        let loaitiemnangString = req.query.loaitiemnangString
-        let loaitiemnangCondition = req.query.loaitiemnangCondition
-        let theString = req.query.theString
-        let theCondition = req.query.theCondition
-        let nguongocString = req.query.nguongocString
-        let nguongocCondition = req.query.nguongocCondition
-        let zaloString = req.query.zaloString
-        let zaloCondition = req.query.zaloCondition
-        let emailcanhanString = req.query.emailcanhanString
-        let emailcanhanCondition = req.query.emailcanhanCondition
-        let emailcoquanString = req.query.emailcoquanString
-        let emailcoquanCondition = req.query.emailcoquanCondition
-        let tochucString = req.query.tochucString
-        let tochucCondition = req.query.tochucCondition
-        let masothueString = req.query.masothueString
-        let masothueCondition = req.query.masothueCondition
-        let taikhoannganhangString = req.query.taikhoannganhangString
-        let taikhoannganhangCondition = req.query.taikhoannganhangCondition
-        let motainganhangString = req.query.motainganhangString
-        let motainganhangCondition = req.query.motainganhangCondition
-        let ngaythanhlapString = req.query.ngaythanhlapString
-        let ngaythanhlapCondition = req.query.ngaythanhlapCondition
-        let loaihinhString = req.query.loaihinhString
-        let loaihinhCondition = req.query.loaihinhCondition
-        let linhvucString = req.query.linhvucString
-        let linhvucCondition = req.query.linhvucCondition
-        let nganhngheString = req.query.nganhngheString
-        let nganhngheCondition = req.query.nganhngheCondition
-        let doanhthuString = req.query.doanhthuString
-        let doanhthuCondition = req.query.doanhthuCondition
-        let quocgiaString = req.query.quocgiaString
-        let quocgiaCondition = req.query.quocgiaCondition
-        let tinhthanhphoString = req.query.tinhthanhphoString
-        let tinhthanhphoCondition = req.query.tinhthanhphoCondition
-        let quanhuyenString = req.query.quanhuyenString
-        let quanhuyenCondition = req.query.quanhuyenCondition
-        let phuongxaString = req.query.phuongxaString
-        let phuongxaCondition = req.query.phuongxaCondition
-        let sonhaString = req.query.sonhaString
-        let sonhaCondition = req.query.sonhaCondition
-        let motaString = req.query.motaString
-        let motaCondition = req.query.motaCondition
-        let dungchungString = req.query.dungchungString
-        let dungchungCondition = req.query.dungchungCondition
+        let xunghoString = req.body.xunghoString
+        let xunghoCondition = req.body.xunghoCondition
+        let hovademString = req.body.hovademString
+        let hovademCondition = req.body.hovademCondition
+        let tenString = req.body.tenString
+        let tenCondition = req.body.tenCondition
+        let phongbanString = req.body.phongbanString
+        let phongbanCondition = req.body.phongbanCondition
+        let chucdanhString = req.body.chucdanhString
+        let chucdanhCondition = req.body.chucdanhCondition
+        let dtdidongString = req.body.dtdidongString
+        let dtdidongCondition = req.body.dtdidongCondition
+        let dtcoquanString = req.body.dtcoquanString
+        let dtcoquanCondition = req.body.dtcoquanCondition
+        let loaitiemnangString = req.body.loaitiemnangString
+        let loaitiemnangCondition = req.body.loaitiemnangCondition
+        let theString = req.body.theString
+        let theCondition = req.body.theCondition
+        let nguongocString = req.body.nguongocString
+        let nguongocCondition = req.body.nguongocCondition
+        let zaloString = req.body.zaloString
+        let zaloCondition = req.body.zaloCondition
+        let emailcanhanString = req.body.emailcanhanString
+        let emailcanhanCondition = req.body.emailcanhanCondition
+        let emailcoquanString = req.body.emailcoquanString
+        let emailcoquanCondition = req.body.emailcoquanCondition
+        let tochucString = req.body.tochucString
+        let tochucCondition = req.body.tochucCondition
+        let masothueString = req.body.masothueString
+        let masothueCondition = req.body.masothueCondition
+        let taikhoannganhangString = req.body.taikhoannganhangString
+        let taikhoannganhangCondition = req.body.taikhoannganhangCondition
+        let motainganhangString = req.body.motainganhangString
+        let motainganhangCondition = req.body.motainganhangCondition
+        let ngaythanhlapString = req.body.ngaythanhlapString
+        let ngaythanhlapCondition = req.body.ngaythanhlapCondition
+        let loaihinhString = req.body.loaihinhString
+        let loaihinhCondition = req.body.loaihinhCondition
+        let linhvucString = req.body.linhvucString
+        let linhvucCondition = req.body.linhvucCondition
+        let nganhngheString = req.body.nganhngheString
+        let nganhngheCondition = req.body.nganhngheCondition
+        let doanhthuString = req.body.doanhthuString
+        let doanhthuCondition = req.body.doanhthuCondition
+        let quocgiaString = req.body.quocgiaString
+        let quocgiaCondition = req.body.quocgiaCondition
+        let tinhthanhphoString = req.body.tinhthanhphoString
+        let tinhthanhphoCondition = req.body.tinhthanhphoCondition
+        let quanhuyenString = req.body.quanhuyenString
+        let quanhuyenCondition = req.body.quanhuyenCondition
+        let phuongxaString = req.body.phuongxaString
+        let phuongxaCondition = req.body.phuongxaCondition
+        let sonhaString = req.body.sonhaString
+        let sonhaCondition = req.body.sonhaCondition
+        let motaString = req.body.motaString
+        let motaCondition = req.body.motaCondition
+        let dungchungString = req.body.dungchungString
+        let dungchungCondition = req.body.dungchungCondition
 
 
         //chức năng lọc theo từ khóa
@@ -130,6 +129,8 @@ export const getCustomer = async (req, res) => {
     
         }
 
+    try{
+        
         const customerInfos = await customerInfo.find(
             {
                 $or: [
@@ -200,7 +201,7 @@ export const checkCustomerExist = async (req, res) => {
 export const findCustomer = async (req, res) => {
     try{
         //lấy mảng được trả về từ bên frontend
-        const findArray = req.query.findArray.split(',')
+        const findArray = req.body.idsString
         const customerInfos =  await customerInfo.find({ _id:{$in : findArray}})
         res.status(200).json(customerInfos)
     } catch (error){
@@ -208,10 +209,11 @@ export const findCustomer = async (req, res) => {
     }
 }
 export const deleteCustomer = async (req, res) => {
+
     try{
         //lấy mảng được trả về từ bên frontend
 
-        const deleteArray = req.query.deleteArray.split(',')
+        const deleteArray = req.body.idsString
         const customerInfosDeleted =  await customerInfo.find({ _id:{$in : deleteArray}})
         //xóa ảnh kèm theo. đường path này được tính từ server rồi nên không cần phải thêm nữa
         //phải gọi vào mongodb để xem tên ảnh là gì rồi xóa em nó trước. sau đó mới xóa hẳn
@@ -245,70 +247,70 @@ export const countCustomer = async (req,res) => {
          //từ khóa tìm kiếm
 
          let searchString 
-         req.query.searchString ? (searchString =  req.query.searchString) :
+         req.body.searchString ? (searchString =  req.body.searchString) :
          (searchString = '')
          searchString = new RegExp(`${searchString}`, "i")
  
          //từ khóa lọc
  
-         let xunghoString = req.query.xunghoString
-         let xunghoCondition = req.query.xunghoCondition
-         let hovademString = req.query.hovademString
-         let hovademCondition = req.query.hovademCondition
-         let tenString = req.query.tenString
-         let tenCondition = req.query.tenCondition
-         let phongbanString = req.query.phongbanString
-         let phongbanCondition = req.query.phongbanCondition
-         let chucdanhString = req.query.chucdanhString
-         let chucdanhCondition = req.query.chucdanhCondition
-         let dtdidongString = req.query.dtdidongString
-         let dtdidongCondition = req.query.dtdidongCondition
-         let dtcoquanString = req.query.dtcoquanString
-         let dtcoquanCondition = req.query.dtcoquanCondition
-         let loaitiemnangString = req.query.loaitiemnangString
-         let loaitiemnangCondition = req.query.loaitiemnangCondition
-         let theString = req.query.theString
-         let theCondition = req.query.theCondition
-         let nguongocString = req.query.nguongocString
-         let nguongocCondition = req.query.nguongocCondition
-         let zaloString = req.query.zaloString
-         let zaloCondition = req.query.zaloCondition
-         let emailcanhanString = req.query.emailcanhanString
-         let emailcanhanCondition = req.query.emailcanhanCondition
-         let emailcoquanString = req.query.emailcoquanString
-         let emailcoquanCondition = req.query.emailcoquanCondition
-         let tochucString = req.query.tochucString
-         let tochucCondition = req.query.tochucCondition
-         let masothueString = req.query.masothueString
-         let masothueCondition = req.query.masothueCondition
-         let taikhoannganhangString = req.query.taikhoannganhangString
-         let taikhoannganhangCondition = req.query.taikhoannganhangCondition
-         let motainganhangString = req.query.motainganhangString
-         let motainganhangCondition = req.query.motainganhangCondition
-         let ngaythanhlapString = req.query.ngaythanhlapString
-         let ngaythanhlapCondition = req.query.ngaythanhlapCondition
-         let loaihinhString = req.query.loaihinhString
-         let loaihinhCondition = req.query.loaihinhCondition
-         let linhvucString = req.query.linhvucString
-         let linhvucCondition = req.query.linhvucCondition
-         let nganhngheString = req.query.nganhngheString
-         let nganhngheCondition = req.query.nganhngheCondition
-         let doanhthuString = req.query.doanhthuString
-         let doanhthuCondition = req.query.doanhthuCondition
-         let quocgiaString = req.query.quocgiaString
-         let quocgiaCondition = req.query.quocgiaCondition
-         let tinhthanhphoString = req.query.tinhthanhphoString
-         let tinhthanhphoCondition = req.query.tinhthanhphoCondition
-         let quanhuyenString = req.query.quanhuyenString
-         let quanhuyenCondition = req.query.quanhuyenCondition
-         let phuongxaString = req.query.phuongxaString
-         let phuongxaCondition = req.query.phuongxaCondition
-         let sonhaString = req.query.sonhaString
-         let sonhaCondition = req.query.sonhaCondition
-         let motaString = req.query.motaString
-         let motaCondition = req.query.motaCondition
-         let dungchungString = req.query.dungchungString
-         let dungchungCondition = req.query.dungchungCondition
+         let xunghoString = req.body.xunghoString
+         let xunghoCondition = req.body.xunghoCondition
+         let hovademString = req.body.hovademString
+         let hovademCondition = req.body.hovademCondition
+         let tenString = req.body.tenString
+         let tenCondition = req.body.tenCondition
+         let phongbanString = req.body.phongbanString
+         let phongbanCondition = req.body.phongbanCondition
+         let chucdanhString = req.body.chucdanhString
+         let chucdanhCondition = req.body.chucdanhCondition
+         let dtdidongString = req.body.dtdidongString
+         let dtdidongCondition = req.body.dtdidongCondition
+         let dtcoquanString = req.body.dtcoquanString
+         let dtcoquanCondition = req.body.dtcoquanCondition
+         let loaitiemnangString = req.body.loaitiemnangString
+         let loaitiemnangCondition = req.body.loaitiemnangCondition
+         let theString = req.body.theString
+         let theCondition = req.body.theCondition
+         let nguongocString = req.body.nguongocString
+         let nguongocCondition = req.body.nguongocCondition
+         let zaloString = req.body.zaloString
+         let zaloCondition = req.body.zaloCondition
+         let emailcanhanString = req.body.emailcanhanString
+         let emailcanhanCondition = req.body.emailcanhanCondition
+         let emailcoquanString = req.body.emailcoquanString
+         let emailcoquanCondition = req.body.emailcoquanCondition
+         let tochucString = req.body.tochucString
+         let tochucCondition = req.body.tochucCondition
+         let masothueString = req.body.masothueString
+         let masothueCondition = req.body.masothueCondition
+         let taikhoannganhangString = req.body.taikhoannganhangString
+         let taikhoannganhangCondition = req.body.taikhoannganhangCondition
+         let motainganhangString = req.body.motainganhangString
+         let motainganhangCondition = req.body.motainganhangCondition
+         let ngaythanhlapString = req.body.ngaythanhlapString
+         let ngaythanhlapCondition = req.body.ngaythanhlapCondition
+         let loaihinhString = req.body.loaihinhString
+         let loaihinhCondition = req.body.loaihinhCondition
+         let linhvucString = req.body.linhvucString
+         let linhvucCondition = req.body.linhvucCondition
+         let nganhngheString = req.body.nganhngheString
+         let nganhngheCondition = req.body.nganhngheCondition
+         let doanhthuString = req.body.doanhthuString
+         let doanhthuCondition = req.body.doanhthuCondition
+         let quocgiaString = req.body.quocgiaString
+         let quocgiaCondition = req.body.quocgiaCondition
+         let tinhthanhphoString = req.body.tinhthanhphoString
+         let tinhthanhphoCondition = req.body.tinhthanhphoCondition
+         let quanhuyenString = req.body.quanhuyenString
+         let quanhuyenCondition = req.body.quanhuyenCondition
+         let phuongxaString = req.body.phuongxaString
+         let phuongxaCondition = req.body.phuongxaCondition
+         let sonhaString = req.body.sonhaString
+         let sonhaCondition = req.body.sonhaCondition
+         let motaString = req.body.motaString
+         let motaCondition = req.body.motaCondition
+         let dungchungString = req.body.dungchungString
+         let dungchungCondition = req.body.dungchungCondition
  
  
          //chức năng lọc theo từ khóa
@@ -509,18 +511,20 @@ export const editCustomer = async (req,res) => {
         const editCustomerInfo = await customerInfo.updateOne({_id: ID},newValues)
 
         const anhCu = req.body.anhCuValue
-        if(anhCu.split('').length>10){
-            // chỉ xét trường hợp có ảnh mới mới xóa ảnh cũ thôi
-            // bên client document đăng ảnh mới thì kệ
-            // vì ảnh mặc định thêm vào trước tên thời gian đăng, nên chắc chắn dài hơn
-            // 10 ký tự
-            let imagePath = `uploads/${anhCu}`
-            fs.unlink(imagePath, (err) => {
-                if (err) {
-                    res.status(404).json({ message: err.message })
-                }
-                //file removed
-            })
+        if(anhCu){
+            if(anhCu.split('').length>10){
+                // chỉ xét trường hợp có ảnh mới mới xóa ảnh cũ thôi
+                // bên client document đăng ảnh mới thì kệ
+                // vì ảnh mặc định thêm vào trước tên thời gian đăng, nên chắc chắn dài hơn
+                // 10 ký tự
+                let imagePath = `uploads/${anhCu}`
+                fs.unlink(imagePath, (err) => {
+                    if (err) {
+                        res.status(404).json({ message: err.message })
+                    }
+                    //file removed
+                })
+            }
         }
         
 

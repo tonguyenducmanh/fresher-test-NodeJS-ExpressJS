@@ -11,21 +11,18 @@ export const HandleSideBarLeft= () => {
     if(sideBarLeft.style.flex !== '0 1 0px'){
         sideBarLeftButton.style.setProperty('--bgPositionOne', '-304px -32px')
         if( sideBarRight.style.flex !== '0 1 0px'){
-            console.log('hihi')
             leftBox.style.display = 'none'
             filterAction.style.display ='none'
             sideBarLeft.style.flex = '0 1 0px'
             container.style.flex = '4 1 0px'
             sideBarRight.style.flex = '1 1 0px'
             notifySuccess[0].classList.remove(styles.notifySuccessAni)
-            console.log(notifySuccess[0])
         } else{
             leftBox.style.display = 'none'
             filterAction.style.display ='none'
             sideBarLeft.style.flex = '0 1 0px'
             container.style.flex = '5 1 0px'
             notifySuccess[0].classList.remove(styles.notifySuccessAni)
-            console.log(notifySuccess[0])
         }
     }else{
         sideBarLeftButton.style.setProperty('--bgPositionOne', '-288px -32px')

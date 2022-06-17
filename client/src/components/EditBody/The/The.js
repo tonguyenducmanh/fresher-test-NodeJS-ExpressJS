@@ -6,7 +6,7 @@ export const The = ({editCustomer})=>{
 
     return(
         <span className={styles.theTag}>
-        {   editCustomer.the.length === 1 && editCustomer.the[0] === '' &&
+        { editCustomer.the &&  editCustomer.the.length === 1 && editCustomer.the[0] === '' &&
             <span className={styles.theTagContainer}>
                 <span className={`${styles.icon} ${styles.theTagIcon} ${styles.iconInfo}`}>
                     <span className={styles.iconToolTip}>Nhập nhiều thẻ <br></br>theo cú pháp #the</span>
@@ -19,7 +19,7 @@ export const The = ({editCustomer})=>{
                 />
             </span>
         }
-        {   editCustomer.the.length > 0 && editCustomer.the[0] !== '' &&
+        {  editCustomer.the && editCustomer.the.length > 0 && editCustomer.the[0] !== '' &&
             <span className={styles.theTagContainer}>
                 <span className={`${styles.icon} ${styles.theTagIcon} ${styles.iconInfo}`}>
                     <span className={styles.iconToolTip}>Nhập nhiều thẻ <br></br>theo cú pháp #the</span>

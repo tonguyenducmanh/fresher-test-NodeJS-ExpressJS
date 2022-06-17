@@ -116,7 +116,15 @@ export default function TruongChonNhieuTinhThanh({value}) {
                 <input className={styles.thongTinInput} placeholder='Tìm kiếm'/>
                 
                 <ul className={styles.thongTinList}>
-                {DiaChi[tinhThanh].districts.map((option, index) => (
+                {DiaChi[tinhThanh] &&
+                DiaChi[tinhThanh].districts.map((option, index) => (
+                    <li className={styles.thongTinListItem} 
+                        key={index}
+                        onClick={() => dispatch(addQuanHuyen(option.name))}
+                    >{option.name}</li>
+                    ))}
+                {DiaChi[0] &&
+                DiaChi[0].districts.map((option, index) => (
                     <li className={styles.thongTinListItem} 
                         key={index}
                         onClick={() => dispatch(addQuanHuyen(option.name))}

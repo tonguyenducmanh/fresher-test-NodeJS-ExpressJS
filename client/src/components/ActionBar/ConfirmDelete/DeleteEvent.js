@@ -14,7 +14,7 @@ export const DeleteEvent = (dispatch) =>{
     const actionBarOne = document.getElementById('actionBarOne')
     const actionBarTwo = document.getElementById('actionBarTwo')
     const notifySuccess = document.getElementById('notifySuccess')
-    const refreshButton = document.getElementsByClassName(stylesThree.actionLeftRefreshButton)[0]
+    const refreshButton = document.getElementById('actionLeftRefreshButton')
     
     container[0].classList.add(styles.hiddenBox)
     iconCheckAll.classList.remove(stylesFour.iconHeadingChecked)
@@ -31,8 +31,18 @@ export const DeleteEvent = (dispatch) =>{
             checkedButton[i].parentElement.classList.remove(stylesTwo.itemChecked)
         }
     }
-        idsString = idsString.join(',')
-    dispatch(deleteCustomers(`?deleteArray=${idsString}`))
+
+    const data = new FormData()
+
+    for(let k=0; k< idsString.length; k++){
+        if(idsString[k] !==''){
+            data.append('idsString[]', idsString[k])
+        }else{
+            data.append('idsString[]', '')
+        }
+    }
+    dispatch(deleteCustomers(data))
+
     refreshButton.click()
     
     const notifySuccessEvent = ()=>{

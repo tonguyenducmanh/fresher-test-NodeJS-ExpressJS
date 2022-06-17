@@ -46,6 +46,12 @@ const EditBody = () =>{
     }else{
         urlImage = ''
     }
+    let history
+    if(editCustomer.history) {
+        history = editCustomer.history.join(';\n')
+    }else{
+        history =''
+    }
     useEffect(()=>{
         HandleImage()
         HandleCheck()
@@ -369,7 +375,7 @@ const EditBody = () =>{
                                 <span className={`${styles.thongTinTitle} ${styles.thongTinMoTaTilte}`}>Danh sách giao dịch</span>
                                     <textarea className={`${styles.thongTinInput} ${styles.thongTinMoTaInput}`}
                                         id='historyEdit'
-                                        defaultValue={editCustomer.history.join(';\n')}
+                                        defaultValue={history}
                                     />
                                     <span className={styles.clearInputMota} title='Xóa danh sách giao dịch'></span>
                             </span>

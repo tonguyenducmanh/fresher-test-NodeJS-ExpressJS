@@ -7,7 +7,6 @@ export  const HandleSideBarRight= () => {
     if(sideBarRight.style.flex !== '0 1 0px'){
         sideBarRightButton.style.setProperty('--bgPositionTwo', '-288px -32px')
         if( sideBarLeft.style.flex !== '0 1 0px'){
-            console.log('hihi')
             rightBox.style.display = 'none'
             sideBarRight.style.flex = '0 1 0px'
             container.style.flex = '4 1 0px'

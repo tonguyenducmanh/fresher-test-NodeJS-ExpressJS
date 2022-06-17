@@ -126,7 +126,6 @@ export const HandleSaveAndAdd = (dispatch) =>{
             data.append('moTa', moTa)
             
             const historyArray = history.replace(/(\r\n|\n|\r)/gm, "").split(';')
-            console.log(historyArray)
 
             for(let k=0; k< historyArray.length; k++){
                 if(historyArray[k] !=='- Không chọn -'){
