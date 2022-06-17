@@ -34,13 +34,13 @@ const SideBarLeft = () =>{
     return (
         
         <div className={styles.container} id='sideBarLeft'>
+           <div className={`${styles.icon} ${styles.SideBarButtonLeft} `} id='sideBarLeftButton' onClick={HandleSideBarLeft}></div>
+           <div className={styles.filterContainer} id='leftBox'>
             <div className={styles.notifySuccess} id='applyFilterSuccess'>
                  Tải bộ lọc thành công
             </div>
-           <div className={styles.filterContainer}>
             <UpdateBox/>
             <SaveFilterBox/>
-           <div className={`${styles.SideBarButtonLeft} ${styles.icon}`} id='sideBarLeftButton' onClick={HandleSideBarLeft}></div>
             <div className={styles.box} >
                 <HandleFilterSave/>
                 <HandleSearch/>
@@ -280,7 +280,7 @@ const SideBarLeft = () =>{
                 </div>
             </div>
            </div>
-           <div className={styles.filterAction}>
+           <div className={styles.filterAction} id='filterAction'>
                 <button className={styles.filterActionCancel}>
                         Bỏ lọc
                 </button>

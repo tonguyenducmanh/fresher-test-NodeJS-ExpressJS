@@ -1,30 +1,38 @@
 export  const HandleSideBarRight= () => {
+    const container = document.getElementById('container')
     const sideBarRight = document.getElementById('sideBarRight')
+    const rightBox = document.getElementById('rightBox')
     const sideBarRightButton = document.getElementById('sideBarRightButton')
-    const sideBarLeftButton = document.getElementById('sideBarLeftButton')
-    if(sideBarLeftButton.style.left !== '0%'){
-        if(sideBarRight.style.width !=='0%'){
-            sideBarRight.style.width='0%'
-            sideBarRightButton.style.right= '0%'
-            sideBarRightButton.style.setProperty('--bgPositionTwo', '-288px -32px')
-            sideBarLeftButton.style.left= '23.1%'
+    const sideBarLeft = document.getElementById('sideBarLeft')
+    if(sideBarRight.style.flex !== '0 1 0px'){
+        if( sideBarLeft.style.flex !== '0 1 0px'){
+            console.log('hihi')
+            rightBox.style.display = 'none'
+            sideBarRight.style.flex = '0 1 0px'
+            container.style.flex = '4 1 0px'
+            sideBarLeft.style.flex = '1 1 0px'
         } else{
-            sideBarRight.style.width='30%'
-            sideBarRightButton.style.right= '18.8%'
-            sideBarLeftButton.style.left= '18.8%'
-            sideBarRightButton.style.setProperty('--bgPositionTwo', '-304px -32px')
+            rightBox.style.display = 'none'
+            sideBarRight.style.flex = '0 1 0px'
+            container.style.flex = '5 1 0px'
         }
     }else{
-        if(sideBarRight.style.width !=='0%'){
-            sideBarRight.style.width='0%'
-            sideBarRightButton.style.right= '0%'
-            sideBarRightButton.style.setProperty('--bgPositionTwo', '-288px -32px')
-            sideBarLeftButton.style.left= '0%'
+        if(sideBarLeft.style.flex !== '0 1 0px'){
+            rightBox.style.display = 'block'
+            sideBarRight.style.flex = '1 1 0px'
+            container.style.flex = '3 1 0px'
+            sideBarLeft.style.flex = '1 1 0px'
         } else{
-            sideBarRight.style.width='30%'
-            sideBarRightButton.style.right= '23.1%'
-            sideBarLeftButton.style.left= '0%'
-            sideBarRightButton.style.setProperty('--bgPositionTwo', '-304px -32px')
+            rightBox.style.display = 'block'
+            sideBarRight.style.flex = '1 1 0px'
+            container.style.flex = '4 1 0px'
         }
     }
+    if(sideBarRightButton.style.hasOwnProperty('--bgPositionTwo', '-288px -32px')){
+        sideBarRightButton.style.setProperty('--bgPositionTwo', '-304px -32px')
+    }
+    else{
+        sideBarRightButton.style.setProperty('--bgPositionTwo', '-288px -32px')
+    }
+
 }

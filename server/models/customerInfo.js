@@ -38,6 +38,7 @@ const customerSchema = mongoose.Schema({
     mavung: String,
     mota: String,
     dungchung: Boolean,
+    history: Array,
 })
 
 var customerInfo = mongoose.model('customers', customerSchema)

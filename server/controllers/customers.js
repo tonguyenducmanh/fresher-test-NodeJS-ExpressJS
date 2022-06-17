@@ -441,7 +441,8 @@ export const createCustomer = async (req, res) => {
         mota: req.body.moTa,
         loaitiemnang: req.body.loaiTiemNang,
         the: req.body.the,
-        dungchung: req.body.dungChung
+        dungchung: req.body.dungChung,
+        history: req.body.history,
 
         // cấu trúc schema lấy từ file createBar.js bên client
         // và models customer ở file customerInfo.js bên server
@@ -495,7 +496,8 @@ export const editCustomer = async (req,res) => {
         mota: req.body.moTa,
         loaitiemnang: req.body.loaiTiemNang,
         the: req.body.the,
-        dungchung: req.body.dungChung
+        dungchung: req.body.dungChung,
+        history: req.body.history,
 
     }
 

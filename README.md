@@ -18,6 +18,15 @@ Màn hình danh sách có thể làm được:
 - Hover từng dòng biết được đang đứng ở bản ghi nào, chọn vào tên tiềm năng có thể mở ra
 chi tiết của tiềm năng đó.
 
+## Địa chỉ web đã deploy
+
+### Client 
+[domain](https://ducmanh-first-app.tk/)
+[client](https://ducmanh-first-app.netlify.app/)
+[serverCustomers](https://ducmanh-first-app.herokuapp.com/customers)
+[serverFilters](https://ducmanh-first-app.herokuapp.com/filters)
+
+
 ## Test localhost
 ### Giao diện web
 ![giao diện demo](./screenshots/1.png)

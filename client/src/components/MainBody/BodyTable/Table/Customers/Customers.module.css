@@ -80,6 +80,8 @@
 }
 tbody{
     display: block;
+    z-index: 1;
+
 }
 .tdId{
     display: none;

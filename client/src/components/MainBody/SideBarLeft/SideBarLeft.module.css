@@ -41,15 +41,16 @@
 .container{
     position: relative;
     background-color: var(--white);
-    width: 30%;
     border: var(--border);
     display: flex;
+    flex: 1 1 0px;
     flex-direction: column;
 }
 
 .filterContainer{
     position: relative;
     height: 100%;
+    display: block;
 }
 
 .box{
@@ -124,10 +125,10 @@
 }
 
 .SideBarButtonLeft{
-    top: 52%;
-    left: 18.8%;
+    top: calc(50% - 25px - 30px);
+    right:-16px;
     z-index: 3;
-    position: fixed ;
+    position: absolute ;
     width: 15px;
     height: 50px;
     margin-left: 2px;
@@ -138,16 +139,17 @@
 
 .SideBarButtonLeft:hover{
     box-shadow:  1px 1px 4px 0px rgb(181, 183, 185);
-    width: 17px;
+    width: 20px;
+    right:-21px;
 }
 
 .SideBarButtonLeft::before{
     background-position: var(--bgPositionOne);
-    margin-top: 15px;
+    margin-top: 16px;
 }
 
 .SideBarButtonLeft:hover::before{
-    margin-left: 2px;
+    margin-left: 4px;
 }
 
 .filterAction{
