@@ -42,7 +42,7 @@
 .thongTinInputBox{
     display: none;
     font-weight: 500;
-    font-size: 1rem;
+    font-size: .9rem;
     color: #616161;
     position: relative;
     height: calc(var(--padding)*1.5);
@@ -82,7 +82,7 @@
     margin-top: calc(var(--padding)*3 + 5px);
     margin-left: -2px;
     left: 0;
-    font-size: 1rem;
+    font-size: .9rem;
     color: #616161;
     position: absolute;
     height: calc(var(--padding)*1.5);

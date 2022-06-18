@@ -49,6 +49,8 @@
     cursor: pointer;
     text-transform: uppercase;
     margin: calc(var(--padding)*2) var(--padding);
+    margin-right:calc( var(--padding) * 2.5);
+    font-weight: 400;
 }
 
 .filterSave::before{

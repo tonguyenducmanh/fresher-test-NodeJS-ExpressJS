@@ -26,17 +26,12 @@
     background-image: url(../../../../../images/icon_collection.svg);
 }
 
-.pagination{
-    position: relative;
-    width: 100%;
-    height: calc(var(--padding)*4);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
 
 .paginationTotal{
-    padding-left: var(--padding);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-left: calc(var(--padding) * 2);
     display: flex;
     align-items: center;
 }
@@ -48,6 +43,6 @@
 
 .paginationTotalCount{
     padding-left: var(--padding);
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     font-weight: 600;
 }

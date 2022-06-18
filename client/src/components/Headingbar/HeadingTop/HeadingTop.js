@@ -14,6 +14,7 @@ const HeadingTop = () =>{
                     <input className={styles.headingSearchInput} 
                         placeholder="Tìm kiếm tiềm năng, liên hệ, khách hàng"
                         id='searchInput'
+                        autoComplete="off"
                     ></input>
                 </span>
                 <span className={styles.headingToolRight}>

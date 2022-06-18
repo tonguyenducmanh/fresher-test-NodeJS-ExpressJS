@@ -110,7 +110,8 @@ thead tr:hover{
 }
 
 thead td{
-    font-weight: 500;
+    font-weight: 600;
+    font-size: .9rem;
 }
 td{
     white-space: nowrap;
@@ -133,6 +134,7 @@ thead tr td:first-child{
 
 .tdOne{
     width: 150px;
+    margin-left: -15px;
 }
 
 .tdTwo{
@@ -144,7 +146,7 @@ thead tr td:first-child{
 }
 
 .tdFour{
-    width: 140px;
+    width: 120px;
 }
 
 .tdFive{
@@ -169,7 +171,7 @@ thead tr td:first-child{
 }
 
 .tdTen{
-    width: 170px;
+    width: 120px;
 }
 
 .tdEleven{
@@ -213,9 +215,9 @@ thead tr td:first-child{
 }
 
 .tdTwentyOne{
-    width: 130px;
+    width: 100px;
 }
 
 .tdTwentyTwo{
-    width: 170px;
+    width: 120px;
 }

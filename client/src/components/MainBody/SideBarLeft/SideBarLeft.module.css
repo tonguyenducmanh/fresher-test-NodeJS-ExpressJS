@@ -46,7 +46,11 @@
     flex: 1 1 0px;
     flex-direction: column;
 }
-
+@media screen and (min-width: 1900px) {
+    .container{
+        flex: 1 1 0px;
+    }
+}
 .filterContainer{
     position: relative;
     height: 100%;
@@ -54,7 +58,7 @@
 }
 
 .box{
-    font-size: 1rem;
+    font-size: .9rem;
     position: absolute;
     height:inherit;
     right: 0;
@@ -77,6 +81,8 @@
 }
 
 .filterItem{
+    font-size: .9rem;
+    font-weight: 500;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -94,7 +100,7 @@
 .filterTextContent{
     display: none;
     margin-top: calc(var(--padding));
-    font-size: 1rem;
+    font-size: .9rem;
     color: #616161;
     height: calc(var(--padding)*1.5);
     border: SOLID var(--grayLight);

@@ -50,10 +50,12 @@
     padding-left: var(--padding);
     text-transform: uppercase;
     display: block;
+    font-weight: 400;
 }
 
 .iconSearch{
     display: block;
+    margin-right:calc( var(--padding) * 1.5);
 }
 
 .iconSearch::before{
@@ -82,7 +84,7 @@
 
 .filterInputSearch{
     position: relative;
-    font-size: 1rem;
+    font-size: .9rem;
     color: #616161;
     height: calc(var(--padding)*1.5);
     border: SOLID var(--grayLight);
@@ -103,5 +105,5 @@
     display: none;
     color: var(--blue);
     margin-left: var(--padding);
-    margin-right: calc(var(--padding)/2);
+    margin-right: calc(var(--padding) * 2);
 }

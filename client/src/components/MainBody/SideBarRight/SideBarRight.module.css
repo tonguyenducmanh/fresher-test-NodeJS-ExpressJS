@@ -38,6 +38,12 @@
     flex-direction: column;
     z-index: 1;
 }
+@media screen and (min-width: 1900px) {
+    .container{
+        flex: 1.2 1 0px;
+    }
+    
+}
 .rightBox{
     display: block;
 }
@@ -81,12 +87,12 @@
 }
 
 .SideBarTitle{
-    font-weight: 500;
-    padding: var(--padding);
+    font-weight: 600;
+    padding: calc(var(--padding) * 1.5) calc(var(--padding) * 2);
 }
 
 .itemBox{
-    padding: var(--padding);
+    padding: calc(var(--padding)) calc(var(--padding) * 2);
     display: flex;
     align-items: center;
 }
@@ -126,14 +132,14 @@
 }
 
 .itemTile{
-    font-size: 0.7rem;
+    font-size: 0.9rem;
     font-weight: 500;
 }
 
 .itemContent{
-    font-size: 0.7rem;
+    font-size: .9rem;
     font-weight: 500;
-    color: rgb(96, 96, 96);
+    color: #737373;
 }
 
 
@@ -165,13 +171,13 @@
     height:inherit;
     right: 0;
     left: 0;
-    top: 70px;
+    top: 90px;
     bottom: 0;   
     display: flex;
     flex-direction: column;
     overflow-y: auto;
 }
 .notifyClickNow{
-    padding: var(--padding);
+    padding: calc(var(--padding)) calc(var(--padding) * 2);
     font-size: .9rem;
 }

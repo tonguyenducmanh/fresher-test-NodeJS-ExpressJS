@@ -31,7 +31,7 @@
 
 .comboBoxInput{
     font-weight: 500;
-    font-size: 1rem;
+    font-size: .9rem;
     color: #616161;
     position: relative;
     height: calc(var(--padding)*1.5);
@@ -55,7 +55,7 @@
 
 .diaChiInput{
     font-weight: 500;
-    font-size: 1rem;
+    font-size: .9rem;
     color: #616161;
     position: relative;
     height: calc(var(--padding)*1.5);

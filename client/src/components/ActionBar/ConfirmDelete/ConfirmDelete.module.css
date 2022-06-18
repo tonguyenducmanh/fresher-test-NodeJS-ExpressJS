@@ -31,6 +31,7 @@
 }
 .container{
     margin: -10px;
+    margin-left: -17px;
     position: fixed;
     z-index: 9;
     background-color: rgba(0, 0, 0, 0.347);

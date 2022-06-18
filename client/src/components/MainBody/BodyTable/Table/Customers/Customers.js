@@ -141,7 +141,6 @@ export const Customers = () => {
                         {   customer.the.length >2 && 
                             <>
                                 <span className={styles.tdTheCon}>{customer.the[0]}</span>
-                                <span className={styles.tdTheCon}>{customer.the[1]}</span>
                                 <span className={` ${styles.icon} ${styles.tdAllThe}`}></span>
                             </>
                         }

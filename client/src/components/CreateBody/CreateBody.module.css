@@ -44,7 +44,7 @@
 .container{
     position: absolute;
     width: 100%;
-    top: 141.5px;
+    top: 150px;
     left: 0;
     right: 0;
     bottom: 0;
@@ -109,7 +109,9 @@
     justify-content: space-between;
     align-items: center;
     padding-bottom: var(--padding);
+
 }
+
 
 .thongTinTitle{
     position: relative;
@@ -138,7 +140,7 @@
 .thongTinInput{
     font-weight: 500;
     color: var(--grayDark);
-    font-size: 1rem;
+    font-size: .9rem;
     position: relative;
     height: calc(var(--padding)*1.5);
     border: SOLID var(--grayLight);
@@ -380,7 +382,7 @@ textarea{
 .thongTinComboInput::placeholder{
     color:var(--gray) ;
     font-weight: 500;
-    font-size: 1rem;
+    font-size: .9rem;
 }
 
 .thongTinSearchIcon{
@@ -474,3 +476,24 @@ textarea{
 }
 
 
+
+@media screen and (max-width: 1281px) {
+    .thongTin{
+        width: 90%;
+    }
+    .thongTinInput{
+        width: 300px;
+    }
+    .thongTinMoTaInput{
+        width: 991px;
+    }
+    .thongTinHoVaTen{
+        width: 300px;
+    }
+    .thongTinDiaChi{
+        width: 540px;
+    }
+    .thongTinLast{
+        width: 200px;
+    }
+}

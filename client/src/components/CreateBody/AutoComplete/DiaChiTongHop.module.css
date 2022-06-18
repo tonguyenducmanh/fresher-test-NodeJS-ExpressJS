@@ -1,6 +1,6 @@
 .thongTinInput{
     font-weight: 500;
-    font-size: 1rem;
+    font-size: .9rem;
     position: relative;
     height: auto;
     border: SOLID var(--grayLight);
@@ -22,4 +22,10 @@
     max-height: 200px;
     overflow-y: auto;
     background-color: white;
+}
+
+@media screen and (max-width: 1289px) {
+    .thongTinInput{
+        width: 300px;
+    }
 }

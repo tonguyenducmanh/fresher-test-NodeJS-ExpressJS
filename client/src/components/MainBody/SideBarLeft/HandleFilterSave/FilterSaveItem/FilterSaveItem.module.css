@@ -44,6 +44,8 @@
 .filterSaveItem{
     background-color: var(--grayLight);
     padding: var(--padding);
+    padding-right: calc(var(--padding) *2.5);
+
     display: flex;
     justify-content: space-between;
     position: relative;
@@ -72,7 +74,7 @@
     background-color: var(--white);
     border-radius: var(--boderRadius);
     box-shadow: var(--boxShadow);
-    right: calc(var(--padding));
+    right: calc(var(--padding) * 2.5);
     top: calc(var(--padding) *3);
     width: 100px;
     display: none;

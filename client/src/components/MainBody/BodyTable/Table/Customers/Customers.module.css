@@ -81,7 +81,7 @@
 tbody{
     display: block;
     z-index: 1;
-
+    
 }
 .tdId{
     display: none;
@@ -97,10 +97,13 @@ tbody{
     color: black;
 }
 .trId{
-    font-weight: 400;
+    font-size: .9rem;
+    font-weight: 500;
 }
 .tdOne{
     width: 150px;
+    margin-left: -15px;
+    font-weight: 400;
 }
 
 .tdTheCon{
@@ -127,7 +130,7 @@ tbody{
     content: '';
     padding-left: calc(var(--padding) / 2);
     padding-right: calc(var(--padding) / 2);
-    height: 19px;
+    height: 17px;
     width: 14px;
     margin-left: -10px;
     border: var(--border);
@@ -144,7 +147,7 @@ tbody{
 }
 
 .tdFour{
-    width: 140px;
+    width: 120px;
 }
 
 .tdFive{
@@ -196,7 +199,7 @@ tbody{
 }
 
 .tdTen{
-    width: 170px;
+    width: 120px;
 }
 
 .tdEleven{
@@ -255,10 +258,10 @@ tr:hover .iconButtonCustomers{
 }
 
 .tdTwentyOne{
-    width: 130px;
+    width: 100px;
 }
 
 .tdTwentyTwo{
-    width: 170px;
+    width: 120px;
     color: var(--blue);
 }   

@@ -40,9 +40,9 @@
     background-image: url(../../../../images/icon_collection.svg);
 }
 .thongTinInputBox{
+    font-size: .9rem;
     display: none;
     font-weight: 500;
-    font-size: 1rem;
     color: #616161;
     position: relative;
     height: calc(var(--padding)*1.5);
@@ -80,8 +80,8 @@
     z-index: 3;
     margin-top: calc(var(--padding)*3 - 4px);
     margin-left: -1px;
-    font-size: 1rem;
     color: #616161;
+    font-size: .9rem;
     position: absolute;
     height: calc(var(--padding)*1.5);
     border: SOLID var(--grayLight);

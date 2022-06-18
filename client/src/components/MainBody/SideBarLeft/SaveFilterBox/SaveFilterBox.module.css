@@ -34,7 +34,7 @@
 }
 
 .editFilter{
-    top:141px;
+    top:150px;
     left: 0;
     position: fixed;
     z-index: 9;
@@ -83,7 +83,7 @@
 }
 .filterInput{
     margin-top: calc(var(--padding));
-    font-size: 1rem;
+    font-size: .9rem;
     color: #616161;
     height: calc(var(--padding)*1.5);
     border: SOLID var(--grayLight);
