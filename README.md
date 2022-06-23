@@ -20,7 +20,6 @@ chi tiết của tiềm năng đó.
 
 ## Địa chỉ web đã deploy
 
-### Client 
 [domain](https://ducmanh-first-app.tk/)
 [client](https://ducmanh-first-app.netlify.app/)
 [serverCustomers](https://ducmanh-first-app.herokuapp.com/customers)
