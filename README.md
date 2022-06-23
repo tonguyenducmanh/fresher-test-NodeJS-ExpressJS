@@ -27,6 +27,20 @@ chi tiết của tiềm năng đó.
 [serverFilters](https://ducmanh-first-app.herokuapp.com/filters)
 
 
+## Công cụ và công nghệ sử dụng
+
+- UI component Framework: JavaScript library: ReactJs
+- Upload ảnh lên server : Middleware Multer
+- Excell export : XLSX npm module
+- JSON data tỉnh thành Việt Nam
+- State management : Redux Toolkits
+- API service: NodeJS : ExpressJS
+- Database: MongoDB Cloud Atlas
+- Client host: Netlify
+- Server deploy: Heroku
+- Domain: Freenom
+
+
 ## Test localhost
 ### Giao diện web
 ![giao diện demo](./screenshots/1.png)
@@ -40,19 +54,5 @@ chi tiết của tiềm năng đó.
 ![giao diện link backend](./screenshots/5.png)
 ### Cơ sở dữ liệu khách hàng trong MongoDB Compass
 ![cơ sở dữ liệu](./screenshots/4.png)
-
-
-## Công cụ và công nghệ sử dụng
-
-Đã sử dụng Visual Studio Code để lập trình
-Sử dụng công nghệ và thư viện dưới đây:
-
-- UI component Framework: JavaScript library: ReactJs
-- UPload ảnh lên server : Middleware Multer
-- Excell export : XLSX npm module
-- JSON data tỉnh thành Việt Nam
-- State management : Redux Toolkits
-- API service: NodeJS : ExpressJS
-- Database: MongoDB Cloud Atlas
 
 
