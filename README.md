@@ -1,4 +1,4 @@
-# Bài làm đề fresher test
+# Bài làm đề fresher test ReactJS-ExpressJS-MongoDB
 ## Bài tập fresher web - khối quản trị kinh doanh
 
 Phân hệ tiềm năng giúp nhân viên kinh doanh quản lý được các khách hàng đang là tiềm
