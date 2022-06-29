@@ -39,6 +39,10 @@ chi tiết của tiềm năng đó.
 - Server deploy: Heroku
 - Domain: Freenom
 
+## Cấu hình server phù hợp
+### tùy vào server muốn sử dụng, lựa chọn giữa nodejs và asp.net core web api
+### trùng server nào thì sẽ biến các dòng còn lại thành comment
+![cấu hình server](./screenshots/6.png)
 
 ## Test localhost
 ### Giao diện web
