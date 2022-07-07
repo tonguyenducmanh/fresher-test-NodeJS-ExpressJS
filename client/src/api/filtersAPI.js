@@ -9,7 +9,7 @@ export default axios.create({
 
     // URL ASP.Net Core Web API Dapper
 
-    // baseURL : 
+    // baseURL : "https://localhost:7246/filters/"
 
     //URL deploy
     // // baseURL: 'https://ducmanh-first-app.herokuapp.com/filters',

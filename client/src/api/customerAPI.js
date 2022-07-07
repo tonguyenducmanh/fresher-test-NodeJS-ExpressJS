@@ -11,7 +11,7 @@ export default axios.create({
 
     // URL ASP.Net Core Web API Dapper
 
-    // baseURL : 
+    // baseURL : "https://localhost:7246/customers/"
 
     // URL deploy
     // // baseURL: "https://ducmanh-first-app.herokuapp.com/customers",
